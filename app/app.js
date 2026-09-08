@@ -184,6 +184,9 @@ function pintarHoy() {
       <a class="go" href="${mapaURL(p.lat, p.lon, p.n)}">Mapa</a>
     </li>`).join('');
 
+  // peligro de olas, solo si hoy pasan por Reynisfjara
+  pintarOlas(d);
+
   // gasolina y provisiones — la estrategia que traía el mapa
   const sv = $('#hoy-servicios');
   sv.hidden = !d.servicios?.length;
@@ -301,6 +304,45 @@ function pintarDias() {
 
   const j = $('#hoy-jump');
   if (diaDeHoy()) { j.hidden = false; j.onclick = () => { ir('dias'); $(`.dia[data-d="${diaDeHoy().d}"] .dia-t`).click(); }; }
+}
+
+// ─────────────────────────── REYNISFJARA ───────────────────────────
+// Pronóstico oficial de SafeTravel, espejado en el repo porque tampoco manda CORS.
+// El color orienta pero NO autoriza: en agosto de 2025 murió una niña de nueve
+// años con el semáforo en amarillo.
+const COLOR_OLA = { GREEN: 'var(--ok)', YELLOW: 'var(--warn)', ORANGE: 'var(--hot)', RED: 'var(--bad)' };
+
+async function pintarOlas(dia) {
+  const caja = $('#hoy-olas');
+  if (!dia.puntos.some(p => p.n === 'Reynisfjara')) { caja.hidden = true; return; }
+  caja.hidden = false;
+
+  let d = LS.get('olas')?.d;
+  if (navigator.onLine) {
+    try { d = await fetch('data/reynisfjara.json', { cache: 'no-cache' }).then(r => r.json());
+          LS.set('olas', { t: Date.now(), d }); } catch {}
+  }
+  if (!d) { $('#olas-cuerpo').innerHTML = '<p class="muted">Sin datos. Necesita una carga con señal.</p>'; return; }
+
+  // las horas de hoy con luz, que es cuando van a estar ahí
+  const hoy = dia.fecha;
+  const hs = d.horas.filter(h => h.t.startsWith(hoy));
+  const ahora = hs.length ? hs : d.horas.slice(0, 8);
+  const peor = ahora.reduce((p, h) => (['GREEN','YELLOW','ORANGE','RED'].indexOf(h.c) >
+                                       ['GREEN','YELLOW','ORANGE','RED'].indexOf(p.c) ? h : p), ahora[0]);
+
+  $('#olas-edad').textContent = d.actualizado ? edadTxt(Date.parse(d.actualizado)) : '';
+  $('#olas-cuerpo').innerHTML = `
+    <div class="ola-peor" style="border-color:${COLOR_OLA[peor.c]}">
+      <strong style="color:${COLOR_OLA[peor.c]}">${peor.color.toUpperCase()}</strong>
+      <span>${peor.txt}</span>
+    </div>
+    <div class="horas-grid" style="margin-top:10px">${ahora.map(h => `
+      <div class="h" style="border-color:${COLOR_OLA[h.c]}">
+        <div class="hh">${h.t.slice(11, 16)}</div>
+        <div class="hg" style="font-size:11px;color:${COLOR_OLA[h.c]}">${h.color}</div>
+      </div>`).join('')}</div>
+    <p class="nota" style="border-color:var(--bad)">${d.aviso}</p>`;
 }
 
 // ─────────────────────────── CARRETERAS ───────────────────────────
@@ -653,6 +695,14 @@ const TAREAS = [
     n: 'Las bombas desatendidas lo piden y retienen entre 22,000 y 30,000 ISK. Amex no funciona ahí.' },
   { id: 'contactos',f: '2026-09-18', t: 'Sacar dirección y teléfono de los 13 alojamientos',
     n: 'Van en data/alojamientos.json. Con teléfono aparece el botón Llamar; con coordenadas, el de Cómo llegar. El más importante: el número de asistencia 24 h de la rentadora.' },
+  { id: 'empaque',  f: '2026-09-22', t: 'Equipaje versión octubre, no septiembre',
+    n: 'Base correcta: tres capas de lana y fleece, shell impermeable, botas, traje de baño. QUITAR bloqueador y antifaz. CAMBIAR el chaleco por chaqueta aislante con mangas, y añadir pantalón impermeable encima. AGREGAR: tacos de hielo para la suela, frontal con luz roja, termo de 1 L, powerbank y cargador de 12 V, 2 o 3 baterías de cámara de repuesto, y guantes en tres piezas (fino táctil, mitón, y un par seco de repuesto).' },
+  { id: 'ballenas', f: '2026-09-20', t: 'Decidir y reservar ballenas en Húsavík · 4 de octubre',
+    n: 'North Sailing 09:30, 12,990 ISK por persona, 3 horas, cancelación gratis 24 h antes. Obliga a invertir el día: ballenas primero y el resto del Diamond Circle de regreso.' },
+  { id: 'silfra',   f: '2026-09-20', t: 'Decidir y reservar Silfra · 10 de octubre',
+    n: 'Opción self-drive llegando al P5 de Þingvellir: 16,000 a 20,000 ISK por persona, 2.5 a 3 horas. Se agota; hay que reservar con semanas.' },
+  { id: 'rettir',   f: '2026-09-28', t: 'Confirmar Víðidalstungurétt · 3 de octubre 11:00',
+    n: 'El arreo de caballos más grande del país, a 20-25 km de donde duermen. Si van, ese día hay que ir por la Ruta 1 y no por Tröllaskagi.' },
   { id: 'ios',      f: '2026-09-20', t: 'Actualizar iOS en los dos teléfonos y no volver a actualizar',
     n: 'Una actualización mayor a mitad del viaje puede romper el modo offline.' },
   { id: 'prueba',   f: '2026-09-21', t: 'Probar la app en modo avión, un día entero, en los dos teléfonos',

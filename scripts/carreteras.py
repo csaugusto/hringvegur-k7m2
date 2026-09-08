@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Espeja el estado de carreteras de Vegagerðin dentro del repo.
+"""Espeja dentro del repo los feeds oficiales que no mandan CORS.
 
 El feed no manda cabeceras CORS, así que una página estática no puede leerlo
 desde el navegador. Al copiarlo aquí, GitHub Pages lo sirve desde el mismo
@@ -12,7 +12,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 FEED = "https://gagnaveita.vegagerdin.is/api/faerd2014_1"
-SALIDA = Path(__file__).resolve().parent.parent / "app" / "data" / "carreteras.json"
+FEED_OLAS = "https://safetravel.is/wp-content/plugins/black-beach-safety/reynisfjara_litakodi.json"
+DATA = Path(__file__).resolve().parent.parent / "app" / "data"
+SALIDA = DATA / "carreteras.json"
+SALIDA_OLAS = DATA / "reynisfjara.json"
 
 # Los tramos que de verdad pisan. Sin esto son 969 y 383 KB.
 RUTA = re.compile(
@@ -146,5 +149,47 @@ def main() -> int:
     return 0
 
 
+# ─────────── Reynisfjara: peligro de olas ───────────
+# Pronóstico oficial de SafeTravel, cada 3 h y ~4 días de horizonte.
+# OJO: verde NO significa seguro. En agosto de 2025 murió una niña de nueve
+# años con el semáforo en amarillo. El color orienta; no autoriza acercarse.
+OLAS = {
+    "GREEN":  ("verde",    "Oleaje dentro de lo normal. Sigue sin ser seguro acercarse al agua."),
+    "YELLOW": ("amarillo", "Peligro. Manténganse muy lejos de la orilla."),
+    "ORANGE": ("naranja",  "Peligro alto. No bajen a la arena."),
+    "RED":    ("rojo",     "Peligro extremo. No entren a la playa."),
+}
+
+
+def olas() -> int:
+    req = urllib.request.Request(FEED_OLAS, headers={"User-Agent": "islandia-2026/1.0"})
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r:
+            crudo = json.load(r)
+    except Exception as e:
+        print(f"no se pudo leer el feed de olas: {e}", file=sys.stderr)
+        return 1
+
+    filas = []
+    for x in crudo:
+        c = (x.get("color_code") or "").upper()
+        nom, txt = OLAS.get(c, (c.lower(), ""))
+        filas.append({"t": x.get("datetime"), "c": c, "color": nom, "txt": txt})
+
+    peor = max((f["c"] for f in filas), key=lambda c: ["GREEN", "YELLOW", "ORANGE", "RED"].index(c)
+               if c in OLAS else 0) if filas else "GREEN"
+    salida = {
+        "actualizado": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%MZ"),
+        "analisis": crudo[0].get("analysis_datetime") if crudo else None,
+        "peor": peor,
+        "aviso": "El color orienta, no autoriza. En agosto de 2025 murió una niña de nueve años "
+                 "en Reynisfjara con el semáforo en amarillo. Nunca den la espalda al mar.",
+        "horas": filas,
+    }
+    SALIDA_OLAS.write_text(json.dumps(salida, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    print(f"Reynisfjara: {len(filas)} horas · peor color {peor} · {SALIDA_OLAS.stat().st_size / 1024:.1f} KB")
+    return 0
+
+
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(main() or olas())

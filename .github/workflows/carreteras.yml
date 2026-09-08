@@ -1,8 +1,9 @@
-name: Espejo del estado de carreteras
+name: Espejo de feeds oficiales
 
-# El feed de Vegagerðin no manda cabeceras CORS, así que la app no puede leerlo
-# desde el navegador. Copiándolo al repo, GitHub Pages lo sirve desde el mismo
-# dominio y el problema desaparece.
+# Ni el feed de carreteras de Vegagerðin ni el de peligro de olas de SafeTravel
+# mandan cabeceras CORS, así que la app no puede leerlos desde el navegador.
+# Copiándolos al repo, GitHub Pages los sirve desde el mismo dominio y el
+# problema desaparece.
 
 on:
   schedule:
@@ -22,17 +23,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Bajar y filtrar el feed
+      - name: Bajar y filtrar los feeds
         run: python3 scripts/carreteras.py
 
       - name: Guardar si cambió algo
         run: |
-          if git diff --quiet -- app/data/carreteras.json; then
+          if git diff --quiet -- app/data/carreteras.json app/data/reynisfjara.json; then
             echo "sin cambios"
             exit 0
           fi
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add app/data/carreteras.json
-          git commit -m "carreteras: $(date -u '+%d %b %H:%M') UTC"
+          git add app/data/carreteras.json app/data/reynisfjara.json
+          git commit -m "feeds: $(date -u '+%d %b %H:%M') UTC"
           git push

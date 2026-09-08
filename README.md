@@ -130,6 +130,7 @@ Desde el iPhone: `github.com` → el archivo → el lápiz → commit. Se redesp
 | Qué | Fuente | Sin llave | CORS |
 |---|---|---|---|
 | Clima y ráfagas | `api.open-meteo.com` | sí | abierto |
+| Peligro de olas en Reynisfjara | SafeTravel, espejado por la Action | — | mismo dominio |
 | Índice Kp de auroras | `services.swpc.noaa.gov` | sí | abierto |
 | Gasolineras, súper, baños | OpenStreetMap vía Overpass, congelado en `poi.json` | — | offline |
 | Estrategia de combustible y compras | las 3 capas del Google My Maps original | — | offline |
