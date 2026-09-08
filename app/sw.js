@@ -1,8 +1,8 @@
 /* Islandia 2026 — offline primero.
    Sube la versión cuando cambies archivos: fuerza la actualización en los dos teléfonos. */
-const V = 'is26-v4';
+const V = 'is26-v5';
 const NUCLEO = ['./','./index.html','./app.css','./app.js','./manifest.webmanifest',
-                './data/viaje.json','./data/poi.json','./data/carreteras.json','./icon.png'];
+                './data/viaje.json','./data/poi.json','./data/carreteras.json','./data/alojamientos.json','./icon.png'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(V).then(c => c.addAll(NUCLEO)).then(() => self.skipWaiting()));

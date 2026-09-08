@@ -18,15 +18,31 @@ const LS = {
 let VIAJE = null, POI = null;
 
 // ─────────────────────────── carga ───────────────────────────
+const FMT_ESTADO = {
+  reservada: 'Reservada',
+  mover: 'Hay que mover la fecha',
+  por_reservar: 'Sin reservar',
+};
+
 async function boot() {
+  let ALOJ;
   try {
-    [VIAJE, POI] = await Promise.all([
+    [VIAJE, POI, ALOJ] = await Promise.all([
       fetch('data/viaje.json').then(r => r.json()),
-      fetch('data/poi.json').then(r => r.json())
+      fetch('data/poi.json').then(r => r.json()),
+      fetch('data/alojamientos.json').then(r => r.json())
     ]);
   } catch (e) {
     document.body.innerHTML = '<p style="padding:40px;text-align:center">No se pudieron cargar los datos.<br><small>Recarga la página con señal una vez.</small></p>';
     return;
+  }
+
+  // Los alojamientos viven aparte porque son lo único que se edita a mano,
+  // incluso desde el teléfono a media carretera. Aquí se mezclan con el itinerario.
+  for (const d of VIAJE.dias) {
+    const a = ALOJ.alojamientos?.[d.fecha];
+    if (!a) { d.dormir = null; continue; }
+    d.dormir = { ...(d.dormir || {}), ...a, estado_txt: FMT_ESTADO[a.estado] || a.estado };
   }
   pintarHoy(); pintarDias(); pintarNoches(); pintarSobre(); pintarPendientes();
   setInterval(tickLuz, 1000); tickLuz();
@@ -106,7 +122,9 @@ function pintarHoy() {
       <p class="sub">Entrega del auto a las 14:00. Salgan de Reikiavik a las 12:00.</p>`;
   } else {
     const priv = LS.get('privado', {})[d.fecha] || {};
-    const tel = priv.tel, dirn = priv.dir;
+    const tel  = dm.tel  || priv.tel;            // el archivo manda; el teléfono complementa
+    const dirn = dm.direccion || priv.dir;
+    const lat  = dm.lat ?? priv.lat, lon = dm.lon ?? priv.lon;
     box.innerHTML = `
       <div class="card-head"><h2>Esta noche duermen en</h2>
         <span class="estado ${dm.estado}">${dm.estado_txt}</span></div>
@@ -119,10 +137,13 @@ function pintarHoy() {
       </div>
       <div class="acciones">
         <a class="call ${tel ? '' : 'falta'}" href="${tel ? 'tel:' + tel.replace(/\s/g, '') : '#'}">${tel ? 'Llamar' : 'Falta el teléfono'}</a>
-        ${priv.lat ? `<a href="${rutaURL(priv.lat, priv.lon)}">Cómo llegar</a>` : ''}
+        ${lat ? `<a href="${rutaURL(lat, lon)}">Cómo llegar</a>` : ''}
         ${dm.url ? `<a href="${dm.url}" target="_blank" rel="noopener">Booking</a>` : ''}
       </div>
-      ${dm.cierre ? `<p class="nota">Corte duro a las ${dm.cierre}. Si van a llegar después, avisen hoy mismo mientras haya señal.</p>` : ''}`;
+      ${dm.cierre ? `<p class="nota">Corte duro a las ${dm.cierre}. Si van a llegar después, avisen hoy mismo mientras haya señal.</p>` : ''}
+      ${dm.llegada_tarde ? `<p class="nota">Llegada tardía: ${dm.llegada_tarde}</p>` : ''}
+      ${dm.desayuno ? `<p class="nota">Desayuno: ${dm.desayuno}</p>` : ''}
+      ${dm.notas ? `<p class="nota">${dm.notas}</p>` : ''}`;
   }
 
   // ruta

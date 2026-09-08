@@ -66,13 +66,45 @@ No es opcional. Si el service worker no intercepta la navegación, la app abre e
 
 Probado aquí apagando el servidor: la red falla y la app sigue pintando los 14 días completos.
 
-## Editar durante el viaje
+## Actualizar los alojamientos
+
+`app/data/alojamientos.json` es el único archivo pensado para editarse a mano. Está
+indentado y con una entrada por noche, así que se puede cambiar desde `github.com` en
+el iPhone: abrir el archivo, el lápiz, editar, commit. En 30 segundos está en los dos
+teléfonos. **No hay que correr nada** — la app lo lee al arrancar y lo mezcla con el
+itinerario.
+
+```json
+"2026-10-03": {
+  "lugar": "Akureyri",
+  "estado": "por_reservar",        // reservada · mover · por_reservar
+  "nombre": "",
+  "direccion": "",
+  "lat": null, "lon": null,        // decimal: 65.6839 / -18.1122
+  "tel": "",                       // con +354; enciende el botón Llamar
+  "checkin": "", "checkout": "",
+  "cierre": "",                    // hora tope de llegada, si la hay
+  "llegada_tarde": "",
+  "desayuno": "",
+  "cancela": "",                   // AAAA-MM-DD
+  "url": "", "notas": ""
+}
+```
+
+Con `tel` aparece el botón **Llamar**. Con `lat`/`lon` aparece **Cómo llegar**, que abre
+el mapa del teléfono con las coordenadas y funciona sin señal. Mientras estén vacíos, la
+tarjeta dice "Falta el teléfono" — a propósito, para que se note el hueco.
+
+**Nunca pongas aquí códigos de reserva ni montos:** el repositorio es público. Eso se
+captura una vez en cada teléfono desde la pantalla **El sobre** y se guarda solo ahí.
+
+## Cambiar cualquier otra cosa
 
 Desde el iPhone: `github.com` → el archivo → el lápiz → commit. Se redespliega solo.
 
-- Cambiar un alojamiento o una hora: `app/data/viaje.json`
-- Añadir un pendiente: la constante `TAREAS` en `app/app.js`
-- **Si cambias cualquier archivo, sube `V` en `app/sw.js`** (`is26-v1` → `is26-v2`).
+- Un pendiente: la constante `TAREAS` en `app/app.js`
+- Paradas, avisos, cámaras o sol: `app/data/viaje.json` (minificado; mejor desde la compu)
+- **Si cambias cualquier archivo, sube `V` en `app/sw.js`** (`is26-v5` → `is26-v6`).
   Sin eso los teléfonos siguen sirviendo la versión vieja del caché.
 
 ## De dónde salen los datos
