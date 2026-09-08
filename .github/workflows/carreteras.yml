@@ -1,0 +1,38 @@
+name: Espejo del estado de carreteras
+
+# El feed de Vegagerðin no manda cabeceras CORS, así que la app no puede leerlo
+# desde el navegador. Copiándolo al repo, GitHub Pages lo sirve desde el mismo
+# dominio y el problema desaparece.
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'   # cada 30 minutos (UTC = hora de Islandia)
+  workflow_dispatch:          # y a mano desde la pestaña Actions
+
+permissions:
+  contents: write
+
+concurrency:
+  group: carreteras
+  cancel-in-progress: true
+
+jobs:
+  espejar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Bajar y filtrar el feed
+        run: python3 scripts/carreteras.py
+
+      - name: Guardar si cambió algo
+        run: |
+          if git diff --quiet -- app/data/carreteras.json; then
+            echo "sin cambios"
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/data/carreteras.json
+          git commit -m "carreteras: $(date -u '+%d %b %H:%M') UTC"
+          git push

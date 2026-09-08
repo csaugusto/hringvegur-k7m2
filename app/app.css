@@ -213,3 +213,35 @@ button{font:inherit;color:inherit;cursor:pointer}
 .svc-a{margin:7px 0 0;font-size:14px;line-height:1.4;font-weight:600}
 .svc.amarillo .svc-a{color:var(--warn)}
 .svc-x{margin:3px 0 0;font-size:12.5px;line-height:1.4;color:var(--tx2)}
+
+/* ── carreteras ── */
+.vias-cifras{display:flex;gap:8px}
+.vc{flex:1;text-align:center;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:11px 6px}
+.vc b{display:block;font-size:26px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.vc span{font-size:11px;color:var(--tx3);text-transform:uppercase;letter-spacing:.04em}
+.vc.ok b{color:var(--ok)} .vc.ojo b{color:var(--warn)} .vc.grave b{color:var(--bad)}
+.vc.grave{border-color:var(--bad)}
+
+.via{border-left:3px solid var(--line);padding:8px 0 8px 11px;margin-bottom:7px}
+.via:last-child{margin-bottom:0}
+.via.ok{border-left-color:var(--ok)} .via.ojo{border-left-color:var(--warn)} .via.grave{border-left-color:var(--bad)}
+.via-n{display:block;font-size:14px;font-weight:600;line-height:1.3}
+.via-e{display:block;font-size:12.5px;color:var(--tx2);margin-top:1px}
+.via.ojo .via-e{color:var(--warn)} .via.grave .via-e{color:var(--bad);font-weight:600}
+.via-a{display:block;font-size:12px;color:var(--tx3);margin-top:2px;font-style:italic}
+
+/* ── cámaras ── */
+.cams{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.cam{margin:0;background:var(--bg2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.cam img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--bg)}
+.cam.rota img{display:none}
+.cam.rota::before{content:"sin imagen";display:block;aspect-ratio:4/3;display:grid;place-items:center;
+  color:var(--tx3);font-size:12px;background:var(--bg)}
+.cam figcaption{padding:7px 9px 8px}
+.cam figcaption strong{display:block;font-size:13px;font-weight:600;line-height:1.25}
+.cam figcaption small{display:block;font-size:11px;color:var(--tx3);line-height:1.3;margin-top:1px}
+
+details.card summary{cursor:pointer;list-style:none}
+details.card summary::-webkit-details-marker{display:none}
+details.card summary::after{content:" ▾";color:var(--tx3)}
+details.card[open] summary::after{content:" ▴"}

@@ -81,6 +81,37 @@
     <div id="dias-lista"></div>
   </section>
 
+  <!-- ══════════ CARRETERAS ══════════ -->
+  <section id="v-carreteras" class="view" hidden>
+    <header class="vhead">
+      <h1>Carreteras</h1>
+      <button id="vias-refrescar" class="ghost">Actualizar</button>
+    </header>
+    <p class="sub">Estado oficial de Vegagerðin, espejado en el repo cada 30 minutos.
+      Revísenlo <b>antes de arrancar</b>, no en el camino.</p>
+
+    <div class="card" id="vias-resumen"></div>
+
+    <div class="card">
+      <div class="card-head"><h2>Cámaras de hoy</h2><span id="cam-hora" class="edad"></span></div>
+      <p class="sub" style="margin-bottom:10px">Se actualizan solas. Si hay nieve o niebla, aquí se ve.</p>
+      <div id="cam-grid" class="cams"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h2>Tramos con algo</h2></div>
+      <div id="vias-ojo"></div>
+    </div>
+
+    <details class="card">
+      <summary><h2 style="display:inline">Todos los tramos de la ruta</h2></summary>
+      <div id="vias-todos" style="margin-top:12px"></div>
+    </details>
+
+    <p class="nota">Si algo no cuadra, el teléfono de la Vegagerðin es el
+      <a href="tel:1777">1777</a>, en inglés, de 06:30 a 22:00.</p>
+  </section>
+
   <!-- ══════════ CLIMA ══════════ -->
   <section id="v-clima" class="view" hidden>
     <header class="vhead">
@@ -179,6 +210,7 @@
 <nav id="tabs">
   <button data-v="hoy" class="on"><span>◉</span>Hoy</button>
   <button data-v="dias"><span>▤</span>Días</button>
+  <button data-v="carreteras"><span>⇱</span>Vías</button>
   <button data-v="clima"><span>≈</span>Clima</button>
   <button data-v="auroras"><span>✦</span>Auroras</button>
   <button data-v="sobre"><span>✉</span>Sobre</button>

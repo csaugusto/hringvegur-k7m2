@@ -38,9 +38,11 @@ async function boot() {
     else { renderVientoHoy(c); renderClima(c); }
     const k = LS.get('kp');
     if (!k || Date.now() - k.t > 3600e3) cargarKp(); else renderKp(k);
+    cargarVias();
   } else {
     const c = LS.get('clima'); if (c) { renderVientoHoy(c); renderClima(c); }
     const k = LS.get('kp');    if (k) renderKp(k);
+    const v = LS.get('vias');  if (v) renderVias(v.d);
   }
 }
 
@@ -250,6 +252,64 @@ function pintarDias() {
   const j = $('#hoy-jump');
   if (diaDeHoy()) { j.hidden = false; j.onclick = () => { ir('dias'); $(`.dia[data-d="${diaDeHoy().d}"] .dia-t`).click(); }; }
 }
+
+// ─────────────────────────── CARRETERAS ───────────────────────────
+// El feed de Vegagerðin no manda CORS. Una GitHub Action lo copia al repo cada
+// 30 min, así que esto es una petición al mismo dominio: sin CORS y cacheable.
+async function cargarVias() {
+  const r = $('#vias-resumen');
+  try {
+    const d = await fetch('data/carreteras.json', { cache: 'no-cache' }).then(x => x.json());
+    LS.set('vias', { t: Date.now(), d });
+    renderVias(d);
+  } catch {
+    const g = LS.get('vias');
+    if (g) { renderVias(g.d); r.insertAdjacentHTML('beforeend', '<p class="nota">No se pudo actualizar. Esto es lo último guardado.</p>'); }
+    else r.innerHTML = '<p class="muted">Sin datos todavía. Necesita una carga con señal.</p>';
+  }
+}
+
+function renderVias(d) {
+  const s = d.resumen, algo = d.tramos.filter(t => t.v !== 'ok');
+  const hace = (() => {
+    const m = Math.round((Date.now() - Date.parse(d.actualizado)) / 60000);
+    return m < 60 ? `hace ${m} min` : `hace ${Math.round(m / 60)} h`;
+  })();
+
+  $('#vias-resumen').innerHTML = `
+    <div class="card-head"><h2>Resumen de la ruta</h2><span class="edad">Vegagerðin · ${hace}</span></div>
+    <div class="vias-cifras">
+      <div class="vc ok"><b>${s.ok}</b><span>transitables</span></div>
+      <div class="vc ojo"><b>${s.ojo}</b><span>con algo</span></div>
+      <div class="vc grave"><b>${s.grave}</b><span>graves</span></div>
+    </div>
+    ${s.grave ? '<p class="nota" style="border-color:var(--bad);color:var(--bad)">Hay tramos intransitables o cerrados. Revisen cuáles antes de salir.</p>' : ''}`;
+
+  $('#vias-ojo').innerHTML = algo.length
+    ? algo.map(fila).join('')
+    : '<p class="muted">Nada. Los tramos de su ruta están todos en Greiðfært.</p>';
+  $('#vias-todos').innerHTML = d.tramos.map(fila).join('');
+
+  // cámaras del día
+  const dia = diaActivo();
+  $('#cam-hora').textContent = 'en vivo';
+  $('#cam-grid').innerHTML = (dia.camaras || []).length
+    ? dia.camaras.map(c => `
+        <figure class="cam">
+          <img loading="lazy" src="${c.img}?t=${Math.floor(Date.now() / 3e5)}" alt="${c.n}"
+               onerror="this.parentElement.classList.add('rota')">
+          <figcaption><strong>${c.n}</strong><small>${c.d || ''} · a ${c.km} km</small></figcaption>
+        </figure>`).join('')
+    : '<p class="muted">No hay cámaras cerca de la ruta de hoy.</p>';
+}
+
+const fila = t => `<div class="via ${t.v}">
+  <span class="via-n">${t.n}</span>
+  <span class="via-e">${t.e}</span>
+  ${t.a ? `<span class="via-a">${t.a}</span>` : ''}
+</div>`;
+
+$('#vias-refrescar').onclick = cargarVias;
 
 // ─────────────────────────── CLIMA ───────────────────────────
 // Open-Meteo: sin llave, CORS abierto, verificado el 8 de septiembre de 2026.

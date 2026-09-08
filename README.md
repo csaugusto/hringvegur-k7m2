@@ -13,13 +13,17 @@ app/                 lo que se publica
   data/viaje.json    14 días, paradas, sol, luna, alojamientos, avisos
                      y los 25 puntos de gasolina/provisiones con su estrategia  (24 KB)
   data/poi.json      1,114 gasolineras, supermercados, baños, farmacias  (44 KB)
+  data/carreteras.json  estado de 339 tramos, lo reescribe una GitHub Action  (33 KB)
+
+scripts/carreteras.py   baja el feed de Vegagerðin y lo filtra a la ruta
+.github/workflows/      la Action que lo corre cada 30 minutos
 
 data/                fuentes y análisis, NO se publican
 investigacion/       los 5 reportes verificados y las 41 comprobaciones
 PLAN.md              el plan aprobado
 ```
 
-Peso total de la app: **160 KB**. Cabe entera en el teléfono.
+Peso total de la app: **228 KB**. Cabe entera en el teléfono.
 
 ## Publicar en GitHub Pages
 
@@ -85,6 +89,26 @@ Desde el iPhone: `github.com` → el archivo → el lápiz → commit. Se redesp
 Solo el clima y el Kp necesitan red, y ambos guardan la última lectura con su hora.
 Todo lo demás funciona en modo avión.
 
-**Lo que no está y no puede estar:** la condición de carreteras en vivo. La API de Vegagerðin
-(`gagnaveita.vegagerdin.is/api/faerd2014_1`) no manda cabeceras CORS, así que un sitio estático
-no puede leerla. Hay que revisar `umferdin.is` cada mañana, o llamar al **1777**.
+### El estado de carreteras, y cómo se resolvió el CORS
+
+La API de Vegagerðin (`gagnaveita.vegagerdin.is/api/faerd2014_1`) **no manda cabeceras CORS**,
+así que el navegador no puede leerla desde una página estática. La vuelta:
+
+```
+GitHub Action cada 30 min  →  scripts/carreteras.py  →  app/data/carreteras.json  →  commit
+```
+
+Al vivir en el repo, GitHub Pages lo sirve desde el mismo dominio y el CORS deja de existir.
+Sin servidor y sin costo. De 969 tramos del país filtra los **339 que pisan la ruta**, y ordena
+primero lo que estorba. El service worker usa **red primero** para este archivo — es el único
+donde la frescura importa más que la velocidad — y cae al caché si no hay señal.
+
+Si la Action falla o pasan días sin correr, la app muestra la hora del último dato.
+El teléfono de la Vegagerðin es el **1777**, en inglés, de 06:30 a 22:00.
+
+### Cámaras de carretera
+
+Vegagerðin tiene 500 cámaras; **45 quedan cerca de la ruta**, asignadas por día por cercanía y
+priorizando pasos de montaña, brezales y túneles sobre las cámaras de tráfico urbano de Reikiavik.
+Las imágenes se cargan directo en `<img>` desde `vegagerdin.is`: eso **no necesita CORS**, así que
+funcionan sin proxy. Sin señal no cargan y cada marco muestra "sin imagen".

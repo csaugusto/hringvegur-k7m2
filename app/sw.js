@@ -1,8 +1,8 @@
 /* Islandia 2026 — offline primero.
    Sube la versión cuando cambies archivos: fuerza la actualización en los dos teléfonos. */
-const V = 'is26-v2';
+const V = 'is26-v4';
 const NUCLEO = ['./','./index.html','./app.css','./app.js','./manifest.webmanifest',
-                './data/viaje.json','./data/poi.json','./icon.png'];
+                './data/viaje.json','./data/poi.json','./data/carreteras.json','./icon.png'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(V).then(c => c.addAll(NUCLEO)).then(() => self.skipWaiting()));
@@ -27,7 +27,19 @@ self.addEventListener('fetch', e => {
     return;
   }
 
-  // Todo lo propio: caché primero, y refresca en segundo plano.
+  // El estado de carreteras cambia cada 30 min y es lo único donde la frescura
+  // importa más que la velocidad: red primero, caché solo si la red falla.
+  if (url.pathname.endsWith('/data/carreteras.json')) {
+    e.respondWith(
+      fetch(e.request).then(res => {
+        if (res && res.ok) caches.open(V).then(c => c.put(e.request, res.clone()));
+        return res;
+      }).catch(() => caches.match(e.request))
+    );
+    return;
+  }
+
+  // Todo lo demás: caché primero, y refresca en segundo plano.
   e.respondWith(caches.match(e.request).then(hit => {
     const red = fetch(e.request).then(res => {
       if (res && res.ok) caches.open(V).then(c => c.put(e.request, res.clone()));
