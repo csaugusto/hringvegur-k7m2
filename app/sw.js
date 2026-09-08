@@ -1,6 +1,6 @@
 /* Islandia 2026 — offline primero.
    Sube la versión cuando cambies archivos: fuerza la actualización en los dos teléfonos. */
-const V = 'is26-v7';
+const V = 'is26-v8';
 const NUCLEO = ['./','./index.html','./app.css','./app.js','./manifest.webmanifest',
                 './data/viaje.json','./data/poi.json','./data/carreteras.json','./data/alojamientos.json','./icon.png'];
 

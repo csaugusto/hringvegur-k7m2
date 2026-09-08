@@ -37,9 +37,57 @@ FUERA = re.compile(
     re.I,
 )
 
-# Lo que no es "Greiðfært" merece que se vea distinto en la app.
-GRAVE = re.compile(r"ófært|lokað|hálka|snjó|ísing|óveður", re.I)
-OJO   = re.compile(r"4x4|ekki í þjónustu|steinkast|vegavinna|þungatakmörkun|öxulþunga", re.I)
+# El feed viene en islandés. En octubre aparecen los estados de nieve y hielo,
+# así que se traduce el vocabulario completo, no solo lo que se ve hoy.
+# Van por RAÍZ, sin la terminación: el islandés declina y "aurbleyta" aparece
+# en el feed como "aurbleytu", "snjóþekja" como "snjóþekju", etc.
+TERMINOS_ = [
+    ("fært fjallabílum 4x4 (og stærri bílum)", "solo 4x4 de montaña o más grande"),
+    ("fært fjallabílum",   "solo vehículos 4x4 de montaña"),
+    ("vegur ekki í þjónustu", "sin servicio de mantenimiento"),
+    ("takmörkun öxulþung", "límite de peso por eje"),
+    ("leyfður ásþung",     "peso máximo por eje"),
+    ("hálkublett",         "placas de hielo aisladas"),
+    ("skafrenning",        "ventisca de nieve"),
+    ("greiðfær",           "despejado"),
+    ("snjóþekj",           "cubierto de nieve"),
+    ("éljagang",           "chubascos de nieve"),
+    ("vatnavext",          "inundación"),
+    ("hvassviðri",         "viento fuerte"),
+    ("steinkast",          "proyección de piedras"),
+    ("þungfær",            "paso difícil"),
+    ("aurbleyt",           "lodo por deshielo"),
+    ("vegavinn",           "obras"),
+    ("þæfing",             "nieve profunda"),
+    ("óveður",             "temporal"),
+    ("hálka",              "hielo en el pavimento"),
+    ("krapi",              "aguanieve"),
+    ("lokað",              "CERRADO"),
+    ("ófær",               "INTRANSITABLE"),
+    ("vegna",              "por"),
+    ("tonn",               "toneladas"),
+]
+TERMINOS = sorted(TERMINOS_, key=lambda x: -len(x[0]))
+
+# El islandés declina: "aurbleyta" aparece como "aurbleytu", "snjóþekja" como
+# "snjóþekju". Por eso se busca por raíz y se sustituyen TODOS los términos que
+# aparezcan, no solo el primero.
+def traducir(estado: str) -> str:
+    """Traduce respetando los compuestos tipo 'Hálka - Skafrenningur'."""
+    partes = []
+    for p in re.split(r"\s+-\s+", estado):
+        q = p.strip()
+        if not q:
+            continue
+        for raiz, esp in TERMINOS:                       # los largos van primero
+            q = re.sub(re.escape(raiz) + r"[a-záðéíóúýþæö]*", esp, q, flags=re.I)
+        partes.append(q.strip())
+    t = " · ".join(x for x in partes if x)
+    return t[0].upper() + t[1:] if t else estado
+
+
+GRAVE = re.compile(r"ófær|lokað|hálka(?!blett)|snjóþekj|þæfing|þungfær|óveður|vatnavext|skafrenning", re.I)
+OJO   = re.compile(r"4x4|fjallabíl|ekki í þjónustu|steinkast|vegavinn|öxulþung|krapi|hálkublett|éljagang|aurbleyt|hvassviðri", re.I)
 
 
 def nivel(estado: str) -> str:
@@ -67,7 +115,8 @@ def main() -> int:
         estado = (t.get("FulltAstand") or "").strip()
         tramos.append({
             "n": nombre,
-            "e": estado,
+            "e": traducir(estado),
+            "isl": estado,          # el original: los letreros y umferdin.is están en islandés
             "c": t.get("Linulitur") or "",
             "v": nivel(estado),
             "a": (t.get("Aths") or "").strip() or None,

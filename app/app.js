@@ -94,9 +94,20 @@ const FECHA_CORTA = f => {
   return `${d} ${['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'][m - 1]}`;
 };
 
-// Enlaces que SÍ abren sin internet: el mapa del teléfono ya tiene los tiles.
-const mapaURL = (lat, lon, n) => `maps://?ll=${lat},${lon}&q=${encodeURIComponent(n)}`;
-const rutaURL = (lat, lon) => `maps://?daddr=${lat},${lon}&dirflg=d`;
+// Se usan esquemas nativos (maps://, comgooglemaps://, waze://) y no URLs https,
+// porque abren la app instalada sin resolver nada en la red: el mapa ya tiene los
+// tiles descargados. Waze es la excepción — no funciona sin conexión.
+const APPS_MAPA = {
+  apple:  { n: 'Apple Maps',   ver: (la, lo, q) => `maps://?ll=${la},${lo}&q=${encodeURIComponent(q)}`,
+                               ir:  (la, lo)    => `maps://?daddr=${la},${lo}&dirflg=d` },
+  google: { n: 'Google Maps',  ver: (la, lo, q) => `comgooglemaps://?q=${la},${lo}&center=${la},${lo}&zoom=14`,
+                               ir:  (la, lo)    => `comgooglemaps://?daddr=${la},${lo}&directionsmode=driving` },
+  waze:   { n: 'Waze',         ver: (la, lo)    => `waze://?ll=${la},${lo}`,
+                               ir:  (la, lo)    => `waze://?ll=${la},${lo}&navigate=yes` },
+};
+const appMapa = () => APPS_MAPA[LS.get('mapa', 'apple')] || APPS_MAPA.apple;
+const mapaURL = (lat, lon, n) => appMapa().ver(lat, lon, n);
+const rutaURL = (lat, lon) => appMapa().ir(lat, lon);
 
 const dist = (a, b, c, d) => {
   const R = 6371, r = Math.PI / 180;
@@ -115,7 +126,7 @@ function pintarHoy() {
     const faltan = Math.ceil((Date.UTC(...VIAJE.dias[0].fecha.split('-').map((v, i) => i === 1 ? v - 1 : +v)) - ahoraISL()) / 864e5);
     const n = $('#hoy-precuenta');
     n.hidden = false;
-    n.innerHTML = `<h3>Faltan ${faltan} días</h3><p class="sub" style="margin-bottom:0">Mostrando el día 0. Cuando llegue el 30 de septiembre, esta pantalla cambia sola.</p>`;
+    n.innerHTML = `<h3>Faltan ${faltan} días</h3>`;
   }
 
   // dormir
@@ -311,7 +322,7 @@ function renderVias(d) {
 
   $('#vias-ojo').innerHTML = algo.length
     ? algo.map(fila).join('')
-    : '<p class="muted">Nada. Los tramos de su ruta están todos en Greiðfært.</p>';
+    : '<p class="muted">Nada. Los 339 tramos de la ruta están despejados.</p>';
   $('#vias-todos').innerHTML = d.tramos.map(fila).join('');
 
   // cámaras del día
@@ -354,6 +365,7 @@ document.addEventListener('visibilitychange', () => { if (!document.hidden) refr
 const fila = t => `<div class="via ${t.v}">
   <span class="via-n">${t.n}</span>
   <span class="via-e">${t.e}</span>
+  ${t.isl && t.isl !== t.e ? `<span class="via-isl">${t.isl}</span>` : ''}
   ${t.a ? `<span class="via-a">${t.a}</span>` : ''}
 </div>`;
 
@@ -493,11 +505,16 @@ function pintarNoches() {
                  + (100 - d.luna) / 100 * 35         // luna
                  + Math.min(holgura, 300) / 300 * 20; // poder dormir al día siguiente
     return { d, holgura, cielo, puntos };
-  }).sort((a, b) => b.puntos - a.puntos);
+  });
 
-  $('#noches-lista').innerHTML = filas.map((f, i) => {
-    const r = i < 3 ? 'si' : f.puntos >= 62 ? 'tal' : 'no';
-    const et = i < 3 ? 'Sí' : f.puntos >= 62 ? 'Tal vez' : 'Mejor dormir';
+  // El puntaje decide el veredicto, pero la lista se lee en orden de calendario:
+  // sirve para planear la noche que viene, no para consultar un ranking.
+  const top3 = new Set([...filas].sort((a, b) => b.puntos - a.puntos).slice(0, 3).map(f => f.d.fecha));
+
+  $('#noches-lista').innerHTML = filas.map(f => {
+    const mejor = top3.has(f.d.fecha);
+    const r = mejor ? 'si' : f.puntos >= 62 ? 'tal' : 'no';
+    const et = mejor ? 'Sí' : f.puntos >= 62 ? 'Tal vez' : 'Mejor dormir';
     const razon = f.holgura < 150
       ? 'El día siguiente arranca temprano y va apretado'
       : `Al día siguiente sobran ${hm(f.holgura)}`;
@@ -534,6 +551,19 @@ $('#btn-ubic').onclick = () => {
 
 // ─────────────────────────── EL SOBRE ───────────────────────────
 function pintarSobre() {
+  // Qué app abren los botones Mapa y Cómo llegar
+  const elegida = LS.get('mapa', 'apple');
+  $('#mapa-sel').innerHTML = Object.entries(APPS_MAPA).map(([k, v]) =>
+    `<button data-m="${k}" class="${k === elegida ? 'on' : ''}">${v.n}</button>`).join('');
+  $$('#mapa-sel button').forEach(b => b.onclick = () => {
+    LS.set('mapa', b.dataset.m); pintarSobre(); pintarHoy(); pintarDias();
+  });
+  $('#mapa-nota').innerHTML = elegida === 'waze'
+    ? '<b>Waze no funciona sin conexión</b>, y su cobertura en Islandia es pobre porque depende de reportes de usuarios y ahí hay muy pocos. Sirve en Reikiavik; en los fiordos del este, no.'
+    : elegida === 'google'
+      ? 'Abre Google Maps si está instalado. Descarguen antes las tres áreas offline: suroeste, norte y este.'
+      : 'Apple Maps siempre está instalado y desde iOS 17 navega sin conexión. Es la opción segura.';
+
   const a = LS.get('auto', {});
   $('#auto-cuerpo').innerHTML = `
     <div class="kv"><span>Placa</span><b>${a.placa || '— anotarla al recoger'}</b></div>
