@@ -679,7 +679,7 @@ const TAREAS = [
   { id: 'blue',     f: '2026-09-10', t: 'Reservar Blue Lagoon, franja 09:00 del 30 de septiembre',
     n: 'Resuelve las 7 horas muertas entre aterrizar y el check-in. A 20 km de KEF. Reserva obligatoria por franja. Si cierra por actividad volcánica, queda el 12 de octubre de respaldo.' },
   { id: 'rentadora',f: '2026-09-10', t: 'Escribir a la rentadora, por escrito',
-    n: '¿Llantas de invierno sin clavos desde el 30 de septiembre? ¿Monto del depósito? ¿Teléfono de asistencia 24 h? ¿El impuesto por kilómetro es tarifa fija de 1,390-1,550 ISK/día o por km real a 8.69-8.81?' },
+    n: '¿Llantas de invierno sin clavos desde el 30 de septiembre? ¿Monto del depósito? ¿Teléfono de asistencia 24 h? ¿El impuesto por kilómetro es tarifa fija de 1,390-1,550 ISK/día o por km real a 8.69-8.81? Y si cae una multa de radar: ¿la pagan ustedes y me la cobran con cargo administrativo, o me reportan como conductor para que yo le pague directo a la policía?' },
   { id: 'amex',     f: '2026-09-10', t: 'Llamar a Amex México',
     n: '¿La cobertura de auto rentado aplica en Islandia y cubre grava, ceniza, viento y agua? Casi ninguna las cubre, y son justo los riesgos islandeses.' },
   { id: 'selfoss',  f: '2026-09-14', t: 'Reservar Selfoss o Flúðir · noche del 9 de octubre', n: '' },

@@ -42,12 +42,12 @@
       "punto": "Reynisfjara"
     },
     {
-      "que": "Límites de velocidad: 30 km/h en zona residencial · 50 en pueblo o ciudad · 90 en carretera pavimentada fuera de ciudad · 80 en grava fuera de ciudad. Los radares son automáticos y la multa llega a la rentadora, que la cobra a la tarjeta con su comisión encima.",
+      "que": "Límites de velocidad: 30 km/h en zona residencial · 50 en pueblo o ciudad · 90 en carretera pavimentada fuera de ciudad · 80 en grava fuera de ciudad. Los radares son automáticos.",
       "tipo": "ruta",
-      "fuente": "video de reglas + Samgöngustofa"
+      "fuente": "video de reglas, verificado contra Samgöngustofa"
     },
     {
-      "que": "Luces encendidas SIEMPRE, todo el año, de día y de noche. Y ojo: la posición 'Auto' NO cuenta como cumplir. Hay que ponerlas en encendido fijo.",
+      "que": "Luces encendidas SIEMPRE, todo el año, de día y de noche. La posición 'Auto' NO cuenta: hay que ponerlas en encendido fijo. La razón no es la multa, es la niebla — sin luces no te ve ni quien viene de frente ni quien intenta rebasarte.",
       "tipo": "ruta",
       "fuente": "Safetravel · el detalle del 'Auto' no venía en el video"
     },
@@ -72,7 +72,7 @@
       "fuente": "Safetravel top 12"
     },
     {
-      "que": "Al pasar de pavimento a grava, frenar antes. La transición sin bajar la velocidad es una de las causas más comunes de derrape y volcadura.",
+      "que": "Al pasar de pavimento a grava, frenar bastante antes. Los dos riesgos son perder el control y reventar una llanta. Es de las causas más comunes de accidente en turistas.",
       "tipo": "peligro",
       "fuente": "Safetravel top 12"
     },
@@ -87,7 +87,7 @@
       "fuente": "Safetravel top 12"
     },
     {
-      "que": "En la app Parka hay que capturar la PLACA del auto (por ejemplo JK L60), no el número impreso en el marco de la placa. Ese marco suele traer el teléfono del concesionario, tipo 461 6000, y mucha gente lo confunde. Si registras el número equivocado pagas el estacionamiento de otro y a ti te multan.",
+      "que": "En la app Parka se captura SOLO la placa del auto, por ejemplo JK L60. Nada más: ni el 'service number', ni el teléfono que trae impreso el marco de la placa, ni ningún otro número del auto. Si registras el equivocado pagas el estacionamiento de otro y a ti te multan.",
       "tipo": "dinero",
       "fuente": "video de la agencia sobre Parka"
     },
@@ -189,6 +189,11 @@
       "tipo": "ruta",
       "dia": "2026-10-03",
       "fuente": "cruce entre los réttir y el margen del día"
+    },
+    {
+      "que": "Cómo funcionan las multas de radar: llegan al DUEÑO registrado del auto, que es la rentadora. Pero la rentadora puede reportar a la policía quién iba manejando, y entonces uno le paga directo a la policía en island.is. Eso evita el cargo administrativo que cobra la rentadora por gestionarla. Vale la pena preguntarles cuál de los dos caminos usan.",
+      "tipo": "dinero",
+      "fuente": "island.is · la persona del video decía no saberlo y lo preguntaba a sus seguidores"
     }
   ]
 }

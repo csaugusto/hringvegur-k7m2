@@ -163,3 +163,16 @@ Vegagerðin tiene 500 cámaras; **45 quedan cerca de la ruta**, asignadas por d�
 priorizando pasos de montaña, brezales y túneles sobre las cámaras de tráfico urbano de Reikiavik.
 Las imágenes se cargan directo en `<img>` desde `vegagerdin.is`: eso **no necesita CORS**, así que
 funcionan sin proxy. Sin señal no cargan y cada marco muestra "sin imagen".
+
+## Transcribir videos
+
+Los reels de consejos suelen tener el contenido en el audio, no en pantalla.
+
+```bash
+brew install whisper-cpp
+curl -L -o small.en.bin https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.en.bin
+ffmpeg -i video.mp4 -ar 16000 -ac 1 -c:a pcm_s16le audio.wav
+whisper-cli -m small.en.bin -f audio.wav -l en --no-timestamps -np
+```
+
+Las transcripciones quedan en `investigacion/transcripciones/`.
