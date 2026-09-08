@@ -57,25 +57,25 @@
       "notas": ""
     },
     "2026-10-03": {
-      "lugar": "Akureyri",
-      "estado": "por_reservar",
-      "nombre": "",
+      "lugar": "Mývatn",
+      "estado": "reservada",
+      "nombre": "Elda Guesthouse",
       "direccion": "",
       "lat": null,
       "lon": null,
       "tel": "",
-      "checkin": "",
-      "checkout": "",
+      "checkin": "17:00",
+      "checkout": "10:00",
       "cierre": "",
       "llegada_tarde": "",
       "desayuno": "",
       "cancela": "",
-      "url": "",
+      "url": "https://www.booking.com/hotel/is/elda-guesthouse.es.html",
       "notas": ""
     },
     "2026-10-04": {
       "lugar": "Mývatn",
-      "estado": "mover",
+      "estado": "reservada",
       "nombre": "Elda Guesthouse",
       "direccion": "",
       "lat": null,
@@ -91,25 +91,8 @@
       "notas": ""
     },
     "2026-10-05": {
-      "lugar": "Mývatn",
-      "estado": "mover",
-      "nombre": "Elda Guesthouse",
-      "direccion": "",
-      "lat": null,
-      "lon": null,
-      "tel": "",
-      "checkin": "17:00",
-      "checkout": "10:00",
-      "cierre": "",
-      "llegada_tarde": "",
-      "desayuno": "",
-      "cancela": "",
-      "url": "https://www.booking.com/hotel/is/elda-guesthouse.es.html",
-      "notas": ""
-    },
-    "2026-10-06": {
       "lugar": "Egilsstaðir",
-      "estado": "mover",
+      "estado": "reservada",
       "nombre": "Lagarfell Homestay",
       "direccion": "",
       "lat": null,
@@ -124,9 +107,9 @@
       "url": "https://www.booking.com/hotel/is/lagarfell-homestay.es.html",
       "notas": ""
     },
-    "2026-10-07": {
+    "2026-10-06": {
       "lugar": "Höfn",
-      "estado": "mover",
+      "estado": "reservada",
       "nombre": "Rey Lodges",
       "direccion": "",
       "lat": null,
@@ -141,9 +124,9 @@
       "url": "https://www.booking.com/hotel/is/reylodges.es.html",
       "notas": ""
     },
-    "2026-10-08": {
+    "2026-10-07": {
       "lugar": "Kirkjubæjarklaustur",
-      "estado": "mover",
+      "estado": "reservada",
       "nombre": "Landbrot Guesthouse",
       "direccion": "",
       "lat": null,
@@ -158,9 +141,9 @@
       "url": "https://www.booking.com/hotel/is/landbrot-guesthouse.es.html",
       "notas": ""
     },
-    "2026-10-09": {
+    "2026-10-08": {
       "lugar": "Vík",
-      "estado": "mover",
+      "estado": "reservada",
       "nombre": "Prestshús 2 Guesthouse",
       "direccion": "",
       "lat": null,
@@ -175,8 +158,25 @@
       "url": "https://www.booking.com/hotel/is/prestshus-2-guesthouse.html",
       "notas": ""
     },
-    "2026-10-10": {
+    "2026-10-09": {
       "lugar": "Selfoss / Flúðir",
+      "estado": "por_reservar",
+      "nombre": "",
+      "direccion": "",
+      "lat": null,
+      "lon": null,
+      "tel": "",
+      "checkin": "",
+      "checkout": "",
+      "cierre": "",
+      "llegada_tarde": "",
+      "desayuno": "",
+      "cancela": "",
+      "url": "",
+      "notas": ""
+    },
+    "2026-10-10": {
+      "lugar": "Reikiavik",
       "estado": "por_reservar",
       "nombre": "",
       "direccion": "",
@@ -226,5 +226,6 @@
       "url": "",
       "notas": ""
     }
-  }
+  },
+  "_escenario": "Escenario A: no hay noche en Akureyri. Las 9 primeras están reservadas; faltan 9, 10, 11 y 12 de octubre."
 }

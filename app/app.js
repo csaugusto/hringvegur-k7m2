@@ -69,6 +69,9 @@ function ir(v) {
   $$('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.v === v));
   scrollTo(0, 0);
   location.hash = v;
+  // Las cámaras solo se piden con la pestaña a la vista, así que hay que
+  // arrancarlas al entrar: en el arranque esta vista está oculta y no cargan.
+  if (v === 'carreteras') refrescarCamaras();
 }
 if (location.hash) ir(location.hash.slice(1));
 
@@ -313,16 +316,40 @@ function renderVias(d) {
 
   // cámaras del día
   const dia = diaActivo();
-  $('#cam-hora').textContent = 'en vivo';
   $('#cam-grid').innerHTML = (dia.camaras || []).length
     ? dia.camaras.map(c => `
         <figure class="cam">
-          <img loading="lazy" src="${c.img}?t=${Math.floor(Date.now() / 3e5)}" alt="${c.n}"
+          <img loading="lazy" data-src="${c.img}" alt="${c.n}"
                onerror="this.parentElement.classList.add('rota')">
           <figcaption><strong>${c.n}</strong><small>${c.d || ''} · a ${c.km} km</small></figcaption>
         </figure>`).join('')
     : '<p class="muted">No hay cámaras cerca de la ruta de hoy.</p>';
+  refrescarCamaras();
 }
+
+// Vegagerðin publica fotos, no video: se renuevan cada pocos minutos
+// (la propia imagen trae cache-control de 60 s). Volviéndolas a pedir cada
+// 45 s con un parámetro distinto, se comportan como un directo lento.
+let relojCam = null;
+function refrescarCamaras() {
+  const imgs = $$('#cam-grid img');
+  if (!imgs.length) return;
+  let primera = true;
+  const recargar = () => {
+    // La primera vez siempre se piden. Después solo si la pestaña está de verdad
+    // a la vista: no tiene sentido gastar datos refrescando fotos que nadie mira.
+    if (!primera && ($('#v-carreteras').hidden || document.hidden)) return;
+    primera = false;
+    const t = Date.now();
+    imgs.forEach(i => { i.parentElement.classList.remove('rota'); i.src = `${i.dataset.src}?t=${t}`; });
+    const h = new Date(t + new Date().getTimezoneOffset() * 60000);
+    $('#cam-hora').textContent = `${pad(h.getUTCHours())}:${pad(h.getUTCMinutes())} hora de Islandia`;
+  };
+  recargar();
+  clearInterval(relojCam);
+  relojCam = setInterval(recargar, 45000);
+}
+document.addEventListener('visibilitychange', () => { if (!document.hidden) refrescarCamaras(); });
 
 const fila = t => `<div class="via ${t.v}">
   <span class="via-n">${t.n}</span>
@@ -554,48 +581,41 @@ $('#btn-privado').onclick = () => {
 
 // ─────────────────────────── PENDIENTES ───────────────────────────
 const TAREAS = [
-  { id: 'eta',      f: '2026-09-08', t: 'Confirmar si el "ETA ✓" es el de Canadá',
+  { id: 'eta',      f: '2026-09-09', t: 'Confirmar si el "ETA ✓" es el de Canadá',
     n: 'México es país con visa para Canadá desde feb-2024. Solo califican para eTA si tienen visa americana vigente o tuvieron visa canadiense en los últimos 10 años. Hacen escala en Toronto y Canadá obliga a pasar migración. Es el único error sin arreglo en el aeropuerto.' },
   { id: 'cueva',    f: '2026-09-10', t: 'Reservar el tour de cueva de hielo',
-    n: 'Sí operan el 7-8 de octubre, contra lo que suele decirse. Local Guide ya marca esos días en ámbar. Arctic Adventures USD 182, Glacier Guides EUR 155.' },
+    n: 'Para el 7 de octubre, dejando el 8 de respaldo. Sí operan: Arctic Adventures USD 182, Glacier Guides EUR 155. Local Guide ya marca esos días en ámbar.' },
   { id: 'blue',     f: '2026-09-10', t: 'Reservar Blue Lagoon, franja 09:00 del 30 de septiembre',
-    n: 'Resuelve las 7 horas muertas entre aterrizar y el check-in. A 20 km de KEF. Reserva obligatoria por franja.' },
-  { id: 'vik',      f: '2026-09-12', t: 'Mover Vík del 8-9 al 9-10 de octubre',
-    n: 'Se paga el 21 de septiembre y no tiene fecha de cancelación anotada. Verificar disponibilidad ANTES de cancelar.' },
-  { id: 'myvatn',   f: '2026-09-12', t: 'Mover Mývatn del 3-5 al 4-6 de octubre',
-    n: 'Dos noches. Se paga el 23 de septiembre, sin fecha de cancelación anotada.' },
-  { id: 'akureyri', f: '2026-09-14', t: 'Reservar Akureyri para el 3 de octubre',
-    n: 'La noche que faltaba y que causaba el desfase.' },
+    n: 'Resuelve las 7 horas muertas entre aterrizar y el check-in. A 20 km de KEF. Reserva obligatoria por franja. Si cierra por actividad volcánica, queda el 12 de octubre de respaldo.' },
   { id: 'rentadora',f: '2026-09-10', t: 'Escribir a la rentadora, por escrito',
     n: '¿Llantas de invierno sin clavos desde el 30 de septiembre? ¿Monto del depósito? ¿Teléfono de asistencia 24 h? ¿El impuesto por kilómetro es tarifa fija de 1,390-1,550 ISK/día o por km real a 8.69-8.81?' },
   { id: 'amex',     f: '2026-09-10', t: 'Llamar a Amex México',
     n: '¿La cobertura de auto rentado aplica en Islandia y cubre grava, ceniza, viento y agua? Casi ninguna las cubre, y son justo los riesgos islandeses.' },
+  { id: 'selfoss',  f: '2026-09-14', t: 'Reservar Selfoss o Flúðir · noche del 9 de octubre', n: '' },
+  { id: 'rvk',      f: '2026-09-14', t: 'Reservar Reikiavik · noches del 10, 11 y 12 de octubre',
+    n: 'Tres noches seguidas. Al no dormir en Akureyri se ganó un día completo en la capital.' },
+  { id: 'toronto',  f: '2026-09-14', t: 'Reservar hotel en Toronto · noche del 13 de octubre',
+    n: 'Aterrizan 19:10 y salen 11:00 del día siguiente. Esa noche no estaba en ninguna hoja.' },
   { id: 'seguro',   f: '2026-09-14', t: 'Contratar seguro médico de viaje',
     n: 'México no tiene convenio con Islandia. Urgencias: 88,557 ISK solo por llegar. El rescate en montaña sí es gratuito.' },
-  { id: 'egils',    f: '2026-09-26', t: 'Mover Egilsstaðir del 5-6 al 6-7 de octubre',
-    n: 'Cancelación gratis hasta el 28 de septiembre.' },
-  { id: 'hofn',     f: '2026-09-27', t: 'Mover Höfn del 6-7 al 7-8 de octubre',
-    n: 'Cancelación gratis hasta el 29 de septiembre.' },
-  { id: 'klaustur', f: '2026-09-28', t: 'Mover Kirkjubæjarklaustur del 7-8 al 8-9 de octubre',
-    n: 'Ya está cobrada. Cancelación gratis hasta el 30 de septiembre.' },
-  { id: 'selfoss',  f: '2026-09-16', t: 'Reservar Selfoss o Flúðir · 10 de octubre', n: '' },
-  { id: 'rvk',      f: '2026-09-16', t: 'Reservar Reikiavik · 11 y 12 de octubre', n: 'Dos noches.' },
-  { id: 'toronto',  f: '2026-09-16', t: 'Reservar hotel en Toronto · 13 de octubre',
-    n: 'Aterrizan 19:10 y salen 11:00 del día siguiente. Esa noche no estaba en ninguna hoja.' },
-  { id: 'datos',    f: '2026-09-20', t: 'Plan de datos · eSIM sobre la red de Síminn',
-    n: 'Síminn es la de mejor cobertura rural. Nova es la más barata y la peor fuera de Reikiavik.' },
-  { id: 'nip',      f: '2026-09-20', t: 'Activar el NIP de 4 dígitos en dos tarjetas Visa o Mastercard',
+  { id: 'datos',    f: '2026-09-18', t: 'Plan de datos · eSIM sobre la red de Síminn',
+    n: 'Síminn es la de mejor cobertura rural. Nova es la más barata y la peor fuera de Reikiavik. Cerca del 60% del país tiene señal irregular o nula.' },
+  { id: 'nip',      f: '2026-09-18', t: 'Activar el NIP de 4 dígitos en dos tarjetas Visa o Mastercard',
     n: 'Las bombas desatendidas lo piden y retienen entre 22,000 y 30,000 ISK. Amex no funciona ahí.' },
-  { id: 'mapas',    f: '2026-09-24', t: 'Descargar mapas offline en los dos teléfonos',
-    n: 'Google Maps en tres áreas: suroeste, norte y este. Más Organic Maps como respaldo, que sí busca nombres islandeses sin internet.' },
+  { id: 'contactos',f: '2026-09-18', t: 'Sacar dirección y teléfono de los 13 alojamientos',
+    n: 'Van en data/alojamientos.json. Con teléfono aparece el botón Llamar; con coordenadas, el de Cómo llegar. El más importante: el número de asistencia 24 h de la rentadora.' },
   { id: 'ios',      f: '2026-09-20', t: 'Actualizar iOS en los dos teléfonos y no volver a actualizar',
     n: 'Una actualización mayor a mitad del viaje puede romper el modo offline.' },
-  { id: 'prueba',   f: '2026-09-21', t: 'Probar esta app en modo avión, un día entero, en los dos teléfonos',
+  { id: 'prueba',   f: '2026-09-21', t: 'Probar la app en modo avión, un día entero, en los dos teléfonos',
     n: 'No negociable. Si el service worker no intercepta la navegación, la app abre en blanco sin señal.' },
+  { id: 'mapas',    f: '2026-09-24', t: 'Descargar mapas offline en los dos teléfonos',
+    n: 'Google Maps en tres áreas: suroeste, norte y este. Más Organic Maps como respaldo, que sí busca nombres islandeses sin internet.' },
   { id: 'playlist', f: '2026-09-24', t: 'Descargar playlists y podcasts', n: 'Son unas 40 horas de manejo.' },
   { id: 'skogafoss',f: '2026-09-24', t: 'Investigar el hiking en Skógafoss', n: 'La escalera al mirador y el sendero Fimmvörðuháls.' },
   { id: 'termo',    f: '2026-09-26', t: 'Toallas, chanclas, bolsa, termo y bolsita de agua', n: '' },
-  { id: 'hotdog',   f: '2026-10-12', t: 'Hot dog de Bæjarins Beztu y la granja de tiburones', n: 'Lo importante.' },
+  { id: 'dia12',    f: '2026-09-26', t: 'Decidir qué hacer con el día libre del 12 de octubre',
+    n: 'Se gana al no dormir en Akureyri. Opciones: Sky Lagoon al atardecer, península de Reykjanes, Blue Lagoon de respaldo, o simplemente descansar antes de 20 horas de vuelos.' },
+  { id: 'hotdog',   f: '2026-10-11', t: 'Hot dog de Bæjarins Beztu y la granja de tiburones', n: 'Lo importante.' },
 ];
 
 function pintarPendientes() {
