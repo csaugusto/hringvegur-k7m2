@@ -1,0 +1,10 @@
+.DS_Store
+.claude/
+
+# ── El repositorio es PÚBLICO ──────────────────────────────────────────
+# Todo lo de abajo lleva códigos de reserva, montos, qué tarjeta pagó cada
+# cosa, o el calendario de pagos. Se queda en esta máquina.
+data/trip_raw.json
+data/CONTEXTO.md
+investigacion/
+PLAN.md

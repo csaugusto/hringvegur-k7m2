@@ -1,0 +1,198 @@
+/* Islandia 2026 — pensado para leerse manejando, al anochecer, con una mano */
+
+:root{
+  --bg:#0d1117; --bg2:#161b22; --card:#161b22; --line:#262d36;
+  --tx:#e8edf3; --tx2:#9aa7b5; --tx3:#6b7684;
+  --ok:#3fb950; --warn:#d29922; --bad:#f85149; --hot:#ff7b48;
+  --blue:#58a6ff; --violet:#a78bfa;
+  --r:14px; --pad:16px;
+  --safe-b:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:light){
+  :root:not([data-theme="dark"]){
+    --bg:#f6f8fa; --bg2:#fff; --card:#fff; --line:#d8dee4;
+    --tx:#1f2328; --tx2:#59636e; --tx3:#818b98;
+    --blue:#0969da; --violet:#8250df; --ok:#1a7f37; --warn:#9a6700; --bad:#cf222e;
+  }
+}
+
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--tx);
+  font:16px/1.45 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",system-ui,sans-serif;
+  padding-bottom:calc(66px + var(--safe-b));
+  overscroll-behavior-y:contain;
+}
+h1{font-size:26px;line-height:1.1;margin:0;letter-spacing:-.02em}
+h2{font-size:14px;margin:0;color:var(--tx2);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+h3{font-size:17px;margin:0;font-weight:600;letter-spacing:-.01em}
+p{margin:.5em 0}
+a{color:var(--blue);text-decoration:none}
+b,strong{font-weight:650}
+ul{margin:.5em 0;padding-left:1.1em}
+
+#app{padding:calc(env(safe-area-inset-top,0px) + 14px) var(--pad) 24px;max-width:640px;margin:0 auto}
+.view{animation:in .18s ease}
+@keyframes in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+.vhead{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:4px}
+.sub{color:var(--tx2);font-size:14px;margin:2px 0 14px}
+.sub.esc{color:var(--violet);font-weight:600}
+.muted{color:var(--tx3);font-size:14px}
+.nota{font-size:13px;color:var(--tx2);border-left:2px solid var(--line);padding-left:10px;margin-top:12px}
+
+/* ── tarjetas ── */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:var(--pad);margin-bottom:12px}
+.card-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.big-note{border-color:var(--violet);background:color-mix(in srgb,var(--violet) 10%,var(--card))}
+.pill{font-size:12px;background:var(--bg2);border:1px solid var(--line);border-radius:99px;padding:3px 9px;color:var(--tx2);white-space:nowrap;font-variant-numeric:tabular-nums}
+.edad{font-size:11px;color:var(--tx3);font-variant-numeric:tabular-nums}
+
+button{font:inherit;color:inherit;cursor:pointer}
+.ghost{background:transparent;border:1px solid var(--line);border-radius:99px;padding:6px 13px;font-size:13px;color:var(--tx2)}
+.ghost:active{background:var(--bg2)}
+
+/* ── luz ── */
+.luz .luz-main{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px}
+.luz .label{font-size:13px;color:var(--tx2);text-transform:uppercase;letter-spacing:.06em}
+#luz-cuenta{font-size:38px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.03em;line-height:1}
+.luz-barra{height:5px;background:var(--bg);border-radius:99px;overflow:hidden;border:1px solid var(--line)}
+#luz-fill{height:100%;background:linear-gradient(90deg,#f0b429,#ff7b48);width:0;transition:width .6s}
+.luz-pies{display:flex;justify-content:space-between;margin-top:10px;font-size:12px;color:var(--tx3);font-variant-numeric:tabular-nums}
+.luz-pies b{color:var(--tx2);font-weight:600}
+.luz.noche #luz-cuenta{font-size:24px;color:var(--violet)}
+
+/* ── dormir ── */
+.dormir-lugar{font-size:24px;font-weight:700;letter-spacing:-.02em;margin:2px 0 2px}
+.dormir-nombre{color:var(--tx2);font-size:15px}
+.estado{display:inline-block;font-size:11px;font-weight:700;padding:3px 8px;border-radius:99px;text-transform:uppercase;letter-spacing:.05em}
+.estado.reservada{background:color-mix(in srgb,var(--ok) 18%,transparent);color:var(--ok)}
+.estado.mover{background:color-mix(in srgb,var(--warn) 20%,transparent);color:var(--warn)}
+.estado.por_reservar{background:color-mix(in srgb,var(--bad) 18%,transparent);color:var(--bad)}
+.acciones{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.acciones a{flex:1;min-width:104px;text-align:center;background:var(--bg2);border:1px solid var(--line);
+  border-radius:10px;padding:11px 8px;font-size:14px;font-weight:600;color:var(--tx)}
+.acciones a.call{background:var(--ok);border-color:var(--ok);color:#04120a}
+.acciones a.falta{background:var(--bg2);border-color:var(--line);color:var(--tx3);font-weight:500;font-size:13px}
+.horas{display:flex;gap:16px;margin-top:12px;font-size:13px;color:var(--tx2);font-variant-numeric:tabular-nums}
+.horas b{color:var(--tx)}
+
+/* ── paradas ── */
+.paradas{list-style:none;margin:0;padding:0}
+.paradas li{display:flex;align-items:center;gap:11px;padding:9px 0;border-bottom:1px solid var(--line)}
+.paradas li:last-child{border:0;padding-bottom:0}
+.paradas .num{width:22px;height:22px;flex:none;border-radius:50%;background:var(--bg2);border:1px solid var(--line);
+  display:grid;place-items:center;font-size:11px;color:var(--tx3);font-variant-numeric:tabular-nums}
+.paradas .np{flex:1;min-width:0}
+.paradas .np strong{display:block;font-weight:600;font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.paradas .np small{color:var(--tx3);font-size:12px}
+.paradas .go{flex:none;padding:6px 11px;border:1px solid var(--line);border-radius:8px;font-size:12px;color:var(--tx2)}
+.cat-Dormir .num,.cat-Inicio .num{border-color:var(--violet);color:var(--violet)}
+.cat-Opcional .np strong{color:var(--tx2);font-weight:500}
+.cat-Aeropuerto .num{border-color:var(--blue);color:var(--blue)}
+
+/* ── avisos ── */
+.aviso{display:flex;gap:11px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--warn);
+  border-radius:10px;padding:12px 14px;margin-bottom:9px;font-size:14px;line-height:1.4}
+.aviso.peligro{border-left-color:var(--bad)}
+.aviso.peaje{border-left-color:var(--hot)}
+.aviso.reserva{border-left-color:var(--violet)}
+.aviso .ic{flex:none;font-size:15px}
+.aviso b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--tx3);margin-bottom:2px}
+
+/* ── días ── */
+.dia{background:var(--card);border:1px solid var(--line);border-radius:var(--r);margin-bottom:9px;overflow:hidden}
+.dia.hoy{border-color:var(--violet);box-shadow:0 0 0 1px var(--violet)}
+.dia.pasado{opacity:.5}
+.dia-t{display:flex;align-items:center;gap:12px;padding:13px 15px;width:100%;background:none;border:0;text-align:left}
+.dia-n{width:34px;flex:none;text-align:center}
+.dia-n b{display:block;font-size:19px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.dia-n small{font-size:10px;color:var(--tx3);text-transform:uppercase;letter-spacing:.04em}
+.dia-c{flex:1;min-width:0}
+.dia-c strong{display:block;font-size:15px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dia-c small{color:var(--tx3);font-size:12px;font-variant-numeric:tabular-nums}
+.dia-r{flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:3px}
+.luna{font-size:11px;color:var(--tx3);font-variant-numeric:tabular-nums}
+.dia-body{padding:0 15px 15px;border-top:1px solid var(--line);margin-top:2px;padding-top:13px}
+.dia-body .card{background:var(--bg2);margin-bottom:10px}
+
+/* ── clima ── */
+.escala{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px}
+.e{font-size:11px;padding:3px 8px;border-radius:6px;font-weight:600}
+.e1{background:color-mix(in srgb,var(--ok) 16%,transparent);color:var(--ok)}
+.e2{background:color-mix(in srgb,var(--warn) 18%,transparent);color:var(--warn)}
+.e3{background:color-mix(in srgb,var(--hot) 18%,transparent);color:var(--hot)}
+.e4{background:color-mix(in srgb,var(--bad) 18%,transparent);color:var(--bad)}
+.horas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(52px,1fr));gap:5px;margin-top:10px}
+.h{background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:7px 3px;text-align:center;font-variant-numeric:tabular-nums}
+.h .hh{font-size:10px;color:var(--tx3)}
+.h .hg{font-size:16px;font-weight:700;line-height:1.2}
+.h .ht{font-size:10px;color:var(--tx2)}
+.h.g2{border-color:var(--warn)} .h.g2 .hg{color:var(--warn)}
+.h.g3{border-color:var(--hot)}  .h.g3 .hg{color:var(--hot)}
+.h.g4{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 12%,var(--bg2))} .h.g4 .hg{color:var(--bad)}
+
+/* ── viento hoy ── */
+.viento-hoy{display:flex;align-items:baseline;gap:10px}
+.viento-hoy .vg{font-size:40px;font-weight:700;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.viento-hoy .vu{font-size:14px;color:var(--tx2)}
+.viento-msg{margin-top:8px;font-size:14px;font-weight:600}
+
+/* ── auroras ── */
+.kp{display:flex;align-items:baseline;gap:12px}
+.kp b{font-size:44px;font-weight:700;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.noche{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+.noche:last-child{border:0}
+.noche .nd{width:44px;flex:none;font-size:12px;color:var(--tx3);font-variant-numeric:tabular-nums}
+.noche .nc{flex:1;min-width:0}
+.noche .nc strong{display:block;font-size:15px}
+.noche .nc small{font-size:12px;color:var(--tx3)}
+.noche .nr{flex:none;text-align:right}
+.rank{font-size:11px;font-weight:700;padding:3px 8px;border-radius:99px;text-transform:uppercase;letter-spacing:.05em}
+.rank.si{background:color-mix(in srgb,var(--ok) 18%,transparent);color:var(--ok)}
+.rank.tal{background:color-mix(in srgb,var(--warn) 18%,transparent);color:var(--warn)}
+.rank.no{background:var(--bg2);color:var(--tx3)}
+
+/* ── emergencias ── */
+.emerg{border-color:var(--bad)}
+.tel{display:flex;flex-direction:column;padding:11px 0;border-bottom:1px solid var(--line);color:var(--tx)}
+.tel:last-child{border:0;padding-bottom:0}
+.tel span{font-size:19px;font-weight:700;color:var(--blue);font-variant-numeric:tabular-nums}
+.tel small{color:var(--tx2);font-size:12.5px;line-height:1.35;margin-top:1px}
+.tel.grande span{font-size:34px;color:var(--bad)}
+.reglas li{margin-bottom:9px;font-size:14px;line-height:1.4}
+.kv{display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+.kv:last-child{border:0}
+.kv span{color:var(--tx2);flex:none}
+.kv b{text-align:right;font-variant-numeric:tabular-nums;word-break:break-word}
+
+/* ── pendientes ── */
+.pend{display:flex;align-items:flex-start;gap:12px;background:var(--card);border:1px solid var(--line);
+  border-left:3px solid var(--line);border-radius:10px;padding:13px 14px;margin-bottom:8px}
+.pend.urge{border-left-color:var(--bad)}
+.pend.pronto{border-left-color:var(--warn)}
+.pend.listo{opacity:.45;border-left-color:var(--ok)}
+.pend input{width:22px;height:22px;flex:none;margin-top:1px;accent-color:var(--ok)}
+.pend .pc{flex:1;min-width:0}
+.pend .pc strong{display:block;font-size:15px;font-weight:600}
+.pend.listo .pc strong{text-decoration:line-through}
+.pend .pc small{display:block;color:var(--tx2);font-size:12.5px;line-height:1.4;margin-top:3px}
+.pend .pd{flex:none;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--tx3);text-align:right}
+.pend.urge .pd{color:var(--bad)} .pend.pronto .pd{color:var(--warn)}
+
+/* ── nav ── */
+#tabs{position:fixed;left:0;right:0;bottom:0;display:flex;background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);
+  border-top:1px solid var(--line);padding-bottom:var(--safe-b);z-index:50}
+#tabs button{flex:1;background:none;border:0;padding:8px 2px 7px;display:flex;flex-direction:column;
+  align-items:center;gap:2px;font-size:10px;color:var(--tx3);position:relative;letter-spacing:.01em}
+#tabs button span{font-size:19px;line-height:1}
+#tabs button.on{color:var(--blue)}
+#pend-badge{position:absolute;top:4px;right:calc(50% - 20px);background:var(--bad);color:#fff;font-size:9px;
+  font-style:normal;font-weight:700;min-width:15px;height:15px;border-radius:99px;display:grid;place-items:center;padding:0 3px}
+
+#offline-bar{position:fixed;top:0;left:0;right:0;background:var(--warn);color:#1a1300;text-align:center;
+  font-size:12px;font-weight:600;padding:calc(env(safe-area-inset-top,0px) + 5px) 8px 5px;z-index:100}
+
+@media (min-width:520px){ h1{font-size:30px} }

@@ -1,0 +1,2058 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Islandia2026</name>
+    <description/>
+    <Style id="icon-1581-0288D1-normal">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1581-0288D1-highlight">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1581-0288D1">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1581-0288D1-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1581-0288D1-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1685-0288D1-normal">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1685-0288D1-highlight">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1685-0288D1">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1685-0288D1-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1685-0288D1-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-006064-labelson">
+      <IconStyle>
+        <color>ff646000</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+    </Style>
+    <Style id="icon-1899-0097A7-labelson">
+      <IconStyle>
+        <color>ffa79700</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+    </Style>
+    <Style id="icon-1899-0F9D58-labelson">
+      <IconStyle>
+        <color>ff589d0f</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+    </Style>
+    <Style id="icon-1899-3949AB-labelson">
+      <IconStyle>
+        <color>ffab4939</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+    </Style>
+    <Style id="icon-1899-673AB7-labelson">
+      <IconStyle>
+        <color>ffb73a67</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+    </Style>
+    <Style id="icon-1899-795548-labelson">
+      <IconStyle>
+        <color>ff485579</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+    </Style>
+    <Style id="icon-1899-7CB342-labelson">
+      <IconStyle>
+        <color>ff42b37c</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+    </Style>
+    <Style id="icon-1899-880E4F-labelson">
+      <IconStyle>
+        <color>ff4f0e88</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+    </Style>
+    <Style id="icon-1899-AFB42B-labelson">
+      <IconStyle>
+        <color>ff2bb4af</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+    </Style>
+    <Style id="icon-1899-E65100-labelson">
+      <IconStyle>
+        <color>ff0051e6</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+    </Style>
+    <Style id="icon-1899-F57C00-labelson">
+      <IconStyle>
+        <color>ff007cf5</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+    </Style>
+    <Style id="icon-1899-FBC02D-labelson">
+      <IconStyle>
+        <color>ff2dc0fb</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+    </Style>
+    <Style id="icon-1899-FFD600-labelson">
+      <IconStyle>
+        <color>ff00d6ff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+    </Style>
+    <Style id="icon-1899-FFEA00-labelson">
+      <IconStyle>
+        <color>ff00eaff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+    </Style>
+    <Folder>
+      <name>Islandia_2026_puntos_Google_My_Maps_actualizado.csv</name>
+      <Placemark>
+        <name>Aeropuerto Internacional de Keflavík</name>
+        <address>Día 1 (30 de septiembre) Aeropuerto Internacional de Keflavík Keflavík International Airport, Iceland Aeropuerto Reikiavik Llegada 06:20</address>
+        <description><![CDATA[﻿Día: Día 1 (30 de septiembre)<br>Orden: 1<br>Ubicación: Keflavík International Airport, Iceland<br>Categoría: Aeropuerto<br>Dónde dormir: Reikiavik<br>Notas: Llegada 06:20]]></description>
+        <styleUrl>#icon-1899-673AB7-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 1 (30 de septiembre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>1.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Keflavík International Airport, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Aeropuerto</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Reikiavik</value>
+          </Data>
+          <Data name="Notas">
+            <value>Llegada 06:20</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Hallgrímskirkja</name>
+        <address>Día 1 (30 de septiembre) Hallgrímskirkja Hallgrímskirkja, Reykjavík, Iceland Interés Reikiavik</address>
+        <description><![CDATA[﻿Día: Día 1 (30 de septiembre)<br>Orden: 3<br>Ubicación: Hallgrímskirkja, Reykjavík, Iceland<br>Categoría: Interés<br>Dónde dormir: Reikiavik<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-673AB7-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 1 (30 de septiembre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>3.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Hallgrímskirkja, Reykjavík, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Interés</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Reikiavik</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Harpa</name>
+        <address>Día 1 (30 de septiembre) Harpa Harpa Concert Hall, Reykjavík, Iceland Interés Reikiavik</address>
+        <description><![CDATA[﻿Día: Día 1 (30 de septiembre)<br>Orden: 4<br>Ubicación: Harpa Concert Hall, Reykjavík, Iceland<br>Categoría: Interés<br>Dónde dormir: Reikiavik<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-673AB7-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 1 (30 de septiembre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>4.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Harpa Concert Hall, Reykjavík, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Interés</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Reikiavik</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Sun Voyager</name>
+        <address>Día 1 (30 de septiembre) Sun Voyager Sun Voyager, Reykjavík, Iceland Interés Reikiavik</address>
+        <description><![CDATA[﻿Día: Día 1 (30 de septiembre)<br>Orden: 5<br>Ubicación: Sun Voyager, Reykjavík, Iceland<br>Categoría: Interés<br>Dónde dormir: Reikiavik<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-673AB7-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 1 (30 de septiembre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>5.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Sun Voyager, Reykjavík, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Interés</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Reikiavik</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Búðakirkja</name>
+        <address>Día 2 (1 de octubre) Búðakirkja Búðakirkja, Iceland Interés Grundarfjörður Iglesia negra</address>
+        <description><![CDATA[﻿Día: Día 2 (1 de octubre)<br>Orden: 2<br>Ubicación: Búðakirkja, Iceland<br>Categoría: Interés<br>Dónde dormir: Grundarfjörður<br>Notas: Iglesia negra]]></description>
+        <styleUrl>#icon-1899-0F9D58-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 2 (1 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>2.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Búðakirkja, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Interés</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Grundarfjörður</value>
+          </Data>
+          <Data name="Notas">
+            <value>Iglesia negra</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Djúpalónssandur</name>
+        <address>Día 2 (1 de octubre) Djúpalónssandur Djúpalónssandur beach, Iceland Interés Grundarfjörður</address>
+        <description><![CDATA[﻿Día: Día 2 (1 de octubre)<br>Orden: 4<br>Ubicación: Djúpalónssandur beach, Iceland<br>Categoría: Interés<br>Dónde dormir: Grundarfjörður<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-0F9D58-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 2 (1 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>4.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Djúpalónssandur beach, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Interés</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Grundarfjörður</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Kirkjufell</name>
+        <address>Día 2 (1 de octubre) Kirkjufell Kirkjufell, Iceland Interés Grundarfjörður Ideal al atardecer/auroras</address>
+        <description><![CDATA[﻿Día: Día 2 (1 de octubre)<br>Orden: 5<br>Ubicación: Kirkjufell, Iceland<br>Categoría: Interés<br>Dónde dormir: Grundarfjörður<br>Notas: Ideal al atardecer/auroras]]></description>
+        <styleUrl>#icon-1899-0F9D58-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 2 (1 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>5.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Kirkjufell, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Interés</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Grundarfjörður</value>
+          </Data>
+          <Data name="Notas">
+            <value>Ideal al atardecer/auroras</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Stykkishólmur</name>
+        <address>Día 3 (2 de octubre) Stykkishólmur Stykkishólmur, Iceland Interés Hvammstangi / Laugarbakki</address>
+        <description><![CDATA[﻿Día: Día 3 (2 de octubre)<br>Orden: 2<br>Ubicación: Stykkishólmur, Iceland<br>Categoría: Interés<br>Dónde dormir: Hvammstangi / Laugarbakki<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-3949AB-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 3 (2 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>2.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Stykkishólmur, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Interés</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Hvammstangi / Laugarbakki</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Kolugljúfur</name>
+        <address>Día 3 (2 de octubre) Kolugljúfur Kolugljúfur Canyon, Iceland Interés Hvammstangi / Laugarbakki</address>
+        <description><![CDATA[﻿Día: Día 3 (2 de octubre)<br>Orden: 3<br>Ubicación: Kolugljúfur Canyon, Iceland<br>Categoría: Interés<br>Dónde dormir: Hvammstangi / Laugarbakki<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-3949AB-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 3 (2 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>3.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Kolugljúfur Canyon, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Interés</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Hvammstangi / Laugarbakki</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Hvammstangi</name>
+        <address>Día 3 (2 de octubre) Hvammstangi Hvammstangi, Iceland Dormir Hvammstangi / Laugarbakki</address>
+        <description><![CDATA[﻿Día: Día 3 (2 de octubre)<br>Orden: 4<br>Ubicación: Hvammstangi, Iceland<br>Categoría: Dormir<br>Dónde dormir: Hvammstangi / Laugarbakki<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-3949AB-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 3 (2 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>4.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Hvammstangi, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Dormir</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Hvammstangi / Laugarbakki</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Akureyri</name>
+        <address>Día 4 (3 de octubre) Akureyri Akureyri, Iceland Dormir Akureyri</address>
+        <description><![CDATA[﻿Día: Día 4 (3 de octubre)<br>Orden: 4<br>Ubicación: Akureyri, Iceland<br>Categoría: Dormir<br>Dónde dormir: Akureyri<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-795548-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 4 (3 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>4.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Akureyri, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Dormir</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Akureyri</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Goðafoss</name>
+        <address>Día 5 (4 de octubre) Goðafoss Goðafoss Waterfall, Iceland Interés Mývatn</address>
+        <description><![CDATA[﻿Día: Día 5 (4 de octubre)<br>Orden: 2<br>Ubicación: Goðafoss Waterfall, Iceland<br>Categoría: Interés<br>Dónde dormir: Mývatn<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-880E4F-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 5 (4 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>2.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Goðafoss Waterfall, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Interés</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Mývatn</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Skútustaðagígar</name>
+        <address>Día 5 (4 de octubre) Skútustaðagígar Skútustaðagígar, Iceland Interés Mývatn</address>
+        <description><![CDATA[﻿Día: Día 5 (4 de octubre)<br>Orden: 3<br>Ubicación: Skútustaðagígar, Iceland<br>Categoría: Interés<br>Dónde dormir: Mývatn<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-880E4F-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 5 (4 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>3.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Skútustaðagígar, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Interés</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Mývatn</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Dimmuborgir</name>
+        <address>Día 5 (4 de octubre) Dimmuborgir Dimmuborgir, Iceland Interés Mývatn</address>
+        <description><![CDATA[﻿Día: Día 5 (4 de octubre)<br>Orden: 4<br>Ubicación: Dimmuborgir, Iceland<br>Categoría: Interés<br>Dónde dormir: Mývatn<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-880E4F-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 5 (4 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>4.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Dimmuborgir, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Interés</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Mývatn</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Mývatn</name>
+        <address>Día 5 (4 de octubre) Mývatn Lake Mývatn, Iceland Dormir Mývatn</address>
+        <description><![CDATA[﻿Día: Día 5 (4 de octubre)<br>Orden: 5<br>Ubicación: Lake Mývatn, Iceland<br>Categoría: Dormir<br>Dónde dormir: Mývatn<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-880E4F-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 5 (4 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>5.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Lake Mývatn, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Dormir</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Mývatn</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Mývatn</name>
+        <address>Día 6 (5 de octubre) Mývatn Lake Mývatn, Iceland Inicio Mývatn</address>
+        <description><![CDATA[﻿Día: Día 6 (5 de octubre)<br>Orden: 1<br>Ubicación: Lake Mývatn, Iceland<br>Categoría: Inicio<br>Dónde dormir: Mývatn<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-FFD600-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 6 (5 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>1.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Lake Mývatn, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Inicio</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Mývatn</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Hverir</name>
+        <address>Día 6 (5 de octubre) Hverir Hverir, Iceland Interés Mývatn</address>
+        <description><![CDATA[﻿Día: Día 6 (5 de octubre)<br>Orden: 2<br>Ubicación: Hverir, Iceland<br>Categoría: Interés<br>Dónde dormir: Mývatn<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-FFD600-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 6 (5 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>2.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Hverir, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Interés</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Mývatn</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Mývatn</name>
+        <address>Día 6 (5 de octubre) Mývatn Lake Mývatn, Iceland Dormir Mývatn</address>
+        <description><![CDATA[﻿Día: Día 6 (5 de octubre)<br>Orden: 7<br>Ubicación: Lake Mývatn, Iceland<br>Categoría: Dormir<br>Dónde dormir: Mývatn<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-FFD600-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 6 (5 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>7.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Lake Mývatn, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Dormir</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Mývatn</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Möðrudalur</name>
+        <address>Día 7 (6 de octubre) Möðrudalur Möðrudalur, Iceland Interés Egilsstaðir</address>
+        <description><![CDATA[﻿Día: Día 7 (6 de octubre)<br>Orden: 2<br>Ubicación: Möðrudalur, Iceland<br>Categoría: Interés<br>Dónde dormir: Egilsstaðir<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-FBC02D-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 7 (6 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>2.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Möðrudalur, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Interés</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Egilsstaðir</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Vök Baths</name>
+        <address>Día 7 (6 de octubre) Vök Baths Vök Baths, Iceland Opcional Egilsstaðir</address>
+        <description><![CDATA[﻿Día: Día 7 (6 de octubre)<br>Orden: 3<br>Ubicación: Vök Baths, Iceland<br>Categoría: Opcional<br>Dónde dormir: Egilsstaðir<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-FBC02D-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 7 (6 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>3.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Vök Baths, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Opcional</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Egilsstaðir</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Djúpivogur</name>
+        <address>Día 8 (7 de octubre) Djúpivogur Djúpivogur, Iceland Interés Höfn</address>
+        <description><![CDATA[﻿Día: Día 8 (7 de octubre)<br>Orden: 4<br>Ubicación: Djúpivogur, Iceland<br>Categoría: Interés<br>Dónde dormir: Höfn<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-FFEA00-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 8 (7 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>4.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Djúpivogur, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Interés</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Höfn</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Vestrahorn</name>
+        <address>Día 8 (7 de octubre) Vestrahorn Vestrahorn, Iceland Opcional Höfn</address>
+        <description><![CDATA[﻿Día: Día 8 (7 de octubre)<br>Orden: 5<br>Ubicación: Vestrahorn, Iceland<br>Categoría: Opcional<br>Dónde dormir: Höfn<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-FFEA00-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 8 (7 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>5.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Vestrahorn, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Opcional</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Höfn</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Höfn</name>
+        <address>Día 8 (7 de octubre) Höfn Höfn, Iceland Dormir Höfn</address>
+        <description><![CDATA[﻿Día: Día 8 (7 de octubre)<br>Orden: 6<br>Ubicación: Höfn, Iceland<br>Categoría: Dormir<br>Dónde dormir: Höfn<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-FFEA00-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 8 (7 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>6.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Höfn, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Dormir</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Höfn</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Höfn</name>
+        <address>Día 9 (8 de octubre) Höfn Höfn, Iceland Inicio Skaftafell / Kirkjubæjarklaustur</address>
+        <description><![CDATA[﻿Día: Día 9 (8 de octubre)<br>Orden: 1<br>Ubicación: Höfn, Iceland<br>Categoría: Inicio<br>Dónde dormir: Skaftafell / Kirkjubæjarklaustur<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-F57C00-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 9 (8 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>1.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Höfn, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Inicio</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Skaftafell / Kirkjubæjarklaustur</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Jökulsárlón</name>
+        <address>Día 9 (8 de octubre) Jökulsárlón Jökulsárlón Glacier Lagoon, Iceland Interés Skaftafell / Kirkjubæjarklaustur</address>
+        <description><![CDATA[﻿Día: Día 9 (8 de octubre)<br>Orden: 2<br>Ubicación: Jökulsárlón Glacier Lagoon, Iceland<br>Categoría: Interés<br>Dónde dormir: Skaftafell / Kirkjubæjarklaustur<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-F57C00-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 9 (8 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>2.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Jökulsárlón Glacier Lagoon, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Interés</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Skaftafell / Kirkjubæjarklaustur</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Fjallsárlón</name>
+        <address>Día 9 (8 de octubre) Fjallsárlón Fjallsárlón, Iceland Interés Skaftafell / Kirkjubæjarklaustur</address>
+        <description><![CDATA[﻿Día: Día 9 (8 de octubre)<br>Orden: 4<br>Ubicación: Fjallsárlón, Iceland<br>Categoría: Interés<br>Dónde dormir: Skaftafell / Kirkjubæjarklaustur<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-F57C00-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 9 (8 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>4.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Fjallsárlón, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Interés</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Skaftafell / Kirkjubæjarklaustur</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Skaftafell</name>
+        <address>Día 9 (8 de octubre) Skaftafell Skaftafell, Iceland Dormir Skaftafell / Kirkjubæjarklaustur</address>
+        <description><![CDATA[﻿Día: Día 9 (8 de octubre)<br>Orden: 5<br>Ubicación: Skaftafell, Iceland<br>Categoría: Dormir<br>Dónde dormir: Skaftafell / Kirkjubæjarklaustur<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-F57C00-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 9 (8 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>5.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Skaftafell, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Dormir</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Skaftafell / Kirkjubæjarklaustur</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Skaftafell</name>
+        <address>Día 10 (9 de octubre) Skaftafell Skaftafell, Iceland Inicio Vík</address>
+        <description><![CDATA[﻿Día: Día 10 (9 de octubre)<br>Orden: 1<br>Ubicación: Skaftafell, Iceland<br>Categoría: Inicio<br>Dónde dormir: Vík<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-7CB342-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 10 (9 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>1.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Skaftafell, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Inicio</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Vík</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Fjaðrárgljúfur</name>
+        <address>Día 10 (9 de octubre) Fjaðrárgljúfur Fjaðrárgljúfur, Iceland Interés Vík</address>
+        <description><![CDATA[﻿Día: Día 10 (9 de octubre)<br>Orden: 2<br>Ubicación: Fjaðrárgljúfur, Iceland<br>Categoría: Interés<br>Dónde dormir: Vík<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-7CB342-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 10 (9 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>2.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Fjaðrárgljúfur, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Interés</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Vík</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Eldhraun</name>
+        <address>Día 10 (9 de octubre) Eldhraun Eldhraun lava field, Iceland Interés Vík</address>
+        <description><![CDATA[﻿Día: Día 10 (9 de octubre)<br>Orden: 3<br>Ubicación: Eldhraun lava field, Iceland<br>Categoría: Interés<br>Dónde dormir: Vík<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-7CB342-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 10 (9 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>3.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Eldhraun lava field, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Interés</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Vík</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Dyrhólaey</name>
+        <address>Día 10 (9 de octubre) Dyrhólaey Dyrhólaey, Iceland Interés Vík</address>
+        <description><![CDATA[﻿Día: Día 10 (9 de octubre)<br>Orden: 5<br>Ubicación: Dyrhólaey, Iceland<br>Categoría: Interés<br>Dónde dormir: Vík<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-7CB342-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 10 (9 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>5.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Dyrhólaey, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Interés</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Vík</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Vík</name>
+        <address>Día 10 (9 de octubre) Vík Vík, Iceland Dormir Vík</address>
+        <description><![CDATA[﻿Día: Día 10 (9 de octubre)<br>Orden: 6<br>Ubicación: Vík, Iceland<br>Categoría: Dormir<br>Dónde dormir: Vík<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-7CB342-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 10 (9 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>6.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Vík, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Dormir</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Vík</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Skógafoss</name>
+        <address>Día 11 (10 de octubre) Skógafoss Skógafoss, Iceland Interés Selfoss / Flúðir</address>
+        <description><![CDATA[﻿Día: Día 11 (10 de octubre)<br>Orden: 2<br>Ubicación: Skógafoss, Iceland<br>Categoría: Interés<br>Dónde dormir: Selfoss / Flúðir<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-E65100-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 11 (10 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>2.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Skógafoss, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Interés</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Selfoss / Flúðir</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Seljalandsfoss</name>
+        <address>Día 11 (10 de octubre) Seljalandsfoss Seljalandsfoss, Iceland Interés Selfoss / Flúðir</address>
+        <description><![CDATA[﻿Día: Día 11 (10 de octubre)<br>Orden: 4<br>Ubicación: Seljalandsfoss, Iceland<br>Categoría: Interés<br>Dónde dormir: Selfoss / Flúðir<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-E65100-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 11 (10 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>4.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Seljalandsfoss, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Interés</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Selfoss / Flúðir</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Selfoss</name>
+        <address>Día 11 (10 de octubre) Selfoss Selfoss, Iceland Dormir Selfoss / Flúðir</address>
+        <description><![CDATA[﻿Día: Día 11 (10 de octubre)<br>Orden: 6<br>Ubicación: Selfoss, Iceland<br>Categoría: Dormir<br>Dónde dormir: Selfoss / Flúðir<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-E65100-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 11 (10 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>6.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Selfoss, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Dormir</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Selfoss / Flúðir</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Þingvellir</name>
+        <address>Día 12 (11 de octubre) Þingvellir Þingvellir National Park, Iceland Interés Reikiavik</address>
+        <description><![CDATA[﻿Día: Día 12 (11 de octubre)<br>Orden: 4<br>Ubicación: Þingvellir National Park, Iceland<br>Categoría: Interés<br>Dónde dormir: Reikiavik<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-0097A7-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 12 (11 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>4.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Þingvellir National Park, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Interés</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Reikiavik</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Reikiavik</name>
+        <address>Día 12 (11 de octubre) Reikiavik Reykjavík, Iceland Dormir Reikiavik</address>
+        <description><![CDATA[﻿Día: Día 12 (11 de octubre)<br>Orden: 5<br>Ubicación: Reykjavík, Iceland<br>Categoría: Dormir<br>Dónde dormir: Reikiavik<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-0097A7-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 12 (11 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>5.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Reykjavík, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Dormir</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Reikiavik</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Perlan</name>
+        <address>Día 13 (12 de octubre) Perlan Perlan, Reykjavík, Iceland Opcional Reikiavik</address>
+        <description><![CDATA[﻿Día: Día 13 (12 de octubre)<br>Orden: 2<br>Ubicación: Perlan, Reykjavík, Iceland<br>Categoría: Opcional<br>Dónde dormir: Reikiavik<br>Notas: ]]></description>
+        <styleUrl>#icon-1899-006064-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 13 (12 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>2.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Perlan, Reykjavík, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Opcional</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Reikiavik</value>
+          </Data>
+          <Data name="Notas">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Aeropuerto Internacional de Keflavík</name>
+        <address>Día 14 (13 de octubre) Aeropuerto Internacional de Keflavík Keflavík International Airport, Iceland Aeropuerto Vuelo Vuelo 17:05</address>
+        <description><![CDATA[﻿Día: Día 14 (13 de octubre)<br>Orden: 2<br>Ubicación: Keflavík International Airport, Iceland<br>Categoría: Aeropuerto<br>Dónde dormir: Vuelo<br>Notas: Vuelo 17:05]]></description>
+        <styleUrl>#icon-1899-AFB42B-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día">
+            <value>Día 14 (13 de octubre)</value>
+          </Data>
+          <Data name="Orden">
+            <value>2.0</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Keflavík International Airport, Iceland</value>
+          </Data>
+          <Data name="Categoría">
+            <value>Aeropuerto</value>
+          </Data>
+          <Data name="Dónde dormir">
+            <value>Vuelo</value>
+          </Data>
+          <Data name="Notas">
+            <value>Vuelo 17:05</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Islandia_2026_tiendas_y_provisiones_MyMaps.csv</name>
+      <Placemark>
+        <name>Bónus Laugavegur</name>
+        <address>Día 1 (30 sep) Bónus Laugavegur Laugavegur 59 Kjörgarður, 101 Reykjavík, Iceland Supermercado COMPRA GRANDE Alta</address>
+        <description><![CDATA[﻿Día recomendado: Día 1 (30 sep)<br>Ubicación: Laugavegur 59 Kjörgarður, 101 Reykjavík, Iceland<br>Tipo: Supermercado<br>Tipo de compra: COMPRA GRANDE<br>Prioridad: Alta<br>Qué comprar: Primera compra del viaje: agua, desayunos, snacks, fruta y básicos para 2–3 días.<br>Horario: 10:00–23:00 todos los días<br>Nota práctica: Conviene abastecerse aquí antes de salir de Reikiavik al día siguiente.<br>Abrir en Google Maps: https://www.google.com/maps/search/?api=1&query=Bonus+Laugavegur+59+Reykjavik]]></description>
+        <styleUrl>#icon-1685-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día recomendado">
+            <value>Día 1 (30 sep)</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Laugavegur 59 Kjörgarður, 101 Reykjavík, Iceland</value>
+          </Data>
+          <Data name="Tipo">
+            <value>Supermercado</value>
+          </Data>
+          <Data name="Tipo de compra">
+            <value>COMPRA GRANDE</value>
+          </Data>
+          <Data name="Prioridad">
+            <value>Alta</value>
+          </Data>
+          <Data name="Qué comprar">
+            <value>Primera compra del viaje: agua, desayunos, snacks, fruta y básicos para 2–3 días.</value>
+          </Data>
+          <Data name="Horario">
+            <value>10:00–23:00 todos los días</value>
+          </Data>
+          <Data name="Nota práctica">
+            <value>Conviene abastecerse aquí antes de salir de Reikiavik al día siguiente.</value>
+          </Data>
+          <Data name="Abrir en Google Maps">
+            <value><![CDATA[https://www.google.com/maps/search/?api=1&query=Bonus+Laugavegur+59+Reykjavik]]></value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Kjörbúðin Grundarfjörður</name>
+        <address>Día 2 (1 oct) Kjörbúðin Grundarfjörður Grundargata 38, 350 Grundarfjörður, Iceland Supermercado local REPOSICIÓN Media</address>
+        <description><![CDATA[﻿Día recomendado: Día 2 (1 oct)<br>Ubicación: Grundargata 38, 350 Grundarfjörður, Iceland<br>Tipo: Supermercado local<br>Tipo de compra: REPOSICIÓN<br>Prioridad: Media<br>Qué comprar: Reposición de agua, fruta, lácteos, pan y snacks.<br>Horario: L–V 09:00–18:00; sáb 10:00–17:00; dom 12:00–17:00<br>Nota práctica: Útil al terminar Snæfellsnes; no depender de llegar tarde porque cierra antes que las cadenas grandes.<br>Abrir en Google Maps: https://www.google.com/maps/search/?api=1&query=Kjorbudin+Grundargata+38+Grundarfjordur]]></description>
+        <styleUrl>#icon-1685-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día recomendado">
+            <value>Día 2 (1 oct)</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Grundargata 38, 350 Grundarfjörður, Iceland</value>
+          </Data>
+          <Data name="Tipo">
+            <value>Supermercado local</value>
+          </Data>
+          <Data name="Tipo de compra">
+            <value>REPOSICIÓN</value>
+          </Data>
+          <Data name="Prioridad">
+            <value>Media</value>
+          </Data>
+          <Data name="Qué comprar">
+            <value>Reposición de agua, fruta, lácteos, pan y snacks.</value>
+          </Data>
+          <Data name="Horario">
+            <value>L–V 09:00–18:00; sáb 10:00–17:00; dom 12:00–17:00</value>
+          </Data>
+          <Data name="Nota práctica">
+            <value>Útil al terminar Snæfellsnes; no depender de llegar tarde porque cierra antes que las cadenas grandes.</value>
+          </Data>
+          <Data name="Abrir en Google Maps">
+            <value><![CDATA[https://www.google.com/maps/search/?api=1&query=Kjorbudin+Grundargata+38+Grundarfjordur]]></value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Kaupfélag Vestur-Húnvetninga</name>
+        <address>Día 3 (2 oct) Kaupfélag Vestur-Húnvetninga Strandgata 1, 530 Hvammstangi, Iceland Supermercado local REPOSICIÓN Media</address>
+        <description><![CDATA[﻿Día recomendado: Día 3 (2 oct)<br>Ubicación: Strandgata 1, 530 Hvammstangi, Iceland<br>Tipo: Supermercado local<br>Tipo de compra: REPOSICIÓN<br>Prioridad: Media<br>Qué comprar: Compra corta para el tramo hacia Tröllaskagi/Akureyri.<br>Horario: Verificar horario cercano a la fecha<br>Nota práctica: Es el supermercado principal de Hvammstangi; buena parada si duermen en Hvammstangi/Laugarbakki.<br>Abrir en Google Maps: https://www.google.com/maps/search/?api=1&query=Kaupfelag+Vestur-Hunvetninga+Strandgata+1+Hvammstangi]]></description>
+        <styleUrl>#icon-1685-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día recomendado">
+            <value>Día 3 (2 oct)</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Strandgata 1, 530 Hvammstangi, Iceland</value>
+          </Data>
+          <Data name="Tipo">
+            <value>Supermercado local</value>
+          </Data>
+          <Data name="Tipo de compra">
+            <value>REPOSICIÓN</value>
+          </Data>
+          <Data name="Prioridad">
+            <value>Media</value>
+          </Data>
+          <Data name="Qué comprar">
+            <value>Compra corta para el tramo hacia Tröllaskagi/Akureyri.</value>
+          </Data>
+          <Data name="Horario">
+            <value>Verificar horario cercano a la fecha</value>
+          </Data>
+          <Data name="Nota práctica">
+            <value>Es el supermercado principal de Hvammstangi; buena parada si duermen en Hvammstangi/Laugarbakki.</value>
+          </Data>
+          <Data name="Abrir en Google Maps">
+            <value><![CDATA[https://www.google.com/maps/search/?api=1&query=Kaupfelag+Vestur-Hunvetninga+Strandgata+1+Hvammstangi]]></value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Krónan Akureyri</name>
+        <address>Día 4 (3 oct) Krónan Akureyri Tryggvabraut 8, 600 Akureyri, Iceland Supermercado COMPRA GRANDE Alta</address>
+        <description><![CDATA[﻿Día recomendado: Día 4 (3 oct)<br>Ubicación: Tryggvabraut 8, 600 Akureyri, Iceland<br>Tipo: Supermercado<br>Tipo de compra: COMPRA GRANDE<br>Prioridad: Alta<br>Qué comprar: Segunda compra grande: reponer comida para Mývatn y el este.<br>Horario: 08:00–21:00 todos los días<br>Nota práctica: Uno de los mejores puntos de abastecimiento antes de entrar a zonas menos pobladas.<br>Abrir en Google Maps: https://www.google.com/maps/search/?api=1&query=Kronan+Tryggvabraut+8+Akureyri]]></description>
+        <styleUrl>#icon-1685-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día recomendado">
+            <value>Día 4 (3 oct)</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Tryggvabraut 8, 600 Akureyri, Iceland</value>
+          </Data>
+          <Data name="Tipo">
+            <value>Supermercado</value>
+          </Data>
+          <Data name="Tipo de compra">
+            <value>COMPRA GRANDE</value>
+          </Data>
+          <Data name="Prioridad">
+            <value>Alta</value>
+          </Data>
+          <Data name="Qué comprar">
+            <value>Segunda compra grande: reponer comida para Mývatn y el este.</value>
+          </Data>
+          <Data name="Horario">
+            <value>08:00–21:00 todos los días</value>
+          </Data>
+          <Data name="Nota práctica">
+            <value>Uno de los mejores puntos de abastecimiento antes de entrar a zonas menos pobladas.</value>
+          </Data>
+          <Data name="Abrir en Google Maps">
+            <value><![CDATA[https://www.google.com/maps/search/?api=1&query=Kronan+Tryggvabraut+8+Akureyri]]></value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Krambúðin Reykjahlíð</name>
+        <address>Día 5/6 (4–5 oct) Krambúðin Reykjahlíð Reykjahlíð Gamlibær, 660 Reykjahlíð, Iceland Conveniencia / abarrotes EMERGENCIA / REPOSICIÓN Alta</address>
+        <description><![CDATA[﻿Día recomendado: Día 5/6 (4–5 oct)<br>Ubicación: Reykjahlíð Gamlibær, 660 Reykjahlíð, Iceland<br>Tipo: Conveniencia / abarrotes<br>Tipo de compra: EMERGENCIA / REPOSICIÓN<br>Prioridad: Alta<br>Qué comprar: Snacks, bebidas, básicos y faltantes durante las dos noches en Mývatn.<br>Horario: 09:00–21:00 todos los días<br>Nota práctica: Es la opción práctica tipo 'Oxxo' de esta zona; no la usaría para la compra grande si Akureyri queda antes.<br>Abrir en Google Maps: https://www.google.com/maps/search/?api=1&query=Krambudin+Reykjahlid+Gamlibaer]]></description>
+        <styleUrl>#icon-1685-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día recomendado">
+            <value>Día 5/6 (4–5 oct)</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Reykjahlíð Gamlibær, 660 Reykjahlíð, Iceland</value>
+          </Data>
+          <Data name="Tipo">
+            <value>Conveniencia / abarrotes</value>
+          </Data>
+          <Data name="Tipo de compra">
+            <value>EMERGENCIA / REPOSICIÓN</value>
+          </Data>
+          <Data name="Prioridad">
+            <value>Alta</value>
+          </Data>
+          <Data name="Qué comprar">
+            <value>Snacks, bebidas, básicos y faltantes durante las dos noches en Mývatn.</value>
+          </Data>
+          <Data name="Horario">
+            <value>09:00–21:00 todos los días</value>
+          </Data>
+          <Data name="Nota práctica">
+            <value><![CDATA[Es la opción práctica tipo 'Oxxo' de esta zona; no la usaría para la compra grande si Akureyri queda antes.]]></value>
+          </Data>
+          <Data name="Abrir en Google Maps">
+            <value><![CDATA[https://www.google.com/maps/search/?api=1&query=Krambudin+Reykjahlid+Gamlibaer]]></value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Nettó Egilsstaðir</name>
+        <address>Día 7 (6 oct) Nettó Egilsstaðir Kaupvangur 6, 700 Egilsstaðir, Iceland Supermercado COMPRA GRANDE Alta</address>
+        <description><![CDATA[﻿Día recomendado: Día 7 (6 oct)<br>Ubicación: Kaupvangur 6, 700 Egilsstaðir, Iceland<br>Tipo: Supermercado<br>Tipo de compra: COMPRA GRANDE<br>Prioridad: Alta<br>Qué comprar: Reponer comida, bebidas y desayunos antes de los fiordos del este.<br>Horario: 08:00–20:00 todos los días<br>Nota práctica: Muy buen punto para reiniciar provisiones después del tramo remoto desde Mývatn.<br>Abrir en Google Maps: https://www.google.com/maps/search/?api=1&query=Netto+Kaupvangur+6+Egilsstadir]]></description>
+        <styleUrl>#icon-1685-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día recomendado">
+            <value>Día 7 (6 oct)</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Kaupvangur 6, 700 Egilsstaðir, Iceland</value>
+          </Data>
+          <Data name="Tipo">
+            <value>Supermercado</value>
+          </Data>
+          <Data name="Tipo de compra">
+            <value>COMPRA GRANDE</value>
+          </Data>
+          <Data name="Prioridad">
+            <value>Alta</value>
+          </Data>
+          <Data name="Qué comprar">
+            <value>Reponer comida, bebidas y desayunos antes de los fiordos del este.</value>
+          </Data>
+          <Data name="Horario">
+            <value>08:00–20:00 todos los días</value>
+          </Data>
+          <Data name="Nota práctica">
+            <value>Muy buen punto para reiniciar provisiones después del tramo remoto desde Mývatn.</value>
+          </Data>
+          <Data name="Abrir en Google Maps">
+            <value><![CDATA[https://www.google.com/maps/search/?api=1&query=Netto+Kaupvangur+6+Egilsstadir]]></value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Krónan Reyðarfjörður</name>
+        <address>Día 8 (7 oct) Krónan Reyðarfjörður Hafnargata 2, 730 Reyðarfjörður, Iceland Supermercado REPOSICIÓN Media</address>
+        <description><![CDATA[﻿Día recomendado: Día 8 (7 oct)<br>Ubicación: Hafnargata 2, 730 Reyðarfjörður, Iceland<br>Tipo: Supermercado<br>Tipo de compra: REPOSICIÓN<br>Prioridad: Media<br>Qué comprar: Parada opcional para reponer en los fiordos del este.<br>Horario: L–V 10:00–19:00; sáb–dom 11:00–17:00<br>Nota práctica: Útil si salen de Egilsstaðir sin compra o si necesitan algo antes de Höfn.<br>Abrir en Google Maps: https://www.google.com/maps/search/?api=1&query=Kronan+Hafnargata+2+Reydarfjordur]]></description>
+        <styleUrl>#icon-1685-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día recomendado">
+            <value>Día 8 (7 oct)</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Hafnargata 2, 730 Reyðarfjörður, Iceland</value>
+          </Data>
+          <Data name="Tipo">
+            <value>Supermercado</value>
+          </Data>
+          <Data name="Tipo de compra">
+            <value>REPOSICIÓN</value>
+          </Data>
+          <Data name="Prioridad">
+            <value>Media</value>
+          </Data>
+          <Data name="Qué comprar">
+            <value>Parada opcional para reponer en los fiordos del este.</value>
+          </Data>
+          <Data name="Horario">
+            <value>L–V 10:00–19:00; sáb–dom 11:00–17:00</value>
+          </Data>
+          <Data name="Nota práctica">
+            <value>Útil si salen de Egilsstaðir sin compra o si necesitan algo antes de Höfn.</value>
+          </Data>
+          <Data name="Abrir en Google Maps">
+            <value><![CDATA[https://www.google.com/maps/search/?api=1&query=Kronan+Hafnargata+2+Reydarfjordur]]></value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Nettó Höfn</name>
+        <address>Día 8/9 (7–8 oct) Nettó Höfn Miðbær, Litlabrú, Höfn, Iceland Supermercado COMPRA GRANDE Alta</address>
+        <description><![CDATA[﻿Día recomendado: Día 8/9 (7–8 oct)<br>Ubicación: Miðbær, Litlabrú, Höfn, Iceland<br>Tipo: Supermercado<br>Tipo de compra: COMPRA GRANDE<br>Prioridad: Alta<br>Qué comprar: Compra importante antes del sureste: comida, agua, snacks y desayuno.<br>Horario: L–V 08:00–20:00; sáb–dom 09:00–20:00<br>Nota práctica: Recomendada antes de Jökulsárlón/Skaftafell, donde la oferta comercial es menor.<br>Abrir en Google Maps: https://www.google.com/maps/search/?api=1&query=Netto+Midbaer+Litlabru+Hofn]]></description>
+        <styleUrl>#icon-1685-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día recomendado">
+            <value>Día 8/9 (7–8 oct)</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Miðbær, Litlabrú, Höfn, Iceland</value>
+          </Data>
+          <Data name="Tipo">
+            <value>Supermercado</value>
+          </Data>
+          <Data name="Tipo de compra">
+            <value>COMPRA GRANDE</value>
+          </Data>
+          <Data name="Prioridad">
+            <value>Alta</value>
+          </Data>
+          <Data name="Qué comprar">
+            <value>Compra importante antes del sureste: comida, agua, snacks y desayuno.</value>
+          </Data>
+          <Data name="Horario">
+            <value>L–V 08:00–20:00; sáb–dom 09:00–20:00</value>
+          </Data>
+          <Data name="Nota práctica">
+            <value>Recomendada antes de Jökulsárlón/Skaftafell, donde la oferta comercial es menor.</value>
+          </Data>
+          <Data name="Abrir en Google Maps">
+            <value><![CDATA[https://www.google.com/maps/search/?api=1&query=Netto+Midbaer+Litlabru+Hofn]]></value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Krónan Vík</name>
+        <address>Día 10 (9 oct) Krónan Vík Austurvegur 20, 870 Vík, Iceland Supermercado REPOSICIÓN Alta</address>
+        <description><![CDATA[﻿Día recomendado: Día 10 (9 oct)<br>Ubicación: Austurvegur 20, 870 Vík, Iceland<br>Tipo: Supermercado<br>Tipo de compra: REPOSICIÓN<br>Prioridad: Alta<br>Qué comprar: Reponer después del sureste y antes de cascadas/costa sur.<br>Horario: 09:00–21:00 todos los días<br>Nota práctica: Horario amplio y ubicación muy cómoda en la ruta.<br>Abrir en Google Maps: https://www.google.com/maps/search/?api=1&query=Kronan+Austurvegur+20+Vik+Iceland]]></description>
+        <styleUrl>#icon-1685-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día recomendado">
+            <value>Día 10 (9 oct)</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Austurvegur 20, 870 Vík, Iceland</value>
+          </Data>
+          <Data name="Tipo">
+            <value>Supermercado</value>
+          </Data>
+          <Data name="Tipo de compra">
+            <value>REPOSICIÓN</value>
+          </Data>
+          <Data name="Prioridad">
+            <value>Alta</value>
+          </Data>
+          <Data name="Qué comprar">
+            <value>Reponer después del sureste y antes de cascadas/costa sur.</value>
+          </Data>
+          <Data name="Horario">
+            <value>09:00–21:00 todos los días</value>
+          </Data>
+          <Data name="Nota práctica">
+            <value>Horario amplio y ubicación muy cómoda en la ruta.</value>
+          </Data>
+          <Data name="Abrir en Google Maps">
+            <value><![CDATA[https://www.google.com/maps/search/?api=1&query=Kronan+Austurvegur+20+Vik+Iceland]]></value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Krónan Selfoss</name>
+        <address>Día 11/12 (10–11 oct) Krónan Selfoss Austurvegur 3, 800 Selfoss, Iceland Supermercado REPOSICIÓN Media</address>
+        <description><![CDATA[﻿Día recomendado: Día 11/12 (10–11 oct)<br>Ubicación: Austurvegur 3, 800 Selfoss, Iceland<br>Tipo: Supermercado<br>Tipo de compra: REPOSICIÓN<br>Prioridad: Media<br>Qué comprar: Última reposición antes del Círculo Dorado/Reikiavik.<br>Horario: 08:00–21:00 todos los días<br>Nota práctica: A partir de aquí ya hay mucha más disponibilidad de tiendas y servicios.<br>Abrir en Google Maps: https://www.google.com/maps/search/?api=1&query=Kronan+Austurvegur+3+Selfoss]]></description>
+        <styleUrl>#icon-1685-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día recomendado">
+            <value>Día 11/12 (10–11 oct)</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Austurvegur 3, 800 Selfoss, Iceland</value>
+          </Data>
+          <Data name="Tipo">
+            <value>Supermercado</value>
+          </Data>
+          <Data name="Tipo de compra">
+            <value>REPOSICIÓN</value>
+          </Data>
+          <Data name="Prioridad">
+            <value>Media</value>
+          </Data>
+          <Data name="Qué comprar">
+            <value>Última reposición antes del Círculo Dorado/Reikiavik.</value>
+          </Data>
+          <Data name="Horario">
+            <value>08:00–21:00 todos los días</value>
+          </Data>
+          <Data name="Nota práctica">
+            <value>A partir de aquí ya hay mucha más disponibilidad de tiendas y servicios.</value>
+          </Data>
+          <Data name="Abrir en Google Maps">
+            <value><![CDATA[https://www.google.com/maps/search/?api=1&query=Kronan+Austurvegur+3+Selfoss]]></value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Islandia_2026_combustible_riesgo_MyMaps.csv</name>
+      <Placemark>
+        <name>Inicio del viaje – tanque lleno</name>
+        <description><![CDATA[﻿Día / tramo: Día 1 (30 sep)<br>Ubicación: Keflavík International Airport, Iceland<br>Tipo: Inicio<br>Nivel: VERDE<br>Acción recomendada: Salir con tanque lleno<br>Distancia / contexto: Keflavík → Reikiavik<br>Horario / servicio: —<br>Notas: Verificar nivel al recibir el Kia Sportage o similar.]]></description>
+        <ExtendedData>
+          <Data name="﻿Día / tramo">
+            <value>Día 1 (30 sep)</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Keflavík International Airport, Iceland</value>
+          </Data>
+          <Data name="Tipo">
+            <value>Inicio</value>
+          </Data>
+          <Data name="Nivel">
+            <value>VERDE</value>
+          </Data>
+          <Data name="Acción recomendada">
+            <value>Salir con tanque lleno</value>
+          </Data>
+          <Data name="Distancia / contexto">
+            <value>Keflavík → Reikiavik</value>
+          </Data>
+          <Data name="Horario / servicio">
+            <value>—</value>
+          </Data>
+          <Data name="Notas">
+            <value>Verificar nivel al recibir el Kia Sportage o similar.</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Orkan Grundarfjörður</name>
+        <address>Día 2 (1 oct) Orkan Grundarfjörður Suðurgarði 1, 350 Grundarfjörður, Iceland Gasolinera VERDE Cargar solo si el tanque está cerca de 1/2 antes de salir al día siguiente</address>
+        <description><![CDATA[﻿Día / tramo: Día 2 (1 oct)<br>Ubicación: Suðurgarði 1, 350 Grundarfjörður, Iceland<br>Tipo: Gasolinera<br>Nivel: VERDE<br>Acción recomendada: Cargar solo si el tanque está cerca de 1/2 antes de salir al día siguiente<br>Distancia / contexto: Grundarfjörður → Laugarbakki: ~161–175 km; hay combustible intermedio<br>Horario / servicio: 24/7<br>Notas: No es un tramo crítico; sirve como punto cómodo de control.]]></description>
+        <styleUrl>#icon-1581-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día / tramo">
+            <value>Día 2 (1 oct)</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Suðurgarði 1, 350 Grundarfjörður, Iceland</value>
+          </Data>
+          <Data name="Tipo">
+            <value>Gasolinera</value>
+          </Data>
+          <Data name="Nivel">
+            <value>VERDE</value>
+          </Data>
+          <Data name="Acción recomendada">
+            <value>Cargar solo si el tanque está cerca de 1/2 antes de salir al día siguiente</value>
+          </Data>
+          <Data name="Distancia / contexto">
+            <value>Grundarfjörður → Laugarbakki: ~161–175 km; hay combustible intermedio</value>
+          </Data>
+          <Data name="Horario / servicio">
+            <value>24/7</value>
+          </Data>
+          <Data name="Notas">
+            <value>No es un tramo crítico; sirve como punto cómodo de control.</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>ÓB Laugarbakki</name>
+        <address>Día 3 (2 oct) ÓB Laugarbakki Miðfjarðarvegur 4, Laugarbakki, Iceland Gasolinera VERDE Revisar nivel; cargar si ≤ 1/2</address>
+        <description><![CDATA[﻿Día / tramo: Día 3 (2 oct)<br>Ubicación: Miðfjarðarvegur 4, Laugarbakki, Iceland<br>Tipo: Gasolinera<br>Nivel: VERDE<br>Acción recomendada: Revisar nivel; cargar si ≤ 1/2<br>Distancia / contexto: Hacia Tröllaskagi/Akureyri hay estaciones en Sauðárkrókur, Siglufjörður y Dalvík<br>Horario / servicio: Autoservicio<br>Notas: Buena parada antes de la ruta escénica del norte.]]></description>
+        <styleUrl>#icon-1581-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día / tramo">
+            <value>Día 3 (2 oct)</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Miðfjarðarvegur 4, Laugarbakki, Iceland</value>
+          </Data>
+          <Data name="Tipo">
+            <value>Gasolinera</value>
+          </Data>
+          <Data name="Nivel">
+            <value>VERDE</value>
+          </Data>
+          <Data name="Acción recomendada">
+            <value>Revisar nivel; cargar si ≤ 1/2</value>
+          </Data>
+          <Data name="Distancia / contexto">
+            <value>Hacia Tröllaskagi/Akureyri hay estaciones en Sauðárkrókur, Siglufjörður y Dalvík</value>
+          </Data>
+          <Data name="Horario / servicio">
+            <value>Autoservicio</value>
+          </Data>
+          <Data name="Notas">
+            <value>Buena parada antes de la ruta escénica del norte.</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Olís Akureyri</name>
+        <description><![CDATA[﻿Día / tramo: Día 4 (3 oct)<br>Ubicación: Tryggvabraut 1, Akureyri, Iceland<br>Tipo: Gasolinera<br>Nivel: VERDE<br>Acción recomendada: Carga opcional; ideal salir de Akureyri con > 1/2<br>Distancia / contexto: Akureyri → Reykjahlíð/Mývatn: ~83 km<br>Horario / servicio: Estación de servicio<br>Notas: Hay combustible en Mývatn, así que no hace falta forzar una carga aquí.]]></description>
+        <ExtendedData>
+          <Data name="﻿Día / tramo">
+            <value>Día 4 (3 oct)</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Tryggvabraut 1, Akureyri, Iceland</value>
+          </Data>
+          <Data name="Tipo">
+            <value>Gasolinera</value>
+          </Data>
+          <Data name="Nivel">
+            <value>VERDE</value>
+          </Data>
+          <Data name="Acción recomendada">
+            <value><![CDATA[Carga opcional; ideal salir de Akureyri con > 1/2]]></value>
+          </Data>
+          <Data name="Distancia / contexto">
+            <value>Akureyri → Reykjahlíð/Mývatn: ~83 km</value>
+          </Data>
+          <Data name="Horario / servicio">
+            <value>Estación de servicio</value>
+          </Data>
+          <Data name="Notas">
+            <value>Hay combustible en Mývatn, así que no hace falta forzar una carga aquí.</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>N1 Mývatn (Reykjahlíð)</name>
+        <description><![CDATA[﻿Día / tramo: Día 5/6 (4–5 oct)<br>Ubicación: Reykjahlíð, 660 Mývatn, Iceland<br>Tipo: Gasolinera<br>Nivel: AMARILLO<br>Acción recomendada: REPOSTAR AQUÍ antes de salir hacia Egilsstaðir; ideal 3/4–lleno<br>Distancia / contexto: Mývatn → Egilsstaðir: ~174 km por carretera<br>Horario / servicio: Autoservicio 24/7<br>Notas: Hay una opción remota en Möðrudalur, pero el plan no depende de ella.]]></description>
+        <ExtendedData>
+          <Data name="﻿Día / tramo">
+            <value>Día 5/6 (4–5 oct)</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Reykjahlíð, 660 Mývatn, Iceland</value>
+          </Data>
+          <Data name="Tipo">
+            <value>Gasolinera</value>
+          </Data>
+          <Data name="Nivel">
+            <value>AMARILLO</value>
+          </Data>
+          <Data name="Acción recomendada">
+            <value>REPOSTAR AQUÍ antes de salir hacia Egilsstaðir; ideal 3/4–lleno</value>
+          </Data>
+          <Data name="Distancia / contexto">
+            <value>Mývatn → Egilsstaðir: ~174 km por carretera</value>
+          </Data>
+          <Data name="Horario / servicio">
+            <value>Autoservicio 24/7</value>
+          </Data>
+          <Data name="Notas">
+            <value>Hay una opción remota en Möðrudalur, pero el plan no depende de ella.</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>⚠ Zona de combustible limitado: Mývatn → Egilsstaðir</name>
+        <description><![CDATA[﻿Día / tramo: Día 7 (6 oct)<br>Ubicación: Möðrudalur, Iceland<br>Tipo: Zona de precaución<br>Nivel: AMARILLO<br>Acción recomendada: Entrar al tramo con 3/4–lleno; no esperar a la luz de reserva<br>Distancia / contexto: ~174 km entre Mývatn y Egilsstaðir; entorno remoto<br>Horario / servicio: Servicios limitados<br>Notas: Esta es la principal zona de combustible a vigilar en la ruta planeada.]]></description>
+        <ExtendedData>
+          <Data name="﻿Día / tramo">
+            <value>Día 7 (6 oct)</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Möðrudalur, Iceland</value>
+          </Data>
+          <Data name="Tipo">
+            <value>Zona de precaución</value>
+          </Data>
+          <Data name="Nivel">
+            <value>AMARILLO</value>
+          </Data>
+          <Data name="Acción recomendada">
+            <value>Entrar al tramo con 3/4–lleno; no esperar a la luz de reserva</value>
+          </Data>
+          <Data name="Distancia / contexto">
+            <value>~174 km entre Mývatn y Egilsstaðir; entorno remoto</value>
+          </Data>
+          <Data name="Horario / servicio">
+            <value>Servicios limitados</value>
+          </Data>
+          <Data name="Notas">
+            <value>Esta es la principal zona de combustible a vigilar en la ruta planeada.</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>N1 Egilsstaðir</name>
+        <address>Día 7 (6 oct) N1 Egilsstaðir N1 Egilsstaðir, Iceland Gasolinera VERDE REPOSTAR si estamos en 1/2 o menos; buen punto para reiniciar el contador</address>
+        <description><![CDATA[﻿Día / tramo: Día 7 (6 oct)<br>Ubicación: N1 Egilsstaðir, Iceland<br>Tipo: Gasolinera<br>Nivel: VERDE<br>Acción recomendada: REPOSTAR si estamos en 1/2 o menos; buen punto para reiniciar el contador<br>Distancia / contexto: Hub principal de combustible del este<br>Horario / servicio: Autoservicio / estación principal<br>Notas: Desde aquí los fiordos del este tienen varias opciones de combustible.]]></description>
+        <styleUrl>#icon-1581-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día / tramo">
+            <value>Día 7 (6 oct)</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>N1 Egilsstaðir, Iceland</value>
+          </Data>
+          <Data name="Tipo">
+            <value>Gasolinera</value>
+          </Data>
+          <Data name="Nivel">
+            <value>VERDE</value>
+          </Data>
+          <Data name="Acción recomendada">
+            <value>REPOSTAR si estamos en 1/2 o menos; buen punto para reiniciar el contador</value>
+          </Data>
+          <Data name="Distancia / contexto">
+            <value>Hub principal de combustible del este</value>
+          </Data>
+          <Data name="Horario / servicio">
+            <value>Autoservicio / estación principal</value>
+          </Data>
+          <Data name="Notas">
+            <value>Desde aquí los fiordos del este tienen varias opciones de combustible.</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Olís Reyðarfjörður</name>
+        <address>Día 8 (7 oct) Olís Reyðarfjörður Búðareyri 33, 730 Reyðarfjörður, Iceland Gasolinera VERDE Carga opcional si el nivel bajó a ~1/2</address>
+        <description><![CDATA[﻿Día / tramo: Día 8 (7 oct)<br>Ubicación: Búðareyri 33, 730 Reyðarfjörður, Iceland<br>Tipo: Gasolinera<br>Nivel: VERDE<br>Acción recomendada: Carga opcional si el nivel bajó a ~1/2<br>Distancia / contexto: Parada intermedia en los fiordos del este<br>Horario / servicio: Gasolina 95 / diésel<br>Notas: Útil para no depender de llegar a Höfn con poco combustible.]]></description>
+        <styleUrl>#icon-1581-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día / tramo">
+            <value>Día 8 (7 oct)</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Búðareyri 33, 730 Reyðarfjörður, Iceland</value>
+          </Data>
+          <Data name="Tipo">
+            <value>Gasolinera</value>
+          </Data>
+          <Data name="Nivel">
+            <value>VERDE</value>
+          </Data>
+          <Data name="Acción recomendada">
+            <value>Carga opcional si el nivel bajó a ~1/2</value>
+          </Data>
+          <Data name="Distancia / contexto">
+            <value>Parada intermedia en los fiordos del este</value>
+          </Data>
+          <Data name="Horario / servicio">
+            <value>Gasolina 95 / diésel</value>
+          </Data>
+          <Data name="Notas">
+            <value>Útil para no depender de llegar a Höfn con poco combustible.</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>N1 Djúpivogur</name>
+        <address>Día 8 (7 oct) N1 Djúpivogur Búland 1, 765 Djúpivogur, Iceland Gasolinera VERDE Carga opcional; tomarla si estamos alrededor de 1/2</address>
+        <description><![CDATA[﻿Día / tramo: Día 8 (7 oct)<br>Ubicación: Búland 1, 765 Djúpivogur, Iceland<br>Tipo: Gasolinera<br>Nivel: VERDE<br>Acción recomendada: Carga opcional; tomarla si estamos alrededor de 1/2<br>Distancia / contexto: Punto intermedio antes de Höfn<br>Horario / servicio: Gasolinera local<br>Notas: Buen respaldo en la costa este.]]></description>
+        <styleUrl>#icon-1581-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día / tramo">
+            <value>Día 8 (7 oct)</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Búland 1, 765 Djúpivogur, Iceland</value>
+          </Data>
+          <Data name="Tipo">
+            <value>Gasolinera</value>
+          </Data>
+          <Data name="Nivel">
+            <value>VERDE</value>
+          </Data>
+          <Data name="Acción recomendada">
+            <value>Carga opcional; tomarla si estamos alrededor de 1/2</value>
+          </Data>
+          <Data name="Distancia / contexto">
+            <value>Punto intermedio antes de Höfn</value>
+          </Data>
+          <Data name="Horario / servicio">
+            <value>Gasolinera local</value>
+          </Data>
+          <Data name="Notas">
+            <value>Buen respaldo en la costa este.</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Olís Höfn í Hornafirði</name>
+        <address>Día 8/9 (7–8 oct) Olís Höfn í Hornafirði Hafnarbraut 45, 780 Höfn, Iceland Gasolinera AMARILLO REPOSTAR AQUÍ antes de continuar al sureste si el tanque está ≤ 2/3</address>
+        <description><![CDATA[﻿Día / tramo: Día 8/9 (7–8 oct)<br>Ubicación: Hafnarbraut 45, 780 Höfn, Iceland<br>Tipo: Gasolinera<br>Nivel: AMARILLO<br>Acción recomendada: REPOSTAR AQUÍ antes de continuar al sureste si el tanque está ≤ 2/3<br>Distancia / contexto: Höfn → Kirkjubæjarklaustur: ~186–200 km; existen estaciones de respaldo en el camino<br>Horario / servicio: Estación de servicio<br>Notas: No es zona roja: hay combustible en Nes/Fagurhólsmýri/Freysnes, pero los servicios están más espaciados.]]></description>
+        <styleUrl>#icon-1581-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día / tramo">
+            <value>Día 8/9 (7–8 oct)</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Hafnarbraut 45, 780 Höfn, Iceland</value>
+          </Data>
+          <Data name="Tipo">
+            <value>Gasolinera</value>
+          </Data>
+          <Data name="Nivel">
+            <value>AMARILLO</value>
+          </Data>
+          <Data name="Acción recomendada">
+            <value>REPOSTAR AQUÍ antes de continuar al sureste si el tanque está ≤ 2/3</value>
+          </Data>
+          <Data name="Distancia / contexto">
+            <value>Höfn → Kirkjubæjarklaustur: ~186–200 km; existen estaciones de respaldo en el camino</value>
+          </Data>
+          <Data name="Horario / servicio">
+            <value>Estación de servicio</value>
+          </Data>
+          <Data name="Notas">
+            <value>No es zona roja: hay combustible en Nes/Fagurhólsmýri/Freysnes, pero los servicios están más espaciados.</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>N1 Fagurhólsmýri</name>
+        <address>Día 9 (8 oct) N1 Fagurhólsmýri Fagurhólsmýri, Iceland Gasolinera de respaldo VERDE Usar como respaldo si el consumo fue mayor de lo previsto</address>
+        <description><![CDATA[﻿Día / tramo: Día 9 (8 oct)<br>Ubicación: Fagurhólsmýri, Iceland<br>Tipo: Gasolinera de respaldo<br>Nivel: VERDE<br>Acción recomendada: Usar como respaldo si el consumo fue mayor de lo previsto<br>Distancia / contexto: Entre Höfn y Freysnes/Skaftafell<br>Horario / servicio: Autoservicio 24/7<br>Notas: Punto importante de respaldo en el sureste.]]></description>
+        <styleUrl>#icon-1581-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día / tramo">
+            <value>Día 9 (8 oct)</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Fagurhólsmýri, Iceland</value>
+          </Data>
+          <Data name="Tipo">
+            <value>Gasolinera de respaldo</value>
+          </Data>
+          <Data name="Nivel">
+            <value>VERDE</value>
+          </Data>
+          <Data name="Acción recomendada">
+            <value>Usar como respaldo si el consumo fue mayor de lo previsto</value>
+          </Data>
+          <Data name="Distancia / contexto">
+            <value>Entre Höfn y Freysnes/Skaftafell</value>
+          </Data>
+          <Data name="Horario / servicio">
+            <value>Autoservicio 24/7</value>
+          </Data>
+          <Data name="Notas">
+            <value>Punto importante de respaldo en el sureste.</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Freysnes / Skaftafell fuel</name>
+        <address>Día 9 (8 oct) Freysnes / Skaftafell fuel Skaftafelli 2, 785 Svínafell, Iceland Gasolinera + tienda VERDE Cargar si estamos cerca de 1/2; útil para comida y provisiones</address>
+        <description><![CDATA[﻿Día / tramo: Día 9 (8 oct)<br>Ubicación: Skaftafelli 2, 785 Svínafell, Iceland<br>Tipo: Gasolinera + tienda<br>Nivel: VERDE<br>Acción recomendada: Cargar si estamos cerca de 1/2; útil para comida y provisiones<br>Distancia / contexto: Zona Skaftafell<br>Horario / servicio: Tienda / combustible<br>Notas: Visit Vatnajökull indica combustible y una sección de comestibles.]]></description>
+        <styleUrl>#icon-1581-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día / tramo">
+            <value>Día 9 (8 oct)</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Skaftafelli 2, 785 Svínafell, Iceland</value>
+          </Data>
+          <Data name="Tipo">
+            <value>Gasolinera + tienda</value>
+          </Data>
+          <Data name="Nivel">
+            <value>VERDE</value>
+          </Data>
+          <Data name="Acción recomendada">
+            <value>Cargar si estamos cerca de 1/2; útil para comida y provisiones</value>
+          </Data>
+          <Data name="Distancia / contexto">
+            <value>Zona Skaftafell</value>
+          </Data>
+          <Data name="Horario / servicio">
+            <value>Tienda / combustible</value>
+          </Data>
+          <Data name="Notas">
+            <value>Visit Vatnajökull indica combustible y una sección de comestibles.</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>ÓB Kirkjubæjarklaustur</name>
+        <address>Día 10 (9 oct) ÓB Kirkjubæjarklaustur Iðjuvellir 1, Kirkjubæjarklaustur, Iceland Gasolinera VERDE Carga opcional según nivel</address>
+        <description><![CDATA[﻿Día / tramo: Día 10 (9 oct)<br>Ubicación: Iðjuvellir 1, Kirkjubæjarklaustur, Iceland<br>Tipo: Gasolinera<br>Nivel: VERDE<br>Acción recomendada: Carga opcional según nivel<br>Distancia / contexto: Kirkjubæjarklaustur → Vík es un tramo corto comparado con el sureste<br>Horario / servicio: Autoservicio<br>Notas: A partir de aquí la densidad de servicios aumenta.]]></description>
+        <styleUrl>#icon-1581-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día / tramo">
+            <value>Día 10 (9 oct)</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Iðjuvellir 1, Kirkjubæjarklaustur, Iceland</value>
+          </Data>
+          <Data name="Tipo">
+            <value>Gasolinera</value>
+          </Data>
+          <Data name="Nivel">
+            <value>VERDE</value>
+          </Data>
+          <Data name="Acción recomendada">
+            <value>Carga opcional según nivel</value>
+          </Data>
+          <Data name="Distancia / contexto">
+            <value>Kirkjubæjarklaustur → Vík es un tramo corto comparado con el sureste</value>
+          </Data>
+          <Data name="Horario / servicio">
+            <value>Autoservicio</value>
+          </Data>
+          <Data name="Notas">
+            <value>A partir de aquí la densidad de servicios aumenta.</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>ÓB Vík</name>
+        <address>Día 10/11 (9–10 oct) ÓB Vík Austurvegur 16, Vík, Iceland Gasolinera VERDE Carga opcional si ≤ 1/2</address>
+        <description><![CDATA[﻿Día / tramo: Día 10/11 (9–10 oct)<br>Ubicación: Austurvegur 16, Vík, Iceland<br>Tipo: Gasolinera<br>Nivel: VERDE<br>Acción recomendada: Carga opcional si ≤ 1/2<br>Distancia / contexto: Vík → Selfoss con múltiples pueblos/servicios intermedios<br>Horario / servicio: Autoservicio<br>Notas: No se considera tramo de riesgo.]]></description>
+        <styleUrl>#icon-1581-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="﻿Día / tramo">
+            <value>Día 10/11 (9–10 oct)</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Austurvegur 16, Vík, Iceland</value>
+          </Data>
+          <Data name="Tipo">
+            <value>Gasolinera</value>
+          </Data>
+          <Data name="Nivel">
+            <value>VERDE</value>
+          </Data>
+          <Data name="Acción recomendada">
+            <value>Carga opcional si ≤ 1/2</value>
+          </Data>
+          <Data name="Distancia / contexto">
+            <value>Vík → Selfoss con múltiples pueblos/servicios intermedios</value>
+          </Data>
+          <Data name="Horario / servicio">
+            <value>Autoservicio</value>
+          </Data>
+          <Data name="Notas">
+            <value>No se considera tramo de riesgo.</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Olís Selfoss</name>
+        <description><![CDATA[﻿Día / tramo: Día 11/12 (10–11 oct)<br>Ubicación: Arnbergi, 800 Selfoss, Iceland<br>Tipo: Gasolinera<br>Nivel: VERDE<br>Acción recomendada: Carga opcional; buen punto antes de Golden Circle/Reikiavik<br>Distancia / contexto: Zona con alta disponibilidad de combustible<br>Horario / servicio: 24/7<br>Notas: No hay riesgo de combustible significativo en esta parte de la ruta.]]></description>
+        <ExtendedData>
+          <Data name="﻿Día / tramo">
+            <value>Día 11/12 (10–11 oct)</value>
+          </Data>
+          <Data name="Ubicación">
+            <value>Arnbergi, 800 Selfoss, Iceland</value>
+          </Data>
+          <Data name="Tipo">
+            <value>Gasolinera</value>
+          </Data>
+          <Data name="Nivel">
+            <value>VERDE</value>
+          </Data>
+          <Data name="Acción recomendada">
+            <value>Carga opcional; buen punto antes de Golden Circle/Reikiavik</value>
+          </Data>
+          <Data name="Distancia / contexto">
+            <value>Zona con alta disponibilidad de combustible</value>
+          </Data>
+          <Data name="Horario / servicio">
+            <value>24/7</value>
+          </Data>
+          <Data name="Notas">
+            <value>No hay riesgo de combustible significativo en esta parte de la ruta.</value>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

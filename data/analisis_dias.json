@@ -1,0 +1,660 @@
+[
+ {
+  "dia": 0,
+  "fecha": "2026-09-30",
+  "km": 56.2,
+  "manejo_h": 1.08,
+  "amanecer": "07:33",
+  "ocaso": "19:03",
+  "crep_ini": "18:47",
+  "crep_fin": "19:50",
+  "luz": "-13:27",
+  "paradas": [
+   "Aeropuerto Internacional de Keflavík",
+   "Reikiavik",
+   "Hallgrímskirkja",
+   "Harpa",
+   "Sun Voyager"
+  ],
+  "tramos": [
+   {
+    "de": "Aeropuerto Internacional de Keflavík",
+    "a": "Reikiavik",
+    "km": 52.7,
+    "h": 0.91
+   },
+   {
+    "de": "Reikiavik",
+    "a": "Hallgrímskirkja",
+    "km": 1.4,
+    "h": 0.08
+   },
+   {
+    "de": "Hallgrímskirkja",
+    "a": "Harpa",
+    "km": 1.4,
+    "h": 0.06
+   },
+   {
+    "de": "Harpa",
+    "a": "Sun Voyager",
+    "km": 0.8,
+    "h": 0.04
+   }
+  ],
+  "luz_min": 690,
+  "tiempo_estimado_min": 181,
+  "holgura_min": 509,
+  "veredicto": "HOLGADO"
+ },
+ {
+  "dia": 1,
+  "fecha": "2026-10-01",
+  "km": 274.9,
+  "manejo_h": 4.37,
+  "amanecer": "07:44",
+  "ocaso": "19:06",
+  "crep_ini": "18:57",
+  "crep_fin": "19:55",
+  "luz": "-13:19",
+  "paradas": [
+   "Reikiavik",
+   "Búðakirkja",
+   "Arnarstapi",
+   "Djúpalónssandur",
+   "Kirkjufell",
+   "Grundarfjörður"
+  ],
+  "tramos": [
+   {
+    "de": "Reikiavik",
+    "a": "Búðakirkja",
+    "km": 178.9,
+    "h": 2.68
+   },
+   {
+    "de": "Búðakirkja",
+    "a": "Arnarstapi",
+    "km": 19.1,
+    "h": 0.32
+   },
+   {
+    "de": "Arnarstapi",
+    "a": "Djúpalónssandur",
+    "km": 15.8,
+    "h": 0.26
+   },
+   {
+    "de": "Djúpalónssandur",
+    "a": "Kirkjufell",
+    "km": 57.5,
+    "h": 0.98
+   },
+   {
+    "de": "Kirkjufell",
+    "a": "Grundarfjörður",
+    "km": 3.5,
+    "h": 0.14
+   }
+  ],
+  "luz_min": 682,
+  "tiempo_estimado_min": 457,
+  "holgura_min": 225,
+  "veredicto": "HOLGADO"
+ },
+ {
+  "dia": 2,
+  "fecha": "2026-10-02",
+  "km": 235.6,
+  "manejo_h": 3.57,
+  "amanecer": "07:34",
+  "ocaso": "18:49",
+  "crep_ini": "18:46",
+  "crep_fin": "19:38",
+  "luz": "-13:11",
+  "paradas": [
+   "Grundarfjörður",
+   "Stykkishólmur",
+   "Kolugljúfur",
+   "Hvammstangi"
+  ],
+  "tramos": [
+   {
+    "de": "Grundarfjörður",
+    "a": "Stykkishólmur",
+    "km": 38.7,
+    "h": 0.59
+   },
+   {
+    "de": "Stykkishólmur",
+    "a": "Kolugljúfur",
+    "km": 174.3,
+    "h": 2.62
+   },
+   {
+    "de": "Kolugljúfur",
+    "a": "Hvammstangi",
+    "km": 22.6,
+    "h": 0.36
+   }
+  ],
+  "luz_min": 675,
+  "tiempo_estimado_min": 331,
+  "holgura_min": 344,
+  "veredicto": "HOLGADO"
+ },
+ {
+  "dia": 3,
+  "fecha": "2026-10-03",
+  "km": 279.5,
+  "manejo_h": 4.3,
+  "amanecer": "07:32",
+  "ocaso": "18:37",
+  "crep_ini": "18:42",
+  "crep_fin": "19:29",
+  "luz": "-13:01",
+  "paradas": [
+   "Hvammstangi",
+   "Sauðárkrókur",
+   "Siglufjörður",
+   "Akureyri"
+  ],
+  "tramos": [
+   {
+    "de": "Hvammstangi",
+    "a": "Sauðárkrókur",
+    "km": 106.8,
+    "h": 1.57
+   },
+   {
+    "de": "Sauðárkrókur",
+    "a": "Siglufjörður",
+    "km": 95.4,
+    "h": 1.39
+   },
+   {
+    "de": "Siglufjörður",
+    "a": "Akureyri",
+    "km": 77.3,
+    "h": 1.34
+   }
+  ],
+  "luz_min": 665,
+  "tiempo_estimado_min": 384,
+  "holgura_min": 281,
+  "veredicto": "HOLGADO"
+ },
+ {
+  "dia": 4,
+  "fecha": "2026-10-04",
+  "km": 99.4,
+  "manejo_h": 1.69,
+  "amanecer": "07:27",
+  "ocaso": "18:27",
+  "crep_ini": "18:38",
+  "crep_fin": "19:17",
+  "luz": "-14:57",
+  "paradas": [
+   "Akureyri",
+   "Goðafoss",
+   "Skútustaðagígar",
+   "Dimmuborgir",
+   "Mývatn"
+  ],
+  "tramos": [
+   {
+    "de": "Akureyri",
+    "a": "Goðafoss",
+    "km": 36.3,
+    "h": 0.62
+   },
+   {
+    "de": "Goðafoss",
+    "a": "Skútustaðagígar",
+    "km": 38.1,
+    "h": 0.56
+   },
+   {
+    "de": "Skútustaðagígar",
+    "a": "Dimmuborgir",
+    "km": 11.4,
+    "h": 0.24
+   },
+   {
+    "de": "Dimmuborgir",
+    "a": "Mývatn",
+    "km": 13.6,
+    "h": 0.27
+   }
+  ],
+  "luz_min": 660,
+  "tiempo_estimado_min": 226,
+  "holgura_min": 434,
+  "veredicto": "HOLGADO"
+ },
+ {
+  "dia": 5,
+  "fecha": "2026-10-05",
+  "km": 250.7,
+  "manejo_h": 4.35,
+  "amanecer": "07:28",
+  "ocaso": "18:20",
+  "crep_ini": "18:39",
+  "crep_fin": "19:11",
+  "luz": "-14:49",
+  "paradas": [
+   "Mývatn",
+   "Hverir",
+   "Krafla / Víti",
+   "Dettifoss",
+   "Ásbyrgi",
+   "Húsavík",
+   "Mývatn"
+  ],
+  "tramos": [
+   {
+    "de": "Mývatn",
+    "a": "Hverir",
+    "km": 16.2,
+    "h": 0.47
+   },
+   {
+    "de": "Hverir",
+    "a": "Krafla / Víti",
+    "km": 11.8,
+    "h": 0.43
+   },
+   {
+    "de": "Krafla / Víti",
+    "a": "Dettifoss",
+    "km": 71.6,
+    "h": 1.11
+   },
+   {
+    "de": "Dettifoss",
+    "a": "Ásbyrgi",
+    "km": 33.8,
+    "h": 0.6
+   },
+   {
+    "de": "Ásbyrgi",
+    "a": "Húsavík",
+    "km": 63.3,
+    "h": 0.95
+   },
+   {
+    "de": "Húsavík",
+    "a": "Mývatn",
+    "km": 54.1,
+    "h": 0.78
+   }
+  ],
+  "luz_min": 652,
+  "tiempo_estimado_min": 486,
+  "holgura_min": 166,
+  "veredicto": "JUSTO"
+ },
+ {
+  "dia": 6,
+  "fecha": "2026-10-06",
+  "km": 173.7,
+  "manejo_h": 2.62,
+  "amanecer": "07:22",
+  "ocaso": "18:10",
+  "crep_ini": "18:34",
+  "crep_fin": "18:59",
+  "luz": "-14:44",
+  "paradas": [
+   "Mývatn",
+   "Möðrudalur",
+   "Vök Baths",
+   "Egilsstaðir"
+  ],
+  "tramos": [
+   {
+    "de": "Mývatn",
+    "a": "Möðrudalur",
+    "km": 78.3,
+    "h": 1.15
+   },
+   {
+    "de": "Möðrudalur",
+    "a": "Vök Baths",
+    "km": 89.9,
+    "h": 1.34
+   },
+   {
+    "de": "Vök Baths",
+    "a": "Egilsstaðir",
+    "km": 5.6,
+    "h": 0.13
+   }
+  ],
+  "luz_min": 648,
+  "tiempo_estimado_min": 262,
+  "holgura_min": 386,
+  "veredicto": "HOLGADO"
+ },
+ {
+  "dia": 7,
+  "fecha": "2026-10-07",
+  "km": 263.1,
+  "manejo_h": 4.37,
+  "amanecer": "07:23",
+  "ocaso": "18:06",
+  "crep_ini": "18:36",
+  "crep_fin": "18:55",
+  "luz": "-14:40",
+  "paradas": [
+   "Egilsstaðir",
+   "Reyðarfjörður",
+   "Fáskrúðsfjörður",
+   "Djúpivogur",
+   "Vestrahorn",
+   "Höfn"
+  ],
+  "tramos": [
+   {
+    "de": "Egilsstaðir",
+    "a": "Reyðarfjörður",
+    "km": 34.5,
+    "h": 0.56
+   },
+   {
+    "de": "Reyðarfjörður",
+    "a": "Fáskrúðsfjörður",
+    "km": 22.1,
+    "h": 0.4
+   },
+   {
+    "de": "Fáskrúðsfjörður",
+    "a": "Djúpivogur",
+    "km": 96.5,
+    "h": 1.52
+   },
+   {
+    "de": "Djúpivogur",
+    "a": "Vestrahorn",
+    "km": 92.7,
+    "h": 1.48
+   },
+   {
+    "de": "Vestrahorn",
+    "a": "Höfn",
+    "km": 17.3,
+    "h": 0.41
+   }
+  ],
+  "luz_min": 643,
+  "tiempo_estimado_min": 455,
+  "holgura_min": 188,
+  "veredicto": "JUSTO"
+ },
+ {
+  "dia": 8,
+  "fecha": "2026-10-08",
+  "km": 145.8,
+  "manejo_h": 3.71,
+  "amanecer": "07:33",
+  "ocaso": "18:11",
+  "crep_ini": "18:47",
+  "crep_fin": "18:59",
+  "luz": "-14:36",
+  "paradas": [
+   "Höfn",
+   "Jökulsárlón",
+   "Diamond Beach",
+   "Fjallsárlón",
+   "Skaftafell"
+  ],
+  "tramos": [
+   {
+    "de": "Höfn",
+    "a": "Jökulsárlón",
+    "km": 78.1,
+    "h": 1.79
+   },
+   {
+    "de": "Jökulsárlón",
+    "a": "Diamond Beach",
+    "km": 7.7,
+    "h": 0.35
+   },
+   {
+    "de": "Diamond Beach",
+    "a": "Fjallsárlón",
+    "km": 13.4,
+    "h": 0.57
+   },
+   {
+    "de": "Fjallsárlón",
+    "a": "Skaftafell",
+    "km": 46.5,
+    "h": 0.99
+   }
+  ],
+  "luz_min": 638,
+  "tiempo_estimado_min": 357,
+  "holgura_min": 281,
+  "veredicto": "HOLGADO"
+ },
+ {
+  "dia": 9,
+  "fecha": "2026-10-09",
+  "km": 233.0,
+  "manejo_h": 3.69,
+  "amanecer": "07:46",
+  "ocaso": "18:21",
+  "crep_ini": "19:01",
+  "crep_fin": "19:07",
+  "luz": "-14:32",
+  "paradas": [
+   "Skaftafell",
+   "Fjaðrárgljúfur",
+   "Eldhraun",
+   "Reynisfjara",
+   "Dyrhólaey",
+   "Vík"
+  ],
+  "tramos": [
+   {
+    "de": "Skaftafell",
+    "a": "Fjaðrárgljúfur",
+    "km": 77.7,
+    "h": 1.13
+   },
+   {
+    "de": "Fjaðrárgljúfur",
+    "a": "Eldhraun",
+    "km": 28.0,
+    "h": 0.41
+   },
+   {
+    "de": "Eldhraun",
+    "a": "Reynisfjara",
+    "km": 88.3,
+    "h": 1.35
+   },
+   {
+    "de": "Reynisfjara",
+    "a": "Dyrhólaey",
+    "km": 19.7,
+    "h": 0.41
+   },
+   {
+    "de": "Dyrhólaey",
+    "a": "Vík",
+    "km": 19.3,
+    "h": 0.39
+   }
+  ],
+  "luz_min": 635,
+  "tiempo_estimado_min": 408,
+  "holgura_min": 227,
+  "veredicto": "HOLGADO"
+ },
+ {
+  "dia": 10,
+  "fecha": "2026-10-10",
+  "km": 140.0,
+  "manejo_h": 2.22,
+  "amanecer": "07:53",
+  "ocaso": "18:21",
+  "crep_ini": "19:07",
+  "crep_fin": "19:08",
+  "luz": "-14:24",
+  "paradas": [
+   "Vík",
+   "Skógafoss",
+   "Kvernufoss",
+   "Seljalandsfoss",
+   "Gljúfrabúi",
+   "Selfoss"
+  ],
+  "tramos": [
+   {
+    "de": "Vík",
+    "a": "Skógafoss",
+    "km": 34.6,
+    "h": 0.54
+   },
+   {
+    "de": "Skógafoss",
+    "a": "Kvernufoss",
+    "km": 3.3,
+    "h": 0.09
+   },
+   {
+    "de": "Kvernufoss",
+    "a": "Seljalandsfoss",
+    "km": 30.5,
+    "h": 0.49
+   },
+   {
+    "de": "Seljalandsfoss",
+    "a": "Gljúfrabúi",
+    "km": 1.1,
+    "h": 0.05
+   },
+   {
+    "de": "Gljúfrabúi",
+    "a": "Selfoss",
+    "km": 70.5,
+    "h": 1.06
+   }
+  ],
+  "luz_min": 628,
+  "tiempo_estimado_min": 301,
+  "holgura_min": 327,
+  "veredicto": "HOLGADO"
+ },
+ {
+  "dia": 11,
+  "fecha": "2026-10-11",
+  "km": 199.6,
+  "manejo_h": 3.16,
+  "amanecer": "07:59",
+  "ocaso": "18:17",
+  "crep_ini": "19:12",
+  "crep_fin": "19:05",
+  "luz": "-14:15",
+  "paradas": [
+   "Selfoss / Flúðir",
+   "Gullfoss",
+   "Geysir",
+   "Þingvellir",
+   "Reikiavik"
+  ],
+  "tramos": [
+   {
+    "de": "Selfoss / Flúðir",
+    "a": "Gullfoss",
+    "km": 69.5,
+    "h": 1.07
+   },
+   {
+    "de": "Gullfoss",
+    "a": "Geysir",
+    "km": 23.1,
+    "h": 0.36
+   },
+   {
+    "de": "Geysir",
+    "a": "Þingvellir",
+    "km": 55.9,
+    "h": 0.9
+   },
+   {
+    "de": "Þingvellir",
+    "a": "Reikiavik",
+    "km": 51.1,
+    "h": 0.83
+   }
+  ],
+  "luz_min": 618,
+  "tiempo_estimado_min": 335,
+  "holgura_min": 283,
+  "veredicto": "HOLGADO"
+ },
+ {
+  "dia": 12,
+  "fecha": "2026-10-12",
+  "km": 8.3,
+  "manejo_h": 0.26,
+  "amanecer": "08:08",
+  "ocaso": "18:20",
+  "crep_ini": "19:21",
+  "crep_fin": "19:08",
+  "luz": "-14:09",
+  "paradas": [
+   "Reikiavik",
+   "Perlan",
+   "Sky Lagoon"
+  ],
+  "tramos": [
+   {
+    "de": "Reikiavik",
+    "a": "Perlan",
+    "km": 3.4,
+    "h": 0.11
+   },
+   {
+    "de": "Perlan",
+    "a": "Sky Lagoon",
+    "km": 4.9,
+    "h": 0.16
+   }
+  ],
+  "luz_min": 612,
+  "tiempo_estimado_min": 52,
+  "holgura_min": 560,
+  "veredicto": "HOLGADO"
+ },
+ {
+  "dia": 13,
+  "fecha": "2026-10-13",
+  "km": 52.2,
+  "manejo_h": 0.91,
+  "amanecer": "08:13",
+  "ocaso": "18:20",
+  "crep_ini": "19:27",
+  "crep_fin": "19:08",
+  "luz": "-14:03",
+  "paradas": [
+   "Reikiavik",
+   "Aeropuerto Internacional de Keflavík"
+  ],
+  "tramos": [
+   {
+    "de": "Reikiavik",
+    "a": "Aeropuerto Internacional de Keflavík",
+    "km": 52.2,
+    "h": 0.91
+   }
+  ],
+  "luz_min": 607,
+  "tiempo_estimado_min": 65,
+  "holgura_min": 542,
+  "veredicto": "HOLGADO"
+ }
+]

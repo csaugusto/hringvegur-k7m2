@@ -1,0 +1,437 @@
+[
+ {
+  "capa": "tienda",
+  "Nombre": "Bónus Laugavegur",
+  "Ubicación": "Laugavegur 59 Kjörgarður, 101 Reykjavík, Iceland",
+  "meta": {
+   "Día recomendado": "Día 1 (30 sep)",
+   "Ubicación": "Laugavegur 59 Kjörgarður, 101 Reykjavík, Iceland",
+   "Tipo": "Supermercado",
+   "Tipo de compra": "COMPRA GRANDE",
+   "Prioridad": "Alta",
+   "Qué comprar": "Primera compra del viaje: agua, desayunos, snacks, fruta y básicos para 2–3 días.",
+   "Horario": "10:00–23:00 todos los días",
+   "Nota práctica": "Conviene abastecerse aquí antes de salir de Reikiavik al día siguiente.",
+   "Abrir en Google Maps": "https://www.google.com/maps/search/?api=1&query=Bonus+Laugavegur+59+Reykjavik"
+  },
+  "lat": null,
+  "lon": null
+ },
+ {
+  "capa": "tienda",
+  "Nombre": "Kjörbúðin Grundarfjörður",
+  "Ubicación": "Grundargata 38, 350 Grundarfjörður, Iceland",
+  "meta": {
+   "Día recomendado": "Día 2 (1 oct)",
+   "Ubicación": "Grundargata 38, 350 Grundarfjörður, Iceland",
+   "Tipo": "Supermercado local",
+   "Tipo de compra": "REPOSICIÓN",
+   "Prioridad": "Media",
+   "Qué comprar": "Reposición de agua, fruta, lácteos, pan y snacks.",
+   "Horario": "L–V 09:00–18:00; sáb 10:00–17:00; dom 12:00–17:00",
+   "Nota práctica": "Útil al terminar Snæfellsnes; no depender de llegar tarde porque cierra antes que las cadenas grandes.",
+   "Abrir en Google Maps": "https://www.google.com/maps/search/?api=1&query=Kjorbudin+Grundargata+38+Grundarfjordur"
+  },
+  "lat": 64.9255197,
+  "lon": -23.260079
+ },
+ {
+  "capa": "tienda",
+  "Nombre": "Kaupfélag Vestur-Húnvetninga",
+  "Ubicación": "Strandgata 1, 530 Hvammstangi, Iceland",
+  "meta": {
+   "Día recomendado": "Día 3 (2 oct)",
+   "Ubicación": "Strandgata 1, 530 Hvammstangi, Iceland",
+   "Tipo": "Supermercado local",
+   "Tipo de compra": "REPOSICIÓN",
+   "Prioridad": "Media",
+   "Qué comprar": "Compra corta para el tramo hacia Tröllaskagi/Akureyri.",
+   "Horario": "Verificar horario cercano a la fecha",
+   "Nota práctica": "Es el supermercado principal de Hvammstangi; buena parada si duermen en Hvammstangi/Laugarbakki.",
+   "Abrir en Google Maps": "https://www.google.com/maps/search/?api=1&query=Kaupfelag+Vestur-Hunvetninga+Strandgata+1+Hvammstangi"
+  },
+  "lat": 65.3957491,
+  "lon": -20.9467139
+ },
+ {
+  "capa": "tienda",
+  "Nombre": "Krónan Akureyri",
+  "Ubicación": "Tryggvabraut 8, 600 Akureyri, Iceland",
+  "meta": {
+   "Día recomendado": "Día 4 (3 oct)",
+   "Ubicación": "Tryggvabraut 8, 600 Akureyri, Iceland",
+   "Tipo": "Supermercado",
+   "Tipo de compra": "COMPRA GRANDE",
+   "Prioridad": "Alta",
+   "Qué comprar": "Segunda compra grande: reponer comida para Mývatn y el este.",
+   "Horario": "08:00–21:00 todos los días",
+   "Nota práctica": "Uno de los mejores puntos de abastecimiento antes de entrar a zonas menos pobladas.",
+   "Abrir en Google Maps": "https://www.google.com/maps/search/?api=1&query=Kronan+Tryggvabraut+8+Akureyri"
+  },
+  "lat": 65.6891277,
+  "lon": -18.0987636
+ },
+ {
+  "capa": "tienda",
+  "Nombre": "Krambúðin Reykjahlíð",
+  "Ubicación": "Reykjahlíð Gamlibær, 660 Reykjahlíð, Iceland",
+  "meta": {
+   "Día recomendado": "Día 5/6 (4–5 oct)",
+   "Ubicación": "Reykjahlíð Gamlibær, 660 Reykjahlíð, Iceland",
+   "Tipo": "Conveniencia / abarrotes",
+   "Tipo de compra": "EMERGENCIA / REPOSICIÓN",
+   "Prioridad": "Alta",
+   "Qué comprar": "Snacks, bebidas, básicos y faltantes durante las dos noches en Mývatn.",
+   "Horario": "09:00–21:00 todos los días",
+   "Nota práctica": "Es la opción práctica tipo 'Oxxo' de esta zona; no la usaría para la compra grande si Akureyri queda antes.",
+   "Abrir en Google Maps": "https://www.google.com/maps/search/?api=1&query=Krambudin+Reykjahlid+Gamlibaer"
+  },
+  "lat": 65.645045,
+  "lon": -16.913687
+ },
+ {
+  "capa": "tienda",
+  "Nombre": "Nettó Egilsstaðir",
+  "Ubicación": "Kaupvangur 6, 700 Egilsstaðir, Iceland",
+  "meta": {
+   "Día recomendado": "Día 7 (6 oct)",
+   "Ubicación": "Kaupvangur 6, 700 Egilsstaðir, Iceland",
+   "Tipo": "Supermercado",
+   "Tipo de compra": "COMPRA GRANDE",
+   "Prioridad": "Alta",
+   "Qué comprar": "Reponer comida, bebidas y desayunos antes de los fiordos del este.",
+   "Horario": "08:00–20:00 todos los días",
+   "Nota práctica": "Muy buen punto para reiniciar provisiones después del tramo remoto desde Mývatn.",
+   "Abrir en Google Maps": "https://www.google.com/maps/search/?api=1&query=Netto+Kaupvangur+6+Egilsstadir"
+  },
+  "lat": 65.2602881,
+  "lon": -14.4065256
+ },
+ {
+  "capa": "tienda",
+  "Nombre": "Krónan Reyðarfjörður",
+  "Ubicación": "Hafnargata 2, 730 Reyðarfjörður, Iceland",
+  "meta": {
+   "Día recomendado": "Día 8 (7 oct)",
+   "Ubicación": "Hafnargata 2, 730 Reyðarfjörður, Iceland",
+   "Tipo": "Supermercado",
+   "Tipo de compra": "REPOSICIÓN",
+   "Prioridad": "Media",
+   "Qué comprar": "Parada opcional para reponer en los fiordos del este.",
+   "Horario": "L–V 10:00–19:00; sáb–dom 11:00–17:00",
+   "Nota práctica": "Útil si salen de Egilsstaðir sin compra o si necesitan algo antes de Höfn.",
+   "Abrir en Google Maps": "https://www.google.com/maps/search/?api=1&query=Kronan+Hafnargata+2+Reydarfjordur"
+  },
+  "lat": 65.0320766,
+  "lon": -14.2196492
+ },
+ {
+  "capa": "tienda",
+  "Nombre": "Nettó Höfn",
+  "Ubicación": "Miðbær, Litlabrú, Höfn, Iceland",
+  "meta": {
+   "Día recomendado": "Día 8/9 (7–8 oct)",
+   "Ubicación": "Miðbær, Litlabrú, Höfn, Iceland",
+   "Tipo": "Supermercado",
+   "Tipo de compra": "COMPRA GRANDE",
+   "Prioridad": "Alta",
+   "Qué comprar": "Compra importante antes del sureste: comida, agua, snacks y desayuno.",
+   "Horario": "L–V 08:00–20:00; sáb–dom 09:00–20:00",
+   "Nota práctica": "Recomendada antes de Jökulsárlón/Skaftafell, donde la oferta comercial es menor.",
+   "Abrir en Google Maps": "https://www.google.com/maps/search/?api=1&query=Netto+Midbaer+Litlabru+Hofn"
+  },
+  "lat": null,
+  "lon": null
+ },
+ {
+  "capa": "tienda",
+  "Nombre": "Krónan Vík",
+  "Ubicación": "Austurvegur 20, 870 Vík, Iceland",
+  "meta": {
+   "Día recomendado": "Día 10 (9 oct)",
+   "Ubicación": "Austurvegur 20, 870 Vík, Iceland",
+   "Tipo": "Supermercado",
+   "Tipo de compra": "REPOSICIÓN",
+   "Prioridad": "Alta",
+   "Qué comprar": "Reponer después del sureste y antes de cascadas/costa sur.",
+   "Horario": "09:00–21:00 todos los días",
+   "Nota práctica": "Horario amplio y ubicación muy cómoda en la ruta.",
+   "Abrir en Google Maps": "https://www.google.com/maps/search/?api=1&query=Kronan+Austurvegur+20+Vik+Iceland"
+  },
+  "lat": 63.4173544,
+  "lon": -18.9996467
+ },
+ {
+  "capa": "tienda",
+  "Nombre": "Krónan Selfoss",
+  "Ubicación": "Austurvegur 3, 800 Selfoss, Iceland",
+  "meta": {
+   "Día recomendado": "Día 11/12 (10–11 oct)",
+   "Ubicación": "Austurvegur 3, 800 Selfoss, Iceland",
+   "Tipo": "Supermercado",
+   "Tipo de compra": "REPOSICIÓN",
+   "Prioridad": "Media",
+   "Qué comprar": "Última reposición antes del Círculo Dorado/Reikiavik.",
+   "Horario": "08:00–21:00 todos los días",
+   "Nota práctica": "A partir de aquí ya hay mucha más disponibilidad de tiendas y servicios.",
+   "Abrir en Google Maps": "https://www.google.com/maps/search/?api=1&query=Kronan+Austurvegur+3+Selfoss"
+  },
+  "lat": 63.9379394,
+  "lon": -21.0013146
+ },
+ {
+  "capa": "combustible",
+  "Nombre": "Inicio del viaje – tanque lleno",
+  "Ubicación": "Keflavík International Airport, Iceland",
+  "meta": {
+   "Día / tramo": "Día 1 (30 sep)",
+   "Ubicación": "Keflavík International Airport, Iceland",
+   "Tipo": "Inicio",
+   "Nivel": "VERDE",
+   "Acción recomendada": "Salir con tanque lleno",
+   "Distancia / contexto": "Keflavík → Reikiavik",
+   "Horario / servicio": "—",
+   "Notas": "Verificar nivel al recibir el Kia Sportage o similar."
+  },
+  "lat": 63.9850119,
+  "lon": -22.6266959
+ },
+ {
+  "capa": "combustible",
+  "Nombre": "Orkan Grundarfjörður",
+  "Ubicación": "Suðurgarði 1, 350 Grundarfjörður, Iceland",
+  "meta": {
+   "Día / tramo": "Día 2 (1 oct)",
+   "Ubicación": "Suðurgarði 1, 350 Grundarfjörður, Iceland",
+   "Tipo": "Gasolinera",
+   "Nivel": "VERDE",
+   "Acción recomendada": "Cargar solo si el tanque está cerca de 1/2 antes de salir al día siguiente",
+   "Distancia / contexto": "Grundarfjörður → Laugarbakki: ~161–175 km; hay combustible intermedio",
+   "Horario / servicio": "24/7",
+   "Notas": "No es un tramo crítico; sirve como punto cómodo de control."
+  },
+  "lat": null,
+  "lon": null
+ },
+ {
+  "capa": "combustible",
+  "Nombre": "ÓB Laugarbakki",
+  "Ubicación": "Miðfjarðarvegur 4, Laugarbakki, Iceland",
+  "meta": {
+   "Día / tramo": "Día 3 (2 oct)",
+   "Ubicación": "Miðfjarðarvegur 4, Laugarbakki, Iceland",
+   "Tipo": "Gasolinera",
+   "Nivel": "VERDE",
+   "Acción recomendada": "Revisar nivel; cargar si ≤ 1/2",
+   "Distancia / contexto": "Hacia Tröllaskagi/Akureyri hay estaciones en Sauðárkrókur, Siglufjörður y Dalvík",
+   "Horario / servicio": "Autoservicio",
+   "Notas": "Buena parada antes de la ruta escénica del norte."
+  },
+  "lat": 65.3259727,
+  "lon": -20.8923724
+ },
+ {
+  "capa": "combustible",
+  "Nombre": "Olís Akureyri",
+  "Ubicación": "Tryggvabraut 1, Akureyri, Iceland",
+  "meta": {
+   "Día / tramo": "Día 4 (3 oct)",
+   "Ubicación": "Tryggvabraut 1, Akureyri, Iceland",
+   "Tipo": "Gasolinera",
+   "Nivel": "VERDE",
+   "Acción recomendada": "Carga opcional; ideal salir de Akureyri con > 1/2",
+   "Distancia / contexto": "Akureyri → Reykjahlíð/Mývatn: ~83 km",
+   "Horario / servicio": "Estación de servicio",
+   "Notas": "Hay combustible en Mývatn, así que no hace falta forzar una carga aquí."
+  },
+  "lat": 65.6893963,
+  "lon": -18.1001822
+ },
+ {
+  "capa": "combustible",
+  "Nombre": "N1 Mývatn (Reykjahlíð)",
+  "Ubicación": "Reykjahlíð, 660 Mývatn, Iceland",
+  "meta": {
+   "Día / tramo": "Día 5/6 (4–5 oct)",
+   "Ubicación": "Reykjahlíð, 660 Mývatn, Iceland",
+   "Tipo": "Gasolinera",
+   "Nivel": "AMARILLO",
+   "Acción recomendada": "REPOSTAR AQUÍ antes de salir hacia Egilsstaðir; ideal 3/4–lleno",
+   "Distancia / contexto": "Mývatn → Egilsstaðir: ~174 km por carretera",
+   "Horario / servicio": "Autoservicio 24/7",
+   "Notas": "Hay una opción remota en Möðrudalur, pero el plan no depende de ella."
+  },
+  "lat": 65.6453023,
+  "lon": -16.9148622
+ },
+ {
+  "capa": "combustible",
+  "Nombre": "⚠ Zona de combustible limitado: Mývatn → Egilsstaðir",
+  "Ubicación": "Möðrudalur, Iceland",
+  "meta": {
+   "Día / tramo": "Día 7 (6 oct)",
+   "Ubicación": "Möðrudalur, Iceland",
+   "Tipo": "Zona de precaución",
+   "Nivel": "AMARILLO",
+   "Acción recomendada": "Entrar al tramo con 3/4–lleno; no esperar a la luz de reserva",
+   "Distancia / contexto": "~174 km entre Mývatn y Egilsstaðir; entorno remoto",
+   "Horario / servicio": "Servicios limitados",
+   "Notas": "Esta es la principal zona de combustible a vigilar en la ruta planeada."
+  },
+  "lat": 65.3746014,
+  "lon": -15.8813275
+ },
+ {
+  "capa": "combustible",
+  "Nombre": "N1 Egilsstaðir",
+  "Ubicación": "N1 Egilsstaðir, Iceland",
+  "meta": {
+   "Día / tramo": "Día 7 (6 oct)",
+   "Ubicación": "N1 Egilsstaðir, Iceland",
+   "Tipo": "Gasolinera",
+   "Nivel": "VERDE",
+   "Acción recomendada": "REPOSTAR si estamos en 1/2 o menos; buen punto para reiniciar el contador",
+   "Distancia / contexto": "Hub principal de combustible del este",
+   "Horario / servicio": "Autoservicio / estación principal",
+   "Notas": "Desde aquí los fiordos del este tienen varias opciones de combustible."
+  },
+  "lat": 65.2603656,
+  "lon": -14.4082439
+ },
+ {
+  "capa": "combustible",
+  "Nombre": "Olís Reyðarfjörður",
+  "Ubicación": "Búðareyri 33, 730 Reyðarfjörður, Iceland",
+  "meta": {
+   "Día / tramo": "Día 8 (7 oct)",
+   "Ubicación": "Búðareyri 33, 730 Reyðarfjörður, Iceland",
+   "Tipo": "Gasolinera",
+   "Nivel": "VERDE",
+   "Acción recomendada": "Carga opcional si el nivel bajó a ~1/2",
+   "Distancia / contexto": "Parada intermedia en los fiordos del este",
+   "Horario / servicio": "Gasolina 95 / diésel",
+   "Notas": "Útil para no depender de llegar a Höfn con poco combustible."
+  },
+  "lat": 65.033905,
+  "lon": -14.2310824
+ },
+ {
+  "capa": "combustible",
+  "Nombre": "N1 Djúpivogur",
+  "Ubicación": "Búland 1, 765 Djúpivogur, Iceland",
+  "meta": {
+   "Día / tramo": "Día 8 (7 oct)",
+   "Ubicación": "Búland 1, 765 Djúpivogur, Iceland",
+   "Tipo": "Gasolinera",
+   "Nivel": "VERDE",
+   "Acción recomendada": "Carga opcional; tomarla si estamos alrededor de 1/2",
+   "Distancia / contexto": "Punto intermedio antes de Höfn",
+   "Horario / servicio": "Gasolinera local",
+   "Notas": "Buen respaldo en la costa este."
+  },
+  "lat": 64.6560126,
+  "lon": -14.2858209
+ },
+ {
+  "capa": "combustible",
+  "Nombre": "Olís Höfn í Hornafirði",
+  "Ubicación": "Hafnarbraut 45, 780 Höfn, Iceland",
+  "meta": {
+   "Día / tramo": "Día 8/9 (7–8 oct)",
+   "Ubicación": "Hafnarbraut 45, 780 Höfn, Iceland",
+   "Tipo": "Gasolinera",
+   "Nivel": "AMARILLO",
+   "Acción recomendada": "REPOSTAR AQUÍ antes de continuar al sureste si el tanque está ≤ 2/3",
+   "Distancia / contexto": "Höfn → Kirkjubæjarklaustur: ~186–200 km; existen estaciones de respaldo en el camino",
+   "Horario / servicio": "Estación de servicio",
+   "Notas": "No es zona roja: hay combustible en Nes/Fagurhólsmýri/Freysnes, pero los servicios están más espaciados."
+  },
+  "lat": 64.2555288,
+  "lon": -15.2089562
+ },
+ {
+  "capa": "combustible",
+  "Nombre": "N1 Fagurhólsmýri",
+  "Ubicación": "Fagurhólsmýri, Iceland",
+  "meta": {
+   "Día / tramo": "Día 9 (8 oct)",
+   "Ubicación": "Fagurhólsmýri, Iceland",
+   "Tipo": "Gasolinera de respaldo",
+   "Nivel": "VERDE",
+   "Acción recomendada": "Usar como respaldo si el consumo fue mayor de lo previsto",
+   "Distancia / contexto": "Entre Höfn y Freysnes/Skaftafell",
+   "Horario / servicio": "Autoservicio 24/7",
+   "Notas": "Punto importante de respaldo en el sureste."
+  },
+  "lat": 63.8782311,
+  "lon": -16.6435143
+ },
+ {
+  "capa": "combustible",
+  "Nombre": "Freysnes / Skaftafell fuel",
+  "Ubicación": "Skaftafelli 2, 785 Svínafell, Iceland",
+  "meta": {
+   "Día / tramo": "Día 9 (8 oct)",
+   "Ubicación": "Skaftafelli 2, 785 Svínafell, Iceland",
+   "Tipo": "Gasolinera + tienda",
+   "Nivel": "VERDE",
+   "Acción recomendada": "Cargar si estamos cerca de 1/2; útil para comida y provisiones",
+   "Distancia / contexto": "Zona Skaftafell",
+   "Horario / servicio": "Tienda / combustible",
+   "Notas": "Visit Vatnajökull indica combustible y una sección de comestibles."
+  },
+  "lat": null,
+  "lon": null
+ },
+ {
+  "capa": "combustible",
+  "Nombre": "ÓB Kirkjubæjarklaustur",
+  "Ubicación": "Iðjuvellir 1, Kirkjubæjarklaustur, Iceland",
+  "meta": {
+   "Día / tramo": "Día 10 (9 oct)",
+   "Ubicación": "Iðjuvellir 1, Kirkjubæjarklaustur, Iceland",
+   "Tipo": "Gasolinera",
+   "Nivel": "VERDE",
+   "Acción recomendada": "Carga opcional según nivel",
+   "Distancia / contexto": "Kirkjubæjarklaustur → Vík es un tramo corto comparado con el sureste",
+   "Horario / servicio": "Autoservicio",
+   "Notas": "A partir de aquí la densidad de servicios aumenta."
+  },
+  "lat": 63.7945758,
+  "lon": -18.0384263
+ },
+ {
+  "capa": "combustible",
+  "Nombre": "ÓB Vík",
+  "Ubicación": "Austurvegur 16, Vík, Iceland",
+  "meta": {
+   "Día / tramo": "Día 10/11 (9–10 oct)",
+   "Ubicación": "Austurvegur 16, Vík, Iceland",
+   "Tipo": "Gasolinera",
+   "Nivel": "VERDE",
+   "Acción recomendada": "Carga opcional si ≤ 1/2",
+   "Distancia / contexto": "Vík → Selfoss con múltiples pueblos/servicios intermedios",
+   "Horario / servicio": "Autoservicio",
+   "Notas": "No se considera tramo de riesgo."
+  },
+  "lat": 63.4176097,
+  "lon": -19.0028977
+ },
+ {
+  "capa": "combustible",
+  "Nombre": "Olís Selfoss",
+  "Ubicación": "Arnbergi, 800 Selfoss, Iceland",
+  "meta": {
+   "Día / tramo": "Día 11/12 (10–11 oct)",
+   "Ubicación": "Arnbergi, 800 Selfoss, Iceland",
+   "Tipo": "Gasolinera",
+   "Nivel": "VERDE",
+   "Acción recomendada": "Carga opcional; buen punto antes de Golden Circle/Reikiavik",
+   "Distancia / contexto": "Zona con alta disponibilidad de combustible",
+   "Horario / servicio": "24/7",
+   "Notas": "No hay riesgo de combustible significativo en esta parte de la ruta."
+  },
+  "lat": null,
+  "lon": null
+ }
+]
