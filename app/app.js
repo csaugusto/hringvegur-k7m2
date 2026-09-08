@@ -132,9 +132,33 @@ function pintarHoy() {
       <a class="go" href="${mapaURL(p.lat, p.lon, p.n)}">Mapa</a>
     </li>`).join('');
 
+  // gasolina y provisiones — la estrategia que traía el mapa
+  const sv = $('#hoy-servicios');
+  sv.hidden = !d.servicios?.length;
+  if (!sv.hidden) $('#servicios-cuerpo').innerHTML = servicios(d.servicios);
+
   // avisos
   $('#hoy-avisos').innerHTML = d.avisos.map(a => aviso(a)).join('');
 }
+
+// Los 25 puntos que alguien pensó a mano: nivel de riesgo, con cuánto tanque entrar,
+// qué comprar dónde y a qué hora cierran. Vale más que las 264 gasolineras genéricas.
+const servicios = lista => lista.map(s => {
+  const nv = (s.nivel || '').toUpperCase();
+  const cls = nv === 'ROJO' ? 'rojo' : nv === 'AMARILLO' ? 'amarillo' : s.tipo === 'tienda' ? 'tienda' : 'verde';
+  const etiqueta = s.compra || s.nivel || s.clase || '';
+  return `<div class="svc ${cls}">
+    <div class="svc-t">
+      <span class="svc-ic">${s.tipo === 'tienda' ? '🛒' : nv === 'AMARILLO' ? '⚠' : '⛽'}</span>
+      <span class="svc-n"><strong>${s.n}</strong>${etiqueta ? `<em>${etiqueta}</em>` : ''}</span>
+      ${s.lat ? `<a class="go" href="${mapaURL(s.lat, s.lon, s.n)}">Mapa</a>` : ''}
+    </div>
+    ${s.accion ? `<p class="svc-a">${s.accion}</p>` : ''}
+    ${s.contexto ? `<p class="svc-x">${s.contexto}</p>` : ''}
+    ${s.horario ? `<p class="svc-x">Horario: ${s.horario}</p>` : ''}
+    ${s.nota ? `<p class="svc-x">${s.nota}</p>` : ''}
+  </div>`;
+}).join('');
 
 const ICONO = { peaje: '⊘', ruta: '⇱', acceso: '⌂', peligro: '⚠', reserva: '◷' };
 const TITULO = { peaje: 'Peaje', ruta: 'Carretera', acceso: 'Acceso', peligro: 'Peligro', reserva: 'Reservar' };
@@ -218,6 +242,7 @@ function pintarDias() {
           <li class="cat-${p.cat || 'Interés'}"><span class="num">${i + 1}</span>
             <span class="np"><strong>${p.n}</strong>${p.nota ? `<small>${p.nota}</small>` : ''}</span>
             <a class="go" href="${mapaURL(p.lat, p.lon, p.n)}">Mapa</a></li>`).join('')}</ol></div>
+      ${d.servicios?.length ? `<div class="card"><h2 style="margin-bottom:8px">Gasolina y provisiones</h2>${servicios(d.servicios)}</div>` : ''}
       ${d.avisos.map(aviso).join('')}`;
     body.hidden = false;
   });

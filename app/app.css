@@ -196,3 +196,20 @@ button{font:inherit;color:inherit;cursor:pointer}
   font-size:12px;font-weight:600;padding:calc(env(safe-area-inset-top,0px) + 5px) 8px 5px;z-index:100}
 
 @media (min-width:520px){ h1{font-size:30px} }
+
+/* ── gasolina y provisiones (la estrategia que traía el mapa) ── */
+.svc{border-left:3px solid var(--line);padding:10px 0 10px 12px;margin-bottom:10px}
+.svc:last-child{margin-bottom:0}
+.svc.verde{border-left-color:var(--ok)}
+.svc.amarillo{border-left-color:var(--warn)}
+.svc.rojo{border-left-color:var(--bad)}
+.svc.tienda{border-left-color:var(--blue)}
+.svc-t{display:flex;align-items:center;gap:9px}
+.svc-ic{flex:none;font-size:15px}
+.svc-n{flex:1;min-width:0}
+.svc-n strong{display:block;font-size:15px;font-weight:600;line-height:1.25}
+.svc-n em{font-style:normal;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--tx3)}
+.svc.amarillo .svc-n em{color:var(--warn)}
+.svc-a{margin:7px 0 0;font-size:14px;line-height:1.4;font-weight:600}
+.svc.amarillo .svc-a{color:var(--warn)}
+.svc-x{margin:3px 0 0;font-size:12.5px;line-height:1.4;color:var(--tx2)}

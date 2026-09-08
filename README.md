@@ -10,7 +10,8 @@ app/                 lo que se publica
   app.js
   sw.js              modo offline. Sube la versión cuando cambies algo.
   manifest.webmanifest
-  data/viaje.json    14 días, paradas, sol, luna, alojamientos, avisos   (13 KB)
+  data/viaje.json    14 días, paradas, sol, luna, alojamientos, avisos
+                     y los 25 puntos de gasolina/provisiones con su estrategia  (24 KB)
   data/poi.json      1,114 gasolineras, supermercados, baños, farmacias  (44 KB)
 
 data/                fuentes y análisis, NO se publican
@@ -77,6 +78,7 @@ Desde el iPhone: `github.com` → el archivo → el lápiz → commit. Se redesp
 | Clima y ráfagas | `api.open-meteo.com` | sí | abierto |
 | Índice Kp de auroras | `services.swpc.noaa.gov` | sí | abierto |
 | Gasolineras, súper, baños | OpenStreetMap vía Overpass, congelado en `poi.json` | — | offline |
+| Estrategia de combustible y compras | las 3 capas del Google My Maps original | — | offline |
 | Coordenadas de los 68 puntos | Nominatim, congeladas | — | offline |
 | Sol y luna | calculados, congelados | — | offline |
 
