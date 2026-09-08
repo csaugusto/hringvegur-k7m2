@@ -194,6 +194,85 @@
       "que": "Cómo funcionan las multas de radar: llegan al DUEÑO registrado del auto, que es la rentadora. Pero la rentadora puede reportar a la policía quién iba manejando, y entonces uno le paga directo a la policía en island.is. Eso evita el cargo administrativo que cobra la rentadora por gestionarla. Vale la pena preguntarles cuál de los dos caminos usan.",
       "tipo": "dinero",
       "fuente": "island.is · la persona del video decía no saberlo y lo preguntaba a sus seguidores"
+    },
+    {
+      "que": "Manguera VERDE = Bensín (gasolina). NEGRA = Dísel. Pero el color es costumbre, no ley: lo confiable es la etiqueta pegada en la bomba y en la pistola — CÍRCULO con 'E10' es gasolina, CUADRADO con 'B7' es diésel. La forma no depende del idioma.",
+      "tipo": "peligro",
+      "fuente": "FÍB y Reglur nr. 1212/2020, norma EN 16942"
+    },
+    {
+      "que": "OJO CON UNA PALABRA: en Islandia 'gasolía' NO es gasolina, es DIÉSEL. Aparece así en depósitos rurales. Es el falso amigo más caro del viaje.",
+      "tipo": "peligro",
+      "fuente": "Skeljungur, nomenclatura comercial"
+    },
+    {
+      "que": "El diésel es MÁS CARO que la gasolina en Islandia, unas 39 coronas por litro. Al revés que en México. Nunca elijan manguera por precio.",
+      "tipo": "dinero",
+      "fuente": "bensinverd.is, lectura del 8 de septiembre"
+    },
+    {
+      "que": "Si echan el combustible equivocado: el vaciado cuesta desde 38,990 ISK, y N1 SOLO lo hace en el área de Reikiavik. En Vík, Höfn, Egilsstaðir o Mývatn no hay vaciado en sitio: hay que remolcar. Un caso documentado en 2025 terminó en 101,000 ISK solo de auxilio vial.",
+      "tipo": "peligro",
+      "fuente": "tarifas N1 Vegaaðstoð y Kærunefnd vöru- og þjónustukaupa, sep 2025"
+    },
+    {
+      "que": "Confirmar si el auto es bensín o dísel al recogerlo, y anotarlo. La etiqueta va dentro de la tapa del tanque por ley, y también en la tarjeta de circulación de la guantera, campo P.3. Pista mecánica: tapa azul de AdBlue junto a la del combustible significa diésel.",
+      "tipo": "tip",
+      "dia": "2026-09-30",
+      "fuente": "Reglur nr. 1212/2020, art. 14"
+    },
+    {
+      "que": "SE PAGA ANTES, siempre, y NO hay botón de 'llenar' ni te pregunta el monto. La bomba aparta una cantidad fija: 22,000 ISK en N1 y 30,000 ISK en Olís, ÓB y Orkan. Eso es una RETENCIÓN, no un cobro — después te cobran solo lo que cargaste. El consejo viejo de 'elige 5,000 en vez de fill up' ya no aplica: la máquina no deja elegir.",
+      "tipo": "dinero",
+      "fuente": "páginas de pago de N1, Olís y Orkan, 2026"
+    },
+    {
+      "que": "Orden en la bomba: estacionarse con la tapa del lado correcto y apagar el motor · pagar en el poste del terminal, que atiende dos bombas · teclear NIP de 4 dígitos · elegir el NÚMERO DE BOMBA donde está tu auto (error clásico: la pantalla no sabe dónde estás) · cargar · colgar la pistola, que es lo que cierra la transacción. Si te quedas quieto sin empezar, la bomba se cancela sola en 1.5 a 3 minutos.",
+      "tipo": "tip",
+      "fuente": "instrucciones oficiales N1, Olís y Orkan"
+    },
+    {
+      "que": "Con 8 a 12 cargas y retenciones de 22 a 30 mil ISK cada una, la línea de crédito se puede saturar aunque el gasto real sea mucho menor. Usen tarjetas distintas cada uno y avisen al banco. Si una retención no se libera: Olís y ÓB dan 24 horas, Atlantsolía hasta 5 días hábiles, N1 admite hasta 30.",
+      "tipo": "dinero",
+      "fuente": "condiciones publicadas por cada cadena"
+    },
+    {
+      "que": "La gasolina barata SOLO existe en cuatro zonas: área de Reikiavik, Borgarnes, Selfoss y Akureyri, más la ÓB de Laugabakki. Ahí está a 226-230 ISK/L. En el resto de la Ring Road sube a 255-262. Llenen a tope en esas cuatro aunque traigan medio tanque, y en Vík, Höfn, Djúpivogur, Egilsstaðir y Mývatn carguen solo lo necesario para llegar a la siguiente barata.",
+      "tipo": "dinero",
+      "fuente": "bensinverd.is / Gasvaktin, 8 de septiembre de 2026"
+    },
+    {
+      "que": "No cargar en el aeropuerto de Keflavík: la ÓB de ahí está en el tramo caro. Salir hacia Reikiavik y llenar en la zona metropolitana, que es lo más barato del país.",
+      "tipo": "dinero",
+      "dia": "2026-09-30",
+      "fuente": "Gasvaktin"
+    },
+    {
+      "que": "Hoy duermen en Laugarbakki, y la ÓB de Laugabakki es de las pocas gasolineras baratas fuera de las ciudades. Llenar a tope antes de subir al norte.",
+      "tipo": "dinero",
+      "dia": "2026-10-02",
+      "fuente": "Gasvaktin"
+    },
+    {
+      "que": "Akureyri es zona barata: Orkan Mýrarvegur, ÓB Hlíðarbraut o Atlantsolía Baldursnes rondan las 226-230 ISK/L. Llenar a tope aquí antes de entrar al tramo caro del este, donde sube a 262.",
+      "tipo": "dinero",
+      "dia": "2026-10-03",
+      "fuente": "Gasvaktin"
+    },
+    {
+      "que": "La N1 Innkort NO es tarjeta de descuento, es prepagada con descuento CERO. Solo sirve como plan B si su tarjeta es rechazada en una bomba desatendida, porque no pide PIN. Se compra únicamente en estaciones N1 ATENDIDAS, y en su ruta no hay ninguna en Vík, Kirkjubæjarklaustur, Mývatn ni Djúpivogur.",
+      "tipo": "dinero",
+      "fuente": "gamli.n1.is, texto oficial: 'fyrirframgreitt greiðslukort'"
+    },
+    {
+      "que": "Los precios de gasolina que circulan en blogs y videos de principios de 2026 están mal: celebraban una caída del 27% cuando Islandia cambió el impuesto al combustible por el kilométrico. Desde enero volvió a subir 21% la gasolina y 26% el diésel.",
+      "tipo": "tip",
+      "fuente": "comparativa enero vs septiembre 2026"
+    },
+    {
+      "que": "Presupuesto de combustible para los 2,600 km: unos 55,000 ISK de gasolina MÁS unos 23,000 ISK de impuesto kilométrico, que se cobra aparte al devolver el auto y llega a la tarjeta hasta cinco días después. Total cerca de 78,000 ISK, unos 11,000 pesos. Si el presupuesto solo trae la gasolina, faltan 3,200 pesos.",
+      "tipo": "dinero",
+      "fuente": "8.5 L/100km × 250 ISK/L + 8.8 ISK/km"
     }
   ]
 }
