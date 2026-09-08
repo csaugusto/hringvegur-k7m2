@@ -61,7 +61,6 @@ AVISOS = {
         {"t": "reserva", "x": "Tour de cueva de hielo desde Skaftafell o Jökulsárlón. Sí operan en octubre, pero es "
                               "arranque de temporada y los días 7 y 8 ya están en ámbar."},
         {"t": "acceso", "x": "Jökulsárlón 1,110 ISK cubre también Diamond Beach. Skaftafell el mismo día: 50% de descuento."}],
-    8: [{"t": "peligro", "x": "Reynisfjara: olas asesinas. Nunca den la espalda al mar ni bajen a la arena mojada."}],
     12: [{"t": "reserva", "x": "Día libre. Sky Lagoon abre 09:00–22:00 hasta el 20 de octubre y el ritual al atardecer "
                                "es mejor experiencia que el Blue Lagoon."}],
 }

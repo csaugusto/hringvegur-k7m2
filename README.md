@@ -98,6 +98,24 @@ tarjeta dice "Falta el teléfono" — a propósito, para que se note el hueco.
 **Nunca pongas aquí códigos de reserva ni montos:** el repositorio es público. Eso se
 captura una vez en cada teléfono desde la pantalla **El sobre** y se guarda solo ahí.
 
+## Agregar consejos y advertencias de guías
+
+`app/data/consejos.json` es el otro archivo editable a mano. Cada consejo cae solo
+en el lugar correcto según los campos que traiga:
+
+| Campo | Dónde aparece |
+|---|---|
+| `dia: "2026-10-08"` | En ese día, en Hoy y en Los 14 días |
+| `punto: "Reynisfjara"` | Bajo esa parada, el día que toque |
+| ninguno de los dos | En la pantalla El sobre, como consejo general |
+
+`tipo` pinta el color del borde: `peligro` rojo, `peaje` naranja, `reserva` violeta,
+`ruta`, `acceso`, `dinero`, `tip`. `fuente` es opcional y sirve para saber de dónde
+salió por si hay que volver a revisarlo.
+
+El nombre en `punto` tiene que coincidir exacto con el de la parada en `viaje.json`
+(por ejemplo `Reynisfjara`, no `Playa de Reynisfjara`).
+
 ## Cambiar cualquier otra cosa
 
 Desde el iPhone: `github.com` → el archivo → el lápiz → commit. Se redespliega solo.

@@ -24,13 +24,16 @@ const FMT_ESTADO = {
   por_reservar: 'Sin reservar',
 };
 
+let CONSEJOS = [];
+
 async function boot() {
-  let ALOJ;
+  let ALOJ, CONS;
   try {
-    [VIAJE, POI, ALOJ] = await Promise.all([
+    [VIAJE, POI, ALOJ, CONS] = await Promise.all([
       fetch('data/viaje.json').then(r => r.json()),
       fetch('data/poi.json').then(r => r.json()),
-      fetch('data/alojamientos.json').then(r => r.json())
+      fetch('data/alojamientos.json').then(r => r.json()),
+      fetch('data/consejos.json').then(r => r.json()).catch(() => ({ consejos: [] }))
     ]);
   } catch (e) {
     document.body.innerHTML = '<p style="padding:40px;text-align:center">No se pudieron cargar los datos.<br><small>Recarga la página con señal una vez.</small></p>';
@@ -43,6 +46,21 @@ async function boot() {
     const a = ALOJ.alojamientos?.[d.fecha];
     if (!a) { d.dormir = null; continue; }
     d.dormir = { ...(d.dormir || {}), ...a, estado_txt: FMT_ESTADO[a.estado] || a.estado };
+  }
+
+  // Consejos de guías y posts. Los que traen fecha caen en su día; los que traen
+  // un punto, bajo esa parada; el resto vive en El sobre.
+  CONSEJOS = (CONS.consejos || []).filter(c => c.que);
+  for (const d of VIAJE.dias) {
+    const nombres = new Set(d.puntos.map(p => p.n));
+    for (const c of CONSEJOS) {
+      const porDia = c.dia === d.fecha;
+      const porPunto = c.punto && nombres.has(c.punto);
+      if (porDia || porPunto) {
+        d.avisos = [...(d.avisos || []),
+          { t: c.tipo || 'tip', x: (porPunto && !porDia ? `${c.punto}: ` : '') + c.que }];
+      }
+    }
   }
   pintarHoy(); pintarDias(); pintarNoches(); pintarSobre(); pintarPendientes();
   setInterval(tickLuz, 1000); tickLuz();
@@ -94,16 +112,13 @@ const FECHA_CORTA = f => {
   return `${d} ${['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'][m - 1]}`;
 };
 
-// Se usan esquemas nativos (maps://, comgooglemaps://, waze://) y no URLs https,
-// porque abren la app instalada sin resolver nada en la red: el mapa ya tiene los
-// tiles descargados. Waze es la excepción — no funciona sin conexión.
+// Esquemas nativos y no URLs https: abren la app instalada sin resolver nada
+// en la red, y el mapa ya tiene los tiles descargados.
 const APPS_MAPA = {
   apple:  { n: 'Apple Maps',   ver: (la, lo, q) => `maps://?ll=${la},${lo}&q=${encodeURIComponent(q)}`,
                                ir:  (la, lo)    => `maps://?daddr=${la},${lo}&dirflg=d` },
-  google: { n: 'Google Maps',  ver: (la, lo, q) => `comgooglemaps://?q=${la},${lo}&center=${la},${lo}&zoom=14`,
+  google: { n: 'Google Maps',  ver: (la, lo)    => `comgooglemaps://?q=${la},${lo}&center=${la},${lo}&zoom=14`,
                                ir:  (la, lo)    => `comgooglemaps://?daddr=${la},${lo}&directionsmode=driving` },
-  waze:   { n: 'Waze',         ver: (la, lo)    => `waze://?ll=${la},${lo}`,
-                               ir:  (la, lo)    => `waze://?ll=${la},${lo}&navigate=yes` },
 };
 const appMapa = () => APPS_MAPA[LS.get('mapa', 'apple')] || APPS_MAPA.apple;
 const mapaURL = (lat, lon, n) => appMapa().ver(lat, lon, n);
@@ -197,8 +212,8 @@ const servicios = lista => lista.map(s => {
   </div>`;
 }).join('');
 
-const ICONO = { peaje: '⊘', ruta: '⇱', acceso: '⌂', peligro: '⚠', reserva: '◷' };
-const TITULO = { peaje: 'Peaje', ruta: 'Carretera', acceso: 'Acceso', peligro: 'Peligro', reserva: 'Reservar' };
+const ICONO = { peaje: '⊘', ruta: '⇱', acceso: '⌂', peligro: '⚠', reserva: '◷', dinero: '¤', tip: '•' };
+const TITULO = { peaje: 'Peaje', ruta: 'Carretera', acceso: 'Acceso', peligro: 'Peligro', reserva: 'Reservar', dinero: 'Dinero', tip: 'Consejo' };
 const aviso = a => `<div class="aviso ${a.t}"><span class="ic">${ICONO[a.t] || '•'}</span>
   <span><b>${TITULO[a.t] || 'Aviso'}</b>${a.x}</span></div>`;
 
@@ -558,11 +573,15 @@ function pintarSobre() {
   $$('#mapa-sel button').forEach(b => b.onclick = () => {
     LS.set('mapa', b.dataset.m); pintarSobre(); pintarHoy(); pintarDias();
   });
-  $('#mapa-nota').innerHTML = elegida === 'waze'
-    ? '<b>Waze no funciona sin conexión</b>, y su cobertura en Islandia es pobre porque depende de reportes de usuarios y ahí hay muy pocos. Sirve en Reikiavik; en los fiordos del este, no.'
-    : elegida === 'google'
-      ? 'Abre Google Maps si está instalado. Descarguen antes las tres áreas offline: suroeste, norte y este.'
-      : 'Apple Maps siempre está instalado y desde iOS 17 navega sin conexión. Es la opción segura.';
+  $('#mapa-nota').innerHTML = elegida === 'google'
+    ? 'Abre Google Maps con la ruta trazada. Necesita las áreas offline ya descargadas: suroeste, norte y este.'
+    : 'Apple Maps siempre está instalado y desde iOS 17 navega sin conexión.';
+
+  // Los consejos sin fecha ni punto: los generales
+  const generales = CONSEJOS.filter(c => !c.dia && !c.punto);
+  $('#consejos-cuerpo').innerHTML = generales.length
+    ? generales.map(c => aviso({ t: c.tipo || 'tip', x: c.que + (c.fuente ? ` <em style="color:var(--tx3)">— ${c.fuente}</em>` : '') })).join('')
+    : '<p class="muted">Todavía no hay consejos generales capturados.</p>';
 
   const a = LS.get('auto', {});
   $('#auto-cuerpo').innerHTML = `

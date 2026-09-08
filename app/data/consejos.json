@@ -1,0 +1,46 @@
+{
+  "_": "Advertencias y consejos sacados de guías, posts y experiencia ajena. Se edita a mano.",
+  "_donde_sale": "Con 'dia' aparece en ese día (pantalla Hoy y en Los 14 días). Con 'punto' aparece bajo esa parada. Sin ninguno de los dos, va a la pantalla El sobre.",
+  "_tipo": "peligro (rojo) · peaje · ruta · acceso · reserva · dinero · tip",
+  "_campos": "que = el consejo, en una o dos frases. fuente = de dónde salió, para poder volver a revisarlo.",
+  "_ejemplo": {
+    "que": "Texto del consejo.",
+    "tipo": "tip",
+    "dia": "2026-10-08",
+    "punto": "Reynisfjara",
+    "fuente": "guía tal"
+  },
+
+  "consejos": [
+    {
+      "que": "Nunca soltar la manija al abrir la puerta del auto, y avisarse en voz alta antes de que cualquiera abra la suya. Una ráfaga que arranca la puerta cuesta unos 350,000 ISK y ningún seguro estándar lo cubre.",
+      "tipo": "peligro",
+      "fuente": "daño más común y más caro que sufren los turistas en Islandia"
+    },
+    {
+      "que": "Nunca aceptar que la terminal cobre en pesos. Siempre en coronas islandesas: el cobro en tu moneda mete entre 5 y 8% de sobreprecio.",
+      "tipo": "dinero"
+    },
+    {
+      "que": "No se dan propinas. El servicio va incluido por ley; dejarla es de turista.",
+      "tipo": "dinero"
+    },
+    {
+      "que": "Llevar dos tarjetas Visa o Mastercard con NIP de 4 dígitos, de bancos distintos. Las bombas desatendidas lo exigen y retienen entre 22,000 y 30,000 ISK por carga. Amex no funciona ahí.",
+      "tipo": "dinero"
+    },
+    {
+      "que": "Islandia es prácticamente sin efectivo. No hace falta cambiar dinero; ni los baños de gasolinera aceptan monedas.",
+      "tipo": "dinero"
+    },
+    {
+      "que": "Revisar umferdin.is y vedur.is cada mañana antes de arrancar. En octubre las condiciones cambian entre el desayuno y la comida.",
+      "tipo": "ruta"
+    },
+    {
+      "que": "Nunca dar la espalda al mar ni pisar la arena mojada. Las olas suben mucho más de lo que parece y se han llevado gente.",
+      "tipo": "peligro",
+      "punto": "Reynisfjara"
+    }
+  ]
+}
