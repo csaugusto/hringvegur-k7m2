@@ -73,6 +73,7 @@ async function boot() {
     const k = LS.get('kp');
     if (!k || Date.now() - k.t > 3600e3) cargarKp(); else renderKp(k);
     cargarVias();
+    cargarGasolina();
   } else {
     const c = LS.get('clima'); if (c) { renderVientoHoy(c); renderClima(c); }
     const k = LS.get('kp');    if (k) renderKp(k);
@@ -586,21 +587,58 @@ function pintarNoches() {
 }
 
 // ─────────────────────────── CERCA DE MÍ ───────────────────────────
-$('#btn-ubic').onclick = () => {
+// Precios de combustible de Gasvaktin: 245 estaciones con coordenadas y precio
+// del día. Tiene CORS abierto, así que se pide directo. Entre la más cara y la
+// más barata hay unos 47 ISK/L, que sobre el viaje entero son miles de coronas.
+async function cargarGasolina() {
+  const g = LS.get('gas');
+  if (g && Date.now() - g.t < 12 * 3600e3) return g.d;
+  if (!navigator.onLine) return g?.d || null;
+  try {
+    const j = await fetch('https://raw.githubusercontent.com/gasvaktin/gasvaktin/master/vaktin/gas.json')
+      .then(r => r.json());
+    const d = j.stations.filter(s => s.geo && s.bensin95).map(s => ({
+      n: s.name, c: s.company, p: s.bensin95, pd: s.bensin95_discount,
+      di: s.diesel, lat: s.geo.lat, lon: s.geo.lon,
+    }));
+    LS.set('gas', { t: Date.now(), d });
+    return d;
+  } catch { return g?.d || null; }
+}
+
+$('#btn-ubic').onclick = async () => {
   const c = $('#cerca-cuerpo');
   c.innerHTML = '<p class="muted">Buscando…</p>';
+  const gas = await cargarGasolina();
   navigator.geolocation.getCurrentPosition(pos => {
     const { latitude: la, longitude: lo } = pos.coords;
-    const grupos = [[0, 'Gasolina'], [1, 'Supermercado'], [5, 'Baño']];
-    c.innerHTML = grupos.map(([tipo, etiqueta]) => {
-      const cand = POI.p.filter(p => p[0] === tipo)
-        .map(p => ({ p, km: dist(la, lo, p[1], p[2]) }))
-        .sort((a, b) => a.km - b.km).slice(0, 2);
-      return cand.map(({ p, km }) => `<div class="kv">
-        <span>${etiqueta}</span>
-        <b><a href="${mapaURL(p[1], p[2], p[3] || etiqueta)}">${p[3] || 'sin nombre'} · ${km.toFixed(1)} km</a></b>
+    let html = '';
+
+    // Gasolina: si hay precios, se muestran las 3 más cercanas con su precio;
+    // si no hay red y nunca se cargaron, se cae a los POI de OpenStreetMap.
+    if (gas?.length) {
+      const cerca = gas.map(s => ({ s, km: dist(la, lo, s.lat, s.lon) }))
+        .sort((a, b) => a.km - b.km).slice(0, 3);
+      const barata = Math.min(...cerca.map(x => x.s.p));
+      html += cerca.map(({ s, km }) => `<div class="kv">
+        <span>${s.c}${s.p === barata && cerca.length > 1 ? ' · la más barata' : ''}</span>
+        <b><a href="${mapaURL(s.lat, s.lon, s.n)}">${s.n} · ${km.toFixed(1)} km</a>
+           <em class="precio${s.p === barata ? ' mejor' : ''}">${s.p} ISK/L</em></b>
       </div>`).join('');
-    }).join('');
+    } else {
+      html += POI.p.filter(p => p[0] === 0).map(p => ({ p, km: dist(la, lo, p[1], p[2]) }))
+        .sort((a, b) => a.km - b.km).slice(0, 2)
+        .map(({ p, km }) => `<div class="kv"><span>Gasolina</span>
+          <b><a href="${mapaURL(p[1], p[2], p[3] || 'Gasolina')}">${p[3] || 'sin nombre'} · ${km.toFixed(1)} km</a></b></div>`).join('');
+    }
+
+    for (const [tipo, etiqueta] of [[1, 'Supermercado'], [5, 'Baño']]) {
+      html += POI.p.filter(p => p[0] === tipo).map(p => ({ p, km: dist(la, lo, p[1], p[2]) }))
+        .sort((a, b) => a.km - b.km).slice(0, 2)
+        .map(({ p, km }) => `<div class="kv"><span>${etiqueta}</span>
+          <b><a href="${mapaURL(p[1], p[2], p[3] || etiqueta)}">${p[3] || 'sin nombre'} · ${km.toFixed(1)} km</a></b></div>`).join('');
+    }
+    c.innerHTML = html;
   }, () => {
     c.innerHTML = '<p class="muted">No se pudo obtener la ubicación. Revisa el permiso en Ajustes.</p>';
   }, { enableHighAccuracy: false, timeout: 10000, maximumAge: 120000 });
