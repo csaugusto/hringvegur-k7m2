@@ -10,7 +10,6 @@
     "punto": "Reynisfjara",
     "fuente": "guía tal"
   },
-
   "consejos": [
     {
       "que": "Nunca soltar la manija al abrir la puerta del auto, y avisarse en voz alta antes de que cualquiera abra la suya. Una ráfaga que arranca la puerta cuesta unos 350,000 ISK y ningún seguro estándar lo cubre.",
@@ -41,6 +40,62 @@
       "que": "Nunca dar la espalda al mar ni pisar la arena mojada. Las olas suben mucho más de lo que parece y se han llevado gente.",
       "tipo": "peligro",
       "punto": "Reynisfjara"
+    },
+    {
+      "que": "Límites de velocidad: 30 km/h en zona residencial · 50 en pueblo o ciudad · 90 en carretera pavimentada fuera de ciudad · 80 en grava fuera de ciudad. Los radares son automáticos y la multa llega a la rentadora, que la cobra a la tarjeta con su comisión encima.",
+      "tipo": "ruta",
+      "fuente": "video de reglas + Samgöngustofa"
+    },
+    {
+      "que": "Luces encendidas SIEMPRE, todo el año, de día y de noche. Y ojo: la posición 'Auto' NO cuenta como cumplir. Hay que ponerlas en encendido fijo.",
+      "tipo": "ruta",
+      "fuente": "Safetravel · el detalle del 'Auto' no venía en el video"
+    },
+    {
+      "que": "Prohibido parar en la carretera para tomar fotos — ni en medio ni en el acotamiento. Hay que usar los apartaderos señalizados. Es de las infracciones que más multan a turistas.",
+      "tipo": "peligro",
+      "fuente": "Safetravel top 12"
+    },
+    {
+      "que": "No manejar por el centro del camino. Las carreteras islandesas son angostas y sin acotamiento, y las curvas ciegas y lomas ciegas son constantes.",
+      "tipo": "peligro",
+      "fuente": "video de reglas"
+    },
+    {
+      "que": "Manejar fuera de camino está terminantemente prohibido y la multa es de las más caras del país. Salirse de la carretera o de una pista marcada, aunque sea unos metros para estacionarse, cuenta.",
+      "tipo": "peligro",
+      "fuente": "Safetravel top 12"
+    },
+    {
+      "que": "Puentes de un solo carril: el que llega primero pasa primero. Hay que frenar a 50 km/h y parar si viene alguien de frente. Los van a encontrar por toda la Ruta 1, sobre todo en el sureste.",
+      "tipo": "ruta",
+      "fuente": "Safetravel top 12"
+    },
+    {
+      "que": "Al pasar de pavimento a grava, frenar antes. La transición sin bajar la velocidad es una de las causas más comunes de derrape y volcadura.",
+      "tipo": "peligro",
+      "fuente": "Safetravel top 12"
+    },
+    {
+      "que": "Un letrero que dice 'LOKAÐ' significa CERRADO. No es sugerencia y no se rodea.",
+      "tipo": "ruta",
+      "fuente": "Safetravel top 12"
+    },
+    {
+      "que": "Cinturón obligatorio para todos, siempre. Y nada de tocar el teléfono manejando: está prohibido y lo multan.",
+      "tipo": "ruta",
+      "fuente": "Safetravel top 12"
+    },
+    {
+      "que": "En la app Parka hay que capturar la PLACA del auto (por ejemplo JK L60), no el número impreso en el marco de la placa. Ese marco suele traer el teléfono del concesionario, tipo 461 6000, y mucha gente lo confunde. Si registras el número equivocado pagas el estacionamiento de otro y a ti te multan.",
+      "tipo": "dinero",
+      "fuente": "video de la agencia sobre Parka"
+    },
+    {
+      "que": "Anotar la placa del auto en cuanto lo recojan y guardarla en El sobre. La necesitan para Parka, para el peaje de Vaðlaheiðargöng y para el de Hornafjörður.",
+      "tipo": "tip",
+      "dia": "2026-09-30",
+      "fuente": "se desprende de los dos peajes y de Parka"
     }
   ]
 }
