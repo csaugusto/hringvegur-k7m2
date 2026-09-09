@@ -49,7 +49,7 @@ async function boot() {
   }
 
   // Consejos de guías y posts. Los que traen fecha caen en su día; los que traen
-  // un punto, bajo esa parada; el resto vive en El sobre.
+  // un punto, bajo esa parada; el resto vive en la Guía.
   CONSEJOS = (CONS.consejos || []).filter(c => c.que);
   for (const d of VIAJE.dias) {
     const nombres = new Set(d.puntos.map(p => p.n));
@@ -62,7 +62,8 @@ async function boot() {
       }
     }
   }
-  pintarHoy(); pintarDias(); pintarNoches(); pintarSobre(); pintarPendientes();
+  pintarHoy(); pintarDias(); pintarNoches(); pintarSobre();
+  pintarPasosGas();
   pintarConversor(LS.get('fx'));
   cargarTasa().then(pintarConversor);
   setInterval(tickLuz, 1000); tickLuz();
@@ -722,6 +723,37 @@ $('#btn-privado').onclick = () => {
   pintarSobre(); pintarHoy();
 };
 
+// ─────────────────────────── CÓMO CARGAR GASOLINA ───────────────────────────
+// Los pasos reales de una bomba de autoservicio islandesa, con lo que dice la
+// pantalla en islandés. Pensado para leerse ahí parado, de noche y con frío.
+const PASOS_GAS = [
+  ['Estaciónate y apaga el motor',
+   'Con la tapa del tanque del lado del surtidor. Fíjate en el <b>número de tu bomba</b>: el terminal de pago es una columna aparte que atiende dos.'],
+  ['Confirma el combustible',
+   'Abre la tapa y lee la etiqueta de adentro. Si dudas, revisa el contrato de renta. Nunca elijas por el precio: aquí el diésel es el caro.'],
+  ['Pasa la llave de descuento, si traes',
+   'Antes de la tarjeta. La de Orkan se escanea acercando el celular al lector rojo, a unos 15 cm.'],
+  ['Paga <em>antes</em> de cargar',
+   'Acerca o inserta la tarjeta y teclea el <b>NIP de 4 dígitos</b>. La pantalla dice <i>«Kortið hefur verið lesið»</i> — tarjeta leída.'],
+  ['Elige el combustible',
+   'Aparece <i>«Veljið eldsneyti»</i> con dos botones: <b>Dísel</b> y <b>95 Blýlaust</b>. Blýlaust es sin plomo, o sea la gasolina.'],
+  ['Elige el número de bomba',
+   'Este es el error clásico: la máquina no sabe dónde está tu auto. Ponle el número que viste en el paso 1.'],
+  ['Espera la autorización',
+   '<i>«Beðið er eftir heimild fyrir kort»</i>. Aquí aparta <b>22,000 ISK en N1</b> o <b>30,000 en Olís, ÓB y Orkan</b>. Es una retención, no un cobro: después te cobran solo lo que cargaste.'],
+  ['Carga',
+   'La pantalla te da luz verde con el monto autorizado. Ese número es el techo, no lo que vas a pagar. La bomba corta sola al llenarse.'],
+  ['Cuelga la pistola',
+   'Ese gesto es el que cierra la operación y manda al banco el importe real. El recibo, <i>«kvittun»</i>, es opcional.'],
+];
+
+function pintarPasosGas() {
+  const ol = $('#pasos-gas');
+  if (!ol) return;
+  ol.innerHTML = PASOS_GAS.map(([t, d]) =>
+    `<li><strong>${t}</strong><span>${d}</span></li>`).join('');
+}
+
 // ─────────────────────────── CONVERSOR ───────────────────────────
 // Tipo de cambio del BCE vía Frankfurter, con open.er-api de respaldo. Ambos
 // traen CORS abierto. Se guarda el último valor: sin señal se sigue convirtiendo
@@ -791,81 +823,6 @@ function pintarConversor(fx) {
   </div>`).join('');
 }
 
-// ─────────────────────────── PENDIENTES ───────────────────────────
-const TAREAS = [
-  { id: 'eta',      f: '2026-09-09', t: 'Confirmar si el "ETA ✓" es el de Canadá',
-    n: 'México es país con visa para Canadá desde feb-2024. Solo califican para eTA si tienen visa americana vigente o tuvieron visa canadiense en los últimos 10 años. Hacen escala en Toronto y Canadá obliga a pasar migración. Es el único error sin arreglo en el aeropuerto.' },
-  { id: 'cueva',    f: '2026-09-10', t: 'Reservar el tour de cueva de hielo',
-    n: 'Para el 7 de octubre, dejando el 8 de respaldo. Sí operan: Arctic Adventures USD 182, Glacier Guides EUR 155. Local Guide ya marca esos días en ámbar.' },
-  { id: 'blue',     f: '2026-09-10', t: 'Reservar Blue Lagoon, franja 09:00 del 30 de septiembre',
-    n: 'Resuelve las 7 horas muertas entre aterrizar y el check-in. A 20 km de KEF. Reserva obligatoria por franja. Si cierra por actividad volcánica, queda el 12 de octubre de respaldo.' },
-  { id: 'rentadora',f: '2026-09-10', t: 'Escribir a la rentadora, por escrito',
-    n: '¿Llantas de invierno sin clavos desde el 30 de septiembre? ¿Monto del depósito? ¿Teléfono de asistencia 24 h? ¿El impuesto por kilómetro es tarifa fija de 1,390-1,550 ISK/día o por km real a 8.69-8.81? Y si cae una multa de radar: ¿la pagan ustedes y me la cobran con cargo administrativo, o me reportan como conductor para que yo le pague directo a la policía?' },
-  { id: 'amex',     f: '2026-09-10', t: 'Llamar a Amex México',
-    n: '¿La cobertura de auto rentado aplica en Islandia y cubre grava, ceniza, viento y agua? Casi ninguna las cubre, y son justo los riesgos islandeses.' },
-  { id: 'selfoss',  f: '2026-09-14', t: 'Reservar Selfoss o Flúðir · noche del 9 de octubre', n: '' },
-  { id: 'rvk',      f: '2026-09-14', t: 'Reservar Reikiavik · noches del 10, 11 y 12 de octubre',
-    n: 'Tres noches seguidas. Al no dormir en Akureyri se ganó un día completo en la capital.' },
-  { id: 'toronto',  f: '2026-09-14', t: 'Reservar hotel en Toronto · noche del 13 de octubre',
-    n: 'Aterrizan 19:10 y salen 11:00 del día siguiente. Esa noche no estaba en ninguna hoja.' },
-  { id: 'seguro',   f: '2026-09-14', t: 'Contratar seguro médico de viaje',
-    n: 'México no tiene convenio con Islandia. Urgencias: 88,557 ISK solo por llegar. El rescate en montaña sí es gratuito.' },
-  { id: 'datos',    f: '2026-09-18', t: 'Plan de datos · eSIM sobre la red de Síminn',
-    n: 'Síminn es la de mejor cobertura rural. Nova es la más barata y la peor fuera de Reikiavik. Cerca del 60% del país tiene señal irregular o nula.' },
-  { id: 'orkan',    f: '2026-09-15', t: 'Sacar la llave de descuento de Orkan desde México',
-    n: 'Se tramita en orkan.is/english/apply-for-orkan-discount-card eligiendo Mexico +52. Llega al Apple o Google Wallet en unos 15 minutos. Pidan una en cada teléfono, con tarjetas distintas: si las piden juntas exige la misma tarjeta. NO pidan la física, esa la mandan por correo a un domicilio islandés.' },
-  { id: 'nip-gas',  f: '2026-09-18', t: 'Confirmar el NIP de 4 dígitos de las tarjetas de CRÉDITO',
-    n: 'Las bombas desatendidas solo aceptan tarjetas con PIN, y en México la de crédito suele firmar en vez de pedir NIP. Sin NIP no cargan gasolina a las 21:00 en Djúpivogur. Llevar dos, de bancos distintos, y ambas en Apple Pay.' },
-  { id: 'nip',      f: '2026-09-18', t: 'Activar el NIP de 4 dígitos en dos tarjetas Visa o Mastercard',
-    n: 'Las bombas desatendidas lo piden y retienen entre 22,000 y 30,000 ISK. Amex no funciona ahí.' },
-  { id: 'contactos',f: '2026-09-18', t: 'Sacar dirección y teléfono de los 13 alojamientos',
-    n: 'Van en data/alojamientos.json. Con teléfono aparece el botón Llamar; con coordenadas, el de Cómo llegar. El más importante: el número de asistencia 24 h de la rentadora.' },
-  { id: 'empaque',  f: '2026-09-22', t: 'Equipaje versión octubre, no septiembre',
-    n: 'Base correcta: tres capas de lana y fleece, shell impermeable, botas, traje de baño. QUITAR bloqueador y antifaz. CAMBIAR el chaleco por chaqueta aislante con mangas, y añadir pantalón impermeable encima. AGREGAR: tacos de hielo para la suela, frontal con luz roja, termo de 1 L, powerbank y cargador de 12 V, 2 o 3 baterías de cámara de repuesto, y guantes en tres piezas (fino táctil, mitón, y un par seco de repuesto).' },
-  { id: 'ballenas', f: '2026-09-20', t: 'Decidir y reservar ballenas en Húsavík · 4 de octubre',
-    n: 'North Sailing 09:30, 12,990 ISK por persona, 3 horas, cancelación gratis 24 h antes. Obliga a invertir el día: ballenas primero y el resto del Diamond Circle de regreso.' },
-  { id: 'silfra',   f: '2026-09-20', t: 'Decidir y reservar Silfra · 10 de octubre',
-    n: 'Opción self-drive llegando al P5 de Þingvellir: 16,000 a 20,000 ISK por persona, 2.5 a 3 horas. Se agota; hay que reservar con semanas.' },
-  { id: 'rettir',   f: '2026-09-28', t: 'Confirmar Víðidalstungurétt · 3 de octubre 11:00',
-    n: 'El arreo de caballos más grande del país, a 20-25 km de donde duermen. Si van, ese día hay que ir por la Ruta 1 y no por Tröllaskagi.' },
-  { id: 'ios',      f: '2026-09-20', t: 'Actualizar iOS en los dos teléfonos y no volver a actualizar',
-    n: 'Una actualización mayor a mitad del viaje puede romper el modo offline.' },
-  { id: 'prueba',   f: '2026-09-21', t: 'Probar la app en modo avión, un día entero, en los dos teléfonos',
-    n: 'No negociable. Si el service worker no intercepta la navegación, la app abre en blanco sin señal.' },
-  { id: 'mapas',    f: '2026-09-24', t: 'Descargar mapas offline en los dos teléfonos',
-    n: 'Google Maps en tres áreas: suroeste, norte y este. Más Organic Maps como respaldo, que sí busca nombres islandeses sin internet.' },
-  { id: 'playlist', f: '2026-09-24', t: 'Descargar playlists y podcasts', n: 'Son unas 40 horas de manejo.' },
-  { id: 'skogafoss',f: '2026-09-24', t: 'Investigar el hiking en Skógafoss', n: 'La escalera al mirador y el sendero Fimmvörðuháls.' },
-  { id: 'termo',    f: '2026-09-26', t: 'Toallas, chanclas, bolsa, termo y bolsita de agua', n: '' },
-  { id: 'dia12',    f: '2026-09-26', t: 'Decidir qué hacer con el día libre del 12 de octubre',
-    n: 'Se gana al no dormir en Akureyri. Opciones: Sky Lagoon al atardecer, península de Reykjanes, Blue Lagoon de respaldo, o simplemente descansar antes de 20 horas de vuelos.' },
-  { id: 'hotdog',   f: '2026-10-11', t: 'Hot dog de Bæjarins Beztu y la granja de tiburones', n: 'Lo importante.' },
-];
-
-function pintarPendientes() {
-  const hechas = LS.get('hechas', {});
-  const hy = hoyISO();
-  const ord = [...TAREAS].sort((a, b) => (hechas[a.id] ? 1 : 0) - (hechas[b.id] ? 1 : 0) || a.f.localeCompare(b.f));
-  $('#pend-lista').innerHTML = ord.map(t => {
-    const done = !!hechas[t.id];
-    const dd = Math.round((Date.parse(t.f) - Date.parse(hy)) / 864e5);
-    const cls = done ? 'listo' : dd <= 2 ? 'urge' : dd <= 7 ? 'pronto' : '';
-    const et = done ? 'hecho' : dd < 0 ? `hace ${-dd} d` : dd === 0 ? 'hoy' : `en ${dd} d`;
-    return `<label class="pend ${cls}">
-      <input type="checkbox" data-id="${t.id}" ${done ? 'checked' : ''}>
-      <span class="pc"><strong>${t.t}</strong>${t.n ? `<small>${t.n}</small>` : ''}</span>
-      <span class="pd">${et}</span></label>`;
-  }).join('');
-
-  $$('#pend-lista input').forEach(i => i.onchange = () => {
-    const h = LS.get('hechas', {}); h[i.dataset.id] = i.checked; LS.set('hechas', h); pintarPendientes();
-  });
-
-  const faltan = TAREAS.filter(t => !hechas[t.id]).length;
-  const urgen = TAREAS.filter(t => !hechas[t.id] && Math.round((Date.parse(t.f) - Date.parse(hy)) / 864e5) <= 2).length;
-  $('#pend-resumen').textContent = `${faltan} pendientes · ${urgen} vencen en 48 horas`;
-  const b = $('#pend-badge'); b.hidden = !urgen; b.textContent = urgen;
-}
 
 // ─────────────────────────── arranque ───────────────────────────
 if ('serviceWorker' in navigator) addEventListener('load', () => navigator.serviceWorker.register('sw.js'));

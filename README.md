@@ -5,9 +5,10 @@ se puede editar desde `github.com` en el teléfono y queda desplegada en 30 segu
 
 ```
 app/                 lo que se publica
-  index.html         las seis pantallas
-  app.css
+  index.html         las siete pantallas
+  app.css            paleta Paisaje: basalto, glaciar, musgo, aurora y azufre
   app.js
+  fonts/archivo.woff2   la tipografía de señalética, variable  (35 KB)
   sw.js              modo offline. Sube la versión cuando cambies algo.
   manifest.webmanifest
   data/viaje.json    14 días, paradas, sol, luna, alojamientos, avisos
@@ -23,7 +24,7 @@ investigacion/       los 5 reportes verificados y las 41 comprobaciones
 PLAN.md              el plan aprobado
 ```
 
-Peso total de la app: **228 KB**. Cabe entera en el teléfono.
+Peso total de la app: **293 KB**. Cabe entera en el teléfono.
 
 ## Publicar en GitHub Pages
 
@@ -36,7 +37,7 @@ gh api -X POST repos/:owner/islandia-2026/pages -f "source[branch]=main" -f "sou
 Queda en `https://<usuario>.github.io/islandia-2026/`.
 
 **El repositorio es público.** El bundle no lleva ningún código de reserva, monto ni tarjeta —
-está auditado. Esos datos se capturan una vez en cada teléfono, desde la pantalla **El sobre**,
+está auditado. Esos datos se capturan una vez en cada teléfono, desde la pantalla **Guía**,
 y viven solo en el almacenamiento local del navegador.
 
 Si prefieren repositorio privado, Cloudflare Pages lo permite en el plan gratuito:
@@ -96,7 +97,7 @@ el mapa del teléfono con las coordenadas y funciona sin señal. Mientras estén
 tarjeta dice "Falta el teléfono" — a propósito, para que se note el hueco.
 
 **Nunca pongas aquí códigos de reserva ni montos:** el repositorio es público. Eso se
-captura una vez en cada teléfono desde la pantalla **El sobre** y se guarda solo ahí.
+captura una vez en cada teléfono desde la pantalla **Guía** y se guarda solo ahí.
 
 ## Agregar consejos y advertencias de guías
 
@@ -107,7 +108,7 @@ en el lugar correcto según los campos que traiga:
 |---|---|
 | `dia: "2026-10-08"` | En ese día, en Hoy y en Los 14 días |
 | `punto: "Reynisfjara"` | Bajo esa parada, el día que toque |
-| ninguno de los dos | En la pantalla El sobre, como consejo general |
+| ninguno de los dos | En la pantalla Guía, como consejo general |
 
 `tipo` pinta el color del borde: `peligro` rojo, `peaje` naranja, `reserva` violeta,
 `ruta`, `acceso`, `dinero`, `tip`. `fuente` es opcional y sirve para saber de dónde
@@ -122,8 +123,23 @@ Desde el iPhone: `github.com` → el archivo → el lápiz → commit. Se redesp
 
 - Un pendiente: la constante `TAREAS` en `app/app.js`
 - Paradas, avisos, cámaras o sol: `app/data/viaje.json` (minificado; mejor desde la compu)
-- **Si cambias cualquier archivo, sube `V` en `app/sw.js`** (`is26-v5` → `is26-v6`).
+- **Si cambias cualquier archivo, sube `V` en `app/sw.js`** (`is26-v16` → `is26-v17`).
   Sin eso los teléfonos siguen sirviendo la versión vieja del caché.
+
+## El fondo que sigue la luz
+
+`app.js` le pone a `<html>` un atributo `data-luz` con uno de cuatro valores —
+`amanecer`, `dia`, `ocaso`, `noche`— comparando la hora de Islandia con el amanecer,
+el ocaso y el fin del crepúsculo de ese día. `app.css` solo mueve dos variables por
+franja: el fondo y el color del horizonte de arriba. El texto conserva siempre el
+mismo contraste.
+
+No es adorno: manejando a las siete de la tarde en octubre la pantalla se oscurece
+sola, sin que nadie toque nada.
+
+La tipografía es **Archivo variable**, un solo archivo de 35 KB servido desde el
+propio repo y precargado por el service worker, así que funciona en modo avión. Si
+por lo que sea no cargara, cae a la del sistema y la app se sigue viendo bien.
 
 ## De dónde salen los datos
 

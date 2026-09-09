@@ -378,3 +378,26 @@ details.card[open] summary::after{content:" ▴"}
 .conv details[open] summary::after{content:" ▴"}
 .conv .kv span em{display:block;font-style:normal;font-size:11.5px;color:var(--tx3);margin-top:1px}
 .conv .kv b i{font-style:normal;color:var(--glaciar);font-size:12.5px;font-weight:600}
+
+/* ── cómo cargar gasolina ── */
+.manguera{display:flex;gap:9px;margin-bottom:4px}
+.mg{flex:1;background:var(--bg2);border:1px solid var(--line);border-radius:var(--r2);
+  padding:11px 12px;border-left-width:5px}
+.mg.verde{border-left-color:var(--musgo)}
+.mg.negra{border-left-color:var(--tx2)}
+.mg b{display:block;font-size:16px;font-weight:650;letter-spacing:-.01em}
+.mg span{display:block;font-size:12.5px;color:var(--tx2);margin-top:1px}
+.mg em{display:block;font-style:normal;font-size:10.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--tx3);margin-top:3px;font-weight:600}
+
+.pasos{list-style:none;counter-reset:p;margin:16px 0 0;padding:0}
+.pasos li{counter-increment:p;position:relative;padding:0 0 15px 34px}
+.pasos li:last-child{padding-bottom:0}
+.pasos li::before{content:counter(p);position:absolute;left:0;top:0;width:23px;height:23px;
+  border-radius:50%;background:var(--bg2);border:1px solid var(--line);color:var(--tx2);
+  display:grid;place-items:center;font-size:11.5px;font-weight:700;font-variant-numeric:tabular-nums}
+.pasos li::after{content:'';position:absolute;left:11px;top:26px;bottom:4px;width:1px;background:var(--line)}
+.pasos li:last-child::after{display:none}
+.pasos strong{display:block;font-size:14.5px;font-weight:650;margin-bottom:2px}
+.pasos span{display:block;font-size:13.5px;color:var(--tx2);line-height:1.45}
+.pasos i{font-style:normal;color:var(--glaciar);font-weight:500}

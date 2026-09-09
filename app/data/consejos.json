@@ -1,6 +1,6 @@
 {
   "_": "Advertencias y consejos sacados de guías, posts y experiencia ajena. Se edita a mano.",
-  "_donde_sale": "Con 'dia' aparece en ese día (pantalla Hoy y en Los 14 días). Con 'punto' aparece bajo esa parada. Sin ninguno de los dos, va a la pantalla El sobre.",
+  "_donde_sale": "Con 'dia' aparece en ese día (pantalla Hoy y en Los 14 días). Con 'punto' aparece bajo esa parada. Sin ninguno de los dos, va a la pantalla Guía.",
   "_tipo": "peligro (rojo) · peaje · ruta · acceso · reserva · dinero · tip",
   "_campos": "que = el consejo, en una o dos frases. fuente = de dónde salió, para poder volver a revisarlo.",
   "_ejemplo": {
@@ -92,7 +92,7 @@
       "fuente": "video de la agencia sobre Parka"
     },
     {
-      "que": "Anotar la placa del auto en cuanto lo recojan y guardarla en El sobre. La necesitan para Parka, para el peaje de Vaðlaheiðargöng y para el de Hornafjörður.",
+      "que": "Anotar la placa del auto en cuanto lo recojan y guardarla en la Guía. La necesitan para Parka, para el peaje de Vaðlaheiðargöng y para el de Hornafjörður.",
       "tipo": "tip",
       "dia": "2026-09-30",
       "fuente": "se desprende de los dos peajes y de Parka"

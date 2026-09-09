@@ -155,8 +155,8 @@
 
   <!-- ══════════ SOBRE ══════════ -->
   <section id="v-sobre" class="view" hidden>
-    <header class="vhead"><h1>El sobre</h1></header>
-    <p class="sub">Todo lo que no puede fallar. Funciona sin señal.</p>
+    <header class="vhead"><h1>Guía</h1></header>
+    <p class="sub">Todo lo que hay que saber y no se recuerda. Funciona sin señal.</p>
 
     <!-- Conversor -->
     <div class="card conv">
@@ -193,6 +193,24 @@
       <div id="auto-cuerpo"></div>
     </div>
 
+    <!-- Cómo cargar gasolina -->
+    <div class="card">
+      <div class="card-head"><h2>Cómo cargar gasolina</h2></div>
+
+      <div class="manguera">
+        <div class="mg verde"><b>Bensín</b><span>gasolina 95<em>círculo · E10</em></span></div>
+        <div class="mg negra"><b>Dísel</b><span>diésel<em>cuadrado · B7</em></span></div>
+      </div>
+      <p class="nota" style="border-color:var(--lava)">El color es costumbre, no ley. Lo que manda es
+        la <b>forma de la etiqueta</b> pegada en la bomba y en la pistola. Y ojo:
+        <b>«gasolía» en islandés es DIÉSEL</b>, no gasolina.</p>
+
+      <ol class="pasos" id="pasos-gas"></ol>
+
+      <p class="nota">Si te quedas parado sin empezar a cargar, la bomba se cancela sola entre
+        minuto y medio y tres minutos. Vuelve a empezar y ya.</p>
+    </div>
+
     <div class="card">
       <div class="card-head"><h2>Reservas</h2><button id="btn-privado" class="ghost">Editar</button></div>
       <p class="sub">Los códigos y montos <b>no están en el repositorio</b>. Se guardan solo en este teléfono.</p>
@@ -221,13 +239,6 @@
     </div>
   </section>
 
-  <!-- ══════════ PENDIENTES ══════════ -->
-  <section id="v-pendientes" class="view" hidden>
-    <header class="vhead"><h1>Pendientes</h1></header>
-    <p class="sub" id="pend-resumen"></p>
-    <div id="pend-lista"></div>
-  </section>
-
 </main>
 
 <nav id="tabs">
@@ -236,8 +247,7 @@
   <button data-v="carreteras"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 21 9.4 3M18.8 21 14.6 3"/><path d="M12 6.2v2.2M12 11v2.2M12 15.8V18"/></svg>Vías</button>
   <button data-v="clima"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8h10.4a3 3 0 1 0-3-3"/><path d="M3 12.2h13.6a3 3 0 1 1-3 3"/><path d="M3 16.4h8.2a2.6 2.6 0 1 1-2.6 2.6"/></svg>Clima</button>
   <button data-v="auroras"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 20.4c0-7.4 3.8-12.6 8.4-12.6s8.4 5.2 8.4 12.6"/><path d="M7.8 20.4c0-4.8 1.9-8.4 4.2-8.4s4.2 3.6 4.2 8.4"/><path d="m12 1.6.9 2.2 2.2.9-2.2.9-.9 2.2-.9-2.2-2.2-.9 2.2-.9z"/></svg>Auroras</button>
-  <button data-v="sobre"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.8" y="5.4" width="18.4" height="13.2" rx="2.8"/><path d="m3.7 7 7.2 5.4a2 2 0 0 0 2.2 0L20.3 7"/></svg>Sobre</button>
-  <button data-v="pendientes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h9M4 12.2h9M4 17.4h6"/><path d="m14.6 15.6 2.3 2.3 4.5-4.8"/></svg>Pend<em id="pend-badge" hidden></em></button>
+  <button data-v="sobre"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4.4h6.2a2.6 2.6 0 0 1 2.6 2.6v12.6a2 2 0 0 0-2-2H4z"/><path d="M20 4.4h-6.2a2.6 2.6 0 0 0-2.6 2.6v12.6a2 2 0 0 1 2-2H20z"/></svg>Guía</button>
 </nav>
 
 <script src="app.js"></script>
