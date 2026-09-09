@@ -7,12 +7,14 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Islandia">
-<meta name="theme-color" content="#0d1117">
+<meta name="theme-color" content="#14161a">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon.png">
 <link rel="stylesheet" href="app.css">
 </head>
 <body>
+
+<div id="horizonte" aria-hidden="true"></div>
 
 <div id="offline-bar" hidden>Sin conexión · mostrando datos guardados</div>
 
@@ -22,8 +24,8 @@
   <section id="v-hoy" class="view">
     <header class="vhead">
       <div>
+        <p id="hoy-kicker" class="kicker"></p>
         <h1 id="hoy-titulo">Hoy</h1>
-        <p id="hoy-sub" class="sub"></p>
       </div>
       <button id="hoy-jump" class="ghost" hidden>Ir al día actual</button>
     </header>
@@ -156,6 +158,22 @@
     <header class="vhead"><h1>El sobre</h1></header>
     <p class="sub">Todo lo que no puede fallar. Funciona sin señal.</p>
 
+    <!-- Conversor -->
+    <div class="card conv">
+      <div class="card-head"><h2>Coronas a pesos</h2><span id="fx-edad" class="edad"></span></div>
+      <div class="regla">Para calcular de cabeza: <b>divide entre 7</b></div>
+      <div class="conv-fila">
+        <label><span>ISK</span><input id="fx-isk" type="text" inputmode="decimal" value="1000" autocomplete="off"></label>
+        <span class="conv-eq">=</span>
+        <label><span>MXN</span><input id="fx-mxn" type="text" inputmode="decimal" autocomplete="off"></label>
+      </div>
+      <div id="fx-atajos" class="atajos"></div>
+      <details>
+        <summary>Cuánto cuestan las cosas</summary>
+        <div id="fx-tabla"></div>
+      </details>
+    </div>
+
     <div class="card emerg">
       <h2>Emergencias</h2>
       <a class="tel grande" href="tel:112"><span>112</span><small>Policía · ambulancia · bomberos · rescate</small></a>
@@ -213,13 +231,13 @@
 </main>
 
 <nav id="tabs">
-  <button data-v="hoy" class="on"><span>◉</span>Hoy</button>
-  <button data-v="dias"><span>▤</span>Días</button>
-  <button data-v="carreteras"><span>⇱</span>Vías</button>
-  <button data-v="clima"><span>≈</span>Clima</button>
-  <button data-v="auroras"><span>✦</span>Auroras</button>
-  <button data-v="sobre"><span>✉</span>Sobre</button>
-  <button data-v="pendientes"><span>✓</span>Pend<em id="pend-badge" hidden></em></button>
+  <button data-v="hoy" class="on"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="10" r="3.6"/><path d="M12 2.6v1.7M20.4 10h-1.7M5.3 10H3.6M17.9 4.1l-1.2 1.2M7.3 5.3 6.1 4.1"/><path d="M3 17.6h18"/></svg>Hoy</button>
+  <button data-v="dias"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.4" y="4.6" width="17.2" height="16" rx="3.2"/><path d="M3.4 9.6h17.2M8.4 2.8v3.5M15.6 2.8v3.5"/></svg>Días</button>
+  <button data-v="carreteras"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 21 9.4 3M18.8 21 14.6 3"/><path d="M12 6.2v2.2M12 11v2.2M12 15.8V18"/></svg>Vías</button>
+  <button data-v="clima"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8h10.4a3 3 0 1 0-3-3"/><path d="M3 12.2h13.6a3 3 0 1 1-3 3"/><path d="M3 16.4h8.2a2.6 2.6 0 1 1-2.6 2.6"/></svg>Clima</button>
+  <button data-v="auroras"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 20.4c0-7.4 3.8-12.6 8.4-12.6s8.4 5.2 8.4 12.6"/><path d="M7.8 20.4c0-4.8 1.9-8.4 4.2-8.4s4.2 3.6 4.2 8.4"/><path d="m12 1.6.9 2.2 2.2.9-2.2.9-.9 2.2-.9-2.2-2.2-.9 2.2-.9z"/></svg>Auroras</button>
+  <button data-v="sobre"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.8" y="5.4" width="18.4" height="13.2" rx="2.8"/><path d="m3.7 7 7.2 5.4a2 2 0 0 0 2.2 0L20.3 7"/></svg>Sobre</button>
+  <button data-v="pendientes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h9M4 12.2h9M4 17.4h6"/><path d="m14.6 15.6 2.3 2.3 4.5-4.8"/></svg>Pend<em id="pend-badge" hidden></em></button>
 </nav>
 
 <script src="app.js"></script>

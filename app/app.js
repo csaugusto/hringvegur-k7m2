@@ -63,6 +63,8 @@ async function boot() {
     }
   }
   pintarHoy(); pintarDias(); pintarNoches(); pintarSobre(); pintarPendientes();
+  pintarConversor(LS.get('fx'));
+  cargarTasa().then(pintarConversor);
   setInterval(tickLuz, 1000); tickLuz();
 
   // Traer clima si hay red y el caché ya venció
@@ -135,8 +137,13 @@ const dist = (a, b, c, d) => {
 // ─────────────────────────── HOY ───────────────────────────
 function pintarHoy() {
   const d = diaActivo(), esHoy = !!diaDeHoy();
-  $('#hoy-titulo').textContent = esHoy ? `Día ${d.d}` : 'El viaje empieza pronto';
-  $('#hoy-sub').textContent = `${FECHA_LARGA(d.fecha)} · ${d.plan}`;
+  // La antefirma dice cuándo estamos; el título, qué toca. Manda el plan del día.
+  $('#hoy-kicker').innerHTML =
+    `<b>Día ${d.d} de ${VIAJE.dias.length - 1}</b> ${FECHA_LARGA(d.fecha)}`;
+  const tit = $('#hoy-titulo');
+  tit.textContent = d.plan;
+  // Los planes van de 9 a 58 caracteres: el titular se achica en vez de romperse.
+  tit.className = d.plan.length > 42 ? 't-xl' : d.plan.length > 26 ? 't-l' : '';
 
   if (!esHoy) {
     const faltan = Math.ceil((Date.UTC(...VIAJE.dias[0].fecha.split('-').map((v, i) => i === 1 ? v - 1 : +v)) - ahoraISL()) / 864e5);
@@ -229,6 +236,13 @@ function tickLuz() {
   const [ah, am] = d.amanecer.split(':').map(Number), [oh, om] = d.ocaso.split(':').map(Number);
   const [ch, cm] = d.crep_fin.split(':').map(Number);
   const amanecer = ah * 60 + am, ocaso = oh * 60 + om, crep = ch * 60 + cm;
+
+  // No es adorno: el fondo se oscurece solo cuando de verdad oscurece afuera.
+  document.documentElement.dataset.luz =
+      (min < amanecer - 55 || min > crep) ? 'noche'
+    : (min < amanecer + 55)               ? 'amanecer'
+    : (min > ocaso - 70)                  ? 'ocaso'
+    :                                       'dia';
 
   $('#luz-amanecer').textContent = d.amanecer;
   $('#luz-ocaso').textContent = d.ocaso;
@@ -373,8 +387,8 @@ function renderVias(d) {
     <div class="card-head"><h2>Resumen de la ruta</h2><span class="edad">Vegagerðin · ${hace}</span></div>
     <div class="vias-cifras">
       <div class="vc ok"><b>${s.ok}</b><span>transitables</span></div>
-      <div class="vc ojo"><b>${s.ojo}</b><span>con algo</span></div>
-      <div class="vc grave"><b>${s.grave}</b><span>graves</span></div>
+      <div class="vc ojo${s.ojo ? '' : ' cero'}"><b>${s.ojo}</b><span>con algo</span></div>
+      <div class="vc grave${s.grave ? '' : ' cero'}"><b>${s.grave}</b><span>graves</span></div>
     </div>
     ${s.grave ? '<p class="nota" style="border-color:var(--bad);color:var(--bad)">Hay tramos intransitables o cerrados. Revisen cuáles antes de salir.</p>' : ''}`;
 
@@ -707,6 +721,75 @@ $('#btn-privado').onclick = () => {
   LS.set('privado', { ...p, [f]: nu });
   pintarSobre(); pintarHoy();
 };
+
+// ─────────────────────────── CONVERSOR ───────────────────────────
+// Tipo de cambio del BCE vía Frankfurter, con open.er-api de respaldo. Ambos
+// traen CORS abierto. Se guarda el último valor: sin señal se sigue convirtiendo
+// con el de ayer, que para decidir si un plato es caro sobra.
+const TASA_RESPALDO = 0.1403;   // congelada el 8 de septiembre de 2026, por si nunca hubo red
+
+// Precios reales que van a ver, todos verificados en esta investigación.
+const PRECIOS = [
+  ['Gasolina, 1 litro',            250, 'entre 226 en zona barata y 262 en la Ring Road'],
+  ['Llenar el tanque, ~54 L',    13500, 'de vacío a lleno'],
+  ['Hot dog de gasolinera',       1200, ''],
+  ['Bæjarins Beztu',               800, 'el famoso de Reikiavik'],
+  ['Café',                         800, 'gratis en Orkan con la llave'],
+  ['Cerveza',                     1550, ''],
+  ['Sopa de pescado',             2900, ''],
+  ['Plato fuerte en pueblo',      6400, 'entre 4,900 y 7,900'],
+  ['Cena para dos con cerveza',  21000, 'tres tiempos'],
+  ['Súper: día de comida los dos',16000, 'estilo mixto, desayuno y lunch de súper'],
+  ['Estacionamiento de cascada',  1000, 'Skógafoss, Seljalandsfoss, Reynisfjara'],
+  ['Jökulsárlón',                 1110, 'incluye Diamond Beach'],
+  ['Peaje Vaðlaheiðargöng',       2216, 'por sentido'],
+  ['Peaje Hornafjörður',          1500, 'por cruce'],
+  ['Stokksnes',                   1100, 'por persona'],
+  ['Kerið',                        600, 'por persona'],
+  ['Ballenas en Húsavík',        12990, 'por persona, 3 horas'],
+  ['Snorkel en Silfra',          18000, 'por persona'],
+  ['Cueva de hielo',             23900, 'por persona'],
+  ['Urgencias en Landspítali',   88557, 'solo por llegar'],
+];
+
+async function cargarTasa() {
+  const g = LS.get('fx');
+  if (g && Date.now() - g.t < 12 * 3600e3) return g;
+  if (!navigator.onLine) return g;
+  for (const [url, saca] of [
+    ['https://api.frankfurter.app/latest?from=ISK&to=MXN', j => j.rates?.MXN],
+    ['https://open.er-api.com/v6/latest/ISK',              j => j.rates?.MXN],
+  ]) {
+    try {
+      const v = saca(await fetch(url).then(r => r.json()));
+      if (v > 0) { const d = { t: Date.now(), v }; LS.set('fx', d); return d; }
+    } catch {}
+  }
+  return g;
+}
+
+function pintarConversor(fx) {
+  const tasa = fx?.v || TASA_RESPALDO;
+  $('#fx-edad').textContent = fx
+    ? `1000 ISK = ${Math.round(1000 * tasa)} MXN · ${edadTxt(fx.t)}`
+    : `1000 ISK ≈ ${Math.round(1000 * TASA_RESPALDO)} MXN · sin conexión`;
+
+  const isk = $('#fx-isk'), mxn = $('#fx-mxn');
+  const fmt = n => n >= 1000 ? Math.round(n).toLocaleString('es-MX') : (Math.round(n * 10) / 10).toString();
+  const leer = el => parseFloat(el.value.replace(/[^\d.,]/g, '').replace(/,/g, '')) || 0;
+  const deISK = () => { mxn.value = fmt(leer(isk) * tasa); };
+  const deMXN = () => { isk.value = fmt(leer(mxn) / tasa); };
+  isk.oninput = deISK; mxn.oninput = deMXN; deISK();
+
+  $('#fx-atajos').innerHTML = [500, 1000, 2500, 5000, 10000].map(v =>
+    `<button data-v="${v}">${v.toLocaleString('es-MX')}</button>`).join('');
+  $$('#fx-atajos button').forEach(b => b.onclick = () => { isk.value = b.dataset.v; deISK(); });
+
+  $('#fx-tabla').innerHTML = PRECIOS.map(([q, v, n]) => `<div class="kv">
+    <span>${q}${n ? `<em>${n}</em>` : ''}</span>
+    <b>${v.toLocaleString('es-MX')} ISK<br><i>${Math.round(v * tasa).toLocaleString('es-MX')} MXN</i></b>
+  </div>`).join('');
+}
 
 // ─────────────────────────── PENDIENTES ───────────────────────────
 const TAREAS = [
