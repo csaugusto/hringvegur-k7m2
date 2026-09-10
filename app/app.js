@@ -29,11 +29,15 @@ let CONSEJOS = [];
 async function boot() {
   let ALOJ, CONS;
   try {
+    // 'no-cache' obliga a revalidar contra el servidor en vez de creerle al
+    // caché del navegador. Sin esto, editar un JSON no se refleja hasta que el
+    // caché caduca solo. Sin señal no estorba: el service worker responde antes.
+    const dato = u => fetch(u, { cache: 'no-cache' }).then(r => r.json());
     [VIAJE, POI, ALOJ, CONS] = await Promise.all([
-      fetch('data/viaje.json').then(r => r.json()),
-      fetch('data/poi.json').then(r => r.json()),
-      fetch('data/alojamientos.json').then(r => r.json()),
-      fetch('data/consejos.json').then(r => r.json()).catch(() => ({ consejos: [] }))
+      dato('data/viaje.json'),
+      dato('data/poi.json'),
+      dato('data/alojamientos.json'),
+      dato('data/consejos.json').catch(() => ({ consejos: [] }))
     ]);
   } catch (e) {
     document.body.innerHTML = '<p style="padding:40px;text-align:center">No se pudieron cargar los datos.<br><small>Recarga la página con señal una vez.</small></p>';
@@ -943,11 +947,11 @@ const DIAS_RENTA = 13;       // 30 sep 07:30 → 13 oct 14:00
 // de la rentadora: tener kilometraje ilimitado no exime de pagarlo. Cada empresa
 // lo traslada de una de dos formas, y hay que preguntar cuál usa la suya.
 const KMG = {
-  km:  { n: 'Por km recorrido', tasa: 8.35, nota: 'Tasa estatal de 6.95 más la comisión de la rentadora y el IVA. Se calcula con el odómetro al devolver. Así lo cobra Hertz.' },
-  dia: { n: 'Cuota fija diaria', tasa: 1550, nota: 'Se paga por día de renta sin importar los kilómetros, y se cobra por adelantado. Así lo cobra Blue Car Rental.' },
-  no:  { n: 'Todavía no sé',     tasa: 8.35, nota: 'Estimado por km mientras lo confirman. Pregúntenle a la rentadora: cambia el total.' },
+  km:  { n: 'Por km · su caso', tasa: 8.8, nota: 'Su contrato con Höldur lo dice así: «a road usage fee between ISK 6 to ISK 12 per km driven, payable at the end of the rental». La tasa estatal es 6.95 y Höldur suma comisión e IVA; se calcula con 8.8 y se cobra al devolver el auto.' },
+  alto:{ n: 'Peor caso · 12',   tasa: 12,  nota: 'El techo del rango que dice el contrato. Sirve para no quedarse corto en el presupuesto.' },
+  dia: { n: 'Cuota fija diaria', tasa: 1550, nota: 'Otras rentadoras lo cobran así, pero NO es su caso: Höldur cobra por kilómetro al devolver.' },
 };
-const modoKmg = () => LS.get('kmg', 'no');
+const modoKmg = () => LS.get('kmg', 'km');
 const costoKmg = km => modoKmg() === 'dia' ? KMG.dia.tasa * DIAS_RENTA : KMG[modoKmg()].tasa * km;
 
 const gasLog = () => LS.get('gaslog', { inicial: null, cargas: [] });

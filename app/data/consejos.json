@@ -275,14 +275,66 @@
       "fuente": "8.5 L/100km × 250 ISK/L + kílómetragjald"
     },
     {
-      "que": "Kilometraje ilimitado y el impuesto kilométrico NO son lo mismo, y esa confusión cuesta 20,000 ISK. El ilimitado es política de la rentadora: no les cobran por distancia y sigue vigente. El kílómetragjald es un impuesto del ESTADO desde enero de 2026, que sustituyó al impuesto sobre el combustible; la rentadora solo lo traslada. Se paga aunque el kilometraje sea ilimitado.",
+      "que": "Kilometraje ilimitado y el impuesto kilométrico NO son lo mismo, y su contrato lo dice en la misma página: 'Your rental includes unlimited free kilometres' y, tres párrafos abajo, 'customers are obliged to pay a road usage fee between ISK 6 to ISK 12 per km driven, payable at the end of the rental'. El ilimitado es la política de la rentadora; el impuesto es del Estado desde enero de 2026 y lo cobran al devolver el auto.",
       "tipo": "dinero",
-      "fuente": "Blue Car Rental, Hertz Iceland y Lotus, guías 2026 del nuevo impuesto"
+      "fuente": "contrato de Europcar/Höldur vía Booking, verbatim"
     },
     {
       "que": "Hay dos formas de que se los cobren y conviene preguntar cuál usan: cuota FIJA por día de renta —Blue Car Rental cobra 1,550 ISK diarios por adelantado, sin leer el odómetro— o POR KILÓMETRO real al devolver, que en Hertz sale en unas 8.35 ISK/km con su comisión y el IVA. Para sus 13 días y 2,600 km las dos dan casi lo mismo, unos 20,000 contra 21,700; pero si manejan de más, la fija no sube.",
       "tipo": "dinero",
       "fuente": "tarifas publicadas por Blue Car Rental y Hertz Iceland, 2026"
+    },
+    {
+      "que": "La tarjeta Nu NO sirve para el depósito. El contrato dice literal: 'Cards distributed by neobanks (online-only banks) are not accepted'. Nu es banco 100% digital. Tampoco aceptan prepagadas, recargables ni virtuales. Tiene que ser Visa, Mastercard o Amex FÍSICA, con chip, a nombre del conductor principal y con NIP.",
+      "tipo": "peligro",
+      "dia": "2026-09-30",
+      "fuente": "contrato de Europcar/Höldur vía Booking"
+    },
+    {
+      "que": "El contrato confirma que NO les tocan llantas de invierno: 'From November 1st until April 15th all cars come equipped with studded winter tires'. Viajan del 30 de septiembre al 13 de octubre, o sea antes de esa ventana. Vale la pena pedirlas por escrito y pagar el extra si aceptan.",
+      "tipo": "peligro",
+      "dia": "2026-09-30",
+      "fuente": "contrato de Europcar/Höldur vía Booking"
+    },
+    {
+      "que": "Depósito de 500 EUR bloqueado en la tarjeta al recoger, más un deducible de 3,000 EUR tanto por daño como por robo. Hay que confirmar que la línea de crédito aguante ese bloqueo MÁS los gastos del viaje.",
+      "tipo": "dinero",
+      "dia": "2026-09-30",
+      "fuente": "contrato de Europcar/Höldur vía Booking"
+    },
+    {
+      "que": "El CDW incluido NO cubre vidrios, ruedas, interior, techo, bajos, remolque ni tiempo fuera de camino. Tampoco llaves, antena, gato, triángulos, chalecos, limpiaparabrisas ni tapón de gasolina. Su ruta lleva grava en Stokksnes y en la 218 a Dyrhólaey, y cruza Mýrdalssandur y Skeiðarársandur, que son las zonas de tormentas de arena. Ahí es donde entran las coberturas de grava y ceniza.",
+      "tipo": "dinero",
+      "fuente": "contrato de Europcar/Höldur vía Booking"
+    },
+    {
+      "que": "Si Ivy va a manejar tiene que ir registrada como conductor adicional: son 29 EUR por renta. Si maneja sin estar registrada, el seguro queda invalidado.",
+      "tipo": "peligro",
+      "dia": "2026-09-30",
+      "fuente": "contrato de Europcar/Höldur vía Booking"
+    },
+    {
+      "que": "En el mostrador del aeropuerto piden, además del pasaporte y la licencia FÍSICA (no vale la digital), el boleto de avión del vuelo de salida con fecha y hora. Tengan a la mano el pase del 13 de octubre.",
+      "tipo": "tip",
+      "dia": "2026-09-30",
+      "fuente": "contrato de Europcar/Höldur vía Booking"
+    },
+    {
+      "que": "El contrato es con HÖLDUR ehf, Tryggvabraut 12, Akureyri, no con Europcar Francia. Ese es el nombre que hay que buscar para el teléfono de asistencia y para cualquier reclamo.",
+      "tipo": "tip",
+      "fuente": "contrato de Europcar/Höldur vía Booking"
+    },
+    {
+      "que": "Política de combustible 'like for like': lo reciben con cierto nivel y lo devuelven igual, con un depósito bloqueado por el combustible. Si lo devuelven con menos, se lo cobran a su precio, que es más caro que llenarlo uno mismo. Anoten el nivel exacto al recibirlo.",
+      "tipo": "dinero",
+      "dia": "2026-09-30",
+      "fuente": "contrato de Europcar/Höldur vía Booking"
+    },
+    {
+      "que": "Tolerancia de 2 horas en el mostrador desde la hora de recogida, y solo dentro del horario de oficina. Su vuelo llega 06:20 y recogen 07:30: si el vuelo se retrasa, hay que llamarles al menos 30 minutos antes.",
+      "tipo": "tip",
+      "dia": "2026-09-30",
+      "fuente": "contrato de Europcar/Höldur vía Booking"
     }
   ]
 }
