@@ -759,12 +759,23 @@ function pintarSobre() {
     : '<p class="muted">Todavía no hay consejos generales capturados.</p>';
 
   const a = LS.get('auto', {});
+  // Los tres teléfonos están verificados contra holdurcarrental.is y contra la
+  // ficha del aeropuerto en kefairport.com. El de asistencia en carretera es el
+  // que sirve a las 3 de la mañana en medio de los fiordos; los otros dos no.
   $('#auto-cuerpo').innerHTML = `
+    <a class="tel grande" href="tel:+3544192400"><span>+354 419 2400</span>
+      <small>Höldur · asistencia en carretera, 24 horas</small></a>
+    <a class="tel" href="tel:+3548406000"><span>+354 840 6000</span>
+      <small>Emergencia fuera del horario de oficina</small></a>
+    <a class="tel" href="tel:+3544616000"><span>+354 461 6000</span>
+      <small>Mostrador de Keflavík y atención a clientes · lun a vie 8-17</small></a>
+    ${a.tel ? `<a class="tel" href="tel:${a.tel.replace(/\s/g, '')}"><span>${a.tel}</span>
+      <small>El que ustedes anotaron</small></a>` : ''}
+    <div class="kv"><span>El auto</span><b>Kia Sportage automático<br><i>«o similar» · preguntar si es 4x4</i></b></div>
     <div class="kv"><span>Placa</span><b>${a.placa || '— anotarla al recoger'}</b></div>
-    <div class="kv"><span>Asistencia 24 h</span><b>${a.tel ? `<a href="tel:${a.tel.replace(/\s/g, '')}">${a.tel}</a>` : '— sacarlo del voucher'}</b></div>
     <div class="kv"><span>Reserva</span><b>${a.ref || '<span style="color:var(--tx3)">sin capturar</span>'}</b></div>
-    <div class="kv"><span>Recoger</span><b>KEF · 30 sep 07:30</b></div>
-    <div class="kv"><span>Entregar</span><b>KEF · 13 oct 14:00</b></div>
+    <div class="kv"><span>Recoger</span><b>KEF · 30 sep 07:30<br><i>mostrador dentro de la terminal, a la izquierda al salir de aduanas</i></b></div>
+    <div class="kv"><span>Entregar</span><b>KEF · 13 oct 14:00<br><i>NO en el P2 donde lo recogen: la devolución está 300 m antes de la entrada de salidas</i></b></div>
     <button class="ghost" style="margin-top:12px;width:100%" onclick="editarAuto()">Editar datos del auto</button>`;
 
   const p = LS.get('privado', {});
@@ -779,7 +790,7 @@ function pintarSobre() {
 window.editarAuto = () => {
   const a = LS.get('auto', {});
   const placa = prompt('Placa del auto', a.placa || ''); if (placa === null) return;
-  const tel = prompt('Teléfono de asistencia 24 h de la rentadora', a.tel || '');
+  const tel = prompt('Otro teléfono de la rentadora (los tres de Höldur ya vienen puestos)', a.tel || '');
   const ref = prompt('Número de reserva del auto', a.ref || '');
   LS.set('auto', { ...a, placa, tel: tel ?? a.tel, ref: ref ?? a.ref });
   pintarSobre();
@@ -949,8 +960,8 @@ const DIAS_RENTA = 14;       // 30 sep 07:30 → 13 oct 14:00, facturado como 14
 // de la rentadora: tener kilometraje ilimitado no exime de pagarlo. Cada empresa
 // lo traslada de una de dos formas, y hay que preguntar cuál usa la suya.
 const KMG = {
-  km:  { n: 'Por km · su caso', tasa: 8.8, nota: 'Su contrato con Höldur lo dice así: «a road usage fee between ISK 6 to ISK 12 per km driven, payable at the end of the rental». La tasa estatal es 6.95 y Höldur suma comisión e IVA; se calcula con 8.8 y se cobra al devolver el auto.' },
-  alto:{ n: 'Peor caso · 12',   tasa: 12,  nota: 'El techo del rango que dice el contrato. Sirve para no quedarse corto en el presupuesto.' },
+  km:  { n: 'Su caso · 8.81', tasa: 8.81, nota: 'Höldur publica el desglose exacto: impuesto del Estado 6.95 ISK/km más su comisión de 1.50 con IVA, o sea 1.86. Total 8.81 ISK por kilómetro recorrido, cobrado al devolver el auto. El IVA solo cae sobre la comisión, nunca sobre el impuesto.' },
+  alto:{ n: 'Colchón · 12',   tasa: 12,  nota: 'El techo del rango «ISK 6 to ISK 12» que dice su contrato. No les va a tocar: la tarifa estatal es escalonada por peso y los 12 corresponden a vehículos de más de 8 toneladas. Su SUV pesa menos de 3.5 y paga la banda base. Sirve solo para presupuestar con holgura.' },
   dia: { n: 'Cuota fija diaria', tasa: 1550, nota: 'Otras rentadoras lo cobran así, pero NO es su caso: Höldur cobra por kilómetro al devolver.' },
 };
 const modoKmg = () => LS.get('kmg', 'km');

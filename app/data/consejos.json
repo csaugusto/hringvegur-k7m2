@@ -285,10 +285,10 @@
    "fuente": "tarifas publicadas por Blue Car Rental y Hertz Iceland, 2026"
   },
   {
-   "que": "La tarjeta Nu NO sirve para el depósito. El contrato dice literal: 'Cards distributed by neobanks (online-only banks) are not accepted'. Nu es banco 100% digital. Tampoco aceptan prepagadas, recargables ni virtuales. Tiene que ser Visa, Mastercard o Amex FÍSICA, con chip, a nombre del conductor principal y con NIP.",
+   "que": "La tarjeta que se presenta en el mostrador tiene que ser de CRÉDITO, física y a nombre de Carlos. Höldur solo nombra Visa y Mastercard en la cláusula 4 del contrato que él va a firmar, y dice literal que no aceptan débito. La regla de Booking sobre neobancos ni siquiera aparece en los documentos de Höldur; el filtro real es que la terminal lee el BIN y si sale débito o prepago, rechazo automático. La Nu es Mastercard de crédito y hoy la emite un banco con licencia, así que técnicamente pasa, pero no la lleven como principal: mejor una Visa o Mastercard de crédito de un banco tradicional, y la Nu de respaldo.",
    "tipo": "peligro",
    "dia": "2026-09-30",
-   "fuente": "contrato de Europcar/Höldur vía Booking"
+   "fuente": "Höldur, Car Rental Terms v.0526 cláusula 4 y FAQ; la cláusula de neobancos es de Booking, no de Höldur"
   },
   {
    "que": "El contrato confirma que NO les tocan llantas de invierno: 'From November 1st until April 15th all cars come equipped with studded winter tires'. Viajan del 30 de septiembre al 13 de octubre, o sea antes de esa ventana. Vale la pena pedirlas por escrito y pagar el extra si aceptan.",
@@ -297,10 +297,10 @@
    "fuente": "contrato de Europcar/Höldur vía Booking"
   },
   {
-   "que": "Depósito de 500 EUR bloqueado en la tarjeta al recoger, más un deducible de 3,000 EUR tanto por daño como por robo. Hay que confirmar que la línea de crédito aguante ese bloqueo MÁS los gastos del viaje.",
-   "tipo": "dinero",
+   "que": "El titular de la tarjeta y el conductor principal tienen que ser la MISMA persona. Höldur lo dice sin matices: «aðalökumaður og korthafi verða að vera sá sami». Carlos pagó la reserva, así que Carlos firma y Carlos pone la tarjeta. Ivy solo puede ir registrada como conductor adicional.",
+   "tipo": "peligro",
    "dia": "2026-09-30",
-   "fuente": "contrato de Europcar/Höldur vía Booking"
+   "fuente": "FAQ de Höldur, versión en inglés y en islandés"
   },
   {
    "que": "El CDW incluido NO cubre vidrios, ruedas, interior, techo, bajos, remolque ni tiempo fuera de camino. Tampoco llaves, antena, gato, triángulos, chalecos, limpiaparabrisas ni tapón de gasolina. Su ruta lleva grava en Stokksnes y en la 218 a Dyrhólaey, y cruza Mýrdalssandur y Skeiðarársandur, que son las zonas de tormentas de arena. Ahí es donde entran las coberturas de grava y ceniza.",
@@ -381,6 +381,76 @@
    "tipo": "tip",
    "dia": "2026-09-30",
    "fuente": "reserva: On Airport · Desk in Terminal"
+  },
+  {
+   "que": "Sobre el bloqueo en la tarjeta hay tres cifras distintas según a quién le pregunten: Booking dice 500 EUR, la cláusula 15a de Höldur dice «el costo estimado de la renta», y la política de depósitos de Europcar dice 300 EUR si va prepagada. La que manda es la del contrato impreso que les den ese día. Lleven línea libre para el peor caso, y tomen en cuenta que el deducible de su categoría es ISK 475,000 —no los 3,000 EUR genéricos— porque el Sportage está en la banda de 4x4, no en la de auto de pasajeros.",
+   "tipo": "dinero",
+   "dia": "2026-09-30",
+   "fuente": "Höldur cláusula 15a y su página de Protection; ficha de Booking"
+  },
+  {
+   "que": "El impuesto kilométrico se pre-autoriza AL DEVOLVER el auto y puede tardar hasta cinco días hábiles en liberarse. O sea que la tarjeta tiene que seguir viva y con saldo después del 13 de octubre, ya de regreso. Lo mismo con el depósito: lo devuelven dentro de cinco días hábiles.",
+   "tipo": "dinero",
+   "dia": "2026-10-13",
+   "fuente": "Höldur: «it may take up to five business days for the pre-authorization hold to be released»"
+  },
+  {
+   "que": "El auto NO se devuelve donde lo recogieron. La recogida es en el P2, pero la devolución está al otro lado, unos 300 metros ANTES de la entrada de salidas: saliendo de la rotonda frente al aeropuerto hay que mantenerse a la derecha y seguir los letreros «Höldur Car Rental — Europcar return centre». Salgan con tiempo de más el 13 de octubre y no lo dejen para el último momento.",
+   "tipo": "peligro",
+   "dia": "2026-10-13",
+   "fuente": "holdurcarrental.is, instrucciones de devolución"
+  },
+  {
+   "que": "No se vayan del centro de devolución sin que un empleado revise el auto en persona y les firme el comprobante de entrega sin daños. Höldur permite dejar la llave en un buzón fuera de horario, pero advierte que «the vehicle will remain your responsibility until it is checked by a staff member the following day». A las 14:00 hay personal, así que exijan la inspección en el momento.",
+   "tipo": "peligro",
+   "dia": "2026-10-13",
+   "fuente": "holdurcarrental.is, instrucciones de devolución"
+  },
+  {
+   "que": "El cargo por fuera de horario NO les aplica: el mostrador de Keflavík abre todos los días de 05:30 a 01:00 en invierno. Recogen 07:30 y devuelven 14:00, con horas de margen en ambos casos. Si en el mostrador se lo quieren cobrar, la prueba es la ficha del propio aeropuerto en kefairport.com, que publica el horario de Europcar. El único escenario en que sí se dispararía es que el vuelo se retrasara tanto que llegaran después de la 01:00.",
+   "tipo": "dinero",
+   "dia": "2026-09-30",
+   "fuente": "kefairport.com (Isavia) y holdurcarrental.is"
+  },
+  {
+   "que": "Los tres caminos de grava del itinerario son legales y no invalidan el seguro: Stokksnes es la carretera 9720, Dyrhólaey la 218 —incluida la subida al faro— y Kolugljúfur la 715 con la 7175. La regla de Höldur no es «nada de terracería» sino «nada sin número de carretera»: su artículo 8 prohíbe caminos o huellas SIN número, las cerradas por condiciones, y las F para autos 2WD. Las tres suyas tienen número oficial en el registro de Vegagerðin.",
+   "tipo": "tip",
+   "fuente": "Höldur, Rental Agreement v.0526 art. 8; Vegaskrá 2025 de Vegagerðin"
+  },
+  {
+   "que": "Lo que ningún seguro cubre, ni el paquete más caro: los BAJOS del auto. Höldur lo escribe así de claro: «No insurance covers damages to the underside of the rented vehicle», y con ello la transmisión, la suspensión y el chasis. En los 5 km de grava de Stokksnes y en la subida al faro de Dyrhólaey vayan a 30 o 40 km/h y no intenten librar la cresta del centro del camino acelerando.",
+   "tipo": "peligro",
+   "fuente": "Höldur, Rental Agreement v.0526 arts. 31(i) y 33"
+  },
+  {
+   "que": "En Stokksnes el camino 9720 termina en Horn y ahí se acaba el permiso. Meter el auto a la arena o a las dunas es off-road, está prohibido por los artículos 11(a) y 31(j), y cualquier daño corre 100% por su cuenta. Estacionen solo en las áreas marcadas. La entrada son 1,100 ISK por persona en el Viking Café.",
+   "tipo": "peligro",
+   "punto": "Vestrahorn",
+   "fuente": "Höldur arts. 11(a) y 31(j); vestrahorn.is"
+  },
+  {
+   "que": "La subida al faro de Dyrhólaey (el tramo 218-02) se cierra con viento fuerte y en octubre pasa seguido. Si la reja está cerrada o road.is la marca cerrada, no pasen: el artículo 8 de Höldur prohíbe expresamente las carreteras cerradas por condiciones, y ese es el único punto del itinerario donde de verdad se anularía el seguro.",
+   "tipo": "peligro",
+   "punto": "Dyrhólaey",
+   "fuente": "Höldur, Rental Agreement v.0526 art. 8"
+  },
+  {
+   "que": "Decisión de seguros en el mostrador. El paquete Premium cuesta ISK 6,500 por día —ISK 91,000 por los 14 días— y trae deducible cero, llantas y rines, y cobertura de tormenta de arena y ceniza. Comprar SCDW, GP y arena por separado sale en 6,800 al día, o sea que el Premium cuesta menos y da más. La alternativa barata es GP más SADW sueltas, ISK 3,550 al día, que cubre parabrisas, faros y arena a cero y deja el deducible de 475,000 a que lo reembolse la Full Protection. El Medium es el que NO conviene: no incluye arena, que es justo el riesgo de los sandar en octubre.",
+   "tipo": "dinero",
+   "dia": "2026-09-30",
+   "fuente": "página de Protection de Höldur y su motor de reserva, cotizado para estas fechas"
+  },
+  {
+   "que": "Antes de decidir cuánto seguro comprar, revisen si la póliza de la Full Protection de Booking excluye «unsealed road». Las pólizas de ese tipo suelen traer esa exclusión, y el itinerario lleva grava a propósito. Si la suya la trae, el reembolso no aplica en Stokksnes ni en la 218, y entonces el Premium de Höldur deja de ser opcional.",
+   "tipo": "peligro",
+   "dia": "2026-09-30",
+   "fuente": "exclusión estándar en pólizas de reembolso de deducible — hay que confirmarlo en su documento"
+  },
+  {
+   "que": "Tres cosas que hay que pedir por escrito en el mostrador: que anoten el deducible exacto en el contrato (el propio sitio de Höldur se contradice entre 265,000 y 275,000), que confirmen si el auto entregado es 4x4 o solo tracción delantera, y que el cobro es por 14 días. Meter un 2WD a una carretera F, al Kjölur o al Kaldidalur cuesta una multa de ISK 265,000.",
+   "tipo": "dinero",
+   "dia": "2026-09-30",
+   "fuente": "Höldur, página de Protection y lista de precios oficial"
   }
  ]
 }
