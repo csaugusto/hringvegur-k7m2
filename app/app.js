@@ -389,13 +389,19 @@ async function cargarVias() {
 
 function renderVias(d) {
   const s = d.resumen, algo = d.tramos.filter(t => t.v !== 'ok');
-  const hace = (() => {
-    const m = Math.round((Date.now() - Date.parse(d.actualizado)) / 60000);
-    return m < 60 ? `hace ${m} min` : `hace ${Math.round(m / 60)} h`;
-  })();
+  // edadTxt sí distingue días; el cálculo que había aquí decía "hace 72 h".
+  const t = Date.parse(d.actualizado);
+  const hace = edadTxt(t);
+  // El espejo corre cada 30 min. Si el dato pasa de dos horas, algo se rompió
+  // y hay que decirlo: lo peligroso no es no tener datos, es que la pantalla
+  // diga "0 graves" con la misma cara de siempre cuando en realidad está ciega.
+  const viejo = (Date.now() - t) > 2 * 3600e3;
 
   $('#vias-resumen').innerHTML = `
-    <div class="card-head"><h2>Resumen de la ruta</h2><span class="edad">Vegagerðin · ${hace}</span></div>
+    <div class="card-head"><h2>Resumen de la ruta</h2><span class="edad">espejo · ${hace}</span></div>
+    ${viejo ? `<p class="alerta"><b>Estos datos son de ${hace}.</b> El espejo no se está
+      actualizando, así que lo de abajo puede estar equivocado. Confirmen en
+      <a href="https://umferdin.vegagerdin.is">umferdin.is</a> o al 1777 antes de salir.</p>` : ''}
     <div class="vias-cifras">
       <div class="vc ok"><b>${s.ok}</b><span>transitables</span></div>
       <div class="vc ojo${s.ojo ? '' : ' cero'}"><b>${s.ojo}</b><span>con algo</span></div>
@@ -1137,5 +1143,11 @@ function pintarConversor(fx) {
 
 
 // ─────────────────────────── arranque ───────────────────────────
-if ('serviceWorker' in navigator) addEventListener('load', () => navigator.serviceWorker.register('sw.js'));
+if ('serviceWorker' in navigator) addEventListener('load', () => {
+  navigator.serviceWorker.register('sw.js');
+  // Con los dos teléfonos llenos de fotos, el desalojo por falta de espacio es
+  // el único borrado que todavía alcanza a una app instalada. Esto le pide a
+  // iOS que no la tire. No siempre lo concede, pero pedirlo no cuesta nada.
+  navigator.storage?.persist?.();
+});
 boot();

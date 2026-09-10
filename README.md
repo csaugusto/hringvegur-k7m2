@@ -5,7 +5,7 @@ se puede editar desde `github.com` en el teléfono y queda desplegada en 30 segu
 
 ```
 app/                 lo que se publica
-  index.html         las siete pantallas
+  index.html         las seis pantallas
   app.css            paleta Paisaje: basalto, glaciar, musgo, aurora y azufre
   app.js
   fonts/archivo.woff2   la tipografía de señalética, variable  (35 KB)
@@ -17,7 +17,7 @@ app/                 lo que se publica
   data/carreteras.json  estado de 339 tramos, lo reescribe una GitHub Action  (33 KB)
 
 scripts/carreteras.py   baja el feed de Vegagerðin y lo filtra a la ruta
-.github/workflows/      la Action que lo corre cada 30 minutos
+.github/workflows/      la Action que lo corre cada 30 min y publica en Pages
 
 data/                fuentes y análisis, NO se publican
 investigacion/       los 5 reportes verificados y las 41 comprobaciones
@@ -28,20 +28,34 @@ Peso total de la app: **300 KB**. Cabe entera en el teléfono.
 
 ## Publicar en GitHub Pages
 
+El sitio vive en `app/`, no en la raíz, y Pages en modo rama solo acepta `/` o `/docs`.
+La salida es publicar desde el propio workflow, que además resuelve un problema peor:
+**un push hecho por el GITHUB_TOKEN no dispara ningún workflow.** Si el deploy viviera
+aparte con `on: push`, los commits del espejo no lo despertarían y el sitio se quedaría
+congelado, en verde y sin avisar. Por eso espejo y publicación van en la misma corrida.
+
 ```bash
 git init && git add . && git commit -m "Islandia 2026"
-gh repo create islandia-2026 --public --source=. --push
-gh api -X POST repos/:owner/islandia-2026/pages -f "source[branch]=main" -f "source[path]=/app"
+gh repo create <nombre> --public --source=. --remote=origin --push
+gh api -X POST repos/<usuario>/<nombre>/pages -f "build_type=workflow"
 ```
 
-Queda en `https://<usuario>.github.io/islandia-2026/`.
+Queda en `https://<usuario>.github.io/<nombre>/`, en la raíz y sin el `/app/`.
+
+Vale la pena activar el aviso por correo cuando falle: Settings → Notifications → Actions
+→ Email, *"Only notify for failed workflows"*, a un correo que se abra desde el iPhone.
+Si el espejo se rompe a media Islandia, ese correo es la única forma de enterarse.
 
 **El repositorio es público.** El bundle no lleva ningún código de reserva, monto ni tarjeta —
 está auditado. Esos datos se capturan una vez en cada teléfono, desde la pantalla **Guía**,
 y viven solo en el almacenamiento local del navegador.
 
-Si prefieren repositorio privado, Cloudflare Pages lo permite en el plan gratuito:
-conectar el repo y poner `app` como directorio de salida.
+**No usar Cloudflare Pages con este cron.** Permite repo privado, sí, pero su plan
+gratuito da 500 builds al mes y aquí puede haber hasta 1,440 push: se quedaría sin
+builds alrededor del día 10 del viaje, y la forma de fallar es la peor —la app sigue
+abriendo y el sitio se congela sin error visible. GitHub Pages aguanta 2 builds por hora
+sin despeinarse. Pagar Pro por un repo privado tampoco esconde el sitio: la URL sigue
+siendo pública, y de paso mete el cron en una cuota de minutos que sí se puede agotar.
 
 ## Instalar en el iPhone
 
@@ -53,8 +67,12 @@ conectar el repo y poner `app` como directorio de salida.
 El límite de 7 días con que Safari borra datos de sitios **no aplica** a las apps de la
 pantalla de inicio: WebKit las trata como apps aparte, con su propio contador.
 
-**La única forma de perder el caché** es entrar a Ajustes → Safari → *Borrar historial y datos
-de sitios web*. Desde iOS 14 la app comparte el CacheStorage con Safari. No lo toquen durante el viaje.
+**La forma más fácil de perder el caché** es entrar a Ajustes → Safari → *Borrar historial y
+datos de sitios web*. No lo toquen durante el viaje.
+
+Desde iOS 14 el CacheStorage se comparte con Safari según Firtman, pero Apple solo garantiza
+que las cookies y el almacenamiento local están separados. No cuenten con eso: capturen los
+datos de la pantalla **Guía** desde el icono, no desde una pestaña de Safari, en cada teléfono.
 
 ## Probar el modo offline antes de volar
 
@@ -121,10 +139,20 @@ El nombre en `punto` tiene que coincidir exacto con el de la parada en `viaje.js
 
 Desde el iPhone: `github.com` → el archivo → el lápiz → commit. Se redespliega solo.
 
-- Un pendiente: la constante `TAREAS` en `app/app.js`
 - Paradas, avisos, cámaras o sol: `app/data/viaje.json` (minificado; mejor desde la compu)
-- **Si cambias cualquier archivo, sube `V` en `app/sw.js`** (`is26-v18` → `is26-v19`).
-  Sin eso los teléfonos siguen sirviendo la versión vieja del caché.
+- **Si cambias cualquier archivo, sube `V` en `app/sw.js`** (`is26-v28` → `is26-v29`)
+  en el MISMO commit. Sin eso los teléfonos siguen sirviendo la versión vieja del caché.
+
+### Reparar algo desde el teléfono, estando en Islandia
+
+1. `github.com` → el archivo → el lápiz → editar → commit.
+2. Subir `V` en `app/sw.js` en ese mismo commit.
+3. Esperar 1 o 2 minutos a que termine la Action.
+4. Abrir la app, **cerrarla del Selector de apps**, y volver a abrirla. Dos veces:
+   la primera descarga la versión nueva, la segunda la muestra.
+
+Si lo que se rompió es el espejo de carreteras, el atajo es Actions → el workflow →
+**Run workflow**. Conviene ensayarlo una vez antes de volar.
 
 ## El fondo que sigue la luz
 

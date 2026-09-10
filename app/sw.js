@@ -1,11 +1,25 @@
 /* Islandia 2026 — offline primero.
    Sube la versión cuando cambies archivos: fuerza la actualización en los dos teléfonos. */
-const V = 'is26-v27';
+const V = 'is26-v28';
+// Lo imprescindible para que la app abra sin señal. addAll es todo-o-nada:
+// si uno solo de estos falla, la instalación entera se cae y el teléfono se
+// queda sirviendo la versión vieja para siempre. Por eso el icono y la
+// tipografía —bonitos pero prescindibles— van aparte y se toleran fallidos.
 const NUCLEO = ['./','./index.html','./app.css','./app.js','./manifest.webmanifest',
-                './data/viaje.json','./data/poi.json','./data/carreteras.json','./data/alojamientos.json','./data/consejos.json','./data/reynisfjara.json','./data/estaciones.json','./icon.png','./fonts/archivo.woff2'];
+                './data/viaje.json','./data/poi.json','./data/carreteras.json',
+                './data/alojamientos.json','./data/consejos.json',
+                './data/reynisfjara.json','./data/estaciones.json'];
+const EXTRA = ['./icon.png','./fonts/archivo.woff2'];
 
 self.addEventListener('install', e => {
-  e.waitUntil(caches.open(V).then(c => c.addAll(NUCLEO)).then(() => self.skipWaiting()));
+  e.waitUntil((async () => {
+    const c = await caches.open(V);
+    // 'reload' salta el caché HTTP del navegador. Pages sirve con max-age=600,
+    // así que sin esto una instalación nueva podría cachear archivos viejos.
+    await c.addAll(NUCLEO.map(u => new Request(u, { cache: 'reload' })));
+    await Promise.allSettled(EXTRA.map(u => c.add(new Request(u, { cache: 'reload' }))));
+    await self.skipWaiting();
+  })());
 });
 
 self.addEventListener('activate', e => {
@@ -27,15 +41,23 @@ self.addEventListener('fetch', e => {
     return;
   }
 
-  // El estado de carreteras cambia cada 30 min y es lo único donde la frescura
-  // importa más que la velocidad: red primero, caché solo si la red falla.
-  if (url.pathname.endsWith('/data/carreteras.json') || url.pathname.endsWith('/data/reynisfjara.json') || url.pathname.endsWith('/data/estaciones.json')) {
-    e.respondWith(
-      fetch(e.request).then(res => {
-        if (res && res.ok) caches.open(V).then(c => c.put(e.request, res.clone()));
-        return res;
-      }).catch(() => caches.match(e.request))
-    );
+  // TODOS los datos, no solo los tres del espejo: red primero con 3 segundos de
+  // paciencia, y el caché si la red falla o tarda más. Antes alojamientos.json,
+  // viaje.json y consejos.json se servían de caché primero, así que corregir un
+  // hotel desde github.com a media carretera no se veía hasta el segundo
+  // arranque. El requisito es poder arreglar cosas desde el teléfono y verlas.
+  if (url.pathname.includes('/data/')) {
+    e.respondWith((async () => {
+      const guardado = await caches.match(e.request);
+      try {
+        const res = await Promise.race([
+          fetch(e.request),
+          new Promise((_, rechaza) => setTimeout(() => rechaza(new Error('lento')), 3000))
+        ]);
+        if (res && res.ok) { (await caches.open(V)).put(e.request, res.clone()); return res; }
+        return guardado || res;
+      } catch { return guardado || fetch(e.request); }
+    })());
     return;
   }
 

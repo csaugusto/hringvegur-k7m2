@@ -238,4 +238,15 @@ def estaciones() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main() or olas() or estaciones())
+    # Los tres feeds son independientes y se corrían encadenados con `or`, así
+    # que el primero que fallara se llevaba a los siguientes: una caída de
+    # SafeTravel dejaba sin actualizar las estaciones de carretera. Ahora cada
+    # uno se intenta por separado y solo se reporta fallo si se cayeron todos.
+    codigos = []
+    for f in (main, olas, estaciones):
+        try:
+            codigos.append(f())
+        except Exception as e:
+            print(f"{f.__name__} falló: {e}")
+            codigos.append(1)
+    raise SystemExit(0 if any(c == 0 for c in codigos) else 1)

@@ -1,32 +1,51 @@
-name: Espejo de feeds oficiales
+name: Espejo de feeds y publicación
 
 # Ni el feed de carreteras de Vegagerðin ni el de peligro de olas de SafeTravel
 # mandan cabeceras CORS, así que la app no puede leerlos desde el navegador.
 # Copiándolos al repo, GitHub Pages los sirve desde el mismo dominio y el
 # problema desaparece.
+#
+# El espejo y la publicación van en la MISMA corrida a propósito. Un push hecho
+# con el GITHUB_TOKEN no dispara ningún workflow —GitHub lo bloquea para evitar
+# bucles— así que si el deploy viviera en otro archivo con `on: push`, los
+# commits del bot nunca lo despertarían: el espejo seguiría corriendo en verde
+# y el sitio publicado se quedaría congelado en los datos del día que se subió.
 
 on:
   schedule:
-    - cron: '*/30 * * * *'   # cada 30 minutos (UTC = hora de Islandia)
+    - cron: '7,37 * * * *'   # fuera del minuto en punto, que es cuando GitHub se satura
+  push:
+    branches: [main]         # una edición desde el iPhone publica al momento
   workflow_dispatch:          # y a mano desde la pestaña Actions
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: carreteras
-  cancel-in-progress: true
+  # Sin cancelación: si algo se rompe a media Islandia y se dispara una corrida
+  # manual para repararlo, no queremos que el siguiente cron la mate a medias.
+  cancel-in-progress: false
 
 jobs:
   espejar:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
+      # Si los feeds islandeses están caídos, se publica igual con los datos
+      # anteriores. Publicar algo viejo es mejor que no publicar nada.
       - name: Bajar y filtrar los feeds
+        continue-on-error: true
         run: python3 scripts/carreteras.py
 
       - name: Guardar si cambió algo
+        if: always()
         run: |
           if git diff --quiet -- app/data/carreteras.json app/data/reynisfjara.json app/data/estaciones.json; then
             echo "sin cambios"
@@ -36,4 +55,14 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add app/data/carreteras.json app/data/reynisfjara.json app/data/estaciones.json
           git commit -m "feeds: $(date -u '+%d %b %H:%M') UTC"
-          git push
+          git push || (git pull --rebase && git push)
+
+      - uses: actions/configure-pages@v5
+        if: always()
+      - uses: actions/upload-pages-artifact@v3
+        if: always()
+        with:
+          path: ./app
+      - id: deploy
+        if: always()
+        uses: actions/deploy-pages@v4
