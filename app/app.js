@@ -401,7 +401,7 @@ function renderVias(d) {
     <div class="card-head"><h2>Resumen de la ruta</h2><span class="edad">espejo · ${hace}</span></div>
     ${viejo ? `<p class="alerta"><b>Estos datos son de ${hace}.</b> El espejo no se está
       actualizando, así que lo de abajo puede estar equivocado. Confirmen en
-      <a href="https://umferdin.vegagerdin.is">umferdin.is</a> o al 1777 antes de salir.</p>` : ''}
+      <a href="https://umferdin.is/en">umferdin.is</a> o al 1777 antes de salir.</p>` : ''}
     <div class="vias-cifras">
       <div class="vc ok"><b>${s.ok}</b><span>transitables</span></div>
       <div class="vc ojo${s.ojo ? '' : ' cero'}"><b>${s.ojo}</b><span>con algo</span></div>
