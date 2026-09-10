@@ -62,7 +62,7 @@ async function boot() {
       }
     }
   }
-  pintarHoy(); pintarDias(); pintarNoches(); pintarSobre();
+  pintarHoy(); pintarDias(); pintarNoches(LS.get('nubes')?.d); pintarSobre();
   pintarPasosGas();
   pintarAlertas(LS.get('alertas'));
   pintarEstaciones(LS.get('est')?.d);
@@ -80,6 +80,7 @@ async function boot() {
     cargarVias();
     cargarGasolina();
     cargarAlertas().then(pintarAlertas);
+    cargarNubes().then(pintarNoches);
     cargarEstaciones().then(pintarEstaciones);
   } else {
     const c = LS.get('clima'); if (c) { renderVientoHoy(c); renderClima(c); }
@@ -554,7 +555,7 @@ async function cargarKp() {
     LS.set('kp', datos); renderKp(datos);
   } catch { $('#kp-cuerpo').innerHTML = '<p class="muted">No se pudo. Reintenta con señal.</p>'; }
 }
-$('#aurora-refrescar').onclick = cargarKp;
+$('#aurora-refrescar').onclick = () => { cargarKp(); cargarNubes().then(pintarNoches); };
 
 function renderKp(datos) {
   $('#kp-edad').textContent = edadTxt(datos.t);
@@ -570,7 +571,50 @@ function renderKp(datos) {
     <a href="https://en.vedur.is/weather/forecasts/aurora" target="_blank" rel="noopener">el mapa de nubes de vedur.is</a>.</p>`;
 }
 
-function pintarNoches() {
+// Nubosidad de la ventana de auroras, 20:00 a 02:00, pedida en el punto donde
+// DUERMEN esa noche y no en el medio del recorrido del día. El Kp dice si hay
+// actividad; las nubes deciden si se ve algo.
+async function cargarNubes() {
+  const g = LS.get('nubes');
+  if (g && Date.now() - g.t < 3 * 3600e3) return g.d;
+  if (!navigator.onLine) return g?.d || null;
+
+  const noches = VIAJE.dias.slice(0, 13).filter(d => {
+    const v = diasVista(d.fecha);
+    return d.dormir && v >= 0 && v < ALCANCE_DIAS - 1;   // hace falta también el día siguiente
+  });
+  if (!noches.length) {
+    // Todavía fuera del alcance del pronóstico: se dice, en vez de callar.
+    const v = diasVista(VIAJE.dias[0].fecha) - ALCANCE_DIAS + 2;
+    LS.set('nubes', { t: Date.now(), d: {}, espera: v });
+    return {};
+  }
+
+  try {
+    const res = await Promise.all(noches.map(d => {
+      const p = d.puntos[d.puntos.length - 1];           // la última parada es donde duermen
+      const sig = new Date(Date.parse(d.fecha) + 864e5).toISOString().slice(0, 10);
+      return fetch(`https://api.open-meteo.com/v1/forecast?latitude=${p.lat}&longitude=${p.lon}`
+        + `&hourly=cloud_cover&start_date=${d.fecha}&end_date=${sig}&timezone=GMT`)
+        .then(r => r.ok ? r.json() : null).catch(() => null);
+    }));
+    const d = {};
+    noches.forEach((n, i) => {
+      const h = res[i]?.hourly;
+      if (!h) return;
+      const sig = new Date(Date.parse(n.fecha) + 864e5).toISOString().slice(0, 10);
+      // 20:00–23:00 de esa noche y 00:00–02:00 de la madrugada siguiente
+      d[n.d] = h.time.map((t, j) => ({ t, c: h.cloud_cover[j] })).filter(x => {
+        const hora = +x.t.slice(11, 13);
+        return (x.t.startsWith(n.fecha) && hora >= 20) || (x.t.startsWith(sig) && hora <= 2);
+      });
+    });
+    LS.set('nubes', { t: Date.now(), d });
+    return d;
+  } catch { return g?.d || null; }
+}
+
+function pintarNoches(nubes) {
   // Tres cosas deciden una noche de auroras: qué tan oscuro está el cielo donde duermes,
   // cuánta luna hay, y si el día siguiente te deja dormir. Trasnochar cuesta ~6 h de sueño.
   const filas = VIAJE.dias.slice(0, 13).filter(d => d.dormir).map(d => {
@@ -584,14 +628,40 @@ function pintarNoches() {
     return { d, holgura, cielo, puntos };
   });
 
+  const espera = LS.get('nubes')?.espera;
+  $('#nubes-aviso').innerHTML = (nubes && Object.keys(nubes).length) || !espera || espera <= 0
+    ? ''
+    : `<p class="nota">El pronóstico de nubes llega a 16 días vista: aparece en
+       <b>${espera} día${espera === 1 ? '' : 's'}</b>. Hasta entonces el orden solo pesa luna,
+       oscuridad del sitio y carga del día siguiente.</p>`;
+
   // El puntaje decide el veredicto, pero la lista se lee en orden de calendario:
   // sirve para planear la noche que viene, no para consultar un ranking.
   const top3 = new Set([...filas].sort((a, b) => b.puntos - a.puntos).slice(0, 3).map(f => f.d.fecha));
 
   $('#noches-lista').innerHTML = filas.map(f => {
     const mejor = top3.has(f.d.fecha);
-    const r = mejor ? 'si' : f.puntos >= 62 ? 'tal' : 'no';
-    const et = mejor ? 'Sí' : f.puntos >= 62 ? 'Tal vez' : 'Mejor dormir';
+    let r = mejor ? 'si' : f.puntos >= 62 ? 'tal' : 'no';
+    let et = mejor ? 'Sí' : f.puntos >= 62 ? 'Tal vez' : 'Mejor dormir';
+
+    // Si ya hay pronóstico de nubes, manda sobre el puntaje: con el cielo
+    // tapado da igual que la luna esté nueva y el Kp por las nubes.
+    const hs = nubes?.[f.d.d];
+    let bloqNubes = '';
+    if (hs?.length) {
+      const med = Math.round(hs.reduce((s, x) => s + x.c, 0) / hs.length);
+      const despejadas = hs.filter(x => x.c <= 35).length;
+      if (med >= 80) { r = 'no'; et = 'Nublado'; }
+      else if (med >= 55 && r === 'si') { r = 'tal'; et = 'Tal vez'; }
+      else if (med <= 30 && r !== 'si') { r = 'si'; et = 'Sí'; }
+      bloqNubes = `<div class="nubes">
+        <span class="nubes-med">${med}% nubes</span>
+        ${hs.map(x => `<i class="${x.c <= 35 ? 'lim' : x.c <= 70 ? 'med' : 'tap'}"
+             title="${x.t.slice(11, 16)} · ${x.c}%"></i>`).join('')}
+        <span class="nubes-pie">${despejadas ? `${despejadas} h despejadas de 20:00 a 02:00` : 'cielo tapado toda la noche'}</span>
+      </div>`;
+    }
+
     const razon = f.holgura < 150
       ? 'El día siguiente arranca temprano y va apretado'
       : `Al día siguiente sobran ${hm(f.holgura)}`;
@@ -600,7 +670,8 @@ function pintarNoches() {
       <span class="nd">${FECHA_CORTA(f.d.fecha)}</span>
       <span class="nc"><strong>${f.d.dormir.lugar}</strong>
         <small>Luna ${f.d.luna}%${ciudad} · ${razon}</small>
-        ${f.d.dormir.mirador ? `<small style="color:var(--tx2)">↳ ${f.d.dormir.mirador}</small>` : ''}</span>
+        ${f.d.dormir.mirador ? `<small style="color:var(--tx2)">↳ ${f.d.dormir.mirador}</small>` : ''}
+        ${bloqNubes}</span>
       <span class="nr"><span class="rank ${r}">${et}</span></span></div>`;
   }).join('');
 }

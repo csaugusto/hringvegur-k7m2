@@ -508,3 +508,13 @@ details.bloque[open] summary::after{content:"▴"}
   font-variant-numeric:tabular-nums}
 .est-d b{color:var(--tx2);font-weight:650}
 .est-hielo{margin:7px 0 0;font-size:12.5px;color:var(--lava);font-weight:600;line-height:1.4}
+
+/* ── nubosidad de la noche ── */
+.nubes{display:flex;align-items:center;flex-wrap:wrap;gap:3px;margin-top:6px}
+.nubes i{width:9px;height:14px;border-radius:2px;flex:none}
+.nubes i.lim{background:var(--aurora)}
+.nubes i.med{background:color-mix(in srgb,var(--azufre) 65%,transparent)}
+.nubes i.tap{background:color-mix(in srgb,var(--tx) 16%,transparent)}
+.nubes-med{font-size:11px;font-weight:700;color:var(--tx2);margin-right:5px;
+  font-variant-numeric:tabular-nums}
+.nubes-pie{flex-basis:100%;font-size:11px;color:var(--tx3);margin-top:3px}
