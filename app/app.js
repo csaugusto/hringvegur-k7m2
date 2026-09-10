@@ -64,6 +64,7 @@ async function boot() {
   }
   pintarHoy(); pintarDias(); pintarNoches(LS.get('nubes')?.d); pintarSobre();
   pintarPasosGas();
+  pintarGasLog();
   pintarAlertas(LS.get('alertas'));
   pintarEstaciones(LS.get('est')?.d);
   pintarConversor(LS.get('fx'));
@@ -930,6 +931,99 @@ function pintarPasosGas() {
   ol.innerHTML = PASOS_GAS.map(([t, d]) =>
     `<li><strong>${t}</strong><span>${d}</span></li>`).join('');
 }
+
+// ─────────────────────────── BITÁCORA DE COMBUSTIBLE ───────────────────────────
+// Odómetro al recoger + cada carga = rendimiento real contra el estimado.
+// Y de paso el kílómetragjald acumulado, que se cobra por km al devolver.
+const KM_PLAN = 2600;        // los kilómetros del itinerario completo
+const LKM_PLAN = 8.5;        // consumo estimado, L/100 km
+const KMGJALD = 8.8;         // impuesto kilométrico, ISK/km con la comisión de la rentadora
+
+const gasLog = () => LS.get('gaslog', { inicial: null, cargas: [] });
+const num = v => { const n = parseFloat(String(v).replace(',', '.').replace(/[^\d.]/g, '')); return isFinite(n) ? n : null; };
+
+function pintarGasLog() {
+  const g = gasLog(), res = $('#gas-resumen'), lis = $('#gas-lista');
+  if (!res) return;
+  const tasa = LS.get('fx')?.v || TASA_RESPALDO;
+  const mx = isk => Math.round(isk * tasa).toLocaleString('es-MX');
+
+  if (g.inicial === null) {
+    res.innerHTML = `<p class="muted">Primero anota el <b>odómetro al recoger el auto</b>.</p>
+      <button class="ghost" style="width:100%;margin-top:10px" onclick="odometroInicial()">Anotar odómetro inicial</button>`;
+    lis.innerHTML = '';
+    return;
+  }
+
+  const cs = [...g.cargas].sort((a, b) => a.km - b.km);
+  const km = cs.length ? cs[cs.length - 1].km - g.inicial : 0;
+  const litros = cs.reduce((s, c) => s + c.l, 0);
+  const gasto = cs.reduce((s, c) => s + (c.isk || 0), 0);
+  // Con política "lleno a lleno" cada litro cargado es un litro consumido.
+  const lkm = km > 0 && litros > 0 ? (litros / km) * 100 : null;
+  const dif = lkm ? lkm - LKM_PLAN : null;
+
+  res.innerHTML = `
+    <div class="gas-cifras">
+      <div class="gc"><b>${lkm ? lkm.toFixed(1) : '—'}</b><span>L/100 km reales</span>
+        ${dif !== null ? `<em class="${dif > 0.6 ? 'mal' : dif < -0.6 ? 'bien' : ''}">${dif > 0 ? '+' : ''}${dif.toFixed(1)} vs el plan de ${LKM_PLAN}</em>` : ''}</div>
+      <div class="gc"><b>${km.toLocaleString('es-MX')}</b><span>km recorridos</span>
+        <em>${Math.round(km / KM_PLAN * 100)}% de los ${KM_PLAN.toLocaleString('es-MX')} del plan</em></div>
+    </div>
+    <div class="kv"><span>Gasolina gastada</span><b>${Math.round(gasto).toLocaleString('es-MX')} ISK<br><i>${mx(gasto)} MXN</i></b></div>
+    <div class="kv"><span>Impuesto kilométrico acumulado<em>se cobra al devolver el auto</em></span>
+      <b>${Math.round(km * KMGJALD).toLocaleString('es-MX')} ISK<br><i>${mx(km * KMGJALD)} MXN</i></b></div>
+    ${lkm ? `<div class="kv"><span>Proyección a los ${KM_PLAN.toLocaleString('es-MX')} km<em>gasolina más impuesto, a este ritmo</em></span>
+      <b>${Math.round(gasto / km * KM_PLAN + KM_PLAN * KMGJALD).toLocaleString('es-MX')} ISK<br><i>${mx(gasto / km * KM_PLAN + KM_PLAN * KMGJALD)} MXN</i></b></div>` : ''}
+    <div class="kv"><span>Odómetro al recoger</span><b>${g.inicial.toLocaleString('es-MX')} km
+      <button class="lnk" onclick="odometroInicial()">cambiar</button></b></div>`;
+
+  lis.innerHTML = !cs.length
+    ? '<p class="muted" style="margin-top:12px">Aún no hay cargas anotadas.</p>'
+    : '<div class="gas-tabla">' + cs.map((c, i) => {
+        const prev = i ? cs[i - 1].km : g.inicial;
+        const tramo = c.km - prev;
+        const r = tramo > 0 ? (c.l / tramo) * 100 : null;
+        return `<div class="gcarga">
+          <div class="gc-t"><strong>${c.l.toFixed(1)} L</strong>
+            <span>${c.km.toLocaleString('es-MX')} km${c.lugar ? ` · ${c.lugar}` : ''}</span>
+            <button class="lnk" onclick="borrarCarga(${c.id})">borrar</button></div>
+          <div class="gc-d">
+            ${tramo > 0 ? `<span>${tramo} km este tramo</span>` : ''}
+            ${r ? `<span><b>${r.toFixed(1)}</b> L/100</span>` : ''}
+            ${c.isk ? `<span>${Math.round(c.isk).toLocaleString('es-MX')} ISK</span>` : ''}
+            ${c.isk && c.l ? `<span>${(c.isk / c.l).toFixed(0)} ISK/L</span>` : ''}
+          </div></div>`;
+      }).join('') + '</div>';
+}
+
+window.odometroInicial = () => {
+  const g = gasLog();
+  const v = num(prompt('Odómetro al recoger el auto, en km', g.inicial ?? ''));
+  if (v === null) return;
+  LS.set('gaslog', { ...g, inicial: v });
+  pintarGasLog();
+};
+
+window.borrarCarga = id => {
+  const g = gasLog();
+  LS.set('gaslog', { ...g, cargas: g.cargas.filter(c => c.id !== id) });
+  pintarGasLog();
+};
+
+$('#gas-nueva')?.addEventListener('click', () => {
+  const g = gasLog();
+  if (g.inicial === null) { odometroInicial(); if (gasLog().inicial === null) return; }
+  const km = num(prompt('Odómetro ahora, en km'));
+  if (km === null) return;
+  const l = num(prompt('Litros cargados'));
+  if (l === null) return;
+  const isk = num(prompt('Cuánto pagaste, en coronas (opcional)')) ?? 0;
+  const lugar = (prompt('Dónde, para acordarse (opcional)') || '').trim();
+  const cargas = [...gasLog().cargas, { id: Date.now(), km, l, isk, lugar, f: hoyISO() }];
+  LS.set('gaslog', { ...gasLog(), cargas });
+  pintarGasLog();
+});
 
 // ─────────────────────────── CONVERSOR ───────────────────────────
 // Tipo de cambio del BCE vía Frankfurter, con open.er-api de respaldo. Ambos

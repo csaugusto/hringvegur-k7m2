@@ -195,3 +195,14 @@ whisper-cli -m small.en.bin -f audio.wav -l en --no-timestamps -np
 ```
 
 Las transcripciones quedan en `investigacion/transcripciones/`.
+
+## Lo que se guarda solo en el teléfono
+
+Tres cosas viven en el almacenamiento local del navegador y **no** están en el
+repositorio, así que no se sincronizan entre los dos teléfonos:
+
+- Códigos de reserva, teléfonos y datos del auto (pantalla Guía)
+- La app de mapas elegida
+- La bitácora de combustible: odómetro inicial y cada carga
+
+Para la bitácora conviene que siempre la anote la misma persona.
