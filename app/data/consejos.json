@@ -1,340 +1,386 @@
 {
-  "_": "Advertencias y consejos sacados de guías, posts y experiencia ajena. Se edita a mano.",
-  "_donde_sale": "Con 'dia' aparece en ese día (pantalla Hoy y en Los 14 días). Con 'punto' aparece bajo esa parada. Sin ninguno de los dos, va a la pantalla Guía.",
-  "_tipo": "peligro (rojo) · peaje · ruta · acceso · reserva · dinero · tip",
-  "_campos": "que = el consejo, en una o dos frases. fuente = de dónde salió, para poder volver a revisarlo.",
-  "_ejemplo": {
-    "que": "Texto del consejo.",
-    "tipo": "tip",
-    "dia": "2026-10-08",
-    "punto": "Reynisfjara",
-    "fuente": "guía tal"
+ "_": "Advertencias y consejos sacados de guías, posts y experiencia ajena. Se edita a mano.",
+ "_donde_sale": "Con 'dia' aparece en ese día (pantalla Hoy y en Los 14 días). Con 'punto' aparece bajo esa parada. Sin ninguno de los dos, va a la pantalla Guía.",
+ "_tipo": "peligro (rojo) · peaje · ruta · acceso · reserva · dinero · tip",
+ "_campos": "que = el consejo, en una o dos frases. fuente = de dónde salió, para poder volver a revisarlo.",
+ "_ejemplo": {
+  "que": "Texto del consejo.",
+  "tipo": "tip",
+  "dia": "2026-10-08",
+  "punto": "Reynisfjara",
+  "fuente": "guía tal"
+ },
+ "consejos": [
+  {
+   "que": "Nunca soltar la manija al abrir la puerta del auto, y avisarse en voz alta antes de que cualquiera abra la suya. Una ráfaga que arranca la puerta cuesta unos 350,000 ISK y ningún seguro estándar lo cubre.",
+   "tipo": "peligro",
+   "fuente": "daño más común y más caro que sufren los turistas en Islandia"
   },
-  "consejos": [
-    {
-      "que": "Nunca soltar la manija al abrir la puerta del auto, y avisarse en voz alta antes de que cualquiera abra la suya. Una ráfaga que arranca la puerta cuesta unos 350,000 ISK y ningún seguro estándar lo cubre.",
-      "tipo": "peligro",
-      "fuente": "daño más común y más caro que sufren los turistas en Islandia"
-    },
-    {
-      "que": "Nunca aceptar que la terminal cobre en pesos. Siempre en coronas islandesas: el cobro en tu moneda mete entre 5 y 8% de sobreprecio.",
-      "tipo": "dinero"
-    },
-    {
-      "que": "No se dan propinas. El servicio va incluido por ley; dejarla es de turista.",
-      "tipo": "dinero"
-    },
-    {
-      "que": "Llevar dos tarjetas Visa o Mastercard con NIP de 4 dígitos, de bancos distintos. Las bombas desatendidas lo exigen y retienen entre 22,000 y 30,000 ISK por carga. Amex no funciona ahí.",
-      "tipo": "dinero"
-    },
-    {
-      "que": "Islandia es prácticamente sin efectivo. No hace falta cambiar dinero; ni los baños de gasolinera aceptan monedas.",
-      "tipo": "dinero"
-    },
-    {
-      "que": "Revisar umferdin.is y vedur.is cada mañana antes de arrancar. En octubre las condiciones cambian entre el desayuno y la comida.",
-      "tipo": "ruta"
-    },
-    {
-      "que": "Nunca dar la espalda al mar ni pisar la arena mojada. Las olas suben mucho más de lo que parece y se han llevado gente.",
-      "tipo": "peligro",
-      "punto": "Reynisfjara"
-    },
-    {
-      "que": "Límites de velocidad: 30 km/h en zona residencial · 50 en pueblo o ciudad · 90 en carretera pavimentada fuera de ciudad · 80 en grava fuera de ciudad. Los radares son automáticos.",
-      "tipo": "ruta",
-      "fuente": "video de reglas, verificado contra Samgöngustofa"
-    },
-    {
-      "que": "Luces encendidas SIEMPRE, todo el año, de día y de noche. La posición 'Auto' NO cuenta: hay que ponerlas en encendido fijo. La razón no es la multa, es la niebla — sin luces no te ve ni quien viene de frente ni quien intenta rebasarte.",
-      "tipo": "ruta",
-      "fuente": "Safetravel · el detalle del 'Auto' no venía en el video"
-    },
-    {
-      "que": "Prohibido parar en la carretera para tomar fotos — ni en medio ni en el acotamiento. Hay que usar los apartaderos señalizados. Es de las infracciones que más multan a turistas.",
-      "tipo": "peligro",
-      "fuente": "Safetravel top 12"
-    },
-    {
-      "que": "No manejar por el centro del camino. Las carreteras islandesas son angostas y sin acotamiento, y las curvas ciegas y lomas ciegas son constantes.",
-      "tipo": "peligro",
-      "fuente": "video de reglas"
-    },
-    {
-      "que": "Manejar fuera de camino está terminantemente prohibido y la multa es de las más caras del país. Salirse de la carretera o de una pista marcada, aunque sea unos metros para estacionarse, cuenta.",
-      "tipo": "peligro",
-      "fuente": "Safetravel top 12"
-    },
-    {
-      "que": "Puentes de un solo carril: el que llega primero pasa primero. Hay que frenar a 50 km/h y parar si viene alguien de frente. Los van a encontrar por toda la Ruta 1, sobre todo en el sureste.",
-      "tipo": "ruta",
-      "fuente": "Safetravel top 12"
-    },
-    {
-      "que": "Al pasar de pavimento a grava, frenar bastante antes. Los dos riesgos son perder el control y reventar una llanta. Es de las causas más comunes de accidente en turistas.",
-      "tipo": "peligro",
-      "fuente": "Safetravel top 12"
-    },
-    {
-      "que": "Un letrero que dice 'LOKAÐ' significa CERRADO. No es sugerencia y no se rodea.",
-      "tipo": "ruta",
-      "fuente": "Safetravel top 12"
-    },
-    {
-      "que": "Cinturón obligatorio para todos, siempre. Y nada de tocar el teléfono manejando: está prohibido y lo multan.",
-      "tipo": "ruta",
-      "fuente": "Safetravel top 12"
-    },
-    {
-      "que": "En la app Parka se captura SOLO la placa del auto, por ejemplo JK L60. Nada más: ni el 'service number', ni el teléfono que trae impreso el marco de la placa, ni ningún otro número del auto. Si registras el equivocado pagas el estacionamiento de otro y a ti te multan.",
-      "tipo": "dinero",
-      "fuente": "video de la agencia sobre Parka"
-    },
-    {
-      "que": "Anotar la placa del auto en cuanto lo recojan y guardarla en la Guía. La necesitan para Parka, para el peaje de Vaðlaheiðargöng y para el de Hornafjörður.",
-      "tipo": "tip",
-      "dia": "2026-09-30",
-      "fuente": "se desprende de los dos peajes y de Parka"
-    },
-    {
-      "que": "Lóndrangar: dos agujas de basalto de 75 y 61 m, mirador Svalþúfa justo sobre la 574 entre Búðakirkja y Djúpalónssandur. 25 min, desvío de 200 m, gratis. La verificación lo marca IMPRESCINDIBLE: es el que más da por lo que cuesta. Ese día sobran 2:39.",
-      "tipo": "reserva",
-      "dia": "2026-10-01",
-      "fuente": "póster de road trip, verificado · 25 min · 0.2 km de desvío · imprescindible"
-    },
-    {
-      "que": "Hvítserkur: el monolito con forma de elefante, más una de las colonias de focas más grandes del país enfrente. 100 min y 42 km de desvío por la península de Vatnsnes. Ese día sobran 4:49, así que cabe — pero se lleva un tercio del margen.",
-      "tipo": "reserva",
-      "dia": "2026-10-02",
-      "fuente": "póster de road trip, verificado · 100 min · 42 km de desvío · si hay tiempo"
-    },
-    {
-      "que": "Borgarvirki: fortaleza de basalto cerca de Hvammstangi. 65 min, 29 km de desvío, gratis. Cabe el mismo día que Hvítserkur solo si renuncian a algo más.",
-      "tipo": "tip",
-      "dia": "2026-10-02",
-      "fuente": "póster de road trip, verificado · 65 min · 29 km de desvío · si hay tiempo"
-    },
-    {
-      "que": "Svartifoss: la cascada de columnas hexagonales dentro de Skaftafell. 95 min contando 3,7 km de caminata con 140 m de subida por escaleras de madera. El estacionamiento cuesta 1,110 ISK, pero solo 555 si ya pagaron Jökulsárlón ese mismo día. Empezar a caminar antes de las 16:30. Ese día sobran 3:52.",
-      "tipo": "reserva",
-      "dia": "2026-10-07",
-      "fuente": "póster de road trip, verificado · 95 min · 3.7 km de desvío · si hay tiempo"
-    },
-    {
-      "que": "Reynisdrangar: las agujas frente a Vík se ven desde Reynisfjara y desde el pueblo, pero el mejor punto es otro. 35 min y 3 km. Verificado como IMPRESCINDIBLE y es donde mejor salen las auroras esa noche.",
-      "tipo": "tip",
-      "dia": "2026-10-08",
-      "fuente": "póster de road trip, verificado · 35 min · 3 km de desvío · imprescindible"
-    },
-    {
-      "que": "El avión DC-3 de Sólheimasandur: NO se llega en auto — los dueños cerraron la pista en 2016. Son 3,9 km caminando por gravilla negra de ida, otros tantos de vuelta, o el shuttle de pago. 90 minutos en total. Ese día sobran 4:59, así que cabe; decidan si vale el rato.",
-      "tipo": "tip",
-      "dia": "2026-10-09",
-      "fuente": "póster de road trip, verificado · 90 min · 0.5 km de desvío · si hay tiempo"
-    },
-    {
-      "que": "Kerið: el cráter con lago, justo sobre la 35 entre Selfoss y Gullfoss. 45 min, desvío de 500 m. Se paga por persona en efectivo o tarjeta en el kiosco. Ese día sobran 4:02.",
-      "tipo": "reserva",
-      "dia": "2026-10-10",
-      "fuente": "póster de road trip, verificado · 45 min · 0.5 km de desvío · si hay tiempo"
-    },
-    {
-      "que": "Del póster de road trip se descartaron: Hófsós y Hólar porque caen el 3 de octubre, el único día sin margen; Laugarvatn Fontana porque son 150 min y ya tienen Sky Lagoon el 12; Hengifoss (210 min) y Seyðisfjörður (180 min) porque cada uno se come el día 5 entero; y los Westfjords, Landmannalaugar, Þórsmörk y Vestmannaeyjar porque quedan fuera de ruta o con F-roads cerradas en octubre.",
-      "tipo": "tip",
-      "fuente": "13 candidatos verificados del póster"
-    },
-    {
-      "que": "El '6 a 12 °C' que circula en las guías es de SEPTIEMBRE y en Reikiavik. Octubre real, normales oficiales de Veðurstofa: Reikiavik máx 7.6 / mín 2.7 · Akureyri 6.6 / 1.1 · Mývatn 4.3 / −1.1. Su ventana del 30 sep al 13 oct es la mitad cálida del mes, más o menos +1.5 °C sobre esa media.",
-      "tipo": "tip",
-      "fuente": "Veðurstofa Íslands, normales 1991-2020"
-    },
-    {
-      "que": "La sensación térmica con viento está de 5 a 9 grados por debajo del termómetro. En Mývatn, con la mínima típica y viento de 10 m/s, se siente −8.5 °C. Y la fórmula no incluye la lluvia, que en Islandia es lo que de verdad enfría. Vestir para el escenario frío, no para el promedio.",
-      "tipo": "peligro",
-      "fuente": "Veðurstofa Íslands"
-    },
-    {
-      "que": "Días con mínima bajo cero y posibilidad de hielo en carretera: 4 y 5 de octubre, por la altitud de Mývatn, Dettifoss y Möðrudalur, que van de 270 a 470 m. Akureyri promedia 3 días de octubre con el suelo totalmente nevado.",
-      "tipo": "peligro",
-      "dia": "2026-10-04",
-      "fuente": "Veðurstofa Íslands"
-    },
-    {
-      "que": "Hoy llega el RIFF, el festival de cine de Reikiavik, que va del 24 de septiembre al 4 de octubre. Es el ÚNICO día del viaje que se solapa: del 1 al 4 están en la Ring Road y cuando vuelvan el 10 ya cerró. No compren nada por adelantado. Si al llegar están enteros, miren riff.is hacia las 17:00 por si hay una función de 18:00 a 20:00 en Háskólabíó; dos boletos sueltos salen en unas 5,000 ISK.",
-      "tipo": "reserva",
-      "dia": "2026-09-30",
-      "fuente": "riff.is · 23ª edición confirmada"
-    },
-    {
-      "que": "Húsavík es la capital ballenera de Islandia y hoy pasan por ahí. En octubre ya es horario de invierno: North Sailing solo sale 09:30, 11:00 y 13:30, a 12,990 ISK por persona, 3 horas, con overol térmico incluido y cancelación gratis 24 h antes. Para que quepa hay que INVERTIR el día: ballenas en la mañana y el resto del Diamond Circle de regreso.",
-      "tipo": "reserva",
-      "dia": "2026-10-04",
-      "fuente": "calendarios oficiales 2026 de North Sailing y Gentle Giants"
-    },
-    {
-      "que": "Silfra, la fisura entre placas en Þingvellir, opera todo el año: el agua está a 2-4 °C igual en octubre que en julio, y se hace con traje seco. La opción barata es 'meet on location' llegando con su auto al estacionamiento P5: entre 16,000 y 20,000 ISK por persona, de 2.5 a 3 horas en total y solo 30-45 min dentro del agua. Hay que reservar con semanas de anticipación.",
-      "tipo": "reserva",
-      "dia": "2026-10-10",
-      "fuente": "DIVE.IS, Arctic Adventures, Tröll Expeditions"
-    },
-    {
-      "que": "Los réttir, el arreo de ganado, no terminan en septiembre: el calendario oficial 2026 llega hasta el 11 de octubre. Lo que queda son las segundas recogidas y los stóðréttir, que son los arreos de CABALLOS y en el norte son los más festivos. Víðidalstungurétt cae hoy y está a 20-25 km de Laugarbakki: el stóð entra al corral a las 11:00. Es la rétt de caballos más grande del país.",
-      "tipo": "reserva",
-      "dia": "2026-10-03",
-      "fuente": "Réttalistinn 2026, Bændablaðið"
-    },
-    {
-      "que": "Si van a Víðidalstungurétt el 3 de octubre, ese día NO alcanza para Tröllaskagi: son unos 60 minutos entre desvío y estar ahí, y ese día solo sobran 41. Con la Ruta 1 vía Glaumbær sí cabe, y sobran casi 2 horas.",
-      "tipo": "ruta",
-      "dia": "2026-10-03",
-      "fuente": "cruce entre los réttir y el margen del día"
-    },
-    {
-      "que": "Cómo funcionan las multas de radar: llegan al DUEÑO registrado del auto, que es la rentadora. Pero la rentadora puede reportar a la policía quién iba manejando, y entonces uno le paga directo a la policía en island.is. Eso evita el cargo administrativo que cobra la rentadora por gestionarla. Vale la pena preguntarles cuál de los dos caminos usan.",
-      "tipo": "dinero",
-      "fuente": "island.is · la persona del video decía no saberlo y lo preguntaba a sus seguidores"
-    },
-    {
-      "que": "Manguera VERDE = Bensín (gasolina). NEGRA = Dísel. Pero el color es costumbre, no ley: lo confiable es la etiqueta pegada en la bomba y en la pistola — CÍRCULO con 'E10' es gasolina, CUADRADO con 'B7' es diésel. La forma no depende del idioma.",
-      "tipo": "peligro",
-      "fuente": "FÍB y Reglur nr. 1212/2020, norma EN 16942"
-    },
-    {
-      "que": "OJO CON UNA PALABRA: en Islandia 'gasolía' NO es gasolina, es DIÉSEL. Aparece así en depósitos rurales. Es el falso amigo más caro del viaje.",
-      "tipo": "peligro",
-      "fuente": "Skeljungur, nomenclatura comercial"
-    },
-    {
-      "que": "El diésel es MÁS CARO que la gasolina en Islandia, unas 39 coronas por litro. Al revés que en México. Nunca elijan manguera por precio.",
-      "tipo": "dinero",
-      "fuente": "bensinverd.is, lectura del 8 de septiembre"
-    },
-    {
-      "que": "Si echan el combustible equivocado: el vaciado cuesta desde 38,990 ISK, y N1 SOLO lo hace en el área de Reikiavik. En Vík, Höfn, Egilsstaðir o Mývatn no hay vaciado en sitio: hay que remolcar. Un caso documentado en 2025 terminó en 101,000 ISK solo de auxilio vial.",
-      "tipo": "peligro",
-      "fuente": "tarifas N1 Vegaaðstoð y Kærunefnd vöru- og þjónustukaupa, sep 2025"
-    },
-    {
-      "que": "Confirmar si el auto es bensín o dísel al recogerlo, y anotarlo. La etiqueta va dentro de la tapa del tanque por ley, y también en la tarjeta de circulación de la guantera, campo P.3. Pista mecánica: tapa azul de AdBlue junto a la del combustible significa diésel.",
-      "tipo": "tip",
-      "dia": "2026-09-30",
-      "fuente": "Reglur nr. 1212/2020, art. 14"
-    },
-    {
-      "que": "SE PAGA ANTES, siempre, y NO hay botón de 'llenar' ni te pregunta el monto. La bomba aparta una cantidad fija: 22,000 ISK en N1 y 30,000 ISK en Olís, ÓB y Orkan. Eso es una RETENCIÓN, no un cobro — después te cobran solo lo que cargaste. El consejo viejo de 'elige 5,000 en vez de fill up' ya no aplica: la máquina no deja elegir.",
-      "tipo": "dinero",
-      "fuente": "páginas de pago de N1, Olís y Orkan, 2026"
-    },
-    {
-      "que": "Orden en la bomba: estacionarse con la tapa del lado correcto y apagar el motor · pagar en el poste del terminal, que atiende dos bombas · teclear NIP de 4 dígitos · elegir el NÚMERO DE BOMBA donde está tu auto (error clásico: la pantalla no sabe dónde estás) · cargar · colgar la pistola, que es lo que cierra la transacción. Si te quedas quieto sin empezar, la bomba se cancela sola en 1.5 a 3 minutos.",
-      "tipo": "tip",
-      "fuente": "instrucciones oficiales N1, Olís y Orkan"
-    },
-    {
-      "que": "Con 8 a 12 cargas y retenciones de 22 a 30 mil ISK cada una, la línea de crédito se puede saturar aunque el gasto real sea mucho menor. Usen tarjetas distintas cada uno y avisen al banco. Si una retención no se libera: Olís y ÓB dan 24 horas, Atlantsolía hasta 5 días hábiles, N1 admite hasta 30.",
-      "tipo": "dinero",
-      "fuente": "condiciones publicadas por cada cadena"
-    },
-    {
-      "que": "La gasolina barata SOLO existe en cuatro zonas: área de Reikiavik, Borgarnes, Selfoss y Akureyri, más la ÓB de Laugabakki. Ahí está a 226-230 ISK/L. En el resto de la Ring Road sube a 255-262. Llenen a tope en esas cuatro aunque traigan medio tanque, y en Vík, Höfn, Djúpivogur, Egilsstaðir y Mývatn carguen solo lo necesario para llegar a la siguiente barata.",
-      "tipo": "dinero",
-      "fuente": "bensinverd.is / Gasvaktin, 8 de septiembre de 2026"
-    },
-    {
-      "que": "No cargar en el aeropuerto de Keflavík: la ÓB de ahí está en el tramo caro. Salir hacia Reikiavik y llenar en la zona metropolitana, que es lo más barato del país.",
-      "tipo": "dinero",
-      "dia": "2026-09-30",
-      "fuente": "Gasvaktin"
-    },
-    {
-      "que": "Hoy duermen en Laugarbakki, y la ÓB de Laugabakki es de las pocas gasolineras baratas fuera de las ciudades. Llenar a tope antes de subir al norte.",
-      "tipo": "dinero",
-      "dia": "2026-10-02",
-      "fuente": "Gasvaktin"
-    },
-    {
-      "que": "Akureyri es zona barata: Orkan Mýrarvegur, ÓB Hlíðarbraut o Atlantsolía Baldursnes rondan las 226-230 ISK/L. Llenar a tope aquí antes de entrar al tramo caro del este, donde sube a 262.",
-      "tipo": "dinero",
-      "dia": "2026-10-03",
-      "fuente": "Gasvaktin"
-    },
-    {
-      "que": "La N1 Innkort NO es tarjeta de descuento, es prepagada con descuento CERO. Solo sirve como plan B si su tarjeta es rechazada en una bomba desatendida, porque no pide PIN. Se compra únicamente en estaciones N1 ATENDIDAS, y en su ruta no hay ninguna en Vík, Kirkjubæjarklaustur, Mývatn ni Djúpivogur.",
-      "tipo": "dinero",
-      "fuente": "gamli.n1.is, texto oficial: 'fyrirframgreitt greiðslukort'"
-    },
-    {
-      "que": "Los precios de gasolina que circulan en blogs y videos de principios de 2026 están mal: celebraban una caída del 27% cuando Islandia cambió el impuesto al combustible por el kilométrico. Desde enero volvió a subir 21% la gasolina y 26% el diésel.",
-      "tipo": "tip",
-      "fuente": "comparativa enero vs septiembre 2026"
-    },
-    {
-      "que": "Presupuesto de combustible: unos 55,000 ISK de gasolina MÁS el impuesto kilométrico, que va de 20,000 a 22,000 ISK según cómo lo cobre la rentadora. Total cerca de 77,000 ISK, unos 11,000 pesos.",
-      "tipo": "dinero",
-      "fuente": "8.5 L/100km × 250 ISK/L + kílómetragjald"
-    },
-    {
-      "que": "Kilometraje ilimitado y el impuesto kilométrico NO son lo mismo, y su contrato lo dice en la misma página: 'Your rental includes unlimited free kilometres' y, tres párrafos abajo, 'customers are obliged to pay a road usage fee between ISK 6 to ISK 12 per km driven, payable at the end of the rental'. El ilimitado es la política de la rentadora; el impuesto es del Estado desde enero de 2026 y lo cobran al devolver el auto.",
-      "tipo": "dinero",
-      "fuente": "contrato de Europcar/Höldur vía Booking, verbatim"
-    },
-    {
-      "que": "Hay dos formas de que se los cobren y conviene preguntar cuál usan: cuota FIJA por día de renta —Blue Car Rental cobra 1,550 ISK diarios por adelantado, sin leer el odómetro— o POR KILÓMETRO real al devolver, que en Hertz sale en unas 8.35 ISK/km con su comisión y el IVA. Para sus 13 días y 2,600 km las dos dan casi lo mismo, unos 20,000 contra 21,700; pero si manejan de más, la fija no sube.",
-      "tipo": "dinero",
-      "fuente": "tarifas publicadas por Blue Car Rental y Hertz Iceland, 2026"
-    },
-    {
-      "que": "La tarjeta Nu NO sirve para el depósito. El contrato dice literal: 'Cards distributed by neobanks (online-only banks) are not accepted'. Nu es banco 100% digital. Tampoco aceptan prepagadas, recargables ni virtuales. Tiene que ser Visa, Mastercard o Amex FÍSICA, con chip, a nombre del conductor principal y con NIP.",
-      "tipo": "peligro",
-      "dia": "2026-09-30",
-      "fuente": "contrato de Europcar/Höldur vía Booking"
-    },
-    {
-      "que": "El contrato confirma que NO les tocan llantas de invierno: 'From November 1st until April 15th all cars come equipped with studded winter tires'. Viajan del 30 de septiembre al 13 de octubre, o sea antes de esa ventana. Vale la pena pedirlas por escrito y pagar el extra si aceptan.",
-      "tipo": "peligro",
-      "dia": "2026-09-30",
-      "fuente": "contrato de Europcar/Höldur vía Booking"
-    },
-    {
-      "que": "Depósito de 500 EUR bloqueado en la tarjeta al recoger, más un deducible de 3,000 EUR tanto por daño como por robo. Hay que confirmar que la línea de crédito aguante ese bloqueo MÁS los gastos del viaje.",
-      "tipo": "dinero",
-      "dia": "2026-09-30",
-      "fuente": "contrato de Europcar/Höldur vía Booking"
-    },
-    {
-      "que": "El CDW incluido NO cubre vidrios, ruedas, interior, techo, bajos, remolque ni tiempo fuera de camino. Tampoco llaves, antena, gato, triángulos, chalecos, limpiaparabrisas ni tapón de gasolina. Su ruta lleva grava en Stokksnes y en la 218 a Dyrhólaey, y cruza Mýrdalssandur y Skeiðarársandur, que son las zonas de tormentas de arena. Ahí es donde entran las coberturas de grava y ceniza.",
-      "tipo": "dinero",
-      "fuente": "contrato de Europcar/Höldur vía Booking"
-    },
-    {
-      "que": "Si Ivy va a manejar tiene que ir registrada como conductor adicional: son 29 EUR por renta. Si maneja sin estar registrada, el seguro queda invalidado.",
-      "tipo": "peligro",
-      "dia": "2026-09-30",
-      "fuente": "contrato de Europcar/Höldur vía Booking"
-    },
-    {
-      "que": "En el mostrador del aeropuerto piden, además del pasaporte y la licencia FÍSICA (no vale la digital), el boleto de avión del vuelo de salida con fecha y hora. Tengan a la mano el pase del 13 de octubre.",
-      "tipo": "tip",
-      "dia": "2026-09-30",
-      "fuente": "contrato de Europcar/Höldur vía Booking"
-    },
-    {
-      "que": "El contrato es con HÖLDUR ehf, Tryggvabraut 12, Akureyri, no con Europcar Francia. Ese es el nombre que hay que buscar para el teléfono de asistencia y para cualquier reclamo.",
-      "tipo": "tip",
-      "fuente": "contrato de Europcar/Höldur vía Booking"
-    },
-    {
-      "que": "Política de combustible 'like for like': lo reciben con cierto nivel y lo devuelven igual, con un depósito bloqueado por el combustible. Si lo devuelven con menos, se lo cobran a su precio, que es más caro que llenarlo uno mismo. Anoten el nivel exacto al recibirlo.",
-      "tipo": "dinero",
-      "dia": "2026-09-30",
-      "fuente": "contrato de Europcar/Höldur vía Booking"
-    },
-    {
-      "que": "Tolerancia de 2 horas en el mostrador desde la hora de recogida, y solo dentro del horario de oficina. Su vuelo llega 06:20 y recogen 07:30: si el vuelo se retrasa, hay que llamarles al menos 30 minutos antes.",
-      "tipo": "tip",
-      "dia": "2026-09-30",
-      "fuente": "contrato de Europcar/Höldur vía Booking"
-    }
-  ]
+  {
+   "que": "Nunca aceptar que la terminal cobre en pesos. Siempre en coronas islandesas: el cobro en tu moneda mete entre 5 y 8% de sobreprecio.",
+   "tipo": "dinero"
+  },
+  {
+   "que": "No se dan propinas. El servicio va incluido por ley; dejarla es de turista.",
+   "tipo": "dinero"
+  },
+  {
+   "que": "Llevar dos tarjetas Visa o Mastercard con NIP de 4 dígitos, de bancos distintos. Las bombas desatendidas lo exigen y retienen entre 22,000 y 30,000 ISK por carga. Amex no funciona ahí.",
+   "tipo": "dinero"
+  },
+  {
+   "que": "Islandia es prácticamente sin efectivo. No hace falta cambiar dinero; ni los baños de gasolinera aceptan monedas.",
+   "tipo": "dinero"
+  },
+  {
+   "que": "Revisar umferdin.is y vedur.is cada mañana antes de arrancar. En octubre las condiciones cambian entre el desayuno y la comida.",
+   "tipo": "ruta"
+  },
+  {
+   "que": "Nunca dar la espalda al mar ni pisar la arena mojada. Las olas suben mucho más de lo que parece y se han llevado gente.",
+   "tipo": "peligro",
+   "punto": "Reynisfjara"
+  },
+  {
+   "que": "Límites de velocidad: 30 km/h en zona residencial · 50 en pueblo o ciudad · 90 en carretera pavimentada fuera de ciudad · 80 en grava fuera de ciudad. Los radares son automáticos.",
+   "tipo": "ruta",
+   "fuente": "video de reglas, verificado contra Samgöngustofa"
+  },
+  {
+   "que": "Luces encendidas SIEMPRE, todo el año, de día y de noche. La posición 'Auto' NO cuenta: hay que ponerlas en encendido fijo. La razón no es la multa, es la niebla — sin luces no te ve ni quien viene de frente ni quien intenta rebasarte.",
+   "tipo": "ruta",
+   "fuente": "Safetravel · el detalle del 'Auto' no venía en el video"
+  },
+  {
+   "que": "Prohibido parar en la carretera para tomar fotos — ni en medio ni en el acotamiento. Hay que usar los apartaderos señalizados. Es de las infracciones que más multan a turistas.",
+   "tipo": "peligro",
+   "fuente": "Safetravel top 12"
+  },
+  {
+   "que": "No manejar por el centro del camino. Las carreteras islandesas son angostas y sin acotamiento, y las curvas ciegas y lomas ciegas son constantes.",
+   "tipo": "peligro",
+   "fuente": "video de reglas"
+  },
+  {
+   "que": "Manejar fuera de camino está terminantemente prohibido y la multa es de las más caras del país. Salirse de la carretera o de una pista marcada, aunque sea unos metros para estacionarse, cuenta.",
+   "tipo": "peligro",
+   "fuente": "Safetravel top 12"
+  },
+  {
+   "que": "Puentes de un solo carril: el que llega primero pasa primero. Hay que frenar a 50 km/h y parar si viene alguien de frente. Los van a encontrar por toda la Ruta 1, sobre todo en el sureste.",
+   "tipo": "ruta",
+   "fuente": "Safetravel top 12"
+  },
+  {
+   "que": "Al pasar de pavimento a grava, frenar bastante antes. Los dos riesgos son perder el control y reventar una llanta. Es de las causas más comunes de accidente en turistas.",
+   "tipo": "peligro",
+   "fuente": "Safetravel top 12"
+  },
+  {
+   "que": "Un letrero que dice 'LOKAÐ' significa CERRADO. No es sugerencia y no se rodea.",
+   "tipo": "ruta",
+   "fuente": "Safetravel top 12"
+  },
+  {
+   "que": "Cinturón obligatorio para todos, siempre. Y nada de tocar el teléfono manejando: está prohibido y lo multan.",
+   "tipo": "ruta",
+   "fuente": "Safetravel top 12"
+  },
+  {
+   "que": "En la app Parka se captura SOLO la placa del auto, por ejemplo JK L60. Nada más: ni el 'service number', ni el teléfono que trae impreso el marco de la placa, ni ningún otro número del auto. Si registras el equivocado pagas el estacionamiento de otro y a ti te multan.",
+   "tipo": "dinero",
+   "fuente": "video de la agencia sobre Parka"
+  },
+  {
+   "que": "Anotar la placa del auto en cuanto lo recojan y guardarla en la Guía. La necesitan para Parka, para el peaje de Vaðlaheiðargöng y para el de Hornafjörður.",
+   "tipo": "tip",
+   "dia": "2026-09-30",
+   "fuente": "se desprende de los dos peajes y de Parka"
+  },
+  {
+   "que": "Lóndrangar: dos agujas de basalto de 75 y 61 m, mirador Svalþúfa justo sobre la 574 entre Búðakirkja y Djúpalónssandur. 25 min, desvío de 200 m, gratis. La verificación lo marca IMPRESCINDIBLE: es el que más da por lo que cuesta. Ese día sobran 2:39.",
+   "tipo": "reserva",
+   "dia": "2026-10-01",
+   "fuente": "póster de road trip, verificado · 25 min · 0.2 km de desvío · imprescindible"
+  },
+  {
+   "que": "Hvítserkur: el monolito con forma de elefante, más una de las colonias de focas más grandes del país enfrente. 100 min y 42 km de desvío por la península de Vatnsnes. Ese día sobran 4:49, así que cabe — pero se lleva un tercio del margen.",
+   "tipo": "reserva",
+   "dia": "2026-10-02",
+   "fuente": "póster de road trip, verificado · 100 min · 42 km de desvío · si hay tiempo"
+  },
+  {
+   "que": "Borgarvirki: fortaleza de basalto cerca de Hvammstangi. 65 min, 29 km de desvío, gratis. Cabe el mismo día que Hvítserkur solo si renuncian a algo más.",
+   "tipo": "tip",
+   "dia": "2026-10-02",
+   "fuente": "póster de road trip, verificado · 65 min · 29 km de desvío · si hay tiempo"
+  },
+  {
+   "que": "Svartifoss: la cascada de columnas hexagonales dentro de Skaftafell. 95 min contando 3,7 km de caminata con 140 m de subida por escaleras de madera. El estacionamiento cuesta 1,110 ISK, pero solo 555 si ya pagaron Jökulsárlón ese mismo día. Empezar a caminar antes de las 16:30. Ese día sobran 3:52.",
+   "tipo": "reserva",
+   "dia": "2026-10-07",
+   "fuente": "póster de road trip, verificado · 95 min · 3.7 km de desvío · si hay tiempo"
+  },
+  {
+   "que": "Reynisdrangar: las agujas frente a Vík se ven desde Reynisfjara y desde el pueblo, pero el mejor punto es otro. 35 min y 3 km. Verificado como IMPRESCINDIBLE y es donde mejor salen las auroras esa noche.",
+   "tipo": "tip",
+   "dia": "2026-10-08",
+   "fuente": "póster de road trip, verificado · 35 min · 3 km de desvío · imprescindible"
+  },
+  {
+   "que": "El avión DC-3 de Sólheimasandur: NO se llega en auto — los dueños cerraron la pista en 2016. Son 3,9 km caminando por gravilla negra de ida, otros tantos de vuelta, o el shuttle de pago. 90 minutos en total. Ese día sobran 4:59, así que cabe; decidan si vale el rato.",
+   "tipo": "tip",
+   "dia": "2026-10-09",
+   "fuente": "póster de road trip, verificado · 90 min · 0.5 km de desvío · si hay tiempo"
+  },
+  {
+   "que": "Kerið: el cráter con lago, justo sobre la 35 entre Selfoss y Gullfoss. 45 min, desvío de 500 m. Se paga por persona en efectivo o tarjeta en el kiosco. Ese día sobran 4:02.",
+   "tipo": "reserva",
+   "dia": "2026-10-10",
+   "fuente": "póster de road trip, verificado · 45 min · 0.5 km de desvío · si hay tiempo"
+  },
+  {
+   "que": "Del póster de road trip se descartaron: Hófsós y Hólar porque caen el 3 de octubre, el único día sin margen; Laugarvatn Fontana porque son 150 min y ya tienen Sky Lagoon el 12; Hengifoss (210 min) y Seyðisfjörður (180 min) porque cada uno se come el día 5 entero; y los Westfjords, Landmannalaugar, Þórsmörk y Vestmannaeyjar porque quedan fuera de ruta o con F-roads cerradas en octubre.",
+   "tipo": "tip",
+   "fuente": "13 candidatos verificados del póster"
+  },
+  {
+   "que": "El '6 a 12 °C' que circula en las guías es de SEPTIEMBRE y en Reikiavik. Octubre real, normales oficiales de Veðurstofa: Reikiavik máx 7.6 / mín 2.7 · Akureyri 6.6 / 1.1 · Mývatn 4.3 / −1.1. Su ventana del 30 sep al 13 oct es la mitad cálida del mes, más o menos +1.5 °C sobre esa media.",
+   "tipo": "tip",
+   "fuente": "Veðurstofa Íslands, normales 1991-2020"
+  },
+  {
+   "que": "La sensación térmica con viento está de 5 a 9 grados por debajo del termómetro. En Mývatn, con la mínima típica y viento de 10 m/s, se siente −8.5 °C. Y la fórmula no incluye la lluvia, que en Islandia es lo que de verdad enfría. Vestir para el escenario frío, no para el promedio.",
+   "tipo": "peligro",
+   "fuente": "Veðurstofa Íslands"
+  },
+  {
+   "que": "Días con mínima bajo cero y posibilidad de hielo en carretera: 4 y 5 de octubre, por la altitud de Mývatn, Dettifoss y Möðrudalur, que van de 270 a 470 m. Akureyri promedia 3 días de octubre con el suelo totalmente nevado.",
+   "tipo": "peligro",
+   "dia": "2026-10-04",
+   "fuente": "Veðurstofa Íslands"
+  },
+  {
+   "que": "Hoy llega el RIFF, el festival de cine de Reikiavik, que va del 24 de septiembre al 4 de octubre. Es el ÚNICO día del viaje que se solapa: del 1 al 4 están en la Ring Road y cuando vuelvan el 10 ya cerró. No compren nada por adelantado. Si al llegar están enteros, miren riff.is hacia las 17:00 por si hay una función de 18:00 a 20:00 en Háskólabíó; dos boletos sueltos salen en unas 5,000 ISK.",
+   "tipo": "reserva",
+   "dia": "2026-09-30",
+   "fuente": "riff.is · 23ª edición confirmada"
+  },
+  {
+   "que": "Húsavík es la capital ballenera de Islandia y hoy pasan por ahí. En octubre ya es horario de invierno: North Sailing solo sale 09:30, 11:00 y 13:30, a 12,990 ISK por persona, 3 horas, con overol térmico incluido y cancelación gratis 24 h antes. Para que quepa hay que INVERTIR el día: ballenas en la mañana y el resto del Diamond Circle de regreso.",
+   "tipo": "reserva",
+   "dia": "2026-10-04",
+   "fuente": "calendarios oficiales 2026 de North Sailing y Gentle Giants"
+  },
+  {
+   "que": "Silfra, la fisura entre placas en Þingvellir, opera todo el año: el agua está a 2-4 °C igual en octubre que en julio, y se hace con traje seco. La opción barata es 'meet on location' llegando con su auto al estacionamiento P5: entre 16,000 y 20,000 ISK por persona, de 2.5 a 3 horas en total y solo 30-45 min dentro del agua. Hay que reservar con semanas de anticipación.",
+   "tipo": "reserva",
+   "dia": "2026-10-10",
+   "fuente": "DIVE.IS, Arctic Adventures, Tröll Expeditions"
+  },
+  {
+   "que": "Los réttir, el arreo de ganado, no terminan en septiembre: el calendario oficial 2026 llega hasta el 11 de octubre. Lo que queda son las segundas recogidas y los stóðréttir, que son los arreos de CABALLOS y en el norte son los más festivos. Víðidalstungurétt cae hoy y está a 20-25 km de Laugarbakki: el stóð entra al corral a las 11:00. Es la rétt de caballos más grande del país.",
+   "tipo": "reserva",
+   "dia": "2026-10-03",
+   "fuente": "Réttalistinn 2026, Bændablaðið"
+  },
+  {
+   "que": "Si van a Víðidalstungurétt el 3 de octubre, ese día NO alcanza para Tröllaskagi: son unos 60 minutos entre desvío y estar ahí, y ese día solo sobran 41. Con la Ruta 1 vía Glaumbær sí cabe, y sobran casi 2 horas.",
+   "tipo": "ruta",
+   "dia": "2026-10-03",
+   "fuente": "cruce entre los réttir y el margen del día"
+  },
+  {
+   "que": "Cómo funcionan las multas de radar: llegan al DUEÑO registrado del auto, que es la rentadora. Pero la rentadora puede reportar a la policía quién iba manejando, y entonces uno le paga directo a la policía en island.is. Eso evita el cargo administrativo que cobra la rentadora por gestionarla. Vale la pena preguntarles cuál de los dos caminos usan.",
+   "tipo": "dinero",
+   "fuente": "island.is · la persona del video decía no saberlo y lo preguntaba a sus seguidores"
+  },
+  {
+   "que": "Manguera VERDE = Bensín (gasolina). NEGRA = Dísel. Pero el color es costumbre, no ley: lo confiable es la etiqueta pegada en la bomba y en la pistola — CÍRCULO con 'E10' es gasolina, CUADRADO con 'B7' es diésel. La forma no depende del idioma.",
+   "tipo": "peligro",
+   "fuente": "FÍB y Reglur nr. 1212/2020, norma EN 16942"
+  },
+  {
+   "que": "OJO CON UNA PALABRA: en Islandia 'gasolía' NO es gasolina, es DIÉSEL. Aparece así en depósitos rurales. Es el falso amigo más caro del viaje.",
+   "tipo": "peligro",
+   "fuente": "Skeljungur, nomenclatura comercial"
+  },
+  {
+   "que": "El diésel es MÁS CARO que la gasolina en Islandia, unas 39 coronas por litro. Al revés que en México. Nunca elijan manguera por precio.",
+   "tipo": "dinero",
+   "fuente": "bensinverd.is, lectura del 8 de septiembre"
+  },
+  {
+   "que": "Si echan el combustible equivocado: el vaciado cuesta desde 38,990 ISK, y N1 SOLO lo hace en el área de Reikiavik. En Vík, Höfn, Egilsstaðir o Mývatn no hay vaciado en sitio: hay que remolcar. Un caso documentado en 2025 terminó en 101,000 ISK solo de auxilio vial.",
+   "tipo": "peligro",
+   "fuente": "tarifas N1 Vegaaðstoð y Kærunefnd vöru- og þjónustukaupa, sep 2025"
+  },
+  {
+   "que": "Confirmar si el auto es bensín o dísel al recogerlo, y anotarlo. La etiqueta va dentro de la tapa del tanque por ley, y también en la tarjeta de circulación de la guantera, campo P.3. Pista mecánica: tapa azul de AdBlue junto a la del combustible significa diésel.",
+   "tipo": "tip",
+   "dia": "2026-09-30",
+   "fuente": "Reglur nr. 1212/2020, art. 14"
+  },
+  {
+   "que": "SE PAGA ANTES, siempre, y NO hay botón de 'llenar' ni te pregunta el monto. La bomba aparta una cantidad fija: 22,000 ISK en N1 y 30,000 ISK en Olís, ÓB y Orkan. Eso es una RETENCIÓN, no un cobro — después te cobran solo lo que cargaste. El consejo viejo de 'elige 5,000 en vez de fill up' ya no aplica: la máquina no deja elegir.",
+   "tipo": "dinero",
+   "fuente": "páginas de pago de N1, Olís y Orkan, 2026"
+  },
+  {
+   "que": "Orden en la bomba: estacionarse con la tapa del lado correcto y apagar el motor · pagar en el poste del terminal, que atiende dos bombas · teclear NIP de 4 dígitos · elegir el NÚMERO DE BOMBA donde está tu auto (error clásico: la pantalla no sabe dónde estás) · cargar · colgar la pistola, que es lo que cierra la transacción. Si te quedas quieto sin empezar, la bomba se cancela sola en 1.5 a 3 minutos.",
+   "tipo": "tip",
+   "fuente": "instrucciones oficiales N1, Olís y Orkan"
+  },
+  {
+   "que": "Con 8 a 12 cargas y retenciones de 22 a 30 mil ISK cada una, la línea de crédito se puede saturar aunque el gasto real sea mucho menor. Usen tarjetas distintas cada uno y avisen al banco. Si una retención no se libera: Olís y ÓB dan 24 horas, Atlantsolía hasta 5 días hábiles, N1 admite hasta 30.",
+   "tipo": "dinero",
+   "fuente": "condiciones publicadas por cada cadena"
+  },
+  {
+   "que": "La gasolina barata SOLO existe en cuatro zonas: área de Reikiavik, Borgarnes, Selfoss y Akureyri, más la ÓB de Laugabakki. Ahí está a 226-230 ISK/L. En el resto de la Ring Road sube a 255-262. Llenen a tope en esas cuatro aunque traigan medio tanque, y en Vík, Höfn, Djúpivogur, Egilsstaðir y Mývatn carguen solo lo necesario para llegar a la siguiente barata.",
+   "tipo": "dinero",
+   "fuente": "bensinverd.is / Gasvaktin, 8 de septiembre de 2026"
+  },
+  {
+   "que": "No cargar en el aeropuerto de Keflavík: la ÓB de ahí está en el tramo caro. Salir hacia Reikiavik y llenar en la zona metropolitana, que es lo más barato del país.",
+   "tipo": "dinero",
+   "dia": "2026-09-30",
+   "fuente": "Gasvaktin"
+  },
+  {
+   "que": "Hoy duermen en Laugarbakki, y la ÓB de Laugabakki es de las pocas gasolineras baratas fuera de las ciudades. Llenar a tope antes de subir al norte.",
+   "tipo": "dinero",
+   "dia": "2026-10-02",
+   "fuente": "Gasvaktin"
+  },
+  {
+   "que": "Akureyri es zona barata: Orkan Mýrarvegur, ÓB Hlíðarbraut o Atlantsolía Baldursnes rondan las 226-230 ISK/L. Llenar a tope aquí antes de entrar al tramo caro del este, donde sube a 262.",
+   "tipo": "dinero",
+   "dia": "2026-10-03",
+   "fuente": "Gasvaktin"
+  },
+  {
+   "que": "La N1 Innkort NO es tarjeta de descuento, es prepagada con descuento CERO. Solo sirve como plan B si su tarjeta es rechazada en una bomba desatendida, porque no pide PIN. Se compra únicamente en estaciones N1 ATENDIDAS, y en su ruta no hay ninguna en Vík, Kirkjubæjarklaustur, Mývatn ni Djúpivogur.",
+   "tipo": "dinero",
+   "fuente": "gamli.n1.is, texto oficial: 'fyrirframgreitt greiðslukort'"
+  },
+  {
+   "que": "Los precios de gasolina que circulan en blogs y videos de principios de 2026 están mal: celebraban una caída del 27% cuando Islandia cambió el impuesto al combustible por el kilométrico. Desde enero volvió a subir 21% la gasolina y 26% el diésel.",
+   "tipo": "tip",
+   "fuente": "comparativa enero vs septiembre 2026"
+  },
+  {
+   "que": "Presupuesto de combustible: unos 55,000 ISK de gasolina MÁS el impuesto kilométrico, que va de 20,000 a 22,000 ISK según cómo lo cobre la rentadora. Total cerca de 77,000 ISK, unos 11,000 pesos.",
+   "tipo": "dinero",
+   "fuente": "8.5 L/100km × 250 ISK/L + kílómetragjald"
+  },
+  {
+   "que": "Kilometraje ilimitado y el impuesto kilométrico NO son lo mismo, y su contrato lo dice en la misma página: 'Your rental includes unlimited free kilometres' y, tres párrafos abajo, 'customers are obliged to pay a road usage fee between ISK 6 to ISK 12 per km driven, payable at the end of the rental'. El ilimitado es la política de la rentadora; el impuesto es del Estado desde enero de 2026 y lo cobran al devolver el auto.",
+   "tipo": "dinero",
+   "fuente": "contrato de Europcar/Höldur vía Booking, verbatim"
+  },
+  {
+   "que": "Hay dos formas de que se los cobren y conviene preguntar cuál usan: cuota FIJA por día de renta —Blue Car Rental cobra 1,550 ISK diarios por adelantado, sin leer el odómetro— o POR KILÓMETRO real al devolver, que en Hertz sale en unas 8.35 ISK/km con su comisión y el IVA. Para sus 13 días y 2,600 km las dos dan casi lo mismo, unos 20,000 contra 21,700; pero si manejan de más, la fija no sube.",
+   "tipo": "dinero",
+   "fuente": "tarifas publicadas por Blue Car Rental y Hertz Iceland, 2026"
+  },
+  {
+   "que": "La tarjeta Nu NO sirve para el depósito. El contrato dice literal: 'Cards distributed by neobanks (online-only banks) are not accepted'. Nu es banco 100% digital. Tampoco aceptan prepagadas, recargables ni virtuales. Tiene que ser Visa, Mastercard o Amex FÍSICA, con chip, a nombre del conductor principal y con NIP.",
+   "tipo": "peligro",
+   "dia": "2026-09-30",
+   "fuente": "contrato de Europcar/Höldur vía Booking"
+  },
+  {
+   "que": "El contrato confirma que NO les tocan llantas de invierno: 'From November 1st until April 15th all cars come equipped with studded winter tires'. Viajan del 30 de septiembre al 13 de octubre, o sea antes de esa ventana. Vale la pena pedirlas por escrito y pagar el extra si aceptan.",
+   "tipo": "peligro",
+   "dia": "2026-09-30",
+   "fuente": "contrato de Europcar/Höldur vía Booking"
+  },
+  {
+   "que": "Depósito de 500 EUR bloqueado en la tarjeta al recoger, más un deducible de 3,000 EUR tanto por daño como por robo. Hay que confirmar que la línea de crédito aguante ese bloqueo MÁS los gastos del viaje.",
+   "tipo": "dinero",
+   "dia": "2026-09-30",
+   "fuente": "contrato de Europcar/Höldur vía Booking"
+  },
+  {
+   "que": "El CDW incluido NO cubre vidrios, ruedas, interior, techo, bajos, remolque ni tiempo fuera de camino. Tampoco llaves, antena, gato, triángulos, chalecos, limpiaparabrisas ni tapón de gasolina. Su ruta lleva grava en Stokksnes y en la 218 a Dyrhólaey, y cruza Mýrdalssandur y Skeiðarársandur, que son las zonas de tormentas de arena. Ahí es donde entran las coberturas de grava y ceniza.",
+   "tipo": "dinero",
+   "fuente": "contrato de Europcar/Höldur vía Booking"
+  },
+  {
+   "que": "Si Ivy va a manejar tiene que ir registrada como conductor adicional: son 29 EUR por renta. Si maneja sin estar registrada, el seguro queda invalidado.",
+   "tipo": "peligro",
+   "dia": "2026-09-30",
+   "fuente": "contrato de Europcar/Höldur vía Booking"
+  },
+  {
+   "que": "En el mostrador del aeropuerto piden, además del pasaporte y la licencia FÍSICA (no vale la digital), el boleto de avión del vuelo de salida con fecha y hora. Tengan a la mano el pase del 13 de octubre.",
+   "tipo": "tip",
+   "dia": "2026-09-30",
+   "fuente": "contrato de Europcar/Höldur vía Booking"
+  },
+  {
+   "que": "El contrato es con HÖLDUR ehf, Tryggvabraut 12, Akureyri, no con Europcar Francia. Ese es el nombre que hay que buscar para el teléfono de asistencia y para cualquier reclamo.",
+   "tipo": "tip",
+   "fuente": "contrato de Europcar/Höldur vía Booking"
+  },
+  {
+   "que": "Política de combustible 'like for like': lo reciben con cierto nivel y lo devuelven igual, con un depósito bloqueado por el combustible. Si lo devuelven con menos, se lo cobran a su precio, que es más caro que llenarlo uno mismo. Anoten el nivel exacto al recibirlo.",
+   "tipo": "dinero",
+   "dia": "2026-09-30",
+   "fuente": "contrato de Europcar/Höldur vía Booking"
+  },
+  {
+   "que": "Tolerancia de 2 horas en el mostrador desde la hora de recogida, y solo dentro del horario de oficina. Su vuelo llega 06:20 y recogen 07:30: si el vuelo se retrasa, hay que llamarles al menos 30 minutos antes.",
+   "tipo": "tip",
+   "dia": "2026-09-30",
+   "fuente": "contrato de Europcar/Höldur vía Booking"
+  },
+  {
+   "que": "Antes de la primera carga hay que saber si el auto es GASOLINA o DIÉSEL. Está en la tapa del tanque, en la etiqueta de la puerta del conductor y en el contrato. En Islandia la manguera verde es diésel y no hay boquilla que lo impida. Echar el combustible equivocado arruina el motor y NINGÚN seguro lo cubre: es negligencia del conductor.",
+   "tipo": "peligro",
+   "dia": "2026-09-30",
+   "fuente": "Kia Sportage se vende en ambas versiones; la reserva no dice cuál"
+  },
+  {
+   "que": "Reservaron un Kia Sportage automático «o similar»: la rentadora puede darles otro SUV compacto del mismo grupo. No den por hecho el modelo ni la tracción. Al recibirlo pregunten si es 4x4 o solo tracción delantera, porque de eso depende si pueden subir por la grava a Stokksnes.",
+   "tipo": "tip",
+   "dia": "2026-09-30",
+   "fuente": "reserva: «Kia Sportage or similar»"
+  },
+  {
+   "que": "La Full Protection que contrataron es un REEMBOLSO, no un seguro de la rentadora. Su propio texto lo dice: «You'll get a full refund if you're charged for anything that Full Protection covers». O sea que Höldur igual bloquea el depósito y, si hay un daño, les cobra el deducible completo a la tarjeta; el dinero regresa después, reclamándolo con papeles. La tarjeta tiene que aguantar ese golpe primero.",
+   "tipo": "peligro",
+   "dia": "2026-09-30",
+   "fuente": "pantalla de la reserva, sección Protection options"
+  },
+  {
+   "que": "Si hay cualquier daño, la reclamación de la Full Protection se cae sin papeles. Antes de salir del mostrador de devolución hay que llevarse: el reporte de daños firmado, la factura de la reparación o del cargo, el contrato de renta y el estado de cuenta donde aparezca el cobro. Fotos del auto al recogerlo y al devolverlo, con fecha visible.",
+   "tipo": "tip",
+   "fuente": "así funciona cualquier producto de reembolso de deducible"
+  },
+  {
+   "que": "La Full Protection excluye el interior: «Refunds repair bills (excluding interior)». Coincide con lo que tampoco cubre el CDW de Höldur. Arena, ceniza volcánica y lodo dentro de la cabina corren por su cuenta, así que vale la pena sacudirse las botas antes de subir.",
+   "tipo": "tip",
+   "fuente": "pantalla de la reserva, sección Protection options"
+  },
+  {
+   "que": "El conductor principal registrado es Carlos, y es el único nombre en la reserva. La tarjeta del depósito tiene que estar a ESE nombre. Si Ivy va a manejar aunque sea un tramo, hay que agregarla en el mostrador como conductor adicional.",
+   "tipo": "peligro",
+   "dia": "2026-09-30",
+   "fuente": "reserva: Main driver"
+  },
+  {
+   "que": "Aunque son 13 días y medio de calendario, la renta se factura como 14 días: recogen el 30 de septiembre a las 07:30 y devuelven el 13 de octubre a las 14:00. Devolverlo más tarde de las 14:00 puede detonar el cobro de un día completo.",
+   "tipo": "dinero",
+   "dia": "2026-10-13",
+   "fuente": "reserva: 14 days"
+  },
+  {
+   "que": "El mostrador está DENTRO de la terminal de Keflavík, no en un estacionamiento aparte ni con shuttle. Recogen a las 07:30 y su vuelo llega 06:20: si migración se alarga, avisen por teléfono antes de la hora, porque la tolerancia es de 2 horas y solo en horario de oficina.",
+   "tipo": "tip",
+   "dia": "2026-09-30",
+   "fuente": "reserva: On Airport · Desk in Terminal"
+  }
+ ]
 }

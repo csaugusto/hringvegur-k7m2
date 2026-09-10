@@ -939,9 +939,11 @@ function pintarPasosGas() {
 // ─────────────────────────── BITÁCORA DE COMBUSTIBLE ───────────────────────────
 // Odómetro al recoger + cada carga = rendimiento real contra el estimado.
 // Y de paso el kílómetragjald acumulado, que se cobra por km al devolver.
+// Kia Sportage automático «o similar»: SUV compacto. El estimado de 8.5 asume
+// gasolina; si les toca diésel gastarán más cerca de 7 y el contador lo dirá solo.
 const KM_PLAN = 2600;        // los kilómetros del itinerario completo
 const LKM_PLAN = 8.5;        // consumo estimado, L/100 km
-const DIAS_RENTA = 13;       // 30 sep 07:30 → 13 oct 14:00
+const DIAS_RENTA = 14;       // 30 sep 07:30 → 13 oct 14:00, facturado como 14 días
 
 // El kílómetragjald es un IMPUESTO DEL ESTADO desde enero de 2026, no un cobro
 // de la rentadora: tener kilometraje ilimitado no exime de pagarlo. Cada empresa
@@ -974,7 +976,9 @@ function pintarGasLog() {
   const km = cs.length ? cs[cs.length - 1].km - g.inicial : 0;
   const litros = cs.reduce((s, c) => s + c.l, 0);
   const gasto = cs.reduce((s, c) => s + (c.isk || 0), 0);
-  // Con política "lleno a lleno" cada litro cargado es un litro consumido.
+  // Su política es "like for like": lo devuelven al nivel en que lo recibieron.
+  // El cálculo solo cuadra si cada carga es a tanque lleno; si cargan a medias,
+  // el rendimiento sale optimista hasta la siguiente carga completa.
   const lkm = km > 0 && litros > 0 ? (litros / km) * 100 : null;
   const dif = lkm ? lkm - LKM_PLAN : null;
 
