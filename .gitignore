@@ -8,3 +8,5 @@ data/trip_raw.json
 data/CONTEXTO.md
 investigacion/
 PLAN.md
+__pycache__/
+*.pyc
