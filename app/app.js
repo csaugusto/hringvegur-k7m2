@@ -937,7 +937,18 @@ function pintarPasosGas() {
 // Y de paso el kílómetragjald acumulado, que se cobra por km al devolver.
 const KM_PLAN = 2600;        // los kilómetros del itinerario completo
 const LKM_PLAN = 8.5;        // consumo estimado, L/100 km
-const KMGJALD = 8.8;         // impuesto kilométrico, ISK/km con la comisión de la rentadora
+const DIAS_RENTA = 13;       // 30 sep 07:30 → 13 oct 14:00
+
+// El kílómetragjald es un IMPUESTO DEL ESTADO desde enero de 2026, no un cobro
+// de la rentadora: tener kilometraje ilimitado no exime de pagarlo. Cada empresa
+// lo traslada de una de dos formas, y hay que preguntar cuál usa la suya.
+const KMG = {
+  km:  { n: 'Por km recorrido', tasa: 8.35, nota: 'Tasa estatal de 6.95 más la comisión de la rentadora y el IVA. Se calcula con el odómetro al devolver. Así lo cobra Hertz.' },
+  dia: { n: 'Cuota fija diaria', tasa: 1550, nota: 'Se paga por día de renta sin importar los kilómetros, y se cobra por adelantado. Así lo cobra Blue Car Rental.' },
+  no:  { n: 'Todavía no sé',     tasa: 8.35, nota: 'Estimado por km mientras lo confirman. Pregúntenle a la rentadora: cambia el total.' },
+};
+const modoKmg = () => LS.get('kmg', 'no');
+const costoKmg = km => modoKmg() === 'dia' ? KMG.dia.tasa * DIAS_RENTA : KMG[modoKmg()].tasa * km;
 
 const gasLog = () => LS.get('gaslog', { inicial: null, cargas: [] });
 const num = v => { const n = parseFloat(String(v).replace(',', '.').replace(/[^\d.]/g, '')); return isFinite(n) ? n : null; };
@@ -971,12 +982,23 @@ function pintarGasLog() {
         <em>${Math.round(km / KM_PLAN * 100)}% de los ${KM_PLAN.toLocaleString('es-MX')} del plan</em></div>
     </div>
     <div class="kv"><span>Gasolina gastada</span><b>${Math.round(gasto).toLocaleString('es-MX')} ISK<br><i>${mx(gasto)} MXN</i></b></div>
-    <div class="kv"><span>Impuesto kilométrico acumulado<em>se cobra al devolver el auto</em></span>
-      <b>${Math.round(km * KMGJALD).toLocaleString('es-MX')} ISK<br><i>${mx(km * KMGJALD)} MXN</i></b></div>
+    <div class="kv"><span>Impuesto kilométrico${modoKmg() === 'dia' ? ' del viaje completo' : ' acumulado'}
+      <em>${modoKmg() === 'dia' ? `cuota fija, ${DIAS_RENTA} días · no depende de los km` : 'se cobra al devolver el auto'}</em></span>
+      <b>${Math.round(costoKmg(km)).toLocaleString('es-MX')} ISK<br><i>${mx(costoKmg(km))} MXN</i></b></div>
     ${lkm ? `<div class="kv"><span>Proyección a los ${KM_PLAN.toLocaleString('es-MX')} km<em>gasolina más impuesto, a este ritmo</em></span>
-      <b>${Math.round(gasto / km * KM_PLAN + KM_PLAN * KMGJALD).toLocaleString('es-MX')} ISK<br><i>${mx(gasto / km * KM_PLAN + KM_PLAN * KMGJALD)} MXN</i></b></div>` : ''}
+      <b>${Math.round(gasto / km * KM_PLAN + costoKmg(KM_PLAN)).toLocaleString('es-MX')} ISK<br><i>${mx(gasto / km * KM_PLAN + costoKmg(KM_PLAN))} MXN</i></b></div>` : ''}
+    <div class="kmg-sel">
+      <span class="kmg-t">Cómo les cobra la rentadora el impuesto kilométrico</span>
+      <div class="segmentado">${Object.entries(KMG).map(([k, v]) =>
+        `<button data-kmg="${k}" class="${k === modoKmg() ? 'on' : ''}">${v.n}</button>`).join('')}</div>
+      <p class="nota">${KMG[modoKmg()].nota} <b>Ojo:</b> tener kilometraje ilimitado no exime de este
+        impuesto — el ilimitado es la política de la rentadora, y esto es un impuesto del Estado
+        desde enero de 2026 que ellos solo trasladan.</p>
+    </div>
     <div class="kv"><span>Odómetro al recoger</span><b>${g.inicial.toLocaleString('es-MX')} km
       <button class="lnk" onclick="odometroInicial()">cambiar</button></b></div>`;
+
+  $$('#gas-resumen [data-kmg]').forEach(b => b.onclick = () => { LS.set('kmg', b.dataset.kmg); pintarGasLog(); });
 
   lis.innerHTML = !cs.length
     ? '<p class="muted" style="margin-top:12px">Aún no hay cargas anotadas.</p>'

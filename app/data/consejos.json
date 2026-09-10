@@ -270,9 +270,19 @@
       "fuente": "comparativa enero vs septiembre 2026"
     },
     {
-      "que": "Presupuesto de combustible para los 2,600 km: unos 55,000 ISK de gasolina MÁS unos 23,000 ISK de impuesto kilométrico, que se cobra aparte al devolver el auto y llega a la tarjeta hasta cinco días después. Total cerca de 78,000 ISK, unos 11,000 pesos. Si el presupuesto solo trae la gasolina, faltan 3,200 pesos.",
+      "que": "Presupuesto de combustible: unos 55,000 ISK de gasolina MÁS el impuesto kilométrico, que va de 20,000 a 22,000 ISK según cómo lo cobre la rentadora. Total cerca de 77,000 ISK, unos 11,000 pesos.",
       "tipo": "dinero",
-      "fuente": "8.5 L/100km × 250 ISK/L + 8.8 ISK/km"
+      "fuente": "8.5 L/100km × 250 ISK/L + kílómetragjald"
+    },
+    {
+      "que": "Kilometraje ilimitado y el impuesto kilométrico NO son lo mismo, y esa confusión cuesta 20,000 ISK. El ilimitado es política de la rentadora: no les cobran por distancia y sigue vigente. El kílómetragjald es un impuesto del ESTADO desde enero de 2026, que sustituyó al impuesto sobre el combustible; la rentadora solo lo traslada. Se paga aunque el kilometraje sea ilimitado.",
+      "tipo": "dinero",
+      "fuente": "Blue Car Rental, Hertz Iceland y Lotus, guías 2026 del nuevo impuesto"
+    },
+    {
+      "que": "Hay dos formas de que se los cobren y conviene preguntar cuál usan: cuota FIJA por día de renta —Blue Car Rental cobra 1,550 ISK diarios por adelantado, sin leer el odómetro— o POR KILÓMETRO real al devolver, que en Hertz sale en unas 8.35 ISK/km con su comisión y el IVA. Para sus 13 días y 2,600 km las dos dan casi lo mismo, unos 20,000 contra 21,700; pero si manejan de más, la fija no sube.",
+      "tipo": "dinero",
+      "fuente": "tarifas publicadas por Blue Car Rental y Hertz Iceland, 2026"
     }
   ]
 }
