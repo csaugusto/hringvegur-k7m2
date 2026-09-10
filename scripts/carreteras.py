@@ -13,9 +13,11 @@ from pathlib import Path
 
 FEED = "https://gagnaveita.vegagerdin.is/api/faerd2014_1"
 FEED_OLAS = "https://safetravel.is/wp-content/plugins/black-beach-safety/reynisfjara_litakodi.json"
+FEED_EST = "https://gagnaveita.vegagerdin.is/api/vedur2014_1"
 DATA = Path(__file__).resolve().parent.parent / "app" / "data"
 SALIDA = DATA / "carreteras.json"
 SALIDA_OLAS = DATA / "reynisfjara.json"
+SALIDA_EST = DATA / "estaciones.json"
 
 # Los tramos que de verdad pisan. Sin esto son 969 y 383 KB.
 RUTA = re.compile(
@@ -191,5 +193,49 @@ def olas() -> int:
     return 0
 
 
+# ─────────── Estaciones de carretera de Vegagerðin ───────────
+# 204 estaciones con la ráfaga MEDIDA (no pronosticada) y, lo más valioso,
+# la temperatura del ASFALTO. Un pronóstico dice 2 °C de aire; el asfalto
+# puede estar a −1 y con humedad eso es hielo. Ningún pronóstico da ese dato.
+def estaciones() -> int:
+    req = urllib.request.Request(FEED_EST, headers={"User-Agent": "islandia-2026/1.0"})
+    try:
+        with urllib.request.urlopen(req, timeout=90) as r:
+            crudo = json.load(r)
+    except Exception as e:
+        print(f"no se pudieron leer las estaciones: {e}", file=sys.stderr)
+        return 1
+
+    out = []
+    for x in crudo:
+        if x.get("Breidd") is None or x.get("Lengd") is None:
+            continue
+        red = lambda v, n=1: round(v, n) if isinstance(v, (int, float)) else None
+        out.append({
+            "n": x.get("Nafn"), "lat": round(x["Breidd"], 4), "lon": round(x["Lengd"], 4),
+            "alt": red(x.get("Haed"), 0),
+            "v": red(x.get("Vindhradi")),      # viento medio m/s
+            "r": red(x.get("Vindhvida")),      # ráfaga m/s
+            "d": x.get("VindattAsc"),          # dirección
+            "t": red(x.get("Hiti")),           # temperatura del aire
+            "ta": red(x.get("Veghiti")),       # temperatura del asfalto
+            "h": red(x.get("Raki"), 0),        # humedad relativa
+            "ts": x.get("Dags"),
+        })
+
+    # Hielo probable: asfalto a 1 °C o menos con humedad alta.
+    hielo = [e for e in out if e["ta"] is not None and e["ta"] <= 1 and (e["h"] or 0) >= 80]
+    viento = [e for e in out if (e["r"] or 0) >= 20]
+    salida = {
+        "actualizado": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%MZ"),
+        "resumen": {"total": len(out), "hielo": len(hielo), "viento": len(viento)},
+        "estaciones": out,
+    }
+    SALIDA_EST.write_text(json.dumps(salida, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    print(f"Estaciones: {len(out)} · {len(hielo)} con riesgo de hielo · "
+          f"{len(viento)} con ráfagas ≥20 m/s · {SALIDA_EST.stat().st_size / 1024:.0f} KB")
+    return 0
+
+
 if __name__ == "__main__":
-    raise SystemExit(main() or olas())
+    raise SystemExit(main() or olas() or estaciones())

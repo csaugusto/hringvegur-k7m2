@@ -24,7 +24,7 @@ investigacion/       los 5 reportes verificados y las 41 comprobaciones
 PLAN.md              el plan aprobado
 ```
 
-Peso total de la app: **293 KB**. Cabe entera en el teléfono.
+Peso total de la app: **300 KB**. Cabe entera en el teléfono.
 
 ## Publicar en GitHub Pages
 
@@ -123,7 +123,7 @@ Desde el iPhone: `github.com` → el archivo → el lápiz → commit. Se redesp
 
 - Un pendiente: la constante `TAREAS` en `app/app.js`
 - Paradas, avisos, cámaras o sol: `app/data/viaje.json` (minificado; mejor desde la compu)
-- **Si cambias cualquier archivo, sube `V` en `app/sw.js`** (`is26-v16` → `is26-v17`).
+- **Si cambias cualquier archivo, sube `V` en `app/sw.js`** (`is26-v18` → `is26-v19`).
   Sin eso los teléfonos siguen sirviendo la versión vieja del caché.
 
 ## El fondo que sigue la luz
@@ -147,6 +147,9 @@ por lo que sea no cargara, cae a la del sistema y la app se sigue viendo bien.
 |---|---|---|---|
 | Clima y ráfagas | `api.open-meteo.com` | sí | abierto |
 | Peligro de olas en Reynisfjara | SafeTravel, espejado por la Action | — | mismo dominio |
+| Avisos oficiales del clima | `api.vedur.is/cap` | sí | abierto |
+| Alertas de ICE-SAR | `safetravel.is/wp-json` | sí | abierto |
+| Estaciones de carretera | Vegagerðin, espejado por la Action | — | mismo dominio |
 | Índice Kp de auroras | `services.swpc.noaa.gov` | sí | abierto |
 | Gasolineras, súper, baños | OpenStreetMap vía Overpass, congelado en `poi.json` | — | offline |
 | Estrategia de combustible y compras | las 3 capas del Google My Maps original | — | offline |

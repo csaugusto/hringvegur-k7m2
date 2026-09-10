@@ -64,6 +64,8 @@ async function boot() {
   }
   pintarHoy(); pintarDias(); pintarNoches(); pintarSobre();
   pintarPasosGas();
+  pintarAlertas(LS.get('alertas'));
+  pintarEstaciones(LS.get('est')?.d);
   pintarConversor(LS.get('fx'));
   cargarTasa().then(pintarConversor);
   setInterval(tickLuz, 1000); tickLuz();
@@ -77,6 +79,8 @@ async function boot() {
     if (!k || Date.now() - k.t > 3600e3) cargarKp(); else renderKp(k);
     cargarVias();
     cargarGasolina();
+    cargarAlertas().then(pintarAlertas);
+    cargarEstaciones().then(pintarEstaciones);
   } else {
     const c = LS.get('clima'); if (c) { renderVientoHoy(c); renderClima(c); }
     const k = LS.get('kp');    if (k) renderKp(k);
@@ -150,7 +154,7 @@ function pintarHoy() {
     const faltan = Math.ceil((Date.UTC(...VIAJE.dias[0].fecha.split('-').map((v, i) => i === 1 ? v - 1 : +v)) - ahoraISL()) / 864e5);
     const n = $('#hoy-precuenta');
     n.hidden = false;
-    n.innerHTML = `<h3>Faltan ${faltan} días</h3>`;
+    n.innerHTML = `Faltan <b>${faltan}</b> días para volar.`;
   }
 
   // dormir
@@ -290,10 +294,10 @@ function pintarDias() {
       <button class="dia-t">
         <span class="dia-n"><b>${d.d}</b><small>${FECHA_CORTA(d.fecha)}</small></span>
         <span class="dia-c"><strong>${d.plan}</strong>
-          <small>${d.km} km · ${hm(d.manejo_min)} · luz ${hm(d.luz_min)}</small></span>
-        <span class="dia-r">
-          ${d.dormir ? `<span class="estado ${d.dormir.estado}">${d.dormir.lugar}</span>` : '<span class="estado">vuelo</span>'}
-          <span class="luna">luna ${d.luna}%</span></span>
+          <small>${d.km} km · ${hm(d.manejo_min)} · luz ${hm(d.luz_min)}</small>
+          <span class="dia-r">
+            ${d.dormir ? `<span class="estado ${d.dormir.estado}">${d.dormir.lugar}</span>` : '<span class="estado">vuelo</span>'}
+            <span class="luna">luna ${d.luna}%</span></span></span>
       </button>
       <div class="dia-body" hidden></div>
     </div>`;
@@ -304,16 +308,16 @@ function pintarDias() {
     if (!body.hidden) { body.hidden = true; return; }
     const d = VIAJE.dias[+wrap.dataset.d];
     body.innerHTML = `
-      <div class="card"><div class="card-head"><h2>Sol</h2></div>
-        <div class="luz-pies" style="margin:0">
+      <section class="bloque"><h2>Sol</h2>
+        <div class="luz-pies" style="margin-top:10px">
           <span>Amanece <b>${d.amanecer}</b></span><span>Ocaso <b>${d.ocaso}</b></span>
-          <span>Crepúsculo <b>${d.crep_fin}</b></span></div></div>
-      <div class="card"><h2 style="margin-bottom:8px">Paradas</h2>
+          <span>Crepúsculo <b>${d.crep_fin}</b></span></div></section>
+      <section class="bloque"><h2 style="margin-bottom:10px">Paradas</h2>
         <ol class="paradas">${d.puntos.map((p, i) => `
           <li class="cat-${p.cat || 'Interés'}"><span class="num">${i + 1}</span>
             <span class="np"><strong>${p.n}</strong>${p.nota ? `<small>${p.nota}</small>` : ''}</span>
-            <a class="go" href="${mapaURL(p.lat, p.lon, p.n)}">Mapa</a></li>`).join('')}</ol></div>
-      ${d.servicios?.length ? `<div class="card"><h2 style="margin-bottom:8px">Gasolina y provisiones</h2>${servicios(d.servicios)}</div>` : ''}
+            <a class="go" href="${mapaURL(p.lat, p.lon, p.n)}">Mapa</a></li>`).join('')}</ol></section>
+      ${d.servicios?.length ? `<section class="bloque"><h2 style="margin-bottom:10px">Gasolina y provisiones</h2>${servicios(d.servicios)}</section>` : ''}
       ${d.avisos.map(aviso).join('')}`;
     body.hidden = false;
   });
@@ -358,7 +362,7 @@ async function pintarOlas(dia) {
         <div class="hh">${h.t.slice(11, 16)}</div>
         <div class="hg" style="font-size:11px;color:${COLOR_OLA[h.c]}">${h.color}</div>
       </div>`).join('')}</div>
-    <p class="nota" style="border-color:var(--bad)">${d.aviso}</p>`;
+    <p class="alerta">${d.aviso}</p>`;
 }
 
 // ─────────────────────────── CARRETERAS ───────────────────────────
@@ -391,7 +395,7 @@ function renderVias(d) {
       <div class="vc ojo${s.ojo ? '' : ' cero'}"><b>${s.ojo}</b><span>con algo</span></div>
       <div class="vc grave${s.grave ? '' : ' cero'}"><b>${s.grave}</b><span>graves</span></div>
     </div>
-    ${s.grave ? '<p class="nota" style="border-color:var(--bad);color:var(--bad)">Hay tramos intransitables o cerrados. Revisen cuáles antes de salir.</p>' : ''}`;
+    ${s.grave ? '<p class="alerta">Hay tramos intransitables o cerrados. <b>Revisen cuáles antes de salir.</b></p>' : ''}`;
 
   $('#vias-ojo').innerHTML = algo.length
     ? algo.map(fila).join('')
@@ -494,10 +498,10 @@ function renderClima(datos) {
   const hay = Object.keys(datos.dias).length;
   if (!hay) {
     const e = datos.espera;
-    $('#clima-cuerpo').innerHTML = `<div class="card"><h2>Todavía no hay pronóstico</h2>
+    $('#clima-cuerpo').innerHTML = `<section class="bloque"><h2>Todavía no hay pronóstico</h2>
       <p class="sub" style="margin-bottom:0">El pronóstico llega a 16 días vista.
       ${e > 0 ? `El primer día del viaje aparece en <b>${e} día${e === 1 ? '' : 's'}</b>` : 'Los primeros días ya deberían aparecer'},
-      y el viaje completo hacia el 27 de septiembre. Vuelve entonces y toca Actualizar.</p></div>`;
+      y el viaje completo hacia el 27 de septiembre. Vuelve entonces y toca Actualizar.</p></section>`;
     return;
   }
   $('#clima-cuerpo').innerHTML = VIAJE.dias.map(d => {
@@ -505,7 +509,7 @@ function renderClima(datos) {
     if (!c) return '';
     const idx = c.h.time.map((t, i) => [+t.slice(11, 13), i]).filter(([h]) => h >= 7 && h <= 21);
     const maxG = Math.max(...idx.map(([, i]) => c.h.wind_gusts_10m[i] || 0));
-    return `<div class="card">
+    return `<section class="bloque">
       <div class="card-head"><h2>Día ${d.d} · ${FECHA_CORTA(d.fecha)} · ${c.nombre}</h2>
         <span class="pill">ráfaga máx ${Math.round(maxG)} m/s</span></div>
       <div class="horas-grid">${idx.map(([h, i]) => {
@@ -513,9 +517,9 @@ function renderClima(datos) {
         return `<div class="h g${nivel(g)}"><div class="hh">${pad(h)}h</div>
           <div class="hg">${g}</div><div class="ht">${Math.round(c.h.temperature_2m[i])}°</div></div>`;
       }).join('')}</div>
-      ${maxG >= 20 ? `<p class="nota" style="border-color:var(--bad)">Con ${Math.round(maxG)} m/s hay que replantear el día. Arriba de 25 cierran carreteras a vehículos altos.</p>`
+      ${maxG >= 20 ? `<p class="alerta">Con ${Math.round(maxG)} m/s hay que replantear el día. Arriba de 25 cierran carreteras a vehículos altos.</p>`
         : maxG >= 15 ? '<p class="nota">Cuidado al abrir las puertas del auto.</p>' : ''}
-    </div>`;
+    </section>`;
   }).join('');
 }
 
@@ -723,6 +727,108 @@ $('#btn-privado').onclick = () => {
   pintarSobre(); pintarHoy();
 };
 
+// ─────────────────────────── ALERTAS OFICIALES ───────────────────────────
+// Las dos fuentes que la app no tenía: los avisos de la Veðurstofa (amarillo,
+// naranja, rojo) y las alertas de ICE-SAR. Ambas con CORS abierto, sin espejo.
+// Se piden en cada arranque y se guardan: sin señal se ve la última.
+async function cargarAlertas() {
+  const g = LS.get('alertas');
+  if (!navigator.onLine) return g;
+  const salida = { t: Date.now(), imo: [], safe: [] };
+
+  try {
+    const r = await fetch('https://api.vedur.is/cap/capbroker/active/detailed/all');
+    if (r.status !== 204) {                       // 204 = no hay ninguna activa
+      const j = await r.json();
+      salida.imo = (Array.isArray(j) ? j : j?.alerts || []).slice(0, 6);
+    }
+  } catch { salida.imo = g?.imo || []; }
+
+  try {
+    const j = await fetch('https://safetravel.is/wp-json/wp/v2/alert?per_page=6').then(r => r.json());
+    const limpio = s => new DOMParser().parseFromString(s || '', 'text/html').body.textContent.trim();
+    salida.safe = j.map(a => ({
+      t: limpio(a.title?.rendered),
+      x: limpio(a.excerpt?.rendered).slice(0, 260),
+      f: (a.date || '').slice(0, 10),
+      url: a.link,
+    })).filter(a => a.t);
+  } catch { salida.safe = g?.safe || []; }
+
+  LS.set('alertas', salida);
+  return salida;
+}
+
+function pintarAlertas(a) {
+  const caja = $('#hoy-alertas');
+  if (!caja) return;
+  const imo = a?.imo || [], safe = a?.safe || [];
+  if (!imo.length && !safe.length) { caja.hidden = true; return; }
+  caja.hidden = false;
+
+  const fila = (etiq, titulo, texto, url, grave) => `
+    <div class="aviso ${grave ? 'peligro' : 'reserva'}">
+      <span class="ic">${grave ? '⚠' : '◉'}</span>
+      <span><b>${etiq}</b>${titulo ? `<strong style="display:block;font-size:14.5px;margin-bottom:2px">${titulo}</strong>` : ''}${texto}
+      ${url ? ` <a href="${url}" target="_blank" rel="noopener">ver más</a>` : ''}</span>
+    </div>`;
+
+  caja.innerHTML =
+    imo.map(x => {
+      const p = x.info?.[0] || x;
+      const sev = (p.severity || '').toLowerCase();
+      return fila('Veðurstofa · aviso oficial', p.event || p.headline || '',
+        p.description || p.headline || '', null, sev !== 'minor');
+    }).join('') +
+    safe.map(x => fila(`SafeTravel · ${x.f}`, x.t, x.x, x.url, /danger|closed|warning|storm|flood/i.test(x.t + x.x))).join('');
+}
+
+// ─────────────────────────── ESTACIONES DE CARRETERA ───────────────────────────
+// Ráfaga medida y temperatura del asfalto en las estaciones cercanas a la ruta
+// de hoy. Es el dato que ningún pronóstico da y que decide si hay hielo.
+async function cargarEstaciones() {
+  try {
+    const d = await fetch('data/estaciones.json', { cache: 'no-cache' }).then(r => r.json());
+    LS.set('est', { t: Date.now(), d });
+    return d;
+  } catch { return LS.get('est')?.d || null; }
+}
+
+function pintarEstaciones(d) {
+  const caja = $('#est-cuerpo');
+  if (!caja) return;
+  if (!d) { caja.innerHTML = '<p class="muted">Sin datos. Necesita una carga con señal.</p>'; return; }
+
+  const dia = diaActivo();
+  const cerca = d.estaciones
+    .map(e => ({ e, km: Math.min(...dia.puntos.map(p => dist(p.lat, p.lon, e.lat, e.lon))) }))
+    .filter(x => x.km <= 30)
+    .sort((a, b) => (b.e.r || 0) - (a.e.r || 0))
+    .slice(0, 6);
+
+  $('#est-edad').textContent = d.actualizado ? edadTxt(Date.parse(d.actualizado)) : '';
+  if (!cerca.length) { caja.innerHTML = '<p class="muted">No hay estaciones cerca de la ruta de hoy.</p>'; return; }
+
+  caja.innerHTML = cerca.map(({ e, km }) => {
+    const nv = e.r >= 25 ? 4 : e.r >= 20 ? 3 : e.r >= 15 ? 2 : 1;
+    const col = ['', 'var(--ok)', 'var(--warn)', 'var(--hot)', 'var(--bad)'][nv];
+    const hielo = e.ta !== null && e.ta <= 1 && (e.h || 0) >= 80;
+    return `<div class="est ${hielo ? 'hielo' : ''}">
+      <div class="est-t">
+        <span class="est-n"><strong>${e.n}</strong><small>a ${km.toFixed(0)} km${e.alt ? ` · ${e.alt} m` : ''}</small></span>
+        <span class="est-v" style="color:${col}">${e.r ?? '—'}<em>m/s ráfaga</em></span>
+      </div>
+      <div class="est-d">
+        ${e.t !== null ? `<span>Aire <b>${e.t}°</b></span>` : ''}
+        ${e.ta !== null ? `<span>Asfalto <b style="${hielo ? 'color:var(--bad)' : ''}">${e.ta}°</b></span>` : ''}
+        ${e.h !== null ? `<span>Humedad <b>${e.h}%</b></span>` : ''}
+        ${e.d ? `<span>Viento <b>${e.d}</b></span>` : ''}
+      </div>
+      ${hielo ? '<p class="est-hielo">Asfalto cerca de cero con humedad alta: hay que contar con hielo.</p>' : ''}
+    </div>`;
+  }).join('');
+}
+
 // ─────────────────────────── CÓMO CARGAR GASOLINA ───────────────────────────
 // Los pasos reales de una bomba de autoservicio islandesa, con lo que dice la
 // pantalla en islandés. Pensado para leerse ahí parado, de noche y con frío.
@@ -789,7 +895,7 @@ async function cargarTasa() {
   if (g && Date.now() - g.t < 12 * 3600e3) return g;
   if (!navigator.onLine) return g;
   for (const [url, saca] of [
-    ['https://api.frankfurter.app/latest?from=ISK&to=MXN', j => j.rates?.MXN],
+    ['https://api.frankfurter.dev/v1/latest?from=ISK&to=MXN', j => j.rates?.MXN],
     ['https://open.er-api.com/v6/latest/ISK',              j => j.rates?.MXN],
   ]) {
     try {

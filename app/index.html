@@ -30,13 +30,16 @@
       <button id="hoy-jump" class="ghost" hidden>Ir al día actual</button>
     </header>
 
-    <div id="hoy-precuenta" class="card big-note" hidden></div>
+    <p id="hoy-precuenta" hidden></p>
 
-    <!-- Luz -->
-    <div class="card luz">
+    <!-- Alertas oficiales: Veðurstofa e ICE-SAR. Solo aparecen si hay algo vivo. -->
+    <div id="hoy-alertas" hidden></div>
+
+    <!-- Luz. Informa, ya no grita: el número primero y la etiqueta a su lado. -->
+    <section class="bloque luz">
       <div class="luz-main">
-        <span class="label">Luz restante</span>
         <strong id="luz-cuenta">—</strong>
+        <span class="label">Luz restante</span>
       </div>
       <div class="luz-barra"><div id="luz-fill"></div></div>
       <div class="luz-pies">
@@ -44,40 +47,39 @@
         <span>Ocaso <b id="luz-ocaso">—</b></span>
         <span>Crepúsculo <b id="luz-crep">—</b></span>
       </div>
-    </div>
+    </section>
 
-    <!-- Dónde duermes -->
-    <div class="card" id="hoy-dormir"></div>
+    <!-- Dónde duermes: la única caja de la pantalla, porque es la única
+         decisión del día que puede salir mal si nadie la mira. -->
+    <div class="card hero" id="hoy-dormir"></div>
 
-    <!-- Ruta -->
-    <div class="card">
-      <div class="card-head"><h2>La ruta de hoy</h2><span id="hoy-cifras" class="pill"></span></div>
+    <!-- De aquí abajo nada lleva caja: viven sobre el basalto, separados por una regla. -->
+    <section class="bloque">
+      <div class="card-head"><h2>La ruta de hoy</h2><span id="hoy-cifras" class="cifra"></span></div>
       <ol id="hoy-paradas" class="paradas"></ol>
-    </div>
+    </section>
 
-    <!-- Viento -->
-    <div class="card" id="hoy-viento">
+    <section class="bloque" id="hoy-viento">
       <div class="card-head"><h2>Viento</h2><span id="viento-edad" class="edad"></span></div>
       <div id="viento-cuerpo" class="muted">Toca para cargar</div>
-    </div>
+    </section>
 
     <!-- Peligro de olas: solo el día de Reynisfjara -->
-    <div class="card" id="hoy-olas" hidden>
+    <section class="bloque" id="hoy-olas" hidden>
       <div class="card-head"><h2>Reynisfjara · peligro de olas</h2><span id="olas-edad" class="edad"></span></div>
       <div id="olas-cuerpo"></div>
-    </div>
+    </section>
 
     <!-- Gasolina y provisiones del día -->
-    <div class="card" id="hoy-servicios" hidden>
+    <section class="bloque" id="hoy-servicios" hidden>
       <div class="card-head"><h2>Gasolina y provisiones</h2></div>
       <div id="servicios-cuerpo"></div>
-    </div>
+    </section>
 
-    <!-- Cerca -->
-    <div class="card">
+    <section class="bloque">
       <div class="card-head"><h2>Cerca de mí</h2><button id="btn-ubic" class="ghost">Ubicarme</button></div>
       <div id="cerca-cuerpo" class="muted">Necesita tu ubicación. Funciona sin internet.</div>
-    </div>
+    </section>
 
     <div id="hoy-avisos"></div>
   </section>
@@ -97,20 +99,28 @@
     <p class="sub">Estado oficial de Vegagerðin, espejado en el repo cada 30 minutos.
       Revísenlo <b>antes de arrancar</b>, no en el camino.</p>
 
-    <div class="card" id="vias-resumen"></div>
+    <section class="bloque" id="vias-resumen"></section>
 
-    <div class="card">
+    <section class="bloque">
       <div class="card-head"><h2>Cámaras de hoy</h2><span id="cam-hora" class="edad"></span></div>
       <p class="sub" style="margin-bottom:10px">Son fotos, no video: Vegagerðin las renueva cada pocos minutos. La app las vuelve a pedir cada 45 s mientras tengas esta pantalla abierta.</p>
       <div id="cam-grid" class="cams"></div>
-    </div>
+    </section>
 
-    <div class="card">
+    <section class="bloque">
+      <div class="card-head"><h2>Estaciones de la ruta</h2><span id="est-edad" class="edad"></span></div>
+      <p class="sub" style="margin-bottom:10px">Ráfaga <b>medida</b>, no pronosticada, y temperatura del
+        asfalto. El aire puede estar a 2° y el asfalto a −1: eso con humedad es hielo, y ningún
+        pronóstico lo dice.</p>
+      <div id="est-cuerpo" class="muted">Cargando…</div>
+    </section>
+
+    <section class="bloque">
       <div class="card-head"><h2>Lo que no está despejado</h2></div>
       <div id="vias-ojo"></div>
-    </div>
+    </section>
 
-    <details class="card">
+    <details class="bloque">
       <summary><h2 style="display:inline">Ver los 339 tramos de la ruta</h2></summary>
       <div id="vias-todos" style="margin-top:12px"></div>
     </details>
@@ -142,15 +152,15 @@
       <h1>Auroras</h1>
       <button id="aurora-refrescar" class="ghost">Actualizar</button>
     </header>
-    <div class="card" id="kp-card">
+    <section class="bloque" id="kp-card">
       <div class="card-head"><h2>Índice Kp</h2><span id="kp-edad" class="edad"></span></div>
       <div id="kp-cuerpo" class="muted">Toca actualizar</div>
-    </div>
-    <div class="card">
+    </section>
+    <section class="bloque">
       <h2>Las noches, de mejor a peor</h2>
       <p class="sub">Cruzando fase lunar con qué tan pesado es el día siguiente. Una noche de auroras cuesta ~6 horas de sueño.</p>
       <div id="noches-lista"></div>
-    </div>
+    </section>
   </section>
 
   <!-- ══════════ SOBRE ══════════ -->
@@ -182,19 +192,19 @@
       <a class="tel" href="tel:1777"><span>1777</span><small>Estado de carreteras · 06:30 a 22:00</small></a>
     </div>
 
-    <div class="card">
+    <section class="bloque">
       <div class="card-head"><h2>Abrir mapas con</h2></div>
       <div id="mapa-sel" class="segmentado"></div>
       <p class="nota" id="mapa-nota"></p>
-    </div>
+    </section>
 
-    <div class="card">
+    <section class="bloque">
       <h2>Auto</h2>
       <div id="auto-cuerpo"></div>
-    </div>
+    </section>
 
     <!-- Cómo cargar gasolina -->
-    <div class="card">
+    <section class="bloque">
       <div class="card-head"><h2>Cómo cargar gasolina</h2></div>
 
       <div class="manguera">
@@ -209,34 +219,34 @@
 
       <p class="nota">Si te quedas parado sin empezar a cargar, la bomba se cancela sola entre
         minuto y medio y tres minutos. Vuelve a empezar y ya.</p>
-    </div>
+    </section>
 
-    <div class="card">
+    <section class="bloque">
       <div class="card-head"><h2>Reservas</h2><button id="btn-privado" class="ghost">Editar</button></div>
       <p class="sub">Los códigos y montos <b>no están en el repositorio</b>. Se guardan solo en este teléfono.</p>
       <div id="privado-cuerpo"></div>
-    </div>
+    </section>
 
-    <div class="card">
+    <section class="bloque">
       <h2>Salud y consulado</h2>
       <a class="tel" href="tel:+3545431000"><span>+354 543 1000</span><small>Landspítali · Reikiavik</small></a>
       <a class="tel" href="tel:+3544630100"><span>+354 463 0100</span><small>Hospital de Akureyri</small></a>
       <a class="tel" href="tel:+4530645906"><span>+45 3064 5906</span><small>Protección consular de México · 24 h</small></a>
       <p class="nota">El rescate en montaña es <b>gratuito</b> en Islandia. Urgencias en Landspítali: 88,557 ISK solo por llegar. México no tiene convenio de seguridad social con Islandia.</p>
-    </div>
+    </section>
 
-    <div class="card">
+    <section class="bloque">
       <h2>Peajes</h2>
       <p><b>Vaðlaheiðargöng</b> · 2,216 ISK por sentido · camino a Mývatn y Húsavík<br>
       Hasta 24 h antes o máximo 24 h después. <a href="https://purchase-trip.veggjald.is" target="_blank" rel="noopener">purchase-trip.veggjald.is</a></p>
       <p><b>Hornafjörður</b> · 1,500 ISK por cruce · antes de Höfn, los días <b>6 y 7</b> de octubre<br>
       En auto rentado <b>solo 12 horas</b> para pagar. <a href="https://www.spolur.is" target="_blank" rel="noopener">spolur.is</a></p>
-    </div>
+    </section>
 
-    <div class="card">
+    <section class="bloque">
       <div class="card-head"><h2>Consejos y advertencias</h2></div>
       <div id="consejos-cuerpo"></div>
-    </div>
+    </section>
   </section>
 
 </main>

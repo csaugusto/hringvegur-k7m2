@@ -111,9 +111,8 @@ button{font:inherit;color:inherit;cursor:pointer}
 .ghost:active{background:var(--bg2);color:var(--tx)}
 
 /* ── luz: sin caja, respirando sobre el cielo ── */
-.card.luz{background:none;border:0;padding:0;margin:4px 0 22px}
-.luz .luz-main{display:flex;flex-direction:row-reverse;justify-content:flex-end;
-  align-items:baseline;gap:11px;flex-wrap:wrap}
+.luz{background:none;border:0;padding:0}
+.luz .luz-main{display:flex;align-items:baseline;gap:11px;flex-wrap:wrap}
 .luz .label{font-size:12px;color:var(--tx2);text-transform:uppercase;letter-spacing:.11em;font-weight:500}
 #luz-cuenta{font-size:43px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.04em;line-height:1}
 .luz-barra{height:4px;background:color-mix(in srgb,var(--tx) 11%,transparent);
@@ -156,8 +155,8 @@ button{font:inherit;color:inherit;cursor:pointer}
 .paradas .np small{color:var(--tx3);font-size:12.5px}
 .paradas .go{flex:none;padding:6px 12px;border:1px solid var(--line);border-radius:99px;
   font-size:12px;color:var(--tx2);background:var(--bg2)}
-.cat-Dormir .num,.cat-Inicio .num{box-shadow:inset 0 0 0 1.5px var(--aurora);color:var(--aurora)}
-.cat-Aeropuerto .num{box-shadow:inset 0 0 0 1.5px var(--glaciar);color:var(--glaciar)}
+.cat-Inicio .num,.cat-Aeropuerto .num{box-shadow:inset 0 0 0 1.5px var(--tx3);color:var(--tx3)}
+.cat-Dormir .num{box-shadow:inset 0 0 0 1.5px var(--glaciar);color:var(--glaciar)}
 .cat-Opcional .np strong{color:var(--tx2);font-weight:500}
 
 /* ── avisos ── */
@@ -188,11 +187,9 @@ button{font:inherit;color:inherit;cursor:pointer}
 .dia-c strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
   overflow:hidden;font-size:15px;font-weight:600;letter-spacing:-.01em;line-height:1.3}
 .dia-c small{color:var(--tx3);font-size:12px;font-variant-numeric:tabular-nums}
-.dia-r{flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.dia-r{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin-top:8px}
 .luna{font-size:10.5px;color:var(--tx3);font-variant-numeric:tabular-nums;letter-spacing:.03em}
 .dia-body{padding:0 15px 15px;border-top:1px solid var(--line);margin-top:2px;padding-top:14px}
-.dia-body .card{background:var(--card2);margin-bottom:10px}
-.dia-body .paradas .num{background:var(--card2)}
 
 /* ── clima ── */
 .escala{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
@@ -275,6 +272,8 @@ button{font:inherit;color:inherit;cursor:pointer}
 .svc.rojo{border-left-color:var(--lava)}
 .svc.tienda{border-left-color:var(--glaciar)}
 .svc-t{display:flex;align-items:center;gap:10px}
+.svc-t .go{flex:none;padding:6px 12px;border:1px solid var(--line);border-radius:99px;
+  font-size:12px;color:var(--tx2);background:var(--bg2)}
 .svc-ic{flex:none;font-size:15px}
 .svc-n{flex:1;min-width:0}
 .svc-n strong{display:block;font-size:15px;font-weight:600;line-height:1.3;letter-spacing:-.01em}
@@ -317,10 +316,6 @@ button{font:inherit;color:inherit;cursor:pointer}
 .cam figcaption strong{display:block;font-size:13px;font-weight:600;line-height:1.3;letter-spacing:-.01em}
 .cam figcaption small{display:block;font-size:11px;color:var(--tx3);line-height:1.35;margin-top:2px}
 
-details.card summary{cursor:pointer;list-style:none}
-details.card summary::-webkit-details-marker{display:none}
-details.card summary::after{content:" ▾";color:var(--tx3)}
-details.card[open] summary::after{content:" ▴"}
 
 /* ── peligro de olas en Reynisfjara ── */
 .ola-peor{display:flex;align-items:baseline;gap:13px;border:1px solid;border-left-width:4px;
@@ -401,3 +396,115 @@ details.card[open] summary::after{content:" ▴"}
 .pasos strong{display:block;font-size:14.5px;font-weight:650;margin-bottom:2px}
 .pasos span{display:block;font-size:13.5px;color:var(--tx2);line-height:1.45}
 .pasos i{font-style:normal;color:var(--glaciar);font-weight:500}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   HOY · una sola caja por pantalla
+
+   El problema no era la paleta: era que doce bloques del mismo peso competían
+   por la misma atención. Aquí solo lleva superficie lo que puede salir mal si
+   nadie lo mira —dónde duermes— y los avisos. Todo lo demás se apoya en el
+   basalto y se separa con una regla de un píxel.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.bloque{background:none;border:0;border-radius:0;margin:0;
+  padding:19px 0 0;border-top:1px solid var(--line)}
+.bloque:first-of-type{border-top:0;padding-top:0}
+/* El borde de la tarjeta ya separa: una regla encima sería decir lo mismo dos veces. */
+.card + .bloque{border-top:0;padding-top:23px}
+
+.bloque .card-head{margin-bottom:13px;align-items:baseline}
+.bloque h2{font-size:11px;letter-spacing:.13em}
+.bloque > h2{margin-bottom:11px}
+
+#v-hoy .bloque.luz{padding-top:0;border-top:0}
+/* La cifra de la ruta ya no necesita píldora: la regla de arriba la encuadra. */
+.cifra{font-size:12px;color:var(--tx2);white-space:nowrap;font-variant-numeric:tabular-nums;
+  letter-spacing:.01em}
+
+/* La cuenta regresiva es contexto, no titular. */
+#v-hoy #hoy-precuenta{margin:0 0 20px;font-size:13.5px;color:var(--tx2)}
+#v-hoy #hoy-precuenta b{color:var(--glaciar);font-weight:650;font-variant-numeric:tabular-nums}
+
+/* La luz baja de 43px a 27px: sigue estando, deja de gritar. */
+#v-hoy .bloque.luz{margin-bottom:2px}
+#v-hoy #luz-cuenta{font-size:27px;letter-spacing:-.03em}
+#v-hoy .luz.noche #luz-cuenta{font-size:21px}
+#v-hoy .luz .label{font-size:11px;color:var(--tx3);letter-spacing:.13em;font-weight:600}
+#v-hoy .luz-barra{height:3px;margin:12px 0 8px}
+
+/* El héroe: la única superficie elevada de la pantalla. */
+#v-hoy .hero{background:var(--card2);margin:20px 0 0;padding:15px 16px 17px;
+  box-shadow:0 12px 32px -20px rgba(0,0,0,.9)}
+#v-hoy .hero .dormir-lugar{font-size:33px;letter-spacing:-.035em;margin:11px 0 3px}
+#v-hoy .hero .dormir-nombre{font-size:15px}
+#v-hoy .hero .acciones a{background:var(--bg2)}
+
+#v-hoy #hoy-avisos:not(:empty){margin-top:19px;padding-top:18px;border-top:1px solid var(--line)}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   La superficie significa algo
+
+   Una caja ya no es el envase por defecto: aparece solo donde hay que mirar.
+   Héroes por pantalla — Hoy: dónde duermes · Días: el día de hoy ·
+   Guía: emergencias y el conversor (lleva campos) · Vías y Clima: nada fijo,
+   la caja la trae la alerta cuando de verdad hay algo cerrado o con viento.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.alerta{display:block;background:color-mix(in srgb,var(--lava) 10%,var(--card));
+  border:1px solid color-mix(in srgb,var(--lava) 38%,transparent);
+  border-left:3px solid var(--lava);border-radius:var(--r2);
+  padding:12px 14px;margin:14px 0 0;font-size:13.5px;line-height:1.5;color:var(--tx)}
+.alerta b{font-weight:650;color:var(--lava)}
+
+/* ── Días: una lista continua, no catorce tarjetas ── */
+.dia{background:none;border:0;border-radius:0;margin:0;overflow:visible;
+  border-bottom:1px solid var(--line)}
+.dia:last-child{border-bottom:0}
+.dia-t{padding:14px 0;gap:14px;align-items:flex-start}
+.dia-body{padding:0 0 16px;border-top:1px solid var(--line);margin-top:0;padding-top:4px}
+.dia-body .bloque:first-of-type{border-top:0}
+.dia-body .paradas .num{background:var(--bg)}
+
+/* El día de hoy sí levanta: es lo único de esta pantalla que se consulta manejando. */
+.dia.hoy{background:var(--card2);border:1px solid color-mix(in srgb,var(--glaciar) 45%,transparent);
+  border-radius:var(--r);margin:12px 0;box-shadow:0 12px 32px -20px rgba(0,0,0,.9)}
+.dia.hoy .dia-t{padding:14px 15px}
+.dia.hoy .dia-body{padding:4px 15px 15px}
+.dia.hoy .dia-body .paradas .num{background:var(--card2)}
+.dia.hoy .dia-n b{color:var(--glaciar)}
+
+/* ── Vías ── */
+details.bloque summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;
+  align-items:baseline;gap:10px}
+details.bloque summary::-webkit-details-marker{display:none}
+details.bloque summary::after{content:"▾";color:var(--tx3);font-size:11px}
+details.bloque[open] summary::after{content:"▴"}
+#vias-resumen .vias-cifras{margin-top:2px}
+
+/* ── Auroras: el Kp es el titular, sin caja que lo encuadre ── */
+#kp-card .kp b{font-size:56px}
+
+/* ── Guía: emergencias es lo único que no se puede tardar en encontrar ── */
+#v-sobre .emerg{padding:16px 17px 18px}
+#v-sobre .emerg > h2{color:var(--lava);margin-bottom:12px}
+#v-sobre .conv{background:var(--card2)}
+
+/* Los nodos de las paradas ya no cuelgan de una tarjeta en ninguna pantalla. */
+.paradas .num{background:var(--bg)}
+
+/* ── estaciones de carretera ── */
+.est{border-left:3px solid var(--line);padding:10px 0 10px 12px;margin-bottom:11px}
+.est:last-child{margin-bottom:0}
+.est.hielo{border-left-color:var(--lava)}
+.est-t{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.est-n strong{display:block;font-size:14.5px;font-weight:600;line-height:1.25}
+.est-n small{font-size:11.5px;color:var(--tx3)}
+.est-v{flex:none;font-size:21px;font-weight:650;font-variant-numeric:tabular-nums;line-height:1;text-align:right}
+.est-v em{display:block;font-style:normal;font-size:10px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--tx3);font-weight:600;margin-top:2px}
+.est-d{display:flex;flex-wrap:wrap;gap:13px;margin-top:7px;font-size:12.5px;color:var(--tx3);
+  font-variant-numeric:tabular-nums}
+.est-d b{color:var(--tx2);font-weight:650}
+.est-hielo{margin:7px 0 0;font-size:12.5px;color:var(--lava);font-weight:600;line-height:1.4}

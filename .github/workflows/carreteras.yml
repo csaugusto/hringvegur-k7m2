@@ -28,12 +28,12 @@ jobs:
 
       - name: Guardar si cambió algo
         run: |
-          if git diff --quiet -- app/data/carreteras.json app/data/reynisfjara.json; then
+          if git diff --quiet -- app/data/carreteras.json app/data/reynisfjara.json app/data/estaciones.json; then
             echo "sin cambios"
             exit 0
           fi
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add app/data/carreteras.json app/data/reynisfjara.json
+          git add app/data/carreteras.json app/data/reynisfjara.json app/data/estaciones.json
           git commit -m "feeds: $(date -u '+%d %b %H:%M') UTC"
           git push

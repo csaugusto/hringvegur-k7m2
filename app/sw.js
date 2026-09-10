@@ -1,8 +1,8 @@
 /* Islandia 2026 — offline primero.
    Sube la versión cuando cambies archivos: fuerza la actualización en los dos teléfonos. */
-const V = 'is26-v17';
+const V = 'is26-v18';
 const NUCLEO = ['./','./index.html','./app.css','./app.js','./manifest.webmanifest',
-                './data/viaje.json','./data/poi.json','./data/carreteras.json','./data/alojamientos.json','./data/consejos.json','./data/reynisfjara.json','./icon.png','./fonts/archivo.woff2'];
+                './data/viaje.json','./data/poi.json','./data/carreteras.json','./data/alojamientos.json','./data/consejos.json','./data/reynisfjara.json','./data/estaciones.json','./icon.png','./fonts/archivo.woff2'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(V).then(c => c.addAll(NUCLEO)).then(() => self.skipWaiting()));
@@ -29,7 +29,7 @@ self.addEventListener('fetch', e => {
 
   // El estado de carreteras cambia cada 30 min y es lo único donde la frescura
   // importa más que la velocidad: red primero, caché solo si la red falla.
-  if (url.pathname.endsWith('/data/carreteras.json') || url.pathname.endsWith('/data/reynisfjara.json')) {
+  if (url.pathname.endsWith('/data/carreteras.json') || url.pathname.endsWith('/data/reynisfjara.json') || url.pathname.endsWith('/data/estaciones.json')) {
     e.respondWith(
       fetch(e.request).then(res => {
         if (res && res.ok) caches.open(V).then(c => c.put(e.request, res.clone()));
