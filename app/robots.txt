@@ -1,0 +1,13 @@
+# Que esta app no aparezca nunca en un buscador.
+#
+# El bloqueo de verdad lo hace el <meta name="robots" content="noindex">
+# de index.html. Aquí NO se pone "Disallow: /" a propósito, aunque suene al
+# revés: prohibirle la entrada al buscador significa que nunca llega a leer
+# ese meta, y Google sí puede listar una URL que no pudo abrir, a ciegas y
+# sin poder quitarla. Dejándolo entrar, lee el noindex y descarta la página.
+#
+# Y la URL sí es descubrible: el repositorio es público y GitHub muestra el
+# enlace del sitio en la portada del repo, que Google sí rastrea.
+
+User-agent: *
+Allow: /
