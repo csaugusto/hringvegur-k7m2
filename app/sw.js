@@ -1,6 +1,6 @@
 /* Islandia 2026 — offline primero.
    Sube la versión cuando cambies archivos: fuerza la actualización en los dos teléfonos. */
-const V = 'is26-v29';
+const V = 'is26-v30';
 // Lo imprescindible para que la app abra sin señal. addAll es todo-o-nada:
 // si uno solo de estos falla, la instalación entera se cae y el teléfono se
 // queda sirviendo la versión vieja para siempre. Por eso el icono y la

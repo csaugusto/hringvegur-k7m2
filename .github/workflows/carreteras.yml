@@ -13,7 +13,11 @@ name: Espejo de feeds y publicación
 
 on:
   schedule:
-    - cron: '7,37 * * * *'   # fuera del minuto en punto, que es cuando GitHub se satura
+    # EXPERIMENTO desde el 10 sep 2026: con '7,37' (2/hora) GitHub sólo corría el
+    # 12% de las veces —3 de 26 en 13 horas—. Se sube a 6/hora para ver si pedir
+    # más seguido da más corridas reales o si GitHub castiga la frecuencia.
+    # Todos los minutos evitan el :00, que es cuando su cola se satura.
+    - cron: '3,13,23,33,43,53 * * * *'
   push:
     branches: [main]         # una edición desde el iPhone publica al momento
   workflow_dispatch:          # y a mano desde la pestaña Actions

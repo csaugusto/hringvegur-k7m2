@@ -547,3 +547,8 @@ details.bloque[open] summary::after{content:"▴"}
 .kmg-t{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.1em;
   color:var(--tx3);font-weight:600;margin-bottom:8px}
 .kmg-sel .segmentado button{font-size:11.5px;padding:9px 5px}
+
+/* El enlace de refrescar vive dentro de la etiqueta de antigüedad, así que
+   hereda su tamaño chico; sólo se subraya para que se lea como tocable. */
+.edad .refrescar{color:var(--aurora);text-decoration:underline;text-underline-offset:2px}
+.alerta a{color:var(--lava);font-weight:650}

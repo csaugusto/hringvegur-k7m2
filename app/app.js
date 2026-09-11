@@ -387,21 +387,34 @@ async function cargarVias() {
   }
 }
 
+// Cuántas horas de antigüedad convierten el dato en sospechoso. Subir o bajar
+// esto según lo que acabe cumpliendo el cron de GitHub; hoy la cadencia real
+// ronda las 3 horas, así que 4 avisa de verdad sin volverse ruido de fondo.
+const HORAS_VIEJO = 4;
+// Abre la pestaña Actions con el botón "Run workflow". Dos toques y 20 segundos:
+// más fiable que cualquier cadena automática, porque no se puede romper sola.
+const REFRESCAR = 'https://github.com/csaugusto/hringvegur-k7m2/actions/workflows/carreteras.yml';
+
 function renderVias(d) {
   const s = d.resumen, algo = d.tramos.filter(t => t.v !== 'ok');
   // edadTxt sí distingue días; el cálculo que había aquí decía "hace 72 h".
   const t = Date.parse(d.actualizado);
   const hace = edadTxt(t);
-  // El espejo corre cada 30 min. Si el dato pasa de dos horas, algo se rompió
-  // y hay que decirlo: lo peligroso no es no tener datos, es que la pantalla
-  // diga "0 graves" con la misma cara de siempre cuando en realidad está ciega.
-  const viejo = (Date.now() - t) > 2 * 3600e3;
+  // GitHub descarta la mayoría de las corridas programadas: medido el 10 de
+  // septiembre de 2026, sólo corrió 3 de 26 veces en 13 horas. El umbral tiene
+  // que reflejar la cadencia REAL o la alerta se enciende siempre y nadie la lee.
+  // Lo peligroso no es no tener datos, es que la pantalla diga "0 graves" con la
+  // misma cara de siempre cuando en realidad está ciega.
+  const viejo = (Date.now() - t) > HORAS_VIEJO * 3600e3;
 
   $('#vias-resumen').innerHTML = `
-    <div class="card-head"><h2>Resumen de la ruta</h2><span class="edad">espejo · ${hace}</span></div>
+    <div class="card-head"><h2>Resumen de la ruta</h2>
+      <span class="edad">espejo · ${hace} · <a href="${REFRESCAR}" class="refrescar">refrescar</a></span></div>
     ${viejo ? `<p class="alerta"><b>Estos datos son de ${hace}.</b> El espejo no se está
-      actualizando, así que lo de abajo puede estar equivocado. Confirmen en
-      <a href="https://umferdin.is/en">umferdin.is</a> o al 1777 antes de salir.</p>` : ''}
+      actualizando, así que lo de abajo puede estar equivocado.
+      <a href="${REFRESCAR}">Refrescar a mano</a> tarda 20 segundos y necesita señal.
+      Sin señal, confirmen en <a href="https://umferdin.is/en">umferdin.is</a> o al 1777
+      antes de salir.</p>` : ''}
     <div class="vias-cifras">
       <div class="vc ok"><b>${s.ok}</b><span>transitables</span></div>
       <div class="vc ojo${s.ojo ? '' : ' cero'}"><b>${s.ojo}</b><span>con algo</span></div>
