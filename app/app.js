@@ -865,11 +865,38 @@ async function cargarAlertas() {
   return salida;
 }
 
+// Las zonas que sí pisan. Sirve para saber si un aviso nacional les toca o es
+// de la otra punta del país: ICE-SAR publica para toda Islandia.
+function zonasDeLaRuta() {
+  const z = new Set(['ring road', 'route 1', 'hringvegur']);
+  (VIAJE?.dias || []).forEach(d => (d.puntos || []).forEach(p => z.add(p.n.toLowerCase())));
+  ['reykjanes', 'snæfellsnes', 'snaefellsnes', 'suðurland', 'south coast', 'southern',
+   'norðurland', 'north iceland', 'austurland', 'east iceland', 'mývatn', 'myvatn',
+   'vatnajökull', 'vatnajokull', 'jökulsárlón', 'jokulsarlon'].forEach(x => z.add(x));
+  return [...z];
+}
+
+// Un aviso se queda arriba salvo que sea de una zona que no pisan, o que repita
+// algo que la app ya dice fija. Nada se borra: lo demás va a un desplegable,
+// porque esconder texto de seguridad por mi cuenta sería pasarme de listo.
+function clasificarAlerta(x, zonas) {
+  const t = `${x.t} ${x.x}`.toLowerCase();
+  if (/599-?0112|2g\/3g|2g and 3g/.test(t)) return 'ya-esta';   // ya vive en Emergencias
+  const toca = zonas.some(z => z.length > 4 && t.includes(z));
+  if (toca) return 'principal';
+  if (/hiking|hike|trail|trek|glacier walk|highland/.test(t)) return 'otra';  // no van a caminar eso
+  return 'principal';
+}
+
 function pintarAlertas(a) {
   const caja = $('#hoy-alertas');
   if (!caja) return;
-  const imo = a?.imo || [], safe = a?.safe || [];
-  if (!imo.length && !safe.length) { caja.hidden = true; return; }
+  const imo = a?.imo || [];
+  const zonas = zonasDeLaRuta();
+  const clasif = (a?.safe || []).map(x => ({ ...x, c: clasificarAlerta(x, zonas) }));
+  const safe = clasif.filter(x => x.c === 'principal');
+  const otras = clasif.filter(x => x.c === 'otra');
+  if (!imo.length && !safe.length && !otras.length) { caja.hidden = true; return; }
   caja.hidden = false;
 
   const fila = (etiq, titulo, texto, url, grave) => `
@@ -886,7 +913,10 @@ function pintarAlertas(a) {
       return fila('Veðurstofa · aviso oficial', p.event || p.headline || '',
         p.description || p.headline || '', null, sev !== 'minor');
     }).join('') +
-    safe.map(x => fila(`SafeTravel · ${x.f}`, x.t, x.x, x.url, /danger|closed|warning|storm|flood/i.test(x.t + x.x))).join('');
+    safe.map(x => fila(`SafeTravel · ${x.f}`, x.t, x.x, x.url, /danger|closed|warning|storm|flood/i.test(x.t + x.x))).join('') +
+    (otras.length ? `<details class="otras-alertas">
+      <summary>${otras.length} aviso${otras.length > 1 ? 's' : ''} de zonas fuera de su ruta</summary>
+      ${otras.map(x => fila(`SafeTravel · ${x.f}`, x.t, x.x, x.url, false)).join('')}</details>` : '');
 }
 
 // ─────────────────────────── ESTACIONES DE CARRETERA ───────────────────────────

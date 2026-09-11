@@ -558,3 +558,7 @@ details.bloque[open] summary::after{content:"▴"}
 .mapas{display:inline-flex;gap:6px}
 .mapas .go{font-size:12px;padding:6px 10px;border-radius:999px;white-space:nowrap}
 .mapas .go.google{color:var(--musgo);border-color:color-mix(in srgb,var(--musgo) 45%,transparent)}
+
+/* Los avisos de ICE-SAR que no tocan su ruta: se guardan, no se borran. */
+.otras-alertas summary{font-size:12.5px;color:var(--tx3);cursor:pointer;padding:8px 2px}
+.otras-alertas[open] summary{margin-bottom:6px}
