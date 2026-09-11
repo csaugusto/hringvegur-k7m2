@@ -552,3 +552,9 @@ details.bloque[open] summary::after{content:"▴"}
    hereda su tamaño chico; sólo se subraya para que se lea como tocable. */
 .edad .refrescar{color:var(--aurora);text-decoration:underline;text-underline-offset:2px}
 .alerta a{color:var(--lava);font-weight:650}
+
+/* Las dos apps de mapas, juntas en cada parada. Google en su verde, Apple en
+   gris neutro: se distinguen de un vistazo manejando, sin leer la etiqueta. */
+.mapas{display:inline-flex;gap:6px}
+.mapas .go{font-size:12px;padding:6px 10px;border-radius:999px;white-space:nowrap}
+.mapas .go.google{color:var(--musgo);border-color:color-mix(in srgb,var(--musgo) 45%,transparent)}

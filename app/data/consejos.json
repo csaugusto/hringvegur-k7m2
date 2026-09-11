@@ -25,8 +25,9 @@
    "tipo": "dinero"
   },
   {
-   "que": "Llevar dos tarjetas Visa o Mastercard con NIP de 4 dígitos, de bancos distintos. Las bombas desatendidas lo exigen y retienen entre 22,000 y 30,000 ISK por carga. Amex no funciona ahí.",
-   "tipo": "dinero"
+   "que": "Llevar dos tarjetas Visa o Mastercard con NIP de 4 dígitos, de bancos distintos, y usar una cada uno. Las bombas desatendidas exigen NIP y retienen entre 22,000 y 30,000 ISK por carga: con 8 a 12 cargas, la línea se satura aunque el gasto real sea mucho menor. Amex no funciona ahí.",
+   "tipo": "dinero",
+   "fuente": "funcionamiento de las bombas desatendidas islandesas"
   },
   {
    "que": "Islandia es prácticamente sin efectivo. No hace falta cambiar dinero; ni los baños de gasolinera aceptan monedas.",
@@ -232,11 +233,6 @@
    "fuente": "instrucciones oficiales N1, Olís y Orkan"
   },
   {
-   "que": "Con 8 a 12 cargas y retenciones de 22 a 30 mil ISK cada una, la línea de crédito se puede saturar aunque el gasto real sea mucho menor. Usen tarjetas distintas cada uno y avisen al banco. Si una retención no se libera: Olís y ÓB dan 24 horas, Atlantsolía hasta 5 días hábiles, N1 admite hasta 30.",
-   "tipo": "dinero",
-   "fuente": "condiciones publicadas por cada cadena"
-  },
-  {
    "que": "La gasolina barata SOLO existe en cuatro zonas: área de Reikiavik, Borgarnes, Selfoss y Akureyri, más la ÓB de Laugabakki. Ahí está a 226-230 ISK/L. En el resto de la Ring Road sube a 255-262. Llenen a tope en esas cuatro aunque traigan medio tanque, y en Vík, Höfn, Djúpivogur, Egilsstaðir y Mývatn carguen solo lo necesario para llegar a la siguiente barata.",
    "tipo": "dinero",
    "fuente": "bensinverd.is / Gasvaktin, 8 de septiembre de 2026"
@@ -285,22 +281,16 @@
    "fuente": "tarifas publicadas por Blue Car Rental y Hertz Iceland, 2026"
   },
   {
-   "que": "La tarjeta que se presenta en el mostrador tiene que ser de CRÉDITO, física y a nombre de Carlos. Höldur solo nombra Visa y Mastercard en la cláusula 4 del contrato que él va a firmar, y dice literal que no aceptan débito. La regla de Booking sobre neobancos ni siquiera aparece en los documentos de Höldur; el filtro real es que la terminal lee el BIN y si sale débito o prepago, rechazo automático. La Nu es Mastercard de crédito y hoy la emite un banco con licencia, así que técnicamente pasa, pero no la lleven como principal: mejor una Visa o Mastercard de crédito de un banco tradicional, y la Nu de respaldo.",
+   "que": "En el mostrador, la tarjeta tiene que ser de CRÉDITO, física y a nombre de Carlos, que es el único conductor de la reserva. Höldur exige que titular y conductor principal sean la misma persona, y su contrato solo nombra Visa y Mastercard; el débito lo rechazan. Si Ivy va a manejar, hay que registrarla como conductor adicional o el seguro queda invalidado.",
    "tipo": "peligro",
    "dia": "2026-09-30",
-   "fuente": "Höldur, Car Rental Terms v.0526 cláusula 4 y FAQ; la cláusula de neobancos es de Booking, no de Höldur"
+   "fuente": "Höldur, contrato v.0526 cláusula 4 y FAQ; reserva de Booking"
   },
   {
    "que": "El contrato confirma que NO les tocan llantas de invierno: 'From November 1st until April 15th all cars come equipped with studded winter tires'. Viajan del 30 de septiembre al 13 de octubre, o sea antes de esa ventana. Vale la pena pedirlas por escrito y pagar el extra si aceptan.",
    "tipo": "peligro",
    "dia": "2026-09-30",
    "fuente": "contrato de Europcar/Höldur vía Booking"
-  },
-  {
-   "que": "El titular de la tarjeta y el conductor principal tienen que ser la MISMA persona. Höldur lo dice sin matices: «aðalökumaður og korthafi verða að vera sá sami». Carlos pagó la reserva, así que Carlos firma y Carlos pone la tarjeta. Ivy solo puede ir registrada como conductor adicional.",
-   "tipo": "peligro",
-   "dia": "2026-09-30",
-   "fuente": "FAQ de Höldur, versión en inglés y en islandés"
   },
   {
    "que": "El CDW incluido NO cubre vidrios, ruedas, interior, techo, bajos, remolque ni tiempo fuera de camino. Tampoco llaves, antena, gato, triángulos, chalecos, limpiaparabrisas ni tapón de gasolina. Su ruta lleva grava en Stokksnes y en la 218 a Dyrhólaey, y cruza Mýrdalssandur y Skeiðarársandur, que son las zonas de tormentas de arena. Ahí es donde entran las coberturas de grava y ceniza.",
@@ -363,12 +353,6 @@
    "que": "La Full Protection excluye el interior: «Refunds repair bills (excluding interior)». Coincide con lo que tampoco cubre el CDW de Höldur. Arena, ceniza volcánica y lodo dentro de la cabina corren por su cuenta, así que vale la pena sacudirse las botas antes de subir.",
    "tipo": "tip",
    "fuente": "pantalla de la reserva, sección Protection options"
-  },
-  {
-   "que": "El conductor principal registrado es Carlos, y es el único nombre en la reserva. La tarjeta del depósito tiene que estar a ESE nombre. Si Ivy va a manejar aunque sea un tramo, hay que agregarla en el mostrador como conductor adicional.",
-   "tipo": "peligro",
-   "dia": "2026-09-30",
-   "fuente": "reserva: Main driver"
   },
   {
    "que": "Aunque son 13 días y medio de calendario, la renta se factura como 14 días: recogen el 30 de septiembre a las 07:30 y devuelven el 13 de octubre a las 14:00. Devolverlo más tarde de las 14:00 puede detonar el cobro de un día completo.",

@@ -134,9 +134,20 @@ const APPS_MAPA = {
   google: { n: 'Google Maps',  ver: (la, lo)    => `comgooglemaps://?q=${la},${lo}&center=${la},${lo}&zoom=14`,
                                ir:  (la, lo)    => `comgooglemaps://?daddr=${la},${lo}&directionsmode=driving` },
 };
-const appMapa = () => APPS_MAPA[LS.get('mapa', 'apple')] || APPS_MAPA.apple;
-const mapaURL = (lat, lon, n) => appMapa().ver(lat, lon, n);
-const rutaURL = (lat, lon) => appMapa().ir(lat, lon);
+// Antes había un selector global en la Guía que elegía UNA app, y por defecto
+// caía en Apple: para abrir algo en Google había que ir a cambiar un ajuste
+// escondido. Ahora cada parada ofrece las dos y se decide en el momento, que es
+// cuando importa — Google para ver el sitio, Apple para navegar sin conexión.
+const mapaURL = (lat, lon, n) => APPS_MAPA.apple.ver(lat, lon, n);
+const rutaURL = (lat, lon) => APPS_MAPA.apple.ir(lat, lon);
+
+// Los dos botones juntos. `modo` es 'ver' para mirar el punto en el mapa, o
+// 'ir' para que arranque la navegación.
+const botonesMapa = (lat, lon, n, modo = 'ver') =>
+  `<span class="mapas">` +
+  Object.entries(APPS_MAPA).map(([k, v]) =>
+    `<a class="go ${k}" href="${v[modo](lat, lon, n)}">${k === 'apple' ? 'Apple' : 'Google'}</a>`
+  ).join('') + `</span>`;
 
 const dist = (a, b, c, d) => {
   const R = 6371, r = Math.PI / 180;
@@ -185,7 +196,7 @@ function pintarHoy() {
       </div>
       <div class="acciones">
         <a class="call ${tel ? '' : 'falta'}" href="${tel ? 'tel:' + tel.replace(/\s/g, '') : '#'}">${tel ? 'Llamar' : 'Falta el teléfono'}</a>
-        ${lat ? `<a href="${rutaURL(lat, lon)}">Cómo llegar</a>` : ''}
+        ${lat ? botonesMapa(lat, lon, dm.nombre || dm.lugar, 'ir') : ''}
         ${dm.url ? `<a href="${dm.url}" target="_blank" rel="noopener">Booking</a>` : ''}
       </div>
       ${dm.cierre ? `<p class="nota">Corte duro a las ${dm.cierre}. Si van a llegar después, avisen hoy mismo mientras haya señal.</p>` : ''}
@@ -200,7 +211,7 @@ function pintarHoy() {
     <li class="cat-${p.cat || 'Interés'}">
       <span class="num">${i + 1}</span>
       <span class="np"><strong>${p.n}</strong>${p.nota ? `<small>${p.nota}</small>` : (p.cat === 'Opcional' ? '<small>opcional</small>' : '')}</span>
-      <a class="go" href="${mapaURL(p.lat, p.lon, p.n)}">Mapa</a>
+      ${botonesMapa(p.lat, p.lon, p.n)}
     </li>`).join('');
 
   // peligro de olas, solo si hoy pasan por Reynisfjara
@@ -225,7 +236,7 @@ const servicios = lista => lista.map(s => {
     <div class="svc-t">
       <span class="svc-ic">${s.tipo === 'tienda' ? '🛒' : nv === 'AMARILLO' ? '⚠' : '⛽'}</span>
       <span class="svc-n"><strong>${s.n}</strong>${etiqueta ? `<em>${etiqueta}</em>` : ''}</span>
-      ${s.lat ? `<a class="go" href="${mapaURL(s.lat, s.lon, s.n)}">Mapa</a>` : ''}
+      ${s.lat ? botonesMapa(s.lat, s.lon, s.n) : ''}
     </div>
     ${s.accion ? `<p class="svc-a">${s.accion}</p>` : ''}
     ${s.contexto ? `<p class="svc-x">${s.contexto}</p>` : ''}
@@ -322,7 +333,7 @@ function pintarDias() {
         <ol class="paradas">${d.puntos.map((p, i) => `
           <li class="cat-${p.cat || 'Interés'}"><span class="num">${i + 1}</span>
             <span class="np"><strong>${p.n}</strong>${p.nota ? `<small>${p.nota}</small>` : ''}</span>
-            <a class="go" href="${mapaURL(p.lat, p.lon, p.n)}">Mapa</a></li>`).join('')}</ol></section>
+            ${botonesMapa(p.lat, p.lon, p.n)}</li>`).join('')}</ol></section>
       ${d.servicios?.length ? `<section class="bloque"><h2 style="margin-bottom:10px">Gasolina y provisiones</h2>${servicios(d.servicios)}</section>` : ''}
       ${d.avisos.map(aviso).join('')}`;
     body.hidden = false;
@@ -760,17 +771,6 @@ $('#btn-ubic').onclick = async () => {
 
 // ─────────────────────────── EL SOBRE ───────────────────────────
 function pintarSobre() {
-  // Qué app abren los botones Mapa y Cómo llegar
-  const elegida = LS.get('mapa', 'apple');
-  $('#mapa-sel').innerHTML = Object.entries(APPS_MAPA).map(([k, v]) =>
-    `<button data-m="${k}" class="${k === elegida ? 'on' : ''}">${v.n}</button>`).join('');
-  $$('#mapa-sel button').forEach(b => b.onclick = () => {
-    LS.set('mapa', b.dataset.m); pintarSobre(); pintarHoy(); pintarDias();
-  });
-  $('#mapa-nota').innerHTML = elegida === 'google'
-    ? 'Abre Google Maps con la ruta trazada. Necesita las áreas offline ya descargadas: suroeste, norte y este.'
-    : 'Apple Maps siempre está instalado y desde iOS 17 navega sin conexión.';
-
   // Los consejos sin fecha ni punto: los generales
   const generales = CONSEJOS.filter(c => !c.dia && !c.punto);
   $('#consejos-cuerpo').innerHTML = generales.length
