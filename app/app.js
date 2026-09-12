@@ -15,7 +15,7 @@ const LS = {
   set(k, v) { try { localStorage.setItem('is26.' + k, JSON.stringify(v)); } catch {} }
 };
 
-let VIAJE = null, POI = null, QH = null;
+let VIAJE = null, POI = null, QH = null, PROH = null;
 
 // ─────────────────────────── carga ───────────────────────────
 const FMT_ESTADO = {
@@ -33,12 +33,13 @@ async function boot() {
     // caché del navegador. Sin esto, editar un JSON no se refleja hasta que el
     // caché caduca solo. Sin señal no estorba: el service worker responde antes.
     const dato = u => fetch(u, { cache: 'no-cache' }).then(r => r.json());
-    [VIAJE, POI, ALOJ, CONS, QH] = await Promise.all([
+    [VIAJE, POI, ALOJ, CONS, QH, PROH] = await Promise.all([
       dato('data/viaje.json'),
       dato('data/poi.json'),
       dato('data/alojamientos.json'),
       dato('data/consejos.json').catch(() => ({ consejos: [] })),
-      dato('data/quehacer.json').catch(() => ({ lugares: {} }))
+      dato('data/quehacer.json').catch(() => ({ lugares: {} })),
+      dato('data/prohibido.json').catch(() => ({ reglas: [], permitido: [] }))
     ]);
   } catch (e) {
     document.body.innerHTML = '<p style="padding:40px;text-align:center">No se pudieron cargar los datos.<br><small>Recarga la página con señal una vez.</small></p>';
@@ -815,6 +816,22 @@ $('#btn-ubic').onclick = async () => {
 
 // ─────────────────────────── EL SOBRE ───────────────────────────
 function pintarSobre() {
+  // Prohibido y permitido. Van plegados uno a uno: son 18 reglas y desplegadas
+  // hacen un muro que nadie lee. El título y la multa se ven sin abrir.
+  const caja = $('#prohibido-cuerpo');
+  if (caja) caja.innerHTML = (PROH?.reglas || []).map(r => `
+    <details class="regla${r.grave ? ' grave' : ''}">
+      <summary><b>${r.que}</b>${r.multa && !/sin confirmar/i.test(r.multa)
+        ? `<em>${r.multa.split(';')[0]}</em>` : ''}</summary>
+      <div class="regla-c"><p>${r.detalle}</p>
+        ${/sin confirmar/i.test(r.multa || '') ? '<p class="nota-mini">Multa sin confirmar.</p>' : ''}
+      </div></details>`).join('');
+
+  const cajaP = $('#permitido-cuerpo');
+  if (cajaP) cajaP.innerHTML = (PROH?.permitido || []).map(x => `
+    <details class="regla ok"><summary><b>${x.que}</b></summary>
+      <div class="regla-c"><p>${x.detalle}</p></div></details>`).join('');
+
   // Los consejos sin fecha ni punto: los generales
   const generales = CONSEJOS.filter(c => !c.dia && !c.punto);
   $('#consejos-cuerpo').innerHTML = generales.length

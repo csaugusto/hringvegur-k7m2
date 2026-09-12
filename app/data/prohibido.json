@@ -1,0 +1,173 @@
+{
+ "nota": "Lo que está prohibido en Islandia, ordenado por lo fácil que es caer en ello manejando la Ring Road en octubre. Abajo, lo que sí se puede aunque no lo parezca.",
+ "reglas": [
+  {
+   "que": "Orillarte en la carretera para tomar una foto",
+   "detalle": "La Ring Road casi no tiene acotamiento: lo que parece orilla suele ser grava suelta que se hunde, y frenar ahí es ilegal y es de las causas más comunes de choque con turistas. El error típico es ver los caballos o una luz bonita, pisar el freno y quedarse medio adentro del carril, o peor, echarse en reversa para volver a algo que ya pasaste. Espera al siguiente mirador o bahía de descanso, que en la Ring Road aparecen cada pocos kilómetros, y sal del camino por completo antes de bajarte.",
+   "multa": "Sin confirmar",
+   "grave": false,
+   "fuente": "safetravel.is · Vegagerðin (umferdin.is)"
+  },
+  {
+   "que": "Salirte del camino con el auto",
+   "detalle": "Utanvegaakstur: meter las llantas fuera del camino o de la zona marcada de estacionamiento está prohibido en todo el país, sin importar si hay pasto, arena, grava o lava. Nadie lo hace queriendo; se cae metiendo el auto medio metro sobre el musgo porque el estacionamiento está lleno, dando la vuelta en un terreno plano que parece de nadie, o siguiendo la huella que dejó otro coche. El suelo volcánico no se repara: una marca de llanta sobre musgo sigue ahí treinta años después, y por eso la sanción es tan alta.",
+   "multa": "Desde 350.000 ISK y sube según el daño; la ley contempla hasta 2 años de cárcel",
+   "grave": true,
+   "fuente": "Náttúruverndarlög nr. 60/2013, art. 31 · ust.is (Umhverfisstofnun)"
+  },
+  {
+   "que": "No pagar el estacionamiento de la parada",
+   "detalle": "Varias paradas de la Ring Road ya cobran estacionamiento: Seljalandsfoss, Skaftafell, Þingvellir, Dyrhólaey y otras, alrededor de 1.000 ISK por auto. No hay pluma ni caseta: una cámara lee la placa y, si no pagas, el cobro más multa le llega a la rentadora y te lo carga a tu tarjeta. Se paga escaneando el código QR del letrero (varios usan checkit.is, se paga desde el navegador sin instalar nada) y tienes hasta la medianoche de ese día, así que si no hay señal en el sitio lo puedes pagar desde el alojamiento.",
+   "multa": "Sin confirmar; la tarifa ronda 1.000 ISK por auto y el recargo llega vía rentadora",
+   "grave": false,
+   "fuente": "Operadores de cada sitio · checkit.is"
+  },
+  {
+   "que": "Pasarte de velocidad sin darte cuenta",
+   "detalle": "El máximo es 90 km/h en asfalto, 80 en grava y 50 dentro de los pueblos, y el cambio no siempre está señalado de forma obvia: el asfalto se acaba y el límite baja a 80 aunque el camino se sienta igual. Hay cámaras fijas en tramos remotos y también cámaras de tramo, que promedian tu velocidad entre dos puntos, así que frenar sólo al ver la caja gris no sirve. Entrar a un pueblo a 90 es el error más común: los límites de 50 empiezan antes de las casas.",
+   "multa": "De 74.255 a 83.310 ISK por ir 41 km/h o más arriba en zona de 90; menos en los tramos inferiores. 25% de descuento si pagas de inmediato",
+   "grave": false,
+   "fuente": "island.is/en/traffic-fine-calculator (calculadora oficial de multas)"
+  },
+  {
+   "que": "Agarrar el celular mientras manejas",
+   "detalle": "Sostener el teléfono manejando está prohibido, aunque sea para cambiar la canción o ver el mapa. Usarlo como GPS sí se puede, pero montado en un soporte y sin tocarlo en movimiento; el que va de copiloto puede manipularlo sin problema. Trae el soporte desde México o pídelo con el auto, porque es exactamente el detalle que se olvida.",
+   "multa": "40.000 ISK y un punto en la licencia",
+   "grave": false,
+   "fuente": "island.is/en/traffic-fine-calculator"
+  },
+  {
+   "que": "Dar vuelta a la derecha con el semáforo en rojo",
+   "detalle": "En Islandia el rojo es rojo: no existe la vuelta a la derecha con alto, que en México damos por hecha. Sólo se puede si hay una flecha verde o un letrero que lo autorice, y casi nunca los hay. Esto pega en Reykjavík, Selfoss, Akureyri y Egilsstaðir, que es donde vas a encontrarte semáforos.",
+   "multa": "50.000 ISK y dos puntos",
+   "grave": false,
+   "fuente": "Umferðarlög nr. 77/2019 · island.is/en/traffic-fine-calculator"
+  },
+  {
+   "que": "Pisar el musgo o salirte de la pasarela",
+   "detalle": "El musgo de lava tarda décadas en volver a crecer y una pisada deja un hueco café que se queda años; por eso hay pasarelas de madera y cuerdas en Geysir, los campos de lava de Eldhraun, Dimmuborgir y casi todas las paradas. La trampa es que el musgo parece alfombra firme y aguanta el peso sin romperse a la vista, así que la gente se sale tres metros para la foto sin sentir que hizo nada. Si no hay sendero marcado, pisa roca desnuda, grava o arena.",
+   "multa": "Sin confirmar",
+   "grave": false,
+   "fuente": "Náttúruverndarlög nr. 60/2013 · ust.is (Umhverfisstofnun)"
+  },
+  {
+   "que": "Llevarte piedras, arena o musgo",
+   "detalle": "Sacar material de la naturaleza está prohibido, y en zonas protegidas y reservas lo está de forma expresa. Donde más pasa es en Reynisfjara y Diamond Beach: un puño de arena negra o un guijarro pulido parece inofensivo, pero multiplicado por miles de visitantes al año acelera la erosión de playas que ya están retrocediendo. Lo mismo aplica a la lava ligera que se ve suelta y a los pedazos de musgo. Las piedras de souvenir se venden en las tiendas y esas sí puedes sacarlas del país.",
+   "multa": "Sin confirmar",
+   "grave": false,
+   "fuente": "Náttúruverndarlög nr. 60/2013 · ust.is"
+  },
+  {
+   "que": "Manejar de día con las luces apagadas",
+   "detalle": "Las luces bajas van encendidas las 24 horas del año, no sólo de noche. Casi todos los autos de renta las prenden solas, pero si el tuyo tiene el switch en automático y alguien lo movió, o traes sólo las luces de circulación diurna sin las traseras, vas mal. Revísalo el primer día: en octubre, con lluvia y luz plana, un auto sin luces traseras es invisible a doscientos metros.",
+   "multa": "20.000 ISK por cada luz que no funcione; manejar con ellas apagadas, sin confirmar",
+   "grave": false,
+   "fuente": "Umferðarlög nr. 77/2019 · island.is/en/traffic-fine-calculator"
+  },
+  {
+   "que": "Entrar a un camino cerrado o rodear una barrera",
+   "detalle": "En octubre Vegagerðin cierra tramos por viento, nieve o hielo, y el cierre es una prohibición legal, no una sugerencia. El error clásico es ver la barrera abierta de un lado, o el camino despejado y seco donde estás parado, y pensar que ya pasó lo peor: el cierre suele ser por lo que hay treinta kilómetros adelante. Revisa umferdin.is antes de arrancar; 'Ófært' significa intransitable y con eso el seguro de tu auto queda anulado, además de que el rescate lo pagas tú.",
+   "multa": "Sin confirmar; el rescate corre por tu cuenta y puede costar cientos de miles de ISK",
+   "grave": true,
+   "fuente": "Vegagerðin (umferdin.is) · logreglan.is"
+  },
+  {
+   "que": "Manejar con alcohol de la noche anterior",
+   "detalle": "El límite es 0,02% de alcohol en sangre, que en la práctica es cero: una copa de vino en la cena puede alcanzarte a la mañana siguiente si arrancas temprano. No hay margen de 'una y ya', y la policía pone controles también en carretera abierta, no sólo a la salida de los bares. Si tomaron en la noche, el que maneja al día siguiente es el que no tomó, o salen más tarde.",
+   "multa": "Desde 100.000 ISK, retiro de la licencia y posible cárcel",
+   "grave": true,
+   "fuente": "Umferðarlög nr. 77/2019 · logreglan.is"
+  },
+  {
+   "que": "Acercarte al mar en Reynisfjara con luz roja",
+   "detalle": "Desde agosto de 2025 hay una reja y un semáforo en la entrada: con la luz roja está prohibido acercarse a las columnas de basalto y a la orilla, y la reja se cierra. Las olas de Reynisfjara llegan sin aviso mucho más arriba que la anterior, la playa no tiene pendiente que te frene y el agua a 6 grados te saca mar adentro en segundos. Han muerto visitantes ahí con el semáforo en amarillo, así que el verde tampoco es permiso para acercarte al agua.",
+   "multa": "Sin confirmar",
+   "grave": true,
+   "fuente": "Lögreglan á Suðurlandi · safetravel.is"
+  },
+  {
+   "que": "Meterte a aguas termales no habilitadas",
+   "detalle": "Sólo puedes meterte donde está señalado como zona de baño. En los campos geotérmicos que vas a ver desde el camino —Geysir, Hverir junto a Mývatn, Deildartunguhver— el agua sale entre 80 y 100 grados y la costra de tierra alrededor es delgada: se rompe y el pie entra en agua hirviendo. Las cuerdas y las pasarelas están puestas justo donde el suelo deja de ser confiable, y meter la mano a un charco humeante para probar la temperatura ya es demasiado tarde.",
+   "multa": "Sin confirmar",
+   "grave": true,
+   "fuente": "safetravel.is · ust.is (Umhverfisstofnun)"
+  },
+  {
+   "que": "Subirte al hielo en Jökulsárlón o Diamond Beach",
+   "detalle": "Trepar los icebergs de la laguna o los bloques varados en la playa negra está prohibido y ha matado gente. Un bloque que lleva horas quieto en la arena se voltea sin aviso porque nueve décimas partes van bajo el agua y se está derritiendo, y uno que parece encallado puede volver a flotar contigo encima y salir con la corriente. Tampoco te pares junto a la orilla de la laguna: es honda, está a cero grados y la corriente jala hacia el mar.",
+   "multa": "Sin confirmar",
+   "grave": true,
+   "fuente": "safetravel.is · Vatnajökulsþjóðgarður"
+  },
+  {
+   "que": "Dejar basura o hacer del baño en la naturaleza",
+   "detalle": "Tirar basura y orinar o defecar en la vía pública están sancionados, y en octubre el problema es real porque muchos baños de temporada ya cerraron. Planea las paradas: las gasolineras N1, Olís y Orkan de la Ring Road tienen baño y se paga con tarjeta, y lo mismo las cafeterías de los sitios grandes. Las bolsas de basura no las dejes junto a un bote lleno en un mirador; guárdalas en el auto hasta la siguiente gasolinera.",
+   "multa": "10.000 ISK, y hasta 20.000 ISK si el caso se considera grave",
+   "grave": false,
+   "fuente": "logreglan.is"
+  },
+  {
+   "que": "Pasarte del límite de alcohol o tabaco en la aduana",
+   "detalle": "Al aterrizar puedes entrar libre de impuestos una combinación como 1 litro de destilado más 0,75 de vino más 3 de cerveza, o 3 de vino más 6 de cerveza, o 18 litros de cerveza, y 200 cigarros; el alcohol es a partir de 20 años y el tabaco de 18. Lo que compres en el duty free de llegada cuenta dentro de esa cuota, no aparte, y ahí es donde la gente se pasa sin querer. Tampoco puedes entrar carne ni lácteos de fuera del Espacio Económico Europeo, así que el queso o la carne seca que traigas de México se quedan en la aduana.",
+   "multa": "Sin confirmar; pagas el impuesto del excedente y puede haber sanción",
+   "grave": false,
+   "fuente": "skatturinn.is (Aduana de Islandia), importaciones libres de impuestos"
+  },
+  {
+   "que": "Dormir en el auto fuera de un camping",
+   "detalle": "Pasar la noche en un auto, campervan o casa rodante fuera de un camping o de una zona urbana es ilegal, salvo que el dueño del terreno te dé permiso. Mucha gente asume que un mirador vacío o el estacionamiento de una cascada cuentan como 'zona pública' y no es así. A ustedes les importa sólo si una tormenta los deja sin poder avanzar: en ese caso lo correcto es llegar a un camping abierto o a un pueblo, no quedarse en la orilla del camino.",
+   "multa": "Sin confirmar",
+   "grave": false,
+   "fuente": "Náttúruverndarlög nr. 60/2013 · ust.is, derechos de acceso"
+  },
+  {
+   "que": "Volar un dron en parques y zonas protegidas",
+   "detalle": "Desde mayo de 2026 la agencia de medio ambiente dejó de dar permisos recreativos de dron, y hay más de 25 zonas protegidas donde no se puede volar: los tres parques nacionales, Gullfoss, Geysir, Goðafoss, Dyrhólaey y Mývatn, entre otras. En campo abierto y lejos de esos sitios sí se puede, con registro de operador ante Samgöngustofa y máximo 120 metros de altura. Si alguien les presta un dron en el camino, eso es lo que aplica.",
+   "multa": "Sin confirmar",
+   "grave": false,
+   "fuente": "ust.is (Umhverfisstofnun) · Samgöngustofa"
+  }
+ ],
+ "permitido": [
+  {
+   "que": "Tomar agua de la llave en cualquier lado",
+   "detalle": "El agua fría de la llave es potable en todo el país, incluida la del lavabo de un baño de gasolinera o la de una cabaña en medio de la nada; no hace falta comprar botella ni hervirla. La caliente es otra cosa: viene de pozos geotérmicos, huele a azufre y no se toma. Si el agua fría te sale con olor, deja correr la llave unos segundos para que salga la que no venía mezclada con caliente.",
+   "fuente": "Umhverfisstofnun · compañías de agua islandesas (Veitur)"
+  },
+  {
+   "que": "Cruzar terreno ajeno a pie para llegar a algo",
+   "detalle": "El almannaréttur, el derecho de paso, permite caminar por terreno privado sin cultivar sin pedirle permiso a nadie: eso incluye la mayoría de los campos, costas y lomas que vas a ver desde la carretera. Lo que no puedes es entrar a terreno cultivado o cercado con ganado, y el dueño sí puede marcar rutas o prohibir el paso con letreros, que hay que respetar. Si abres una reja, ciérrala; es la única cortesía que de verdad esperan.",
+   "fuente": "ust.is, derechos de acceso · Náttúruverndarlög nr. 60/2013"
+  },
+  {
+   "que": "Pagar con tarjeta hasta lo más barato",
+   "detalle": "Un café de 500 ISK, el baño de una gasolinera de 200, una calcomanía: todo se paga con tarjeta y nadie te va a ver raro por no traer efectivo. De hecho casi nadie usa efectivo, y muchos negocios pequeños ya ni lo aceptan. No necesitas cambiar dinero en el aeropuerto ni buscar cajero.",
+   "fuente": "Práctica general en Islandia"
+  },
+  {
+   "que": "No dejar propina en ningún lado",
+   "detalle": "No se da propina en restaurantes, taxis ni tours: el servicio ya va en el precio y los sueldos no dependen de ella. Dejarla no ofende, pero delata al turista y a veces genera un momento incómodo porque el mesero no sabe qué hacer con el dinero. Si te quieres deshacer del cambio, mejor no pidas cambio.",
+   "fuente": "Práctica general; el servicio va incluido en el precio"
+  },
+  {
+   "que": "Bañarte desnudo antes de entrar a la alberca",
+   "detalle": "En toda alberca pública islandesa es obligatorio ducharse sin traje de baño y con jabón antes de entrar, en regaderas comunes sin cubículos, y a veces hay alguien vigilando que lo hagas. No es una costumbre suelta sino una norma sanitaria: el agua geotérmica no lleva cloro y se mantiene limpia porque la gente entra limpia. Nadie te está viendo, todos están haciendo lo mismo, y saltártelo es lo único que sí molesta de verdad a un islandés.",
+   "fuente": "Reglugerð um hollustuhætti á sund- og baðstöðum nr. 814/2010"
+  },
+  {
+   "que": "Comprar el alcohol en el duty free al aterrizar",
+   "detalle": "La tienda libre de impuestos de llegadas en Keflavík es normal y los islandeses la usan en serio: salen del avión y hacen fila ahí, porque el alcohol fuera del aeropuerto está gravadísimo. Es el único momento barato del viaje para eso, siempre dentro de tu cuota de aduana. Fuera del aeropuerto el alcohol de verdad sólo se vende en las tiendas del Estado, Vínbúðin, que cierran temprano y no abren los domingos; la cerveza del supermercado es de 2,25% y sabe a agua.",
+   "fuente": "skatturinn.is · vinbudin.is"
+  },
+  {
+   "que": "Levantar a alguien que pide aventón",
+   "detalle": "Pedir y dar aventón es legal y común en la Ring Road, y en octubre, con poco tráfico y mal clima, la gente que espera camión lo agradece de verdad. No hay ley que lo prohíba ni cláusula estándar de renta que lo impida. Tú decides si te sientes cómodo, pero que quede claro que no estás haciendo nada irregular.",
+   "fuente": "No hay prohibición legal; práctica común en la Ring Road"
+  },
+  {
+   "que": "Que te pidan quitarte los zapatos al entrar",
+   "detalle": "En casas, muchas guesthouses y algunos alojamientos rurales se entra sin zapatos, y a veces hay un letrero o simplemente un montón de calzado junto a la puerta. No es desconfianza ni te están pidiendo algo raro: es por la ceniza, la sal y el lodo que trae todo el mundo de afuera. Lleva calcetines gruesos o pantuflas ligeras en la maleta de mano y el asunto deja de existir.",
+   "fuente": "Costumbre islandesa"
+  }
+ ]
+}
