@@ -1,0 +1,50 @@
+{
+ "nota": "En toda Islandia hay dos peajes y ustedes cruzan cada uno una sola vez: 1.500 ISK el 7 de octubre en Hornafjörður y 2.216 ISK el 3 de octubre en Vaðlaheiðargöng, 3.716 ISK en total; el resto de túneles de su ruta (Hvalfjörður, Almannaskarð, Fáskrúðsfjörður, Héðinsfjörður, Múlagöng) no cobran nada.",
+ "peajes": [
+  {
+   "n": "Hringvegur um Hornafjörð (puente nuevo sobre Hornafjarðarfljót)",
+   "donde": "Tramo nuevo de la Ruta 1 AL OESTE de Höfn, 9,6 km. Límite este: la rotonda donde se juntan la Ruta 1, Hafnarvegur (99, la entrada a Höfn) y Hornafjarðarvegur (987, la carretera vieja), en 64.2783, -15.1985. Límite oeste: el cruce con Djúpárvegur (988), en 64.2912, -15.3890. Hay un solo pórtico y Spölur lo sitúa 'junto al puente, al este del cruce de Djúpá'; el puente nuevo de 250 m sobre Hornafjarðarfljót está en 64.2937, -15.3373, a 6,9 km de la rotonda. Höfn queda fuera del tramo: la rotonda es el límite, y el pueblo está 3 km al sur por la 99. La carretera vieja alrededor del fiordo sigue abierta y gratis (987 + 988, asfalto salvo los últimos 2 km de la 988 que son grava, con tres puentes de un carril, unos 14 km y 20 min más).",
+   "lescruza": "sí, una sola vez, el 7 de octubre. El 6 llegan desde el este por Almannaskarð y en la rotonda giran a la 99 hacia Höfn sin entrar al tramo de pago, así que ese día no pagan nada. El 7, al salir hacia Jökulsárlón, toman la Ruta 1 al oeste desde la rotonda y pasan el pórtico. Spölur lo dice explícito: si das la vuelta en la rotonda sin pasar bajo el pórtico, no se cobra.",
+   "cuesta": "1.500 ISK",
+   "comision": "sin confirmar. Höldur avisa que el peaje aparece en la factura final 'plus an admin fee' pero no publica el monto; lo único con cifra en sus términos es un handling fee de 1.500 ISK por gestionar multas de tránsito. Si lo pagan ustedes dentro de las 12 horas, Höldur nunca recibe el cargo y no hay comisión de ningún tipo.",
+   "plazo": "12 horas desde el cruce para pagarlo ustedes en spolur.is. Pasadas las 12 h el cargo pasa a Höldur, que se los cobra al devolver el auto y puede sumarle su cuota de gestión. No se convierte en multa ni en infracción, sólo se encarece.",
+   "como": "1) Al pasar el puente, pongan alarma de 12 horas. 2) Entren a spolur.is/en/pay y den a 'Pay now', que abre paymentwidget.vegagerdin.is. 3) Escriban la placa del Kia y busquen: salen los cruces sin pagar de esa placa. 4) Paguen con tarjeta. No hay que registrarse ni abrir cuenta, y no hace falta que el auto esté a su nombre. No se puede pagar por adelantado: el widget sólo muestra viajes ya hechos, así que hay que hacerlo después de cruzar. La factura mensual automática llega al banco en línea islandés, que ustedes no tienen, por eso el pago manual es el camino.",
+   "url": "https://www.spolur.is/en/pay",
+   "confianza": "alta"
+  },
+  {
+   "n": "Vaðlaheiðargöng",
+   "donde": "Túnel de 7,5 km en la Ruta 1 entre Akureyri y Fnjóskadalur. Boca oeste en 65.6937, -18.0537 (hay cámara de Vegagerðin ahí mismo), boca este en Fnjóskadalur. Desde julio de 2026 hay cajeros de autoservicio en las dos bocas. La alternativa gratis es la carretera vieja por Víkurskarð: ruta 83 (Grenivíkurvegur) y ruta 84 (Víkurskarðsvegur), unos 16 km y 12 min más.",
+   "lescruza": "sí, una vez, el 3 de octubre. Akureyri → Goðafoss por la Ruta 1 entra por el túnel; no hay forma de hacer ese tramo por la Ruta 1 sin pagarlo. La nota que decía que lo evitan 'por la 87' está equivocada: la 87 es Kísilvegur, la carretera Mývatn–Húsavík, y queda mucho más al este; la que evita el túnel es la 84 por Víkurskarð. Sólo lo cruzan una vez porque su vuelta a Keflavík es por el sur.",
+   "cuesta": "2.216 ISK",
+   "comision": "sin confirmar el monto. Veggjald es claro: si no pagan, avisan a la rentadora y ella cobra el peaje 'plus their service fee'. Höldur no publica la cifra de esa cuota.",
+   "plazo": "desde 24 h antes hasta 24 h después de pasar. Pasadas las 24 h ya no se puede comprar el viaje suelto: el sistema lo bloquea porque el cargo ya se le mandó a Höldur. No es multa.",
+   "como": "Como se puede pagar por adelantado, lo más limpio es pagarlo la noche del 2 o la mañana del 3 antes de salir de Akureyri. Entren a veggjald.is en inglés, escriban la placa, 'Continue' y paguen con tarjeta; sale confirmación en pantalla y recibo descargable. Cada paso se cobra aparte: ida y vuelta serían dos pagos. Aceptan Visa, Mastercard y American Express, pero no tarjetas prepagadas de divisa. El pago no es reembolsable si al final no pasan.",
+   "url": "https://www.veggjald.is/en-gb",
+   "confianza": "alta"
+  }
+ ],
+ "corregido": [
+  {
+   "afirmaba": "Vegagerðin dice que el cargo se factura a la empresa de renta, que luego se lo pasa al cliente.",
+   "realidad": "Eso es lo que pasa sólo si nadie paga. Spölur dice que el cliente de la rentadora puede pagar directo en spolur.is dentro de las 12 horas del cruce, y que únicamente si no lo hace se le cobra a la rentadora, que además puede sumar su propia cuota de servicio. O sea que la vía cara es la alternativa, no la regla."
+  },
+  {
+   "afirmaba": "Enlace oficial citado: vegagerdin.is/en/about-us/operation/news/new-hornafjordur-ring-road-section-opens-june-24th",
+   "realidad": "Ese enlace existe y es real, pero es la nota de la apertura de la carretera el 24 de junio y no menciona el peaje. La nota oficial del peaje es otra: vegagerdin.is/en/about-us/operation/news/gjaldtaka-a-hringvegi-1-um-hornafjord-hefst-i-september, y la fuente viva es spolur.is."
+  }
+ ],
+ "fuentes": [
+  "https://www.spolur.is/en/faq",
+  "https://www.spolur.is/en/pricing",
+  "https://www.spolur.is/en/pay",
+  "https://www.vegagerdin.is/en/about-us/operation/news/gjaldtaka-a-hringvegi-1-um-hornafjord-hefst-i-september",
+  "https://www.vegagerdin.is/en/about-us/operation/news/new-hornafjordur-ring-road-section-opens-june-24th",
+  "https://www.veggjald.is/en/pricing",
+  "https://www.veggjald.is/en-gb/rental-cars",
+  "https://www.veggjald.is/en-gb/spurt-svarad",
+  "https://www.holdurcarrental.is/driving-in-iceland/tolls-and-tunnels-in-iceland",
+  "https://www.holdurcarrental.is/information/terms-and-conditions-of-a-rental",
+  "OpenStreetMap (Overpass): tramo con toll=yes de la Ruta 1 en Hornafjörður, rotonda de Hafnarvegur 99 / Hornafjarðarvegur 987 y trazado de la carretera vieja 987 + 988"
+ ]
+}

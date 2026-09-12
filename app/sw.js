@@ -1,13 +1,13 @@
 /* Islandia 2026 — offline primero.
    Sube la versión cuando cambies archivos: fuerza la actualización en los dos teléfonos. */
-const V = 'is26-v40';
+const V = 'is26-v41';
 // Lo imprescindible para que la app abra sin señal. addAll es todo-o-nada:
 // si uno solo de estos falla, la instalación entera se cae y el teléfono se
 // queda sirviendo la versión vieja para siempre. Por eso el icono y la
 // tipografía —bonitos pero prescindibles— van aparte y se toleran fallidos.
 const NUCLEO = ['./','./index.html','./app.css','./app.js','./manifest.webmanifest',
                 './data/viaje.json','./data/poi.json','./data/carreteras.json',
-                './data/alojamientos.json','./data/consejos.json','./data/quehacer.json','./data/prohibido.json','./data/estacionamiento.json',
+                './data/alojamientos.json','./data/consejos.json','./data/quehacer.json','./data/prohibido.json','./data/estacionamiento.json','./data/peajes.json',
                 './data/reynisfjara.json','./data/estaciones.json'];
 const EXTRA = ['./icon.png','./fonts/archivo.woff2'];
 

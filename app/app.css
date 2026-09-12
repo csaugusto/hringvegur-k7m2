@@ -612,3 +612,8 @@ details.bloque[open] summary::after{content:"▴"}
 .qh-l.apar{border-left:2px solid var(--musgo);padding-left:10px;margin-left:-12px;margin-bottom:11px}
 .qh-l.apar p{color:var(--tx1)}
 .qh-l.apar i{font-style:normal;color:var(--tx3);font-size:12.5px;display:inline-block;margin-top:3px}
+
+/* Peajes: el plazo es lo que importa, porque vencido lo cobra la rentadora con comisión. */
+.peaje{padding:10px 0;border-bottom:1px solid var(--linea)}
+.peaje:last-child{border-bottom:0}
+.peaje-d{font-size:12.5px;line-height:1.55;color:var(--tx2);margin:6px 0 0}

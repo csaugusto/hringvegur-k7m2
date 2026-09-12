@@ -15,7 +15,7 @@ const LS = {
   set(k, v) { try { localStorage.setItem('is26.' + k, JSON.stringify(v)); } catch {} }
 };
 
-let VIAJE = null, POI = null, QH = null, PROH = null, EST = null;
+let VIAJE = null, POI = null, QH = null, PROH = null, EST = null, PEA = null;
 
 // ─────────────────────────── carga ───────────────────────────
 const FMT_ESTADO = {
@@ -33,14 +33,15 @@ async function boot() {
     // caché del navegador. Sin esto, editar un JSON no se refleja hasta que el
     // caché caduca solo. Sin señal no estorba: el service worker responde antes.
     const dato = u => fetch(u, { cache: 'no-cache' }).then(r => r.json());
-    [VIAJE, POI, ALOJ, CONS, QH, PROH, EST] = await Promise.all([
+    [VIAJE, POI, ALOJ, CONS, QH, PROH, EST, PEA] = await Promise.all([
       dato('data/viaje.json'),
       dato('data/poi.json'),
       dato('data/alojamientos.json'),
       dato('data/consejos.json').catch(() => ({ consejos: [] })),
       dato('data/quehacer.json').catch(() => ({ lugares: {} })),
       dato('data/prohibido.json').catch(() => ({ reglas: [], permitido: [] })),
-      dato('data/estacionamiento.json').catch(() => ({ lugares: {} }))
+      dato('data/estacionamiento.json').catch(() => ({ lugares: {} })),
+      dato('data/peajes.json').catch(() => ({ peajes: [] }))
     ]);
   } catch (e) {
     document.body.innerHTML = '<p style="padding:40px;text-align:center">No se pudieron cargar los datos.<br><small>Recarga la página con señal una vez.</small></p>';
@@ -821,6 +822,15 @@ $('#btn-ubic').onclick = async () => {
 
 // ─────────────────────────── EL SOBRE ───────────────────────────
 function pintarSobre() {
+  const cajaPe = $('#peajes-cuerpo');
+  if (cajaPe) cajaPe.innerHTML = (PEA?.peajes || []).map(p => `
+    <div class="peaje">
+      <div class="kv"><span><b>${p.n}</b><em>${p.donde}</em></span><b>${p.cuesta}</b></div>
+      <p class="peaje-d"><b>${p.lescruza}</b><br>
+        Plazo: ${p.plazo}<br>${p.como}
+        ${p.url ? `<br><a href="${p.url}" target="_blank" rel="noopener">${p.url.replace(/^https?:\/\//, '')}</a>` : ''}</p>
+    </div>`).join('');
+
   // Prohibido y permitido. Van plegados uno a uno: son 18 reglas y desplegadas
   // hacen un muro que nadie lee. El título y la multa se ven sin abrir.
   const caja = $('#prohibido-cuerpo');
