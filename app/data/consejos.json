@@ -446,6 +446,18 @@
    "tipo": "tip",
    "punto": "Hallgrímskirkja",
    "fuente": "recomendación repetida en guías y redes"
+  },
+  {
+   "que": "El hot dog de Bæjarins Beztu Pylsur, en el puerto viejo de Reikiavik: es la comida barata institucional de Islandia, ronda las 800 ISK y lleva ahí desde 1937. Con lo que cuesta comer fuera en ese país, es de las pocas cosas que se pueden pedir sin pensarlo. Pídanlo «eina með öllu», con todo.",
+   "tipo": "dinero",
+   "punto": "Reikiavik",
+   "fuente": "institución de Reikiavik, repetida en todas las guías"
+  },
+  {
+   "que": "Brúarfoss es la cascada turquesa que sale en las listas de «top 4» y NO está en su itinerario, a propósito. Queda cerca del Círculo Dorado pero exige caminar unos 3.5 km ida y vuelta desde el estacionamiento, casi una hora. El 10 de octubre ya llevan Gullfoss, Geysir y Þingvellir con 4 horas de volante y luz sólo hasta las 18:20. Si la quieren, hay que soltar Þingvellir o salir de Selfoss antes de las 09:00.",
+   "tipo": "ruta",
+   "dia": "2026-10-10",
+   "fuente": "acceso por el estacionamiento nuevo de Brúarárskógar"
   }
  ]
 }
