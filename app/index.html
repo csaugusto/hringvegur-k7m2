@@ -89,6 +89,17 @@
   <section id="v-dias" class="view" hidden>
     <header class="vhead"><h1>Los 14 días</h1></header>
     <div id="dias-lista"></div>
+
+    <!-- El mapa original de My Maps, con sus tres capas. Es lo único de la app
+         que necesita señal, así que lo dice en voz alta y no se carga hasta que
+         alguien baja hasta aquí. -->
+    <section class="bloque" id="mapa-bloque">
+      <div class="card-head"><h2>El mapa completo</h2><span class="edad">necesita señal</span></div>
+      <div id="mapa-embed"></div>
+      <p class="nota">Las tres capas del mapa original: paradas, tiendas y provisiones, y
+        combustible. Los 58 lugares ya están también en las paradas de cada día, con sus
+        botones de Apple y Google, y esos <b>sí funcionan sin conexión</b>.</p>
+    </section>
   </section>
 
   <!-- ══════════ CARRETERAS ══════════ -->

@@ -281,12 +281,6 @@
    "fuente": "tarifas publicadas por Blue Car Rental y Hertz Iceland, 2026"
   },
   {
-   "que": "En el mostrador, la tarjeta tiene que ser de CRÉDITO, física y a nombre de Carlos, que es el único conductor de la reserva. Höldur exige que titular y conductor principal sean la misma persona, y su contrato solo nombra Visa y Mastercard; el débito lo rechazan. Si Ivy va a manejar, hay que registrarla como conductor adicional o el seguro queda invalidado.",
-   "tipo": "peligro",
-   "dia": "2026-09-30",
-   "fuente": "Höldur, contrato v.0526 cláusula 4 y FAQ; reserva de Booking"
-  },
-  {
    "que": "El contrato confirma que NO les tocan llantas de invierno: 'From November 1st until April 15th all cars come equipped with studded winter tires'. Viajan del 30 de septiembre al 13 de octubre, o sea antes de esa ventana. Vale la pena pedirlas por escrito y pagar el extra si aceptan.",
    "tipo": "peligro",
    "dia": "2026-09-30",
@@ -295,12 +289,6 @@
   {
    "que": "El CDW incluido NO cubre vidrios, ruedas, interior, techo, bajos, remolque ni tiempo fuera de camino. Tampoco llaves, antena, gato, triángulos, chalecos, limpiaparabrisas ni tapón de gasolina. Su ruta lleva grava en Stokksnes y en la 218 a Dyrhólaey, y cruza Mýrdalssandur y Skeiðarársandur, que son las zonas de tormentas de arena. Ahí es donde entran las coberturas de grava y ceniza.",
    "tipo": "dinero",
-   "fuente": "contrato de Europcar/Höldur vía Booking"
-  },
-  {
-   "que": "Si Ivy va a manejar tiene que ir registrada como conductor adicional: son 29 EUR por renta. Si maneja sin estar registrada, el seguro queda invalidado.",
-   "tipo": "peligro",
-   "dia": "2026-09-30",
    "fuente": "contrato de Europcar/Höldur vía Booking"
   },
   {
@@ -365,12 +353,6 @@
    "tipo": "tip",
    "dia": "2026-09-30",
    "fuente": "reserva: On Airport · Desk in Terminal"
-  },
-  {
-   "que": "Sobre el bloqueo en la tarjeta hay tres cifras distintas según a quién le pregunten: Booking dice 500 EUR, la cláusula 15a de Höldur dice «el costo estimado de la renta», y la política de depósitos de Europcar dice 300 EUR si va prepagada. La que manda es la del contrato impreso que les den ese día. Lleven línea libre para el peor caso, y tomen en cuenta que el deducible de su categoría es ISK 475,000 —no los 3,000 EUR genéricos— porque el Sportage está en la banda de 4x4, no en la de auto de pasajeros.",
-   "tipo": "dinero",
-   "dia": "2026-09-30",
-   "fuente": "Höldur cláusula 15a y su página de Protection; ficha de Booking"
   },
   {
    "que": "El impuesto kilométrico se pre-autoriza AL DEVOLVER el auto y puede tardar hasta cinco días hábiles en liberarse. O sea que la tarjeta tiene que seguir viva y con saldo después del 13 de octubre, ya de regreso. Lo mismo con el depósito: lo devuelven dentro de cinco días hábiles.",

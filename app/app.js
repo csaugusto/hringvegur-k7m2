@@ -303,6 +303,30 @@ function tickLuz() {
 }
 
 // ─────────────────────────── LOS 14 DÍAS ───────────────────────────
+// El mapa de My Maps embebido. OJO con la URL: la que copia Google trae /u/0/,
+// que es la ranura de la cuenta con sesión iniciada y devuelve 302 a quien no
+// la tenga — en el teléfono de Ivy no habría cargado nunca. Sin ese tramo es
+// público. ehbc pinta el fondo oscuro y noprof quita la cabecera del autor.
+const MAPA_MID = '1RPlxOAde3XfqstJzgm7jhVuSjD-OpKU';
+const MAPA_EMBED = `https://www.google.com/maps/d/embed?mid=${MAPA_MID}&ehbc=14161A&noprof=1`;
+const MAPA_APP = `https://www.google.com/maps/d/viewer?mid=${MAPA_MID}`;
+
+function pintarMapaEmbed() {
+  const caja = $('#mapa-embed');
+  if (!caja) return;
+  if (!navigator.onLine) {
+    caja.innerHTML = `<p class="muted sin-mapa">Sin señal no se puede cargar.
+      Las paradas de cada día sí funcionan: ábranlas con Apple o Google desde la lista de arriba.</p>`;
+    return;
+  }
+  // loading=lazy para que no gaste datos de quien nunca baja hasta aquí.
+  if (!caja.querySelector('iframe')) {
+    caja.innerHTML = `<div class="marco-mapa"><iframe src="${MAPA_EMBED}" loading="lazy"
+      title="Mapa completo del viaje" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+      <a class="go" href="${MAPA_APP}" target="_blank" rel="noopener">Abrirlo en Google Maps</a>`;
+  }
+}
+
 function pintarDias() {
   const hy = hoyISO();
   $('#dias-lista').innerHTML = VIAJE.dias.map(d => {
@@ -341,6 +365,8 @@ function pintarDias() {
 
   const j = $('#hoy-jump');
   if (diaDeHoy()) { j.hidden = false; j.onclick = () => { ir('dias'); $(`.dia[data-d="${diaDeHoy().d}"] .dia-t`).click(); }; }
+
+  pintarMapaEmbed();
 }
 
 // ─────────────────────────── REYNISFJARA ───────────────────────────

@@ -562,3 +562,12 @@ details.bloque[open] summary::after{content:"▴"}
 /* Los avisos de ICE-SAR que no tocan su ruta: se guardan, no se borran. */
 .otras-alertas summary{font-size:12.5px;color:var(--tx3);cursor:pointer;padding:8px 2px}
 .otras-alertas[open] summary{margin-bottom:6px}
+
+/* El mapa embebido. Relación alta a propósito: en un teléfono vertical un
+   mapa ancho y bajo no deja ver el país entero, que es justo para lo que está. */
+.marco-mapa{position:relative;width:100%;aspect-ratio:3/4;border-radius:12px;overflow:hidden;
+  border:1px solid var(--linea);background:var(--card)}
+.marco-mapa iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+@media (min-width:620px){.marco-mapa{aspect-ratio:4/3}}
+#mapa-embed .go{display:block;text-align:center;margin-top:10px}
+.sin-mapa{padding:22px 14px;text-align:center;border:1px dashed var(--linea);border-radius:12px}
