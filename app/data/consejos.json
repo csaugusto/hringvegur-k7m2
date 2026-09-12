@@ -458,6 +458,30 @@
    "tipo": "ruta",
    "dia": "2026-10-10",
    "fuente": "acceso por el estacionamiento nuevo de Brúarárskógar"
+  },
+  {
+   "que": "Reikiavik tiene CUATRO zonas de estacionamiento, no dos, y las de afuera son las baratas. P1 es la cara —la del centro, restaurantes y la Rainbow Road— con tope de 3 horas. P2 cuesta bastante menos y además la tarifa BAJA después de las primeras dos horas. P3 y P4 son las más lejanas y las más baratas, y sobre todo: son GRATIS los fines de semana.",
+   "tipo": "dinero",
+   "punto": "Reikiavik",
+   "fuente": "zonas oficiales del ayuntamiento, confirmadas por viajera con la app Parka"
+  },
+  {
+   "que": "Su sábado 10 y su domingo 11 de octubre son los dos días que pisan Reikiavik en fin de semana, y en fin de semana P3 y P4 NO se cobran. Si no les molesta caminar unas cuadras de más, esos dos días el estacionamiento les sale gratis en vez de pagar P1 a 660 ISK la hora con tope de 3 horas.",
+   "tipo": "dinero",
+   "dia": "2026-10-11",
+   "fuente": "P3 se cobra lun-vie 09:00-18:00 y P4 lun-vie 08:00-16:00; fines de semana libres"
+  },
+  {
+   "que": "Después de las 21:00 no se cobra ningún estacionamiento de calle en Reikiavik, ningún día. Así que dejar el auto toda la noche es gratis: se paga sólo hasta las 21:00 y la app cierra la sesión sola. Ojo con el arranque del cobro, que cambia: entre semana empieza a las 09:00 y los fines de semana a las 10:00.",
+   "tipo": "dinero",
+   "punto": "Reikiavik",
+   "fuente": "horarios de cobro del ayuntamiento de Reikiavik"
+  },
+  {
+   "que": "En el centro de Reikiavik hay calles peatonales y calles donde sólo puede entrar quien va a descargar mercancía, y están señalizadas en islandés. Entrar ahí con el auto es multa, aunque el GPS los mande. Si la calle se ve empedrada y llena de gente caminando, no es calle.",
+   "tipo": "peligro",
+   "punto": "Reikiavik",
+   "fuente": "señalización del centro de Reikiavik"
   }
  ]
 }
