@@ -1,0 +1,45 @@
+{
+ "nota": "En Islandia todo el mundo habla inglés, así que nada de esto hace falta para funcionar. La cortesía se agradece igual, y las palabras de letrero sí importan de verdad.",
+ "sonidos": [
+  { "letra": "ð", "como": "la d de «nada», suave, con la lengua entre los dientes" },
+  { "letra": "þ", "como": "la z de España, soplada. Nunca es t" },
+  { "letra": "ll", "como": "tl, como en «tlacuache». Nunca como la ll del español" },
+  { "letra": "j", "como": "y, como en «yo»" },
+  { "letra": "hv", "como": "kv. Hvað se dice «kvadh»" },
+  { "letra": "á", "como": "au, como en «causa»" },
+  { "letra": "ö", "como": "no existe en español: boca de o, sonido de e" }
+ ],
+ "grupos": [
+  { "t": "Cortesía",
+    "p": [
+     { "is": "Takk", "es": "Gracias", "di": "tak" },
+     { "is": "Takk fyrir", "es": "Muchas gracias", "di": "tak FÍ-rir" },
+     { "is": "Gjörðu svo vel", "es": "De nada · aquí tiene", "di": "GYER-dhu svo vel" },
+     { "is": "Góðan daginn", "es": "Buenos días", "di": "GÓ-dhan DÁI-in" },
+     { "is": "Bless", "es": "Adiós", "di": "bles" },
+     { "is": "Afsakið", "es": "Disculpe · permiso", "di": "AF-sa-kidh" },
+     { "is": "Fyrirgefðu", "es": "Perdón", "di": "FÍ-rir-guev-dhu" },
+     { "is": "Já / Nei", "es": "Sí / No", "di": "yau / nei" }
+    ]},
+  { "t": "Lo que sí van a usar",
+    "p": [
+     { "is": "Hvað kostar þetta?", "es": "¿Cuánto cuesta esto?", "di": "kvadh KOS-tar THET-ta" },
+     { "is": "Salerni · Snyrting", "es": "Baño (es lo que dice la puerta)", "di": "SA-lerd-ni · SNIRT-ing" },
+     { "is": "Talarðu ensku?", "es": "¿Habla inglés?", "di": "TA-lar-dhu ENS-ku" },
+     { "is": "Vatn", "es": "Agua", "di": "vatn" },
+     { "is": "Opið / Lokað", "es": "Abierto / Cerrado", "di": "Ó-pidh / LO-kadh" },
+     { "is": "Sundlaug", "es": "Alberca pública", "di": "SUND-loig" }
+    ]},
+  { "t": "En un letrero de carretera",
+    "p": [
+     { "is": "Einbreið brú", "es": "PUENTE DE UN SOLO CARRIL. Quien llega primero pasa; el otro espera", "di": "ÉIN-breidh brú" },
+     { "is": "Blindhæð", "es": "Loma ciega: no se ve lo que viene. Orillarse a la derecha", "di": "BLIND-haidh" },
+     { "is": "Malbik endar", "es": "Se acaba el asfalto, empieza la grava. Bajar la velocidad", "di": "MAL-bik EN-dar" },
+     { "is": "Varúð", "es": "Precaución", "di": "VA-rudh" },
+     { "is": "Vegur lokaður", "es": "Carretera cerrada. Pasar anula el seguro", "di": "VE-gur LO-ka-dhur" },
+     { "is": "Ófært", "es": "Intransitable", "di": "Ó-fairt" },
+     { "is": "Hálka", "es": "Hielo en el pavimento", "di": "HÁL-ka" },
+     { "is": "Útskot", "es": "Apartadero para orillarse. Aquí sí se puede parar", "di": "ÚT-skot" }
+    ]}
+ ]
+}

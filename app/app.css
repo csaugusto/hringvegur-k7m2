@@ -617,3 +617,20 @@ details.bloque[open] summary::after{content:"▴"}
 .peaje{padding:10px 0;border-bottom:1px solid var(--linea)}
 .peaje:last-child{border-bottom:0}
 .peaje-d{font-size:12.5px;line-height:1.55;color:var(--tx2);margin:6px 0 0}
+
+/* Palabras en islandés. La pronunciación va bajo la palabra, no al lado: en un
+   teléfono vertical no caben tres columnas sin que todo se parta. */
+.sonidos{display:grid;gap:1px;background:var(--linea);border-radius:10px;overflow:hidden;margin:0 0 16px}
+.sn{display:flex;gap:11px;align-items:baseline;background:var(--card);padding:8px 11px}
+.sn b{font-size:16px;color:var(--aurora);min-width:26px;font-weight:600}
+.sn span{font-size:12.5px;color:var(--tx2);line-height:1.45}
+.isl-t{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--tx3);
+  margin:18px 0 7px;font-weight:600}
+table.isl{width:100%;border-collapse:collapse}
+table.isl tr{border-bottom:1px solid var(--linea)}
+table.isl tr:last-child{border-bottom:0}
+table.isl td{padding:9px 0;vertical-align:top}
+table.isl td.is{width:48%;padding-right:14px}
+table.isl td.is b{display:block;font-size:14px;color:var(--tx1);font-weight:600}
+table.isl td.is em{display:block;font-style:normal;font-size:12px;color:var(--aurora);margin-top:2px}
+table.isl td.es{font-size:13px;color:var(--tx2);line-height:1.45}

@@ -15,7 +15,7 @@ const LS = {
   set(k, v) { try { localStorage.setItem('is26.' + k, JSON.stringify(v)); } catch {} }
 };
 
-let VIAJE = null, POI = null, QH = null, PROH = null, EST = null, PEA = null;
+let VIAJE = null, POI = null, QH = null, PROH = null, EST = null, PEA = null, ISL = null;
 
 // ─────────────────────────── carga ───────────────────────────
 const FMT_ESTADO = {
@@ -33,7 +33,7 @@ async function boot() {
     // caché del navegador. Sin esto, editar un JSON no se refleja hasta que el
     // caché caduca solo. Sin señal no estorba: el service worker responde antes.
     const dato = u => fetch(u, { cache: 'no-cache' }).then(r => r.json());
-    [VIAJE, POI, ALOJ, CONS, QH, PROH, EST, PEA] = await Promise.all([
+    [VIAJE, POI, ALOJ, CONS, QH, PROH, EST, PEA, ISL] = await Promise.all([
       dato('data/viaje.json'),
       dato('data/poi.json'),
       dato('data/alojamientos.json'),
@@ -41,7 +41,8 @@ async function boot() {
       dato('data/quehacer.json').catch(() => ({ lugares: {} })),
       dato('data/prohibido.json').catch(() => ({ reglas: [], permitido: [] })),
       dato('data/estacionamiento.json').catch(() => ({ lugares: {} })),
-      dato('data/peajes.json').catch(() => ({ peajes: [] }))
+      dato('data/peajes.json').catch(() => ({ peajes: [] })),
+      dato('data/islandes.json').catch(() => ({ grupos: [] }))
     ]);
   } catch (e) {
     document.body.innerHTML = '<p style="padding:40px;text-align:center">No se pudieron cargar los datos.<br><small>Recarga la página con señal una vez.</small></p>';
@@ -822,6 +823,20 @@ $('#btn-ubic').onclick = async () => {
 
 // ─────────────────────────── EL SOBRE ───────────────────────────
 function pintarSobre() {
+  // Las palabras. Las de letrero van al final a propósito: son las únicas que
+  // de verdad importan, y quedan justo antes de la lista de prohibiciones.
+  const notaI = $('#isl-nota');
+  if (notaI && ISL) {
+    notaI.textContent = ISL.nota || '';
+    $('#isl-sonidos').innerHTML = `<div class="sonidos">${(ISL.sonidos || []).map(x =>
+      `<div class="sn"><b>${x.letra}</b><span>${x.como}</span></div>`).join('')}</div>`;
+    $('#isl-cuerpo').innerHTML = (ISL.grupos || []).map(g => `
+      <h3 class="isl-t">${g.t}</h3>
+      <table class="isl"><tbody>${g.p.map(x => `
+        <tr><td class="is"><b>${x.is}</b><em>${x.di}</em></td><td class="es">${x.es}</td></tr>`).join('')}
+      </tbody></table>`).join('');
+  }
+
   const cajaPe = $('#peajes-cuerpo');
   if (cajaPe) cajaPe.innerHTML = (PEA?.peajes || []).map(p => `
     <div class="peaje">
