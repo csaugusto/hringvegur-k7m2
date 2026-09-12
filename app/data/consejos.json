@@ -141,7 +141,7 @@
    "fuente": "póster de road trip, verificado · 45 min · 0.5 km de desvío · si hay tiempo"
   },
   {
-   "que": "Del póster de road trip se descartaron: Hófsós y Hólar porque caen el 3 de octubre, el único día sin margen; Laugarvatn Fontana porque son 150 min y ya tienen Sky Lagoon el 12; Hengifoss (210 min) y Seyðisfjörður (180 min) porque cada uno se come el día 5 entero; y los Westfjords, Landmannalaugar, Þórsmörk y Vestmannaeyjar porque quedan fuera de ruta o con F-roads cerradas en octubre.",
+   "que": "Del póster de road trip se descartaron: Hófsós y Hólar porque caen el 3 de octubre, el único día sin margen; Laugarvatn Fontana porque son 150 min y ya tienen Sky Lagoon el 12; Hengifoss (210 min) y Seyðisfjörður (180 min) porque cada uno se come el día 5 entero; y los Westfjords, Landmannalaugar, Þórsmörk y Vestmannaeyjar porque quedan fuera de ruta o con F-roads cerradas en octubre. También Stuðlagil: queda al noroeste de Egilsstaðir y el día 7 va al sur, así que son 130 km y 2h15 de volante EN CONTRA sobre un día que ya trae 263 km. Y el turquesa de las fotos es apuesta en octubre: el rebalse del embalse Hálslón corre de agosto a octubre y mientras corre, el río baja crecido y gris-café.",
    "tipo": "tip",
    "fuente": "13 candidatos verificados del póster"
   },
@@ -417,6 +417,23 @@
    "tipo": "dinero",
    "dia": "2026-09-30",
    "fuente": "Höldur, página de Protection y lista de precios oficial"
+  },
+  {
+   "que": "La cueva de hielo hay que preguntarla ANTES de reservarla. El 7 de octubre es la primera semana de la temporada nominal, y la nominal no es la real: Glacier Trips abre el 1 de octubre pero Arctic Adventures y Glacier Guides arrancan a mediados de mes. Escríbanle HOY a glaciertrips.is y a info@localguide.is preguntando en seco si el 7 de octubre entran a cueva o si a esa fecha todavía es caminata sobre el glaciar. Reserven hacia el 25-30 de septiembre, cuando ya publiquen las fechas reales. Octubre no se llena como diciembre.",
+   "tipo": "reserva",
+   "dia": "2026-10-07",
+   "fuente": "calendarios y políticas de Glacier Trips, Local Guide, Arctic Adventures y Glacier Guides"
+  },
+  {
+   "que": "Si reservan la cueva de hielo, sepan qué van a ver: la foto azul de catedral que circula es de enero. Esa cueva existe de diciembre a febrero, cuando el deshielo paró, el agua se drenó y el techo volvió a congelar. En la primera semana de octubre lo normal es una cueva chica, goteando, con hielo sucio y estrías de ceniza — o ninguna, y entonces les cambian el tour a caminata sobre el glaciar. Son 19,990 a 23,900 ISK por persona, unos 2,800 a 3,350 pesos. Vale la pena si van con esa expectativa, no con la de la foto.",
+   "tipo": "dinero",
+   "dia": "2026-10-07",
+   "fuente": "condiciones publicadas por los tres operadores de Jökulsárlón"
+  },
+  {
+   "que": "No confundan la cueva de Jökulsárlón con otras dos que salen al buscar. El túnel de Langjökull (Into the Glacier) abre todo el año pero es excavado a máquina y con luz artificial, sale de Húsafell en el oeste, a 500 km. Y la cueva de Katla, bajo el Mýrdalsjökull cerca de Vík, sí es natural y sí corre todo el año, pero es hielo negro de ceniza y queda 190 km al oeste de Jökulsárlón, fuera del día 8.",
+   "tipo": "tip",
+   "fuente": "ubicaciones y temporadas de los tres productos"
   }
  ]
 }

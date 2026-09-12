@@ -269,6 +269,12 @@
    "tarifa": "Gratis",
    "ojo": "Apaguen los faros en cuanto se detengan: el lote da directo a la zona oscura donde se mira la aurora.",
    "confianza": "alta"
+  },
+  "Seltún": {
+   "donde": "El lote del sitio, justo sobre la 42 (Krýsuvíkurvegur), al pie de las pasarelas.",
+   "tarifa": "Gratis",
+   "ojo": "",
+   "confianza": "alta"
   }
  }
 }

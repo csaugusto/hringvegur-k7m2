@@ -450,6 +450,16 @@
    "costo": "Gratis. Estacionamiento gratis al final de Norðurströnd, es un lote chico junto a la costa.",
    "fuente": "visitreykjavik.is/service/island-grotta-and-grotta-lighthouse (acceso por marea baja, cierre del 1-may al 15-jul, Kvika); aurora-iceland.com, guía de Grótta (estacionamiento al final de Norðurströnd, apagar faros, mirar al N-NO, advertencia de no cruzar, contaminación lumínica alta); tide-forecast.com, tabla de 30 días de Reykjavík (base de la extrapolación de mareas); calendarios lunares de octubre 2026 (luna nueva 10-11 de octubre). Consultado el 11-sep-2026.",
    "sinverificar": false
+  },
+  "Seltún": {
+   "n": "Seltún",
+   "que": "Campo geotermal recorrido por pasarelas de madera: ollas de lodo hirviendo, fumarolas y la tierra pintada de amarillo azufre, naranja y gris. Se ve completo caminando el circuito, sin subidas. Es lo más parecido a Hverir que van a tener cerca de Reikiavik, y les queda de paso al aeropuerto.",
+   "rato": "30-45 min",
+   "foto": "Las pasarelas serpenteando entre las fumarolas, desde el arranque del circuito, con el vapor a contraluz. El amarillo del azufre prende con sol bajo, y el 13 de octubre a mediodía el sol no pasa de 15 grados de altura.",
+   "ojo": "No se salgan de la pasarela: el suelo hierve debajo y la costra engaña. Los baños del estacionamiento aparecen en unas fuentes y en otras no, así que no cuenten con ellos.",
+   "costo": "Gratis, entrada y estacionamiento.",
+   "fuente": "investigado y verificado · acceso por la 42, asfalto",
+   "sinverificar": false
   }
  }
 }
