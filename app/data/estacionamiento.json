@@ -1,0 +1,274 @@
+{
+ "lugares": {
+  "Aeropuerto Internacional de Keflavík": {
+   "donde": "No estacionan: entran directo a devolver el auto siguiendo los letreros de Car Rental Return.",
+   "tarifa": "Sin confirmar",
+   "ojo": "La dirección de entrega viene en el voucher: varias rentadoras de KEF están fuera del aeropuerto y la van a la terminal suma 20-25 min. No se orillen en el acotamiento de la 41, está prohibido.",
+   "confianza": "media"
+  },
+  "Reikiavik": {
+   "donde": "El subterráneo de Harpa, techado y abierto 24 h, y de ahí todo a pie; si no, el garaje Traðarkot.",
+   "tarifa": "Harpa 525 ISK/h; Traðarkot 270 ISK la primera hora y 140 las siguientes; calle zona P2 240 ISK/h",
+   "ojo": "La calle se paga todos los días, domingo incluido; la zona P1 cuesta 660 ISK/h con máximo 3 horas. Lo del \"domingo gratis\" que repiten los blogs de rentadoras es falso.",
+   "confianza": "alta"
+  },
+  "Hallgrímskirkja": {
+   "donde": "Calle de zona P2 alrededor de Skólavörðuholt; ya no hay lote gratis junto a la iglesia.",
+   "tarifa": "240 ISK/h, zona P2",
+   "ojo": "En enero de 2026 la ciudad amplió la zona 2: el playón entre la iglesia y el Tækniskólinn, que era gratis, ahora se paga.",
+   "confianza": "alta"
+  },
+  "Harpa": {
+   "donde": "El estacionamiento subterráneo del propio edificio, 545 lugares, altura máxima 2,2 m.",
+   "tarifa": "525 ISK/h",
+   "ojo": "La cámara lee la placa al entrar y hay que pagar en la caseta o en la app ANTES de ir por el auto, no al salir.",
+   "confianza": "alta"
+  },
+  "Sun Voyager": {
+   "donde": "No muevan el auto: son 900 m a pie desde Harpa por el paseo de Sæbraut, 10-15 minutos.",
+   "tarifa": "Sin confirmar",
+   "ojo": "El poco espacio de calle que hay sobre Sæbraut suele estar tomado a esa hora, y no se pudo confirmar si ahí exactamente se cobra.",
+   "confianza": "media"
+  },
+  "Búðakirkja": {
+   "donde": "El lote de la iglesia, al final del camino de grava que sale de la 574 junto al Hótel Búðir.",
+   "tarifa": "Gratis",
+   "ojo": "El lote del hotel es para huéspedes: usa el de la iglesia. El último tramo es grava, baja la velocidad.",
+   "confianza": "media"
+  },
+  "Arnarstapi": {
+   "donde": "El lote del Hótel Arnarstapi, a la entrada del pueblo, donde arranca el sendero costero.",
+   "tarifa": "1.000 ISK por la app Parka, zona 3401, válido hasta medianoche",
+   "ojo": "Estacionarse en las calles del pueblo está prohibido. Varias guías dicen que sigue habiendo lotes gratis, pero para octubre de 2026 no está confirmado: lee los letreros al llegar.",
+   "confianza": "alta"
+  },
+  "Djúpalónssandur": {
+   "donde": "El lote del parque arriba de la playa, sobre la 574; de ahí baja el sendero de 400 m.",
+   "tarifa": "Sin confirmar, del orden de 1.100 ISK",
+   "ojo": "Esto cambió: desde el 6 de agosto de 2026 el parque Snæfellsjökull cobra servicio a través del estacionamiento, así que ya no es gratis, y el monto exacto no está publicado. Lleva tarjeta. Los baños del lote son de temporada; en octubre usa los de Malarrif.",
+   "confianza": "media"
+  },
+  "Kirkjufell": {
+   "donde": "El lote de pago de Kirkjufellsfoss, sobre la 54 justo al oeste de Grundarfjörður.",
+   "tarifa": "1.000 ISK, por la app EasyPark o en el quiosco de tarjeta del sendero",
+   "ojo": "Es EasyPark, no Parka. No te orilles en el acotamiento de la 54: el lote tiene cámaras que leen placas y ahí multan.",
+   "confianza": "media"
+  },
+  "Stykkishólmur": {
+   "donde": "El estacionamiento del puerto, al pie de Súgandisey, de donde sale la calzada a la isla.",
+   "tarifa": "Gratis",
+   "ojo": "",
+   "confianza": "alta"
+  },
+  "Kolugljúfur": {
+   "donde": "Un espacio chico en la curva junto al letrero, al final de 5-6 km de grava por la 715.",
+   "tarifa": "Gratis",
+   "ojo": "Caben pocos coches. Si está lleno no se orillen en la grava angosta: den vuelta y esperen. No hay baños.",
+   "confianza": "media"
+  },
+  "Sauðárkrókur": {
+   "donde": "Calle en Aðalgata frente al Sauðárkróksbakarí; en Glaumbær, el lote del museo sobre la 75.",
+   "tarifa": "Gratis",
+   "ojo": "",
+   "confianza": "media"
+  },
+  "Siglufjörður": {
+   "donde": "El lote libre junto al Siglo Marina, en el puerto deportivo, de donde arranca el paseo.",
+   "tarifa": "Gratis",
+   "ojo": "",
+   "confianza": "alta"
+  },
+  "Goðafoss": {
+   "donde": "El lote OESTE, asfaltado, que sale de la Ruta 1 por Goðafossvegur; unos 80 lugares.",
+   "tarifa": "Gratis, los dos lados",
+   "ojo": "El baño está del lado ESTE, en Fosshóll junto a la N1, y se cobra.",
+   "confianza": "alta"
+  },
+  "Hverir": {
+   "donde": "El lote pegado a la Ring Road, al pie mismo del campo de fumarolas.",
+   "tarifa": "~1.200 ISK por la app Parka o en la máquina con tarjeta",
+   "ojo": "Algunas fuentes de 2026 reportan 1.610 ISK: el monto exacto no está confirmado, lean el letrero de la entrada. Los baños son 300 ISK aparte.",
+   "confianza": "media"
+  },
+  "Krafla / Víti": {
+   "donde": "El lote del cráter Víti, al final de los ~8 km asfaltados de la 863 desde la Ring Road.",
+   "tarifa": "800 ISK por la app EasyPark, zona 665, o el QR del letrero; cubre también Leirhnjúkur",
+   "ojo": "Sí se cobra, aunque varias guías lo sigan dando por gratis, y es EasyPark, no Parka. La 863 no tiene servicio invernal: después de una nevada el último tramo puede quedar intransitable sin aviso.",
+   "confianza": "media"
+  },
+  "Dettifoss": {
+   "donde": "El lote del lado OESTE, al final de los ~25 km asfaltados de la 862 sur.",
+   "tarifa": "Gratis según la lista oficial del parque; alguna guía de 2026 menciona 1.000 ISK",
+   "ojo": "NO entren por la 864, la orilla este: es grava clasificada solo para 4x4 de montaña, cierra con la primera nieve y casi todos los contratos de renta la prohíben.",
+   "confianza": "media"
+  },
+  "Ásbyrgi": {
+   "donde": "El lote del fondo del cañón, al final del Ásbyrgisvegur asfaltado, a 400 m de Botnstjörn.",
+   "tarifa": "Gratis",
+   "ojo": "Llegar depende de que la 862 norte esté abierta, y no tiene servicio invernal. Hay baños aquí y en Gljúfrastofa, a la entrada, abierta 10:00-17:00 hasta el 31 de octubre.",
+   "confianza": "alta"
+  },
+  "Húsavík": {
+   "donde": "El lote del puerto sobre Hafnarstétt, frente al Museo de la Ballena; GeoSea tiene el suyo en Vitastígur 1.",
+   "tarifa": "Gratis",
+   "ojo": "",
+   "confianza": "media"
+  },
+  "Skútustaðagígar": {
+   "donde": "El lote de grava de la 848, junto al hotel Gígur, al pie de los cráteres.",
+   "tarifa": "Gratis",
+   "ojo": "",
+   "confianza": "media"
+  },
+  "Dimmuborgir": {
+   "donde": "El lote de la entrada, junto al Kaffi Borgir y el mirador; de ahí bajan todos los senderos.",
+   "tarifa": "Gratis",
+   "ojo": "",
+   "confianza": "media"
+  },
+  "Möðrudalur": {
+   "donde": "El lote de grava abierto de la granja Fjalladýrð, junto al café Fjallakaffi y la gasolinera.",
+   "tarifa": "Gratis",
+   "ojo": "Hay lotes de la granja marcados solo para clientes del hospedaje: usen el abierto. Todo es grava suelta, y la 901 trae lavadero, 40-50 km/h.",
+   "confianza": "media"
+  },
+  "Vök Baths": {
+   "donde": "El lote asfaltado frente a la entrada, sobre la 925 a 5 km de Egilsstaðir; hay cargadores.",
+   "tarifa": "Gratis",
+   "ojo": "",
+   "confianza": "alta"
+  },
+  "Reyðarfjörður": {
+   "donde": "Cualquiera de los lotes libres del centro, junto al museo de la guerra en Heiðarvegur.",
+   "tarifa": "Gratis",
+   "ojo": "El punto de arranque que marca AllTrails cae en un muelle privado: no lo sigan, el sendero de Búðará sale del centro del pueblo.",
+   "confianza": "media"
+  },
+  "Fáskrúðsfjörður": {
+   "donde": "El lote libre de Hafnargata frente al puerto; para el cementerio francés, el apartadero sobre la 955.",
+   "tarifa": "Gratis",
+   "ojo": "",
+   "confianza": "media"
+  },
+  "Djúpivogur": {
+   "donde": "Junto a los huevos, en el ensanche de grava sobre la 98; si no, el lote libre del puerto, a 1 km.",
+   "tarifa": "Gratis",
+   "ojo": "No hay lote formal en los huevos, es orillarse en el ensanche del viejo muelle: no bloqueen el paso.",
+   "confianza": "media"
+  },
+  "Vestrahorn": {
+   "donde": "El lote del Viking Café, al final de ~5 km de grava desde la Ring Road, 7 km al este de Höfn.",
+   "tarifa": "1.100 ISK por persona, 2.200 los dos; estacionamiento y baños incluidos",
+   "ojo": "No hay venta en línea: se paga en el Viking Café y, si está cerrado, en la máquina de autoservicio de afuera. Aquí pega viento de costado fuerte y arranca puertas, no sueltes la manija.",
+   "confianza": "alta"
+  },
+  "Jökulsárlón": {
+   "donde": "El lote grande del lado ESTE, el del café; viniendo de Höfn es la entrada a la derecha antes del puente.",
+   "tarifa": "1.110 ISK por auto de hasta 5 plazas + 89 ISK de comisión, válido hasta medianoche",
+   "ojo": "Se paga por placa en parka.is: metan la placa del auto rentado, no el número de servicio. El mismo boleto cubre los dos lotes de Diamond Beach, y ese día Skaftafell les sale a mitad de precio.",
+   "confianza": "alta"
+  },
+  "Diamond Beach": {
+   "donde": "Eystri-Fellsfjara antes del puente o Vestari-Fellsfjara después: escojan el lado que traiga hielo.",
+   "tarifa": "Incluido en los 1.110 ISK de Jökulsárlón",
+   "ojo": "No se detengan sobre el puente para ver cuál lado tiene hielo: crucen y decidan desde el lote.",
+   "confianza": "alta"
+  },
+  "Fjallsárlón": {
+   "donde": "El lote junto al restaurante Frost, al final del desvío asfaltado de 2 km desde la Ring Road.",
+   "tarifa": "Gratis",
+   "ojo": "Hay otro desvío que lleva al lote de grava \"Fjallsjökull\", zona Parka 7204, que cobra 1.000 ISK por 4 h: no lo necesitan, no se metan por ahí.",
+   "confianza": "alta"
+  },
+  "Fjaðrárgljúfur": {
+   "donde": "El lote del cañón, por el desvío de la 206 que sale de la Ring Road al oeste de Kirkjubæjarklaustur.",
+   "tarifa": "1.000 ISK por la app Parka",
+   "ojo": "Vigilado con cámara de placas. Baños gratis en el lote de abajo.",
+   "confianza": "alta"
+  },
+  "Eldhraun": {
+   "donde": "El estacionamiento señalado pegado a la Ring Road, al suroeste de Kirkjubæjarklaustur.",
+   "tarifa": "Gratis",
+   "ojo": "No te orilles en cualquier acotamiento de la Ring Road para la foto: usa el lote señalado y métete al sendero.",
+   "confianza": "media"
+  },
+  "Reynisfjara": {
+   "donde": "El lote de abajo, junto al café y los baños, o el de arriba si aquel está lleno.",
+   "tarifa": "1.000 ISK el de abajo, 750 ISK el de arriba, con la app Parka",
+   "ojo": "",
+   "confianza": "alta"
+  },
+  "Dyrhólaey": {
+   "donde": "Dos lotes por la 218: el de abajo (Lágey) junto a la playa y el de arriba (Háey) junto al faro.",
+   "tarifa": "~1.000 ISK por auto de 5 plazas, 1.300 los grandes, app Parka o pantallas con cámara",
+   "ojo": "El lote de arriba cierra de 19:00 a 09:00, y el tramo que sube es angosto y empinado: mojado, con hielo o con viento fuerte, quédense abajo. Algunas fuentes siguen citando 750 ISK.",
+   "confianza": "media"
+  },
+  "Skógafoss": {
+   "donde": "El lote al pie de la cascada, por el desvío señalado que sale de la Ring Road.",
+   "tarifa": "1.000 ISK por auto, app Parka o quiosco de tarjeta; bloque de 8 horas",
+   "ojo": "En la app pongan SOLO la placa del auto rentado, sin prefijos ni número de servicio. Los baños se cobran aparte.",
+   "confianza": "alta"
+  },
+  "Kvernufoss": {
+   "donde": "El estacionamiento del Museo de Skógar (Skógasafn); el sendero sale por detrás de los edificios.",
+   "tarifa": "750 ISK por la app Parka, aunque alguna fuente dice 500; manda el letrero del lugar",
+   "ojo": "Se paga aunque solo vayan a la caminata y no entren al museo.",
+   "confianza": "media"
+  },
+  "Seljalandsfoss": {
+   "donde": "El lote del propio Seljalandsfoss, sobre la 249 a unos 100 m de la Ring Road.",
+   "tarifa": "1.000 ISK por auto, tarifa plana; kiosco de tarjeta del lote o en checkit.is",
+   "ojo": "Dejen el ticket visible en el tablero.",
+   "confianza": "alta"
+  },
+  "Gljúfrabúi": {
+   "donde": "No muevan el auto: se camina 500-700 m al norte desde el lote de Seljalandsfoss.",
+   "tarifa": "Cubierto por el boleto de Seljalandsfoss",
+   "ojo": "Hay un lote propio en Hamragarðar, pero si cobra y cuánto no está confirmado; sale más simple caminar.",
+   "confianza": "media"
+  },
+  "Gullfoss": {
+   "donde": "El lote de arriba, junto al centro de visitantes; hay otro abajo al que también se baja manejando.",
+   "tarifa": "Gratis",
+   "ojo": "",
+   "confianza": "alta"
+  },
+  "Geysir": {
+   "donde": "El lote frente al campo geotermal; se cruza la carretera por el paso peatonal.",
+   "tarifa": "1.080 ISK por auto de 1 a 7 plazas + 89 ISK de comisión, hasta 8 h, en parka.is sitio 8201",
+   "ojo": "Se controla con cámara de placas y no hay caseta que te lo recuerde: si no pagas, recargo de 1.490 ISK al dueño del auto. Puedes pagar hasta 24 h después. Prohibido pernoctar.",
+   "confianza": "alta"
+  },
+  "Þingvellir": {
+   "donde": "P1 (Hakið), arriba del cañón junto al centro de visitantes; P2 queda justo debajo de Öxarárfoss.",
+   "tarifa": "1.000 ISK por auto de hasta 5 plazas, 1.200 de 6 a 9; vale el día completo",
+   "ojo": "Un solo pago vale para P1, P2 y P5: guarden el comprobante y no paguen dos veces si se mueven entre lotes. Se verifica con cámara de placas a la salida.",
+   "confianza": "alta"
+  },
+  "Perlan": {
+   "donde": "El lote del propio edificio, afuera, en la colina de Öskjuhlíð.",
+   "tarifa": "Gratis",
+   "ojo": "",
+   "confianza": "alta"
+  },
+  "Sky Lagoon": {
+   "donde": "El lote del propio Sky Lagoon, en Vesturvör 44, Kópavogur, con cargadores eléctricos.",
+   "tarifa": "Gratis, sin límite de tiempo",
+   "ojo": "",
+   "confianza": "alta"
+  },
+  "Blue Lagoon": {
+   "donde": "El lote grande de visitantes, pegado al complejo; de ahí son 5 min a pie por la pasarela de lava.",
+   "tarifa": "Gratis",
+   "ojo": "El lote de The Retreat, más al oeste, es para huéspedes de ese hotel: no se metan ahí.",
+   "confianza": "alta"
+  },
+  "Grótta": {
+   "donde": "El lote chico junto a la costa, al final de Norðurströnd, en Seltjarnarnes; unos 26 lugares.",
+   "tarifa": "Gratis",
+   "ojo": "Apaguen los faros en cuanto se detengan: el lote da directo a la zona oscura donde se mira la aurora.",
+   "confianza": "alta"
+  }
+ }
+}

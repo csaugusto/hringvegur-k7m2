@@ -15,7 +15,7 @@ const LS = {
   set(k, v) { try { localStorage.setItem('is26.' + k, JSON.stringify(v)); } catch {} }
 };
 
-let VIAJE = null, POI = null, QH = null, PROH = null;
+let VIAJE = null, POI = null, QH = null, PROH = null, EST = null;
 
 // ─────────────────────────── carga ───────────────────────────
 const FMT_ESTADO = {
@@ -33,13 +33,14 @@ async function boot() {
     // caché del navegador. Sin esto, editar un JSON no se refleja hasta que el
     // caché caduca solo. Sin señal no estorba: el service worker responde antes.
     const dato = u => fetch(u, { cache: 'no-cache' }).then(r => r.json());
-    [VIAJE, POI, ALOJ, CONS, QH, PROH] = await Promise.all([
+    [VIAJE, POI, ALOJ, CONS, QH, PROH, EST] = await Promise.all([
       dato('data/viaje.json'),
       dato('data/poi.json'),
       dato('data/alojamientos.json'),
       dato('data/consejos.json').catch(() => ({ consejos: [] })),
       dato('data/quehacer.json').catch(() => ({ lugares: {} })),
-      dato('data/prohibido.json').catch(() => ({ reglas: [], permitido: [] }))
+      dato('data/prohibido.json').catch(() => ({ reglas: [], permitido: [] })),
+      dato('data/estacionamiento.json').catch(() => ({ lugares: {} }))
     ]);
   } catch (e) {
     document.body.innerHTML = '<p style="padding:40px;text-align:center">No se pudieron cargar los datos.<br><small>Recarga la página con señal una vez.</small></p>';
@@ -152,8 +153,12 @@ function fichaQH(n) {
   if (!q) return '';
   const campo = (etiq, txt) => txt && txt.trim()
     ? `<div class="qh-l"><span>${etiq}</span><p>${txt}</p></div>` : '';
+  const e = EST?.lugares?.[n];
+  const apar = e ? `<div class="qh-l apar"><span>Estacionar${e.confianza === 'media' ? ' · dato sin fuente oficial' : ''}</span>
+    <p><b>${e.donde}</b>${e.tarifa ? ` · ${e.tarifa}` : ''}${e.ojo ? `<br><i>${e.ojo}</i>` : ''}</p></div>` : '';
   return `<details class="qh"><summary>Qué hacer${q.rato ? ` · ${q.rato}` : ''}</summary>
     <div class="qh-c">
+      ${apar}
       ${campo('', q.que)}
       ${campo('Foto', q.foto)}
       ${campo('Ojo', q.ojo)}

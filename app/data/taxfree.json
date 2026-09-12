@@ -1,0 +1,92 @@
+{
+ "resumen": "El tax free devuelve parte del IVA islandés sobre mercancía que compran y sacan del país. El trámite se hace en Keflavík antes de documentar maletas, en la sala de llegadas, y devuelve hasta 14% del precio pagado. Para ustedes sólo tiene sentido si hacen una compra de 12,000 ISK o más en un solo recibo, tipo suéter de lana: la comida de súper, la gasolina y el hospedaje no cuentan.",
+ "conviene": "Con un suéter de 25,000 ISK recuperan unos 3,500 ISK (alrededor de 490 pesos) a cambio de 20 a 30 minutos de aeropuerto, así que por esa compra sí vale la pena; si no compran nada de 12,000 ISK en un solo recibo, no hay nada que reclamar y se saltan el trámite completo.",
+ "requisitos": [
+  {
+   "que": "No residir en Islandia. Con pasaporte mexicano lo cumplen sin hacer nada.",
+   "ok": true
+  },
+  {
+   "que": "12,000 ISK o más (unos 1,680 pesos) en un solo recibo. Este es el que los puede dejar fuera: tiene que salir de una sola compra, no de sumar tickets del viaje.",
+   "ok": false
+  },
+  {
+   "que": "Pedir el formulario de tax free en la caja, que la tienda lo llene y lo firme, y que le peguen el recibo original. Si no lo piden en ese momento, después ya no hay manera de arreglarlo.",
+   "ok": false
+  },
+  {
+   "que": "Que sea mercancía que sale del país. El súper, la gasolina, el hospedaje, los tours y las comidas de restaurante no aplican, y ahí se va casi todo su gasto.",
+   "ok": false
+  },
+  {
+   "que": "Productos sin usar y fuera de Islandia antes de 3 meses. Como es el mismo viaje, se cumple solo.",
+   "ok": true
+  },
+  {
+   "que": "Pasaporte y los productos a la mano para enseñarlos. Se cumple si dejan el suéter en la maleta de cabina.",
+   "ok": true
+  }
+ ],
+ "pasos": [
+  {
+   "n": 1,
+   "que": "En la tienda, al pagar",
+   "detalle": "Pedir el formulario de tax free antes de que cierren la venta. La tienda lo llena, lo firma y le engrapa el recibo original. Sin firma de la tienda y sin recibo original el formulario no sirve. Guarden todo junto en un solo sobre."
+  },
+  {
+   "n": 2,
+   "que": "En Keflavík, antes de documentar la maleta",
+   "detalle": "El mostrador está en la sala de LLEGADAS, enfrente de las rentadoras de coches, junto a Arion Bank. El letrero dice Prosegur Change, antes Change Group. Sí, llegadas, aunque vayan de salida: es una rareza de este aeropuerto y está confirmado por kefairport.com y por Skatturinn. Horario de invierno, que arranca el 1 de octubre: 04:30 a 20:00. Su vuelo sale 17:05, así que llegando con la anticipación normal lo encuentran abierto. Cuando el mostrador de tax free está cerrado, el trámite lo hace la ventanilla de cambio de divisas."
+  },
+  {
+   "n": 3,
+   "que": "Sellar el formulario",
+   "detalle": "Enseñar pasaporte, formulario, recibo original y los productos. Pueden pedir ver la mercancía, por eso va antes de documentar. Si el reembolso pasa de 100,000 ISK hay que ir a Aduanas en vez de al mostrador, pero con una compra normal no se acercan ni de lejos a ese número."
+  },
+  {
+   "n": 4,
+   "que": "Cobrar",
+   "detalle": "Se puede a la tarjeta con la que pagaron o en efectivo en el mostrador. En efectivo suelen cobrar una comisión de manejo; a tarjeta tarda unas semanas en aparecer."
+  },
+  {
+   "n": 5,
+   "que": "Regresar a salidas y documentar",
+   "detalle": "Del mostrador se vuelve caminando al área de check-in. Presupuesten 20 a 30 minutos entre la ida, la fila y la vuelta."
+  }
+ ],
+ "ojo": [
+  "El formulario se pide en la caja, en el momento de pagar. Con el recibo solo no hay reembolso y ninguna tienda lo emite después. Es la razón número uno por la que a la gente le rechazan el trámite.",
+  "Hay que hacerlo antes de documentar la maleta, porque pueden pedir ver el producto. Si el suéter ya se fue en la maleta documentada, se quedan sin sello.",
+  "El mostrador está en llegadas, no en salidas. Suena al revés y por eso mucha gente lo busca donde no es y pierde el tiempo con el reloj corriendo.",
+  "El 24% no aplica a todo. Comida y libros pagan 11%, así que sobre esos productos la devolución es más o menos la mitad y casi nunca compensa el trámite.",
+  "Se devuelve hasta 14% del precio, no el 24%. La diferencia se la queda el operador como comisión.",
+  "El mínimo es por recibo. Tres tickets de 5,000 ISK de la misma tienda no arman los 12,000 si no salieron en una sola compra. Si van a comprar varias cosas en un mismo lugar, que se las cobren juntas.",
+  "La fila es impredecible. Hay reportes de gente que la vio tan larga que prefirió irse sin el reembolso, así que si van justos de tiempo, el check-in gana."
+ ],
+ "corregido": [
+  {
+   "afirmaba": "Islandia cobra 24% de IVA en casi todo.",
+   "realidad": "El 24% es la tasa general, pero existe una reducida de 11% para comida, libros, hospedaje y transporte de pasajeros. Justo donde ustedes más gastan la tasa es 11%, y sobre eso la devolución es mucho menor."
+  },
+  {
+   "afirmaba": "Menos de 100,000 ISK lo sella Change Group; más de eso, Aduanas.",
+   "realidad": "El umbral es sobre el monto del REEMBOLSO, no sobre el de la compra. Un reembolso de 100,000 ISK equivale a unos 700,000 ISK de compras, así que en la práctica nunca van a necesitar Aduanas."
+  },
+  {
+   "afirmaba": "En Keflavík hay que ir al mostrador de Change Group.",
+   "realidad": "El operador hoy se anuncia como Prosegur Change. Skatturinn todavía lo llama Change Group en su web, pero el letrero que van a ver en el aeropuerto dice Prosegur. Es el mismo mostrador de cambio de divisas."
+  },
+  {
+   "afirmaba": "En la caja hay que pedir el formulario y que se adjunte el recibo.",
+   "realidad": "Le falta un requisito: el formulario además tiene que llevar la firma de la tienda. Un formulario sin firma del comercio no lo sellan, aunque traiga el recibo pegado."
+  }
+ ],
+ "fuentes": [
+  "https://www.skatturinn.is/english/individuals/customs-matters/travelling-to-iceland/tax-free-vat-refund/",
+  "https://www.kefairport.com/currency-exchange-and-tax-refund",
+  "https://icelandtaxfree.is",
+  "https://taxfree.weareplanet.com/countries/iceland",
+  "https://www.skatturinn.is/english/companies/value-added-tax/",
+  "https://www.visitreykjanes.is/en/blogg/your-complete-guide-to-tax-free-shopping-in-iceland"
+ ]
+}
