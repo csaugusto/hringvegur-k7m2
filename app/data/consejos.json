@@ -434,6 +434,18 @@
    "que": "No confundan la cueva de Jökulsárlón con otras dos que salen al buscar. El túnel de Langjökull (Into the Glacier) abre todo el año pero es excavado a máquina y con luz artificial, sale de Húsafell en el oeste, a 500 km. Y la cueva de Katla, bajo el Mýrdalsjökull cerca de Vík, sí es natural y sí corre todo el año, pero es hielo negro de ceniza y queda 190 km al oeste de Jökulsárlón, fuera del día 8.",
    "tipo": "tip",
    "fuente": "ubicaciones y temporadas de los tres productos"
+  },
+  {
+   "que": "App «Appy Hour»: lista las happy hours de Reikiavik en tiempo real, por zona y por hora. En un país donde una cerveza ronda las 1,500 ISK, esa es la diferencia entre salir a tomar algo y no salir. Descárguenla antes de volar.",
+   "tipo": "dinero",
+   "punto": "Reikiavik",
+   "fuente": "recomendación de viajera, app pública"
+  },
+  {
+   "que": "Braud & Co, la panadería de Frakkastígur camino a Hallgrímskirkja: su rollo de canela es de las pocas cosas en Islandia que varias fuentes coinciden en que vale lo que cuesta. Encaja con su plan de comer de súper y darse un gusto puntual. Abre temprano, bueno para el desayuno antes de arrancar.",
+   "tipo": "tip",
+   "punto": "Hallgrímskirkja",
+   "fuente": "recomendación repetida en guías y redes"
   }
  ]
 }
