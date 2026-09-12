@@ -142,7 +142,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 
 /* ── paradas: un hilo con nodos, no una lista ── */
 .paradas{list-style:none;margin:0;padding:0}
-.paradas li{position:relative;display:flex;align-items:flex-start;gap:13px;padding:9px 0}
+.paradas li{position:relative;display:flex;flex-wrap:wrap;align-items:flex-start;gap:13px;padding:9px 0}
 .paradas li::before{content:"";position:absolute;left:10px;top:30px;bottom:-9px;width:1px;
   background:var(--line)}
 .paradas li:last-child::before{display:none}
@@ -571,3 +571,20 @@ details.bloque[open] summary::after{content:"▴"}
 @media (min-width:620px){.marco-mapa{aspect-ratio:4/3}}
 #mapa-embed .go{display:block;text-align:center;margin-top:10px}
 .sin-mapa{padding:22px 14px;text-align:center;border:1px dashed var(--linea);border-radius:12px}
+
+/* Qué hacer en cada parada. Plegado por defecto: la lista de paradas tiene que
+   seguir leyéndose de un vistazo, y esto es para cuando ya estacionaron. */
+.qh{flex-basis:100%;margin:2px 0 0 34px}
+.qh summary{font-size:12.5px;color:var(--aurora);cursor:pointer;padding:5px 0;
+  list-style:none;display:inline-flex;align-items:center;gap:5px}
+.qh summary::-webkit-details-marker{display:none}
+.qh summary::before{content:'›';display:inline-block;transition:transform .18s;font-size:15px}
+.qh[open] summary::before{transform:rotate(90deg)}
+.qh-c{padding:4px 0 10px;border-left:2px solid var(--linea);padding-left:12px;margin-top:4px}
+.qh-l{margin-bottom:9px}
+.qh-l:last-child{margin-bottom:0}
+.qh-l span{display:block;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--tx3);margin-bottom:2px}
+.qh-l span:empty{display:none}
+.qh-l p{font-size:13.5px;line-height:1.5;color:var(--tx2);margin:0}
+.qh-aviso{font-size:12px;color:var(--lava);margin:8px 0 0;line-height:1.45}

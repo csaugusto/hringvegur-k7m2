@@ -15,7 +15,7 @@ const LS = {
   set(k, v) { try { localStorage.setItem('is26.' + k, JSON.stringify(v)); } catch {} }
 };
 
-let VIAJE = null, POI = null;
+let VIAJE = null, POI = null, QH = null;
 
 // ─────────────────────────── carga ───────────────────────────
 const FMT_ESTADO = {
@@ -33,11 +33,12 @@ async function boot() {
     // caché del navegador. Sin esto, editar un JSON no se refleja hasta que el
     // caché caduca solo. Sin señal no estorba: el service worker responde antes.
     const dato = u => fetch(u, { cache: 'no-cache' }).then(r => r.json());
-    [VIAJE, POI, ALOJ, CONS] = await Promise.all([
+    [VIAJE, POI, ALOJ, CONS, QH] = await Promise.all([
       dato('data/viaje.json'),
       dato('data/poi.json'),
       dato('data/alojamientos.json'),
-      dato('data/consejos.json').catch(() => ({ consejos: [] }))
+      dato('data/consejos.json').catch(() => ({ consejos: [] })),
+      dato('data/quehacer.json').catch(() => ({ lugares: {} }))
     ]);
   } catch (e) {
     document.body.innerHTML = '<p style="padding:40px;text-align:center">No se pudieron cargar los datos.<br><small>Recarga la página con señal una vez.</small></p>';
@@ -143,6 +144,23 @@ const rutaURL = (lat, lon) => APPS_MAPA.apple.ir(lat, lon);
 
 // Los dos botones juntos. `modo` es 'ver' para mirar el punto en el mapa, o
 // 'ir' para que arranque la navegación.
+// Ficha de qué hacer en una parada. Devuelve '' si no hay nada investigado,
+// así la parada se sigue viendo igual de limpia.
+function fichaQH(n) {
+  const q = QH?.lugares?.[n];
+  if (!q) return '';
+  const campo = (etiq, txt) => txt && txt.trim()
+    ? `<div class="qh-l"><span>${etiq}</span><p>${txt}</p></div>` : '';
+  return `<details class="qh"><summary>Qué hacer${q.rato ? ` · ${q.rato}` : ''}</summary>
+    <div class="qh-c">
+      ${campo('', q.que)}
+      ${campo('Foto', q.foto)}
+      ${campo('Ojo', q.ojo)}
+      ${campo('Cuesta', q.costo)}
+      ${q.sinverificar ? '<p class="qh-aviso">Esta ficha no se pudo contrastar con una fuente independiente. Confirmen en el sitio.</p>' : ''}
+    </div></details>`;
+}
+
 const botonesMapa = (lat, lon, n, modo = 'ver') =>
   `<span class="mapas">` +
   Object.entries(APPS_MAPA).map(([k, v]) =>
@@ -211,7 +229,7 @@ function pintarHoy() {
     <li class="cat-${p.cat || 'Interés'}">
       <span class="num">${i + 1}</span>
       <span class="np"><strong>${p.n}</strong>${p.nota ? `<small>${p.nota}</small>` : (p.cat === 'Opcional' ? '<small>opcional</small>' : '')}</span>
-      ${botonesMapa(p.lat, p.lon, p.n)}
+      ${botonesMapa(p.lat, p.lon, p.n)}${fichaQH(p.n)}
     </li>`).join('');
 
   // peligro de olas, solo si hoy pasan por Reynisfjara
@@ -357,7 +375,7 @@ function pintarDias() {
         <ol class="paradas">${d.puntos.map((p, i) => `
           <li class="cat-${p.cat || 'Interés'}"><span class="num">${i + 1}</span>
             <span class="np"><strong>${p.n}</strong>${p.nota ? `<small>${p.nota}</small>` : ''}</span>
-            ${botonesMapa(p.lat, p.lon, p.n)}</li>`).join('')}</ol></section>
+            ${botonesMapa(p.lat, p.lon, p.n)}${fichaQH(p.n)}</li>`).join('')}</ol></section>
       ${d.servicios?.length ? `<section class="bloque"><h2 style="margin-bottom:10px">Gasolina y provisiones</h2>${servicios(d.servicios)}</section>` : ''}
       ${d.avisos.map(aviso).join('')}`;
     body.hidden = false;
