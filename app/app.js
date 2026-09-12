@@ -161,7 +161,7 @@ function pintarHoy() {
   const d = diaActivo(), esHoy = !!diaDeHoy();
   // La antefirma dice cuándo estamos; el título, qué toca. Manda el plan del día.
   $('#hoy-kicker').innerHTML =
-    `<b>Día ${d.d} de ${VIAJE.dias.length - 1}</b> ${FECHA_LARGA(d.fecha)}`;
+    `<b>Día ${d.d + 1} de ${VIAJE.dias.length}</b> ${FECHA_LARGA(d.fecha)}`;
   const tit = $('#hoy-titulo');
   tit.textContent = d.plan;
   // Los planes van de 9 a 58 caracteres: el titular se achica en vez de romperse.
@@ -333,7 +333,7 @@ function pintarDias() {
     const es = d.fecha === hy, pas = d.fecha < hy;
     return `<div class="dia ${es ? 'hoy' : ''} ${pas ? 'pasado' : ''}" data-d="${d.d}">
       <button class="dia-t">
-        <span class="dia-n"><b>${d.d}</b><small>${FECHA_CORTA(d.fecha)}</small></span>
+        <span class="dia-n"><b>${d.d + 1}</b><small>${FECHA_CORTA(d.fecha)}</small></span>
         <span class="dia-c"><strong>${d.plan}</strong>
           <small>${d.km} km · ${hm(d.manejo_min)} · luz ${hm(d.luz_min)}</small>
           <span class="dia-r">
@@ -572,7 +572,7 @@ function renderClima(datos) {
     const idx = c.h.time.map((t, i) => [+t.slice(11, 13), i]).filter(([h]) => h >= 7 && h <= 21);
     const maxG = Math.max(...idx.map(([, i]) => c.h.wind_gusts_10m[i] || 0));
     return `<section class="bloque">
-      <div class="card-head"><h2>Día ${d.d} · ${FECHA_CORTA(d.fecha)} · ${c.nombre}</h2>
+      <div class="card-head"><h2>Día ${d.d + 1} · ${FECHA_CORTA(d.fecha)} · ${c.nombre}</h2>
         <span class="pill">ráfaga máx ${Math.round(maxG)} m/s</span></div>
       <div class="horas-grid">${idx.map(([h, i]) => {
         const g = Math.round(c.h.wind_gusts_10m[i] || 0);
