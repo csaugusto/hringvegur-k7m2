@@ -714,3 +714,7 @@ html,body{overflow-x:clip}
 .sub-acc > summary b{margin-left:auto;font-size:12px;color:var(--tx3);font-weight:600;
   background:var(--bg2);padding:2px 9px;border-radius:999px}
 .sub-acc > summary + *{margin-top:2px}
+
+/* La tarjeta del alojamiento dentro de un día desplegado: hereda el aspecto de
+   la de Hoy, sólo se le da el margen que allá le pone el contenedor. */
+.dormir-card{margin-top:14px}

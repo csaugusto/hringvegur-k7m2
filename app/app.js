@@ -182,36 +182,19 @@ const dist = (a, b, c, d) => {
   return 2 * R * Math.asin(Math.sqrt(h));
 };
 
-// ─────────────────────────── HOY ───────────────────────────
-function pintarHoy() {
-  const d = diaActivo(), esHoy = !!diaDeHoy();
-  // La antefirma dice cuándo estamos; el título, qué toca. Manda el plan del día.
-  $('#hoy-kicker').innerHTML =
-    `<b>Día ${d.d + 1} de ${VIAJE.dias.length}</b> ${FECHA_LARGA(d.fecha)}`;
-  const tit = $('#hoy-titulo');
-  tit.textContent = d.plan;
-  // Los planes van de 9 a 58 caracteres: el titular se achica en vez de romperse.
-  tit.className = d.plan.length > 42 ? 't-xl' : d.plan.length > 26 ? 't-l' : '';
-
-  if (!esHoy) {
-    const faltan = Math.ceil((Date.UTC(...VIAJE.dias[0].fecha.split('-').map((v, i) => i === 1 ? v - 1 : +v)) - ahoraISL()) / 864e5);
-    const n = $('#hoy-precuenta');
-    n.hidden = false;
-    n.innerHTML = `Faltan <b>${faltan}</b> días para volar.`;
-  }
-
-  // dormir
-  const dm = d.dormir, box = $('#hoy-dormir');
-  if (!dm) {
-    box.innerHTML = `<h2>Hoy vuelan</h2><p class="dormir-lugar">Keflavík 17:05</p>
+// La tarjeta del alojamiento, compartida por Hoy y por cada día desplegado en
+// Días. Antes sólo existía en Hoy, así que al planear mañana no se veía dónde
+// se duerme, y es justo el dato que decide a qué hora conviene salir.
+function tarjetaDormir(d, titulo) {
+  const dm = d.dormir;
+  if (!dm) return `<h2>Vuelan</h2><p class="dormir-lugar">Keflavík 17:05</p>
       <p class="sub">Entrega del auto a las 14:00. Salgan de Reikiavik a las 12:00.</p>`;
-  } else {
-    const priv = LS.get('privado', {})[d.fecha] || {};
-    const tel  = dm.tel  || priv.tel;            // el archivo manda; el teléfono complementa
-    const dirn = dm.direccion || priv.dir;
-    const lat  = dm.lat ?? priv.lat, lon = dm.lon ?? priv.lon;
-    box.innerHTML = `
-      <div class="card-head"><h2>Esta noche duermen en</h2>
+  const priv = LS.get('privado', {})[d.fecha] || {};
+  const tel  = dm.tel  || priv.tel;
+  const dirn = dm.direccion || priv.dir;
+  const lat  = dm.lat ?? priv.lat, lon = dm.lon ?? priv.lon;
+  return `
+      <div class="card-head"><h2>${titulo}</h2>
         <span class="estado ${dm.estado}">${dm.estado_txt}</span></div>
       <p class="dormir-lugar">${dm.lugar}</p>
       ${dm.nombre ? `<p class="dormir-nombre">${dm.nombre}</p>` : ''}
@@ -234,7 +217,28 @@ function pintarHoy() {
       ${dm.llegada_tarde ? `<p class="nota">Llegada tardía: ${dm.llegada_tarde}</p>` : ''}
       ${dm.desayuno ? `<p class="nota">Desayuno: ${dm.desayuno}</p>` : ''}
       ${dm.notas ? `<p class="nota">${dm.notas}</p>` : ''}`;
+}
+
+// ─────────────────────────── HOY ───────────────────────────
+function pintarHoy() {
+  const d = diaActivo(), esHoy = !!diaDeHoy();
+  // La antefirma dice cuándo estamos; el título, qué toca. Manda el plan del día.
+  $('#hoy-kicker').innerHTML =
+    `<b>Día ${d.d + 1} de ${VIAJE.dias.length}</b> ${FECHA_LARGA(d.fecha)}`;
+  const tit = $('#hoy-titulo');
+  tit.textContent = d.plan;
+  // Los planes van de 9 a 58 caracteres: el titular se achica en vez de romperse.
+  tit.className = d.plan.length > 42 ? 't-xl' : d.plan.length > 26 ? 't-l' : '';
+
+  if (!esHoy) {
+    const faltan = Math.ceil((Date.UTC(...VIAJE.dias[0].fecha.split('-').map((v, i) => i === 1 ? v - 1 : +v)) - ahoraISL()) / 864e5);
+    const n = $('#hoy-precuenta');
+    n.hidden = false;
+    n.innerHTML = `Faltan <b>${faltan}</b> días para volar.`;
   }
+
+  // dormir
+  $('#hoy-dormir').innerHTML = tarjetaDormir(d, 'Esta noche duermen en');
 
   // ruta
   $('#hoy-cifras').textContent = `${d.km} km · ${hm(d.manejo_min)} manejando`;
@@ -390,6 +394,7 @@ function pintarDias() {
             <span class="np"><strong>${p.n}</strong>${p.nota ? `<small>${p.nota}</small>` : ''}</span>
             ${botonesMapa(p.lat, p.lon, p.n)}${fichaQH(p.n)}</li>`).join('')}</ol></section>
       ${d.servicios?.length ? `<section class="bloque"><h2 style="margin-bottom:10px">Gasolina y provisiones</h2>${servicios(d.servicios)}</section>` : ''}
+      <section class="card dormir-card">${tarjetaDormir(d, 'Duermen en')}</section>
       ${d.avisos.map(aviso).join('')}`;
     body.hidden = false;
   });
