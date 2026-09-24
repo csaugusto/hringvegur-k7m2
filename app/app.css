@@ -664,3 +664,12 @@ table.isl td.es{font-size:13px;color:var(--tx2);line-height:1.45}
    quepa —una tabla, un bloque de código— que haga su propio scroll adentro. */
 html,body{overflow-x:hidden}
 .view{max-width:100%}
+
+/* El código de reserva, en la tarjeta del alojamiento: se necesita al llegar a
+   registrarse, no en una lista de trece noches en otra pantalla. */
+.reserva-ref{display:flex;align-items:center;gap:10px;margin-top:11px;padding-top:11px;
+  border-top:1px solid var(--linea);flex-wrap:wrap}
+.reserva-ref > span{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--tx3)}
+.reserva-ref > b{flex:1;min-width:0;font-variant-numeric:tabular-nums;font-size:14px;overflow-wrap:anywhere}
+.reserva-ref > b i{font-style:normal;color:var(--tx3);font-weight:400}
+.reserva-ref button{font-size:12px;padding:5px 11px;flex:none}

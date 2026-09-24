@@ -220,6 +220,11 @@ function pintarHoy() {
         ${dm.checkin ? `<span>Entrada <b>${dm.checkin}${dm.cierre ? ' a ' + dm.cierre : ''}</b></span>` : ''}
         ${dm.checkout ? `<span>Salida <b>${dm.checkout}</b></span>` : ''}
       </div>
+      <div class="reserva-ref">
+        <span>Código de reserva</span>
+        <b>${priv.ref || '<i>sin capturar</i>'}</b>
+        <button class="ghost" onclick="editarNoche('${d.fecha}')">${priv.ref ? 'Cambiar' : 'Anotar'}</button>
+      </div>
       <div class="acciones">
         <a class="call ${tel ? '' : 'falta'}" href="${tel ? 'tel:' + tel.replace(/\s/g, '') : '#'}">${tel ? 'Llamar' : 'Falta el teléfono'}</a>
         ${lat ? botonesMapa(lat, lon, dm.nombre || dm.lugar, 'ir') : ''}
@@ -953,14 +958,6 @@ function pintarSobre() {
     <div class="kv"><span>Recoger</span><b>KEF · 30 sep 07:30<br><i>mostrador dentro de la terminal, a la izquierda al salir de aduanas</i></b></div>
     <div class="kv"><span>Entregar</span><b>KEF · 13 oct 14:00<br><i>NO en el P2 donde lo recogen: la devolución está 300 m antes de la entrada de salidas</i></b></div>
     <button class="ghost" style="margin-top:12px;width:100%" onclick="editarAuto()">Editar datos del auto</button>`;
-
-  const p = LS.get('privado', {});
-  const con = VIAJE.dias.filter(d => d.dormir);
-  $('#privado-cuerpo').innerHTML = con.map(d => {
-    const v = p[d.fecha] || {};
-    return `<div class="kv"><span>${FECHA_CORTA(d.fecha)} · ${d.dormir.lugar}</span>
-      <b>${v.ref ? v.ref : '<span style="color:var(--tx3)">sin capturar</span>'}${v.tel ? `<br><a href="tel:${v.tel.replace(/\s/g, '')}">${v.tel}</a>` : ''}</b></div>`;
-  }).join('');
 }
 
 window.editarAuto = () => {
@@ -972,14 +969,9 @@ window.editarAuto = () => {
   pintarSobre();
 };
 
-$('#btn-privado').onclick = () => {
+window.editarNoche = (f) => {
   const p = LS.get('privado', {});
-  const con = VIAJE.dias.filter(d => d.dormir);
-  const lista = con.map((d, i) => `${i + 1}. ${FECHA_CORTA(d.fecha)} ${d.dormir.lugar}`).join('\n');
-  const n = prompt(`¿Cuál editas?\n\n${lista}`);
-  const i = parseInt(n) - 1;
-  if (isNaN(i) || !con[i]) return;
-  const f = con[i].fecha, v = p[f] || {};
+  const v = p[f] || {};
   const ref = prompt('Código de reserva', v.ref || ''); if (ref === null) return;
   const tel = prompt('Teléfono del alojamiento (+354 …)', v.tel || '');
   const dir = prompt('Dirección', v.dir || '');
@@ -987,7 +979,7 @@ $('#btn-privado').onclick = () => {
   const nu = { ref, tel, dir };
   if (co && co.includes(',')) { const [x, y] = co.split(',').map(s => parseFloat(s.trim())); if (!isNaN(x)) { nu.lat = x; nu.lon = y; } }
   LS.set('privado', { ...p, [f]: nu });
-  pintarSobre(); pintarHoy();
+  pintarHoy(); pintarDias();
 };
 
 // ─────────────────────────── ALERTAS OFICIALES ───────────────────────────
