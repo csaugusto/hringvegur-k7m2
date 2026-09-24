@@ -401,13 +401,13 @@ function pintarDias() {
         <div class="luz-pies" style="margin-top:10px">
           <span>Amanece <b>${d.amanecer}</b></span><span>Ocaso <b>${d.ocaso}</b></span>
           <span>Crepúsculo <b>${d.crep_fin}</b></span></div></section>
+      <section class="card dormir-card">${tarjetaDormir(d, 'Duermen en')}</section>
       <section class="bloque"><h2 style="margin-bottom:10px">Paradas</h2>
         <ol class="paradas">${d.puntos.map((p, i) => `
           <li class="cat-${p.cat || 'Interés'}"><span class="num">${i + 1}</span>
             <span class="np"><strong>${p.n}</strong>${p.nota ? `<small>${p.nota}</small>` : ''}</span>
             ${botonesMapa(p.lat, p.lon, p.n)}${fichaQH(p.n)}</li>`).join('')}</ol></section>
       ${d.servicios?.length ? `<section class="bloque"><h2 style="margin-bottom:10px">Gasolina y provisiones</h2>${servicios(d.servicios)}</section>` : ''}
-      <section class="card dormir-card">${tarjetaDormir(d, 'Duermen en')}</section>
       ${d.avisos.map(aviso).join('')}`;
     body.hidden = false;
   });
