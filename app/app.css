@@ -242,8 +242,12 @@ button{font:inherit;color:inherit;cursor:pointer}
 .reglas li{margin-bottom:9px;font-size:14px;line-height:1.45}
 .kv{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
 .kv:last-child{border:0}
-.kv span{color:var(--tx2);flex:none}
-.kv b{text-align:right;font-variant-numeric:tabular-nums;word-break:break-word}
+/* flex:none impedía que la etiqueta se encogiera: con textos largos —los de
+   Peajes traen un párrafo dentro del span— la fila crecía a miles de píxeles y
+   aparecía scroll horizontal en toda la app. min-width:0 es lo que deja que un
+   hijo de flex baje de su ancho de contenido y por fin haga wrap. */
+.kv span{color:var(--tx2);flex:1 1 auto;min-width:0;overflow-wrap:anywhere}
+.kv b{text-align:right;font-variant-numeric:tabular-nums;word-break:break-word;flex:none;max-width:52%}
 .segmentado{display:flex;gap:6px}
 .segmentado button{flex:1;background:var(--bg2);border:1px solid var(--line);border-radius:var(--r2);
   padding:11px 6px;font-size:13.5px;font-weight:600;color:var(--tx2)}
@@ -654,3 +658,9 @@ table.isl td.es{font-size:13px;color:var(--tx2);line-height:1.45}
 .cam-nav button:disabled{opacity:.3}
 .cam-nav #cam-dia{flex:1;text-align:center;font-size:13px;color:var(--tx2)}
 .cam-nav #cam-dia b{color:var(--tx1)}
+
+
+/* Ningún contenido debe empujar el ancho de la página. Lo que de verdad no
+   quepa —una tabla, un bloque de código— que haga su propio scroll adentro. */
+html,body{overflow-x:hidden}
+.view{max-width:100%}
