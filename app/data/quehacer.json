@@ -460,6 +460,16 @@
    "costo": "Gratis, entrada y estacionamiento.",
    "fuente": "investigado y verificado · acceso por la 42, asfalto",
    "sinverificar": false
+  },
+  "Sunnumörk": {
+   "n": "Sunnumörk",
+   "que": "Es un centro comercial, y en el piso tiene una franja de cristal reforzado sobre una grieta sísmica, iluminada por dentro para que se vea el fondo. La destaparon al excavar en 2003 y decidieron dejarla a la vista. Al lado está la exposición Quake 2008 sobre el terremoto que sacudió el pueblo. Se ve en 20 o 30 minutos.",
+   "rato": "20-30 min, o 45 si se suben al simulador y hacen súper",
+   "foto": "La grieta a ras de piso con la luz de abajo saliendo por el cristal; de pie encima, apuntando hacia abajo, se ve el fondo.",
+   "ojo": "Una precisión, porque la etiqueta turística exagera: la ficha oficial la describe como una grieta sísmica de 4,000 a 5,000 años, no como la raya que separa Europa de América. Hveragerði cae dentro de la zona de borde de placas, pero ese borde es una franja de decenas de kilómetros, no una línea. Sigue valiendo la pena, sólo que no es lo que dice el folleto.",
+   "costo": "La grieta y la exposición, gratis. Sólo el simulador de sismo cobra, unos 300 ISK.",
+   "fuente": "ficha oficial del sitio y del municipio de Hveragerði",
+   "sinverificar": false
   }
  }
 }

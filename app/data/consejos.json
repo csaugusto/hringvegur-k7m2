@@ -493,6 +493,12 @@
    "tipo": "ruta",
    "dia": "2026-10-07",
    "fuente": "reserva en Landbrot Guesthouse"
+  },
+  {
+   "que": "El Bónus de Hveragerði está en el mismo complejo de Sunnumörk y abre de 10:00 a 20:00, más tarde que el centro comercial. Si van por la grieta, resuelvan ahí la compra de los últimos días: es de los últimos Bónus grandes antes de Reikiavik.",
+   "tipo": "dinero",
+   "dia": "2026-10-09",
+   "fuente": "mismo complejo, Breiðamörk 21"
   }
  ]
 }

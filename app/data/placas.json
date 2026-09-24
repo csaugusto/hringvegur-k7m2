@@ -1,0 +1,53 @@
+{
+  "veredicto": "El centro comercial Sunnumörk, en Hveragerði: sí existe, está construido encima de una grieta y la dejaron a la vista bajo un piso de cristal iluminado.",
+  "existe_centro_comercial": true,
+  "porque": "Al excavar los cimientos en 2003 apareció una fisura; en vez de mover la obra la cubrieron con cristal reforzado y la iluminaron, y hoy es parte del piso del centro comercial junto a la exposición Quake 2008. Hasta ahí, comprobado por la web del municipio y por Visit Iceland. Lo que no aguanta la lupa es la etiqueta de folleto: la ficha oficial la describe como una grieta sísmica de unos 4.000 a 5.000 años, no como la línea que separa Europa de América. Hveragerði sí cae dentro de la zona de borde de placas (el cruce de la Zona Volcánica Occidental, la Zona Sísmica del Sur y el rift de Reykjanes), pero ese borde es una franja de decenas de kilómetros, no una raya que se cruza de un paso.",
+  "lugar": {
+    "n": "Sunnumörk (verslunarmiðstöðin Sunnumörk), Hveragerði · se busca como \"Quake 2008\" o \"Sunnumörk shopping centre\"",
+    "lat": 64.0004,
+    "lon": -21.1865,
+    "que": "Entras al centro comercial y en el piso hay una franja de cristal reforzado sobre la grieta, iluminada por dentro para que se vea el fondo. Al lado está la exposición Quake 2008 sobre el terremoto de 6,3 del 29 de mayo de 2008, con epicentro a 2 km del pueblo: fotos, video de cámaras de seguridad y testimonios. También hay un simulador de sismo. En el mismo complejo hay Bónus, farmacia, biblioteca y cafés, así que la parada de súper la hacen aquí mismo.",
+    "rato": "20 a 30 minutos para la grieta y la exposición. 45 si se suben al simulador y hacen súper en el Bónus.",
+    "como_llegar": "Carretera 1. Hveragerði está 12 km al oeste de Selfoss y 45 km al este de Reikiavik. Sales de la 1 por Breiðamörk hacia el pueblo y en unos 700 m llegas a Breiðamörk 21, que es el edificio. Estacionamiento propio y gratis.",
+    "cuesta": "La grieta y la exposición son gratis. Sólo se cobra el simulador de sismo: unos 300 ISK según la ficha oficial, precio que puede haber subido, pregúntalo ahí.",
+    "dia_sugerido": "Viernes 9 de octubre, al cerrar el día de cascadas. Duermen en Selfoss y Hveragerði queda 12 km más adelante por la misma carretera 1, así que es el único desvío corto de todo el viaje. Además el viernes es el último día hábil que les sirve: el horario de invierno es lunes a viernes y el 10 cae sábado y el 11 domingo.",
+    "minutos_extra": 50,
+    "ojo": "Horario de invierno (1 sep a 31 may): lunes a viernes de 8:30 a 16:00, cerrado sábado y domingo. Eso tira el plan de meterlo el 10 en el Círculo Dorado. El 9 tienen que salir de Seljalandsfoss a más tardar a las 14:15 para llegar antes de las 16:00. El Bónus del mismo complejo abre de 10:00 a 20:00 todos los días, pero no está confirmado que la grieta se pueda ver con la oficina de información cerrada, así que no lo apuesten a eso. Si el viernes se les cierra la ventana, el repuesto es el lunes 12, que es día libre en Reikiavik con sólo 40 km planeados: ahí son 90 km ida y vuelta, unos 110 minutos en total.",
+    "confianza": "alta"
+  },
+  "descartados": [
+    {
+      "n": "Puente entre Continentes (Miðlína / Brú milli heimsálfa), Sandvík, Reykjanes",
+      "porque": "Existe y es gratis, abierto 24 h todo el año, en la carretera 425 con estacionamiento, en 63.8682 / -22.6754. Es el sitio que más se parece a \"donde se encuentran las dos placas\", pero es una pasarela peatonal de 15 m sobre una fisura en la arena, al aire libre y sin nada comercial: no es lo que Carlos recuerda. Si de todas formas lo quieren, el 13 de octubre cae bien, queda a unos 25 minutos al suroeste del aeropuerto y el vuelo es a las 17:05. Aviso de Visit Reykjanes: con la actividad sísmica se han abierto grietas nuevas en la zona, no salirse de los senderos marcados."
+    },
+    {
+      "n": "Þingvellir · Almannagjá",
+      "porque": "Es la grieta caminable entre placas más famosa del país y ya la tienen el 10 de octubre, pero es un parque nacional al aire libre. No hay edificio ni piso de cristal, así que no es el recuerdo del centro comercial."
+    },
+    {
+      "n": "Lava Centre, Hvolsvöllur",
+      "porque": "Museo de vulcanología y placas con tienda y cafetería, sobre la carretera 1 y lo pasan el 9 de octubre. Encaja con \"centro\" pero no con \"comercial\", no está construido sobre ninguna fisura y la entrada se paga. No es esto."
+    },
+    {
+      "n": "Perlan",
+      "porque": "Tiene exposición de geología y placas y ya está el 11 de octubre, pero está sobre unos tanques de agua caliente en Reikiavik, no sobre una grieta."
+    },
+    {
+      "n": "Silfra, Þingvellir",
+      "porque": "La fisura donde se bucea entre placas. Nada comercial y además es actividad de pago con traje seco, fuera de temporada cómoda en octubre."
+    }
+  ],
+  "fuentes": [
+    "https://www.hveragerdi.is/is/mannlif/hvad-er-i-hvergerdi/upplysingamidstod",
+    "https://www.visiticeland.com/service-provider/5ec7d096a90548233654E3DD",
+    "https://www.south.is/en/service/hveragerdi-regional-information-center",
+    "https://www.atlasobscura.com/places/hveragerdi-sunnum-rk-shopping-centre",
+    "https://explorersweb.com/this-strange-iceland-shopping-center-straddles-europe-and-north-america/",
+    "https://nat.is/the-quake-2008/",
+    "https://bonus.is/opnunartimar/",
+    "https://www.visitreykjanes.is/en/place/bridge-between-continents",
+    "https://www.visitreykjanes.is/en/blogg/access-around-reykjanes",
+    "https://safetravel.is/eruption-in-reykjanes/",
+    "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017GC007045"
+  ]
+}
