@@ -209,9 +209,9 @@ function tarjetaDormir(d, titulo) {
         <button class="ghost" onclick="editarNoche('${d.fecha}')">${priv.ref ? 'Cambiar' : 'Anotar'}</button>
       </div>
       <div class="acciones">
-        <a class="call ${tel ? '' : 'falta'}" href="${tel ? 'tel:' + tel.replace(/\s/g, '') : '#'}">${tel ? 'Llamar' : 'Falta el teléfono'}</a>
+        ${dm.url ? `<a class="call" href="${dm.url}" target="_blank" rel="noopener">${/airbnb/i.test(dm.url) ? 'Escribir por Airbnb' : 'Escribir por Booking'}</a>` : ''}
+        ${tel ? `<a class="call sec" href="tel:${tel.replace(/\s/g, '')}">${tel}</a>` : ''}
         ${lat ? botonesMapa(lat, lon, dm.nombre || dm.lugar, 'ir') : ''}
-        ${dm.url ? `<a href="${dm.url}" target="_blank" rel="noopener">Booking</a>` : ''}
       </div>
       ${dm.cierre ? `<p class="nota">Corte duro a las ${dm.cierre}. Si van a llegar después, avisen hoy mismo mientras haya señal.</p>` : ''}
       ${dm.llegada_tarde ? `<p class="nota">Llegada tardía: ${dm.llegada_tarde}</p>` : ''}
@@ -964,8 +964,13 @@ function pintarSobre() {
   // ficha del aeropuerto en kefairport.com. El de asistencia en carretera es el
   // que sirve a las 3 de la mañana en medio de los fiordos; los otros dos no.
   $('#auto-cuerpo').innerHTML = `
+    <p class="nota" style="border-color:var(--lava);margin-bottom:12px">Sin línea telefónica estos
+      números NO se marcan solos: el teléfono abre el marcador y la llamada no sale. El único que
+      los alcanza con datos es <b>Viber Out</b>. Höldur no tiene WhatsApp ni chat, verificado.
+      Su único canal escrito es <a href="mailto:customerservice@holdur.is">customerservice@holdur.is</a>,
+      y sólo de lunes a viernes de 9 a 17.</p>
     <a class="tel grande" href="tel:+3544192400"><span>+354 419 2400</span>
-      <small>Höldur · asistencia en carretera, 24 horas</small></a>
+      <small>Höldur · asistencia en carretera, 24 horas · marcar por Viber Out</small></a>
     <a class="tel" href="tel:+3548406000"><span>+354 840 6000</span>
       <small>Emergencia fuera del horario de oficina</small></a>
     <a class="tel" href="tel:+3544616000"><span>+354 461 6000</span>

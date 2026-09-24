@@ -504,6 +504,47 @@
    "que": "Las cuatro noches de Airbnb —Selfoss el 9 y Reikiavik del 10 al 13— no traen dirección ni hora de entrada: en Airbnb eso aparece al confirmar con el anfitrión. Consíganlas antes de volar y anótenlas, porque llegar a Selfoss de noche sin dirección exacta es el tipo de problema que no se resuelve sin datos.",
    "tipo": "reserva",
    "fuente": "las cuatro reservas de Airbnb del Excel"
+  },
+  {
+   "que": "Sin línea telefónica, el 112 SÍ funciona: no hace falta plan de voz ni siquiera SIM, y con eSIM de datos el teléfono queda registrado en la red islandesa. El riesgo no es el plan, es otro: Islandia apagó 2G y 3G en junio de 2026 y hay teléfonos comprados fuera de Europa que al marcar 112 se meten en modo emergencia y buscan una red que ya no existe. Al aterrizar, marquen 1280 desde CADA teléfono: es la prueba gratis del 112 y contesta una grabación diciendo que llegó.",
+   "tipo": "peligro",
+   "dia": "2026-09-30",
+   "fuente": "Neyðarlínan y el informe de la Comisión Europea sobre llamadas sin SIM"
+  },
+  {
+   "que": "Si el 112 no entrara, el respaldo que sí funciona con puros datos es el chat del 112 en 112.is/en/chat: 24 horas, en inglés y sin registro. Déjenlo como acceso directo en la pantalla de inicio de los dos teléfonos ANTES de volar, no cuando haga falta.",
+   "tipo": "peligro",
+   "fuente": "112.is, canal de chat oficial"
+  },
+  {
+   "que": "Cuidado con las guías: la app «112 Iceland» del botón rojo y el check-in YA NO EXISTE, devuelve cero resultados en la App Store. Las que sí están hoy, y sí aparecen en la tienda mexicana, son «112 Neyðarlínan» y «SafeTravel - Iceland». Instálenlas con wifi y llenen los datos personales dentro antes de volar.",
+   "tipo": "tip",
+   "fuente": "App Store de México y de Islandia, verificado"
+  },
+  {
+   "que": "Para el auto averiado no hay salida escrita: la asistencia de Höldur es un teléfono y nada más, el +354 419 2400. NO tienen WhatsApp ni chat, verificado en su web, su contacto y su FAQ. Su único canal escrito es customerservice@holdur.is y sólo de lunes a viernes de 9 a 17. Lo único que marca ese número con datos es Viber Out, desde 2.9 centavos de dólar el minuto: instalen Viber, carguen cinco dólares y PRUEBEN una llamada desde México antes de volar.",
+   "tipo": "peligro",
+   "fuente": "holdurcarrental.is, contacto y FAQ; tarifas de Viber Out"
+  },
+  {
+   "que": "WhatsApp no es el canal en Islandia. Allá domina Facebook Messenger, y los guesthouses de pueblo publican móvil y correo. Para avisar que llegan tarde, la vía que de verdad llega es el hilo de mensajes de Booking —le manda correo y notificación al anfitrión en su app Pulse— y el chat de Airbnb para las cuatro noches que son de ahí.",
+   "tipo": "tip",
+   "fuente": "uso real de mensajería en Islandia; canales de Booking y Airbnb"
+  },
+  {
+   "que": "Quiten el problema del corte duro en vez de manejarlo: escríbanles AHORA, desde México y por el hilo de Booking, a Landbrot Guesthouse (Kirkjubæjarklaustur, cierra 21:00) y a Prestshús 2 (Vík, cierra 22:00), y pidan código de caja de llaves o instrucciones de llegada tardía. Con eso el corte deja de importar aunque el día se alargue.",
+   "tipo": "reserva",
+   "fuente": "las dos reservas con ventana de check-in"
+  },
+  {
+   "que": "Sin línea NO reciben ningún SMS, y eso rompe la verificación en dos pasos de Booking, de Airbnb y del banco, y hace imposible reinstalar WhatsApp. Antes de volar: no cerrar sesión en ninguna de las tres, pasar la verificación a app de autenticador donde se pueda, y decidir si dejan la línea mexicana activa sólo para recibir códigos con los datos de roaming apagados.",
+   "tipo": "peligro",
+   "fuente": "limitación de una eSIM de solo datos"
+  },
+  {
+   "que": "El SOS por satélite de Apple sí está en Islandia desde el 23 de julio de 2026, y funciona sin plan de voz — pero pide iPhone 14 o posterior Y iOS 26.4 o más nuevo, que es un requisito más alto que en otros países. Actualicen los dos teléfonos antes de volar. Si uno es iPhone 13 o anterior, ese no lo tiene y conviene que no se separe del otro.",
+   "tipo": "peligro",
+   "fuente": "disponibilidad de Emergencia SOS vía satélite en Islandia"
   }
  ]
 }

@@ -1,0 +1,119 @@
+{
+ "_": "Qué funciona y qué no con datos móviles y sin línea de voz. Verificado el 24 de septiembre de 2026 contra 112.is, Fjarskiptastofa, safetravel.is, Apple, App Store de México y holdurcarrental.is.",
+ "_ojo": "Los botones Llamar con enlaces tel: de la app no sirven con una eSIM de solo datos. El teléfono abre el marcador y la llamada no sale. Eso incluye los teléfonos de Höldur y los de los alojamientos.",
+
+ "resumen": "Al 112 sí pueden llamar: no hace falta plan de voz ni siquiera SIM, y con una eSIM de datos el teléfono queda registrado en la red islandesa, que es más de lo que se necesita. El riesgo real no es el plan, es que Islandia apagó 2G y 3G en junio de 2026 y hay teléfonos comprados fuera del EEE que al marcar 112 se meten en modo emergencia y buscan una red que ya no existe; eso se prueba gratis marcando 1280 al aterrizar. Todo lo demás que no sea el 112 hay que resolverlo por internet: el chat de 112.is, el chat de Booking y el de Airbnb, correo, y Viber Out si hace falta marcar un número islandés de verdad. WhatsApp no llama a números normales, solo a otros usuarios de WhatsApp, así que para el 419 2400 de Höldur no sirve. Y sin línea no reciben SMS, o sea que ningún código de verificación por mensaje les va a llegar.",
+
+ "112": {
+  "funciona": true,
+  "porque": "Tres casos distintos, y ninguno depende de tener plan de voz. Uno: teléfono sin ninguna SIM. En Islandia sí se permite llamar al 112 desde un equipo sin SIM; el informe de la Comisión Europea sobre el código europeo de comunicaciones contó unas 5.550 llamadas de emergencia sin SIM recibidas en Islandia, o sea que no es teoría, pasa todos los días. Dos: SIM sin saldo o sin plan de voz. Funciona igual, y con más razón, porque la red ya tiene al equipo identificado. Tres, el que importa: eSIM de solo datos. Sí registra el equipo en la red islandesa, es justo lo que hace para darte datos, y ese registro es más fuerte que el de un teléfono sin SIM. El marcador del iPhone trata el 112 como llamada de emergencia y la red está obligada a cursarla aunque el perfil no tenga servicio de voz. Ahí no está el problema. El problema es otro y es nuevo: Islandia fue el primer país de Europa en apagar 2G y 3G, el último transmisor 3G se cerró el 1 de junio de 2026, y Fjarskiptastofa calcula que quedaban unos 6.000 equipos que no alcanzan el 112, sobre todo teléfonos viejos o comprados fuera del EEE. El fallo típico es que el equipo hace llamadas normales bien, pero al marcar 112 salta a modo emergencia y busca 3G, que ya no hay. Por eso hay que llevar VoLTE activado y actualizado, y por eso hay que probarlo: se marca 1280 gratis y contesta una grabación que dice que la llamada de prueba llegó. Si 1280 no contesta, ese teléfono no alcanza el 112 y hay que ir por el chat. Números de respaldo: 599 0112 dentro de Islandia si el 112 no entra, aunque se atiende como llamada normal, sin prioridad y sin envío automático de ubicación; +354 570 2112 desde el extranjero; +354 809 0112 por satélite.",
+  "confianza": "alta",
+  "fuente": "112.is/en/calling-112, 112.is/en/important-information-regarding-calls-to-112, Fjarskiptastofa (2G/3G shutdown may affect access to 112), safetravel.is/travel-conditions/2g-and-3g-phase-out, Comisión Europea COM(2020) 808"
+ },
+
+ "app112": {
+  "sirve": true,
+  "que_hace": "Cuidado, porque casi todas las guías de internet describen una app que ya no existe. La vieja 112 Iceland, la del botón rojo y el botón verde de check-in que mandaba SMS, ya no está en la App Store: su ficha devuelve cero resultados tanto en la tienda de México como en la de Islandia. Lo que hay hoy son dos apps, las dos sí disponibles en la App Store de México sin cambiar de tienda. Primera, 112 Neyðarlínan, de Samsyn ehf, actualizada en julio de 2026, en islandés, inglés y polaco: abre una conversación de texto con un operador del 112 y manda tu ubicación, tus datos y una descripción de lo que pasa, y permite adjuntar foto. Segunda, SafeTravel - Iceland, de Stokkur Software, actualizada en agosto de 2026, en inglés, iOS 14 o más: estado de carreteras y clima, y una función para mandar tu ubicación GPS al 112. Esa es la que hace hoy lo del check-in. Lo que no pude confirmar con fuente primaria es si la app de Neyðarlínan manda por datos o por SMS. La página de 112.is dice que abre comunicación de texto con el operador y que se pueden mandar fotos, lo cual por SMS no se puede, así que casi seguro va por datos; pero hay textos viejos del propio 112 que decían que la app mandaba un SMS antes de llamar. Con una eSIM de solo datos un SMS no sale. Por eso no cuelgues la seguridad de la app. El canal que sí está confirmado que funciona con puros datos es el chat web del 112, en 112.is/en/chat, atendido las 24 horas todos los días del año, en inglés, sin registro ni cuenta. El propio 112 dice que recibe avisos por teléfono, por la app, por SMS y por chat web. El SMS queda descartado para ustedes; el chat no.",
+  "registro_previo": "Las dos apps se bajan gratis de la App Store de México, no hace falta cambiar de tienda ni número islandés. Bájenlas y ábranlas en México, con wifi, y llenen los datos personales dentro de la app: nombre, edad, contacto. En medio de una emergencia no vas a llenar un formulario. Aparte, dejen registrado el plan de viaje en safetravel.is/travel-plan antes de volar: pide nombre como en el pasaporte, teléfono, correo, con quién viajan y un contacto de emergencia que NO vaya en el viaje, alguien en México que pueda hablarle al 112 por ustedes. Y pongan 112.is/en/chat como acceso directo en la pantalla de inicio de los dos iPhones, para no andar buscándolo.",
+  "fuente": "112.is/en/112-appid, 112.is/en/chat, 112.is/en/calling-112, App Store MX (112 Neyðarlínan id1446263597, SafeTravel - Iceland id1550606986), safetravel.is/travel-plan"
+ },
+
+ "sos_satelital": {
+  "disponible": true,
+  "desde_modelo": "iPhone 14 o posterior, todos los modelos. Para Islandia hace falta iOS 26.4 o más nuevo: es un requisito más alto que en otros países porque Islandia se activó tarde, el 23 de julio de 2026, junto con Andorra. Si uno de los dos teléfonos es un iPhone 13 o anterior, ese no tiene SOS por satélite y punto. Y si están en iOS 26.3 no les va a funcionar aunque el teléfono sea nuevo, así que actualicen antes de volar.",
+  "sin_plan_de_voz": "Sí. Apple no condiciona el SOS por satélite a tener plan de voz ni contrato con operador; va incluido con el equipo, gratis dos años desde que se activó el iPhone, y está pensado justo para cuando no hay red celular ni wifi. Funciona sin cobertura, que es el caso de los fiordos del este, del interior y de buena parte del tramo entre Egilsstaðir y Höfn. Hay que salir al aire libre con vista despejada del cielo y del horizonte: dentro del coche, en un cañón o con el cielo tapado, no engancha. En Islandia permite llamar o mandar mensaje al 112 por satélite. Lo que no pude verificar con una frase explícita de Apple es qué pasa si el iPhone no tiene absolutamente ninguna SIM activa; lo que sí es claro es que no pide plan de voz, y ustedes van a llevar una eSIM de datos activa, así que el caso raro no les aplica.",
+  "fuente": "support.apple.com/en-us/101573 (Use Emergency SOS via satellite on your iPhone), anuncio de expansión a Islandia y Andorra del 23 de julio de 2026"
+ },
+
+ "canales": [
+  {
+   "para": "Emergencia médica o accidente con gente herida",
+   "como": "Marca 112. Es lo primero y no hay sustituto. Si la llamada no entra, chat del 112 en 112.is/en/chat, que va por datos y está atendido 24 horas. Si tampoco hay datos ni señal, SOS por satélite del iPhone al aire libre. Respaldos de voz si el 112 falla: 599 0112 dentro de Islandia, +354 570 2112 desde fuera, +354 809 0112 por satélite.",
+   "funciona_sin_linea": true,
+   "ojo": "El 599 0112 se atiende como llamada normal: sin prioridad y sin mandar tu ubicación sola. Tienes que decir dónde estás. Ten a mano las coordenadas."
+  },
+  {
+   "para": "Accidente de tráfico con el Kia, sin heridos",
+   "como": "Primero 112 si hay riesgo, carretera bloqueada o daño a terceros. Después, y esto es obligación del contrato, avisar a Höldur sin demora: correo a customerservice@holdur.is y el formulario de holdurcarrental.is/information/contact-details. Si hace falta hablar, Viber Out al +354 461 6000.",
+   "funciona_sin_linea": true,
+   "ojo": "Los términos de Höldur dicen que el daño no reportado corre por cuenta del que renta. Manda el correo el mismo día, con fotos, hora, lugar y número de contrato, aunque no te contesten hasta el lunes."
+  },
+  {
+   "para": "Höldur, auto averiado en carretera",
+   "como": "La asistencia en carretera de Höldur es un teléfono y nada más: +354 419 2400, 24 horas. No tienen WhatsApp ni chat en vivo; revisé su portada, su página de contacto y sus preguntas frecuentes y no aparece ninguna de las dos cosas en el código de la página. El único canal escrito real es correo a customerservice@holdur.is y el formulario de su página de contacto, y eso se atiende de lunes a viernes de 9 a 17 hora de Islandia, o sea que a las diez de la noche en la Ring Road no te sirve. Para marcar ese 419 2400 con puros datos la única salida práctica es Viber Out, que sí llama a números islandeses normales, fijos o móviles, desde 2.9 centavos de dólar por minuto. Hay que instalarlo y cargarle saldo ANTES de volar. La otra salida, sin gastar nada, es que alguien en México marque por ustedes.",
+   "funciona_sin_linea": true,
+   "ojo": "WhatsApp no puede llamar al 419 2400. WhatsApp solo llama a otros usuarios de WhatsApp: la llamada nunca toca la red telefónica. Y Höldur no publica ningún número de WhatsApp, así que no hay cuenta a la cual llamar. FaceTime igual: solo entre dispositivos Apple con la cuenta registrada, no marca números normales. Otros números de Höldur: +354 840 6000 emergencia fuera de horario, +354 461 6000 mostrador y atención a clientes, +354 840 9853 averías de autocaravana."
+  },
+  {
+   "para": "Alojamientos, avisar que llegan tarde",
+   "como": "El hilo de mensajes de Booking.com para los nueve de Booking, y el chat de Airbnb para los cuatro de Airbnb. Los dos van por datos y los dos le avisan al anfitrión de verdad: Booking le manda correo y notificación push a la app Pulse del anfitrión, y además genera un alias anónimo @partner.booking.com por si prefieres escribir por correo. Correo directo del alojamiento como segundo canal, cuando lo tengas.",
+   "funciona_sin_linea": true,
+   "ojo": "No cuenten con WhatsApp por defecto. En Islandia el mensajero dominante es Facebook Messenger, no WhatsApp, y los guesthouses de pueblo publican móvil y correo, no WhatsApp. Mandar un WhatsApp a un número islandés que nunca abrió la app es tirar el mensaje al vacío. Úsenlo solo con los alojamientos que ustedes hayan confirmado antes que sí lo tienen."
+  },
+  {
+   "para": "Los dos con corte duro: Kirkjubæjarklaustur 21:00 y Vík 22:00",
+   "como": "La vía que de verdad llega es quitarle el problema de encima: escríbeles AHORA, desde México, por el hilo de Booking, y pide tres cosas. Uno, código de caja de llaves o instrucciones de entrada autónoma para llegar después de la hora de corte. Dos, un correo directo de la persona. Tres, si tienen WhatsApp y con qué número. Si te dan caja de llaves, el corte deja de ser un corte. El día del viaje, si ves que se hace tarde, avisa por el hilo de Booking en cuanto lo sepas, no a las 20:45.",
+   "funciona_sin_linea": true,
+   "ojo": "Landbrot Guesthouse en Kirkjubæjarklaustur, noche del 7 de octubre, cierre 21:00. Prestshús 2 Guesthouse en Vík, noche del 8 de octubre, cierre 22:00. En octubre oscurece temprano y el tramo Höfn - Klaustur no perdona: salgan con horas de sobra en vez de confiar en avisar."
+  },
+  {
+   "para": "Llamar a cualquier número islandés normal usando datos",
+   "como": "Viber Out. Llama a fijos y móviles de Islandia aunque el que recibe no tenga Viber, desde 2.9 centavos de dólar por minuto según la propia tarifa de Viber. Se compra saldo prepagado, con cinco dólares tienen de sobra para todo el viaje. Instálenlo y prueben una llamada desde México antes de volar.",
+   "funciona_sin_linea": true,
+   "ojo": "Skype cerró el 5 de mayo de 2025, ya no es opción. Google Voice solo da números de Estados Unidos y no les sirve desde una cuenta mexicana. WhatsApp y FaceTime no marcan números normales. Viber Out es de los pocos que quedan con tarifa clara a Islandia."
+  },
+  {
+   "para": "Recibir códigos de verificación por SMS",
+   "como": "No hay forma con una eSIM de solo datos. No llega ningún SMS.",
+   "funciona_sin_linea": false,
+   "ojo": "Esto tumba más cosas de las que parece: entrar de nuevo a Booking o a Airbnb si les piden verificación de dos pasos, reinstalar WhatsApp, cualquier clave del banco. WhatsApp solo se registra con un código por SMS o llamada al número; si se salen de la sesión en Islandia, no pueden volver a entrar. No cierres sesión en nada. Si pueden, dejen la línea mexicana activa con datos apagados solo para recibir SMS, o cambien la verificación de dos pasos a app de autenticación antes de volar."
+  }
+ ],
+
+ "antes_de_volar": [
+  "Actualizar los dos iPhones a iOS 26.4 o más nuevo. Sin eso no hay SOS por satélite en Islandia, aunque el teléfono sea reciente.",
+  "Confirmar que los dos son iPhone 14 o posterior. Si uno es iPhone 13 o anterior, ese no tiene SOS por satélite: que ese vaya siempre acompañado del otro.",
+  "Activar VoLTE o Llamadas 4G en los dos, y actualizar los ajustes del operador. Es lo que decide si el 112 entra en una red sin 2G ni 3G.",
+  "Al aterrizar en Keflavík, marcar 1280 desde cada teléfono. Es la prueba gratuita del 112 y contesta una grabación diciendo que la llamada de prueba llegó. Si no contesta, ese teléfono no alcanza el 112 y hay que ir por el chat de 112.is.",
+  "Instalar 112 Neyðarlínan y SafeTravel - Iceland desde la App Store de México, abrirlas con wifi y llenar los datos personales dentro de la app.",
+  "Poner 112.is/en/chat como acceso directo en la pantalla de inicio de los dos iPhones. Es el canal de emergencia confirmado que funciona con puros datos.",
+  "Guardar en Contactos los respaldos del 112: 599 0112, +354 570 2112 y +354 809 0112 por satélite.",
+  "Instalar Viber, cargar cinco dólares de saldo de Viber Out y probar una llamada a un número fijo desde México. Es lo único que les deja marcar el 419 2400 de Höldur con datos.",
+  "Guardar los datos de Höldur en el teléfono y en papel: customerservice@holdur.is, 419 2400 asistencia en carretera, 840 6000 fuera de horario, 461 6000 mostrador, 840 9853 autocaravana, más el número del contrato de renta.",
+  "Registrar el plan de viaje en safetravel.is/travel-plan, con un contacto de emergencia en México que no vaya en el viaje.",
+  "Escribir a los trece alojamientos por el hilo de Booking o de Airbnb y pedir: correo directo, si tienen WhatsApp y con qué número, y código de caja de llaves o entrada autónoma. Empezar por Landbrot en Kirkjubæjarklaustur y Prestshús 2 en Vík, que son los de corte duro.",
+  "No cerrar sesión en WhatsApp, Booking ni Airbnb. Sin SMS no pueden volver a entrar. Donde se pueda, pasar la verificación de dos pasos a app de autenticación antes de volar.",
+  "Decidir qué hacen con la línea mexicana. Si la dejan activa solo para recibir SMS, con datos de roaming apagados, conservan la vía de los códigos. Si la apagan, asumir que no reciben ningún SMS en todo el viaje.",
+  "Acordar con alguien en México que sea el teléfono de respaldo: que tenga los números de Höldur, los de los alojamientos y el 112, y que sepa que puede sonarle el teléfono a las tres de la mañana.",
+  "Cargar mapas sin conexión de toda la Ring Road, y llevar cable y batería en el coche. Sin teléfono con pila no hay ninguno de estos canales."
+ ],
+
+ "fuentes": [
+  "https://www.112.is/en/calling-112",
+  "https://www.112.is/en/important-information-regarding-calls-to-112",
+  "https://www.112.is/en/chat",
+  "https://www.112.is/en/112-appid",
+  "https://www.112.is/en/112",
+  "https://www.fjarskiptastofa.is/english/about-ecoi/news-archive/article/fréttir/2g-and-3g-shutdown-may-affect-access-to-the-emergency-number-112",
+  "https://safetravel.is/travel-conditions/2g-and-3g-phase-out/",
+  "https://safetravel.is/travel-plan",
+  "https://www.icelandreview.com/news/iceland-2g-3g-shutdown-4g-phones-112-review-2026/",
+  "https://www.ruv.is/english/2026-06-26-up-to-6000-phones-unable-to-reach-112-after-2g-and-3g-shutdown-479590",
+  "https://blogg.elko.is/upplysingar-vegna-neydarsimtala-112-og-lokunar-2g-3g-simkerfa/ (prueba con 1280)",
+  "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A52020DC0808 (llamadas de emergencia sin SIM, cifras de Islandia)",
+  "https://support.apple.com/en-us/101573",
+  "https://apps.apple.com/mx/app/112-neyðarlínan/id1446263597",
+  "https://apps.apple.com/mx/app/safetravel-iceland/id1550606986",
+  "https://www.holdurcarrental.is/information/contact-details",
+  "https://www.holdurcarrental.is/information/terms-and-conditions-of-a-rental",
+  "https://account.viber.com/en/how-to-call-iceland",
+  "https://partner.booking.com/en-us/help/reservations/contact-extranet/contacting-guests",
+  "https://faq.whatsapp.com/1369114327051380/"
+ ],
+
+ "_no_confirmado": [
+  "Si la app 112 Neyðarlínan manda por datos o por SMS. La página de 112.is habla de comunicación de texto con fotos, que por SMS no se puede, pero no lo dice con todas sus letras. Por eso el canal recomendado es el chat web de 112.is, que sí es internet puro.",
+  "Si el SOS por satélite de Apple funciona con cero SIM en el equipo. Lo confirmado es que no pide plan de voz. Con la eSIM de datos activa no aplica el caso.",
+  "Qué alojamientos concretos tienen WhatsApp. Hay que preguntárselo a cada uno antes de volar; en Islandia el mensajero dominante es Facebook Messenger y el WhatsApp de un guesthouse de pueblo puede ser un número que nadie mira."
+ ]
+}

@@ -718,3 +718,8 @@ html,body{overflow-x:clip}
 /* La tarjeta del alojamiento dentro de un día desplegado: hereda el aspecto de
    la de Hoy, sólo se le da el margen que allá le pone el contenedor. */
 .dormir-card{margin-top:14px}
+
+/* El canal escrito manda cuando no hay línea; el número queda de respaldo
+   secundario, para quien sí pueda marcarlo. */
+.acciones .call.sec{background:none;border:1px solid var(--linea);color:var(--tx3);
+  font-variant-numeric:tabular-nums;font-size:12.5px}
