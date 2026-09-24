@@ -634,3 +634,23 @@ table.isl td.is{width:48%;padding-right:14px}
 table.isl td.is b{display:block;font-size:14px;color:var(--tx1);font-weight:600}
 table.isl td.is em{display:block;font-style:normal;font-size:12px;color:var(--aurora);margin-top:2px}
 table.isl td.es{font-size:13px;color:var(--tx2);line-height:1.45}
+
+/* Los tres husos, hasta arriba de la Guía. Islandia marcada porque es donde
+   están: sin esa ancla, dos horas sueltas no dicen nada. */
+.relojes{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--linea);
+  border:1px solid var(--linea);border-radius:12px;overflow:hidden;margin:0 0 18px}
+.rj{background:var(--card);padding:10px 8px;text-align:center}
+.rj.aqui{background:color-mix(in srgb,var(--aurora) 9%,var(--card))}
+.rj-n{display:block;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--tx3);margin-bottom:3px}
+.rj.aqui .rj-n{color:var(--aurora)}
+.rj b{font-size:21px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--tx1)}
+.rj em{display:block;font-style:normal;font-size:10.5px;color:var(--tx3);margin-top:1px}
+
+/* Navegación de días en las cámaras. Los botones son grandes a propósito:
+   se usan manejando, o con guantes. */
+.cam-nav{display:flex;align-items:center;gap:10px;margin:0 0 12px}
+.cam-nav button{min-width:40px;padding:6px 0;font-size:19px;line-height:1}
+.cam-nav button:disabled{opacity:.3}
+.cam-nav #cam-dia{flex:1;text-align:center;font-size:13px;color:var(--tx2)}
+.cam-nav #cam-dia b{color:var(--tx1)}

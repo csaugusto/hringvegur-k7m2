@@ -491,7 +491,23 @@ function renderVias(d) {
   $('#vias-todos').innerHTML = d.tramos.map(fila).join('');
 
   // cámaras del día
-  const dia = diaActivo();
+  pintarCamaras();
+}
+
+// El día que se enseña en Vías. Arranca en el de hoy, pero se puede mover: ver
+// el paso de Almannaskarð o el brezal de Fjarðarheiði la noche anterior es
+// justo como se decide si mañana se sale temprano o se espera.
+let camDia = null;
+function pintarCamaras() {
+  if (camDia === null) camDia = diaActivo().d;
+  const dia = VIAJE.dias[camDia] || diaActivo();
+  const hoy = diaDeHoy();
+  const esHoy = hoy && hoy.d === dia.d;
+  $('#cam-titulo').textContent = esHoy ? 'Cámaras de hoy' : 'Cámaras del día';
+  $('#cam-dia').innerHTML = `<b>Día ${dia.d + 1}</b> · ${FECHA_CORTA(dia.fecha)}` +
+    (esHoy ? ' · hoy' : '');
+  $('#cam-ant').disabled = camDia <= 0;
+  $('#cam-sig').disabled = camDia >= VIAJE.dias.length - 1;
   $('#cam-grid').innerHTML = (dia.camaras || []).length
     ? dia.camaras.map(c => `
         <figure class="cam">
@@ -499,8 +515,13 @@ function renderVias(d) {
                onerror="this.parentElement.classList.add('rota')">
           <figcaption><strong>${c.n}</strong><small>${c.d || ''} · a ${c.km} km</small></figcaption>
         </figure>`).join('')
-    : '<p class="muted">No hay cámaras cerca de la ruta de hoy.</p>';
+    : '<p class="muted">No hay cámaras cerca de la ruta de ese día.</p>';
   refrescarCamaras();
+}
+
+function moverCam(n) {
+  camDia = Math.max(0, Math.min(VIAJE.dias.length - 1, (camDia ?? diaActivo().d) + n));
+  pintarCamaras();
 }
 
 // Vegagerðin publica fotos, no video: se renuevan cada pocos minutos
@@ -526,6 +547,8 @@ function refrescarCamaras() {
   relojCam = setInterval(recargar, 45000);
 }
 document.addEventListener('visibilitychange', () => { if (!document.hidden) refrescarCamaras(); });
+$('#cam-ant').onclick = () => moverCam(-1);
+$('#cam-sig').onclick = () => moverCam(1);
 
 const fila = t => `<div class="via ${t.v}">
   <span class="via-n">${t.n}</span>
@@ -835,7 +858,37 @@ $('#btn-ubic').onclick = async () => {
 };
 
 // ─────────────────────────── EL SOBRE ───────────────────────────
+// Tres husos. Islandia va de referencia para que la comparación se lea sola, y
+// se calculan con Intl en vez de restar horas a mano: así el cambio de horario
+// de España —el 25 de octubre, justo después del viaje— se maneja solo.
+const HUSOS = [
+  { n: 'Islandia',  tz: 'Atlantic/Reykjavik', aqui: true },
+  { n: 'México',    tz: 'America/Mexico_City' },
+  { n: 'España',    tz: 'Europe/Madrid' },
+];
+let relojTimer = null;
+function pintarRelojes() {
+  const caja = $('#relojes');
+  if (!caja) return;
+  const ahora = new Date();
+  caja.innerHTML = HUSOS.map(h => {
+    const hora = new Intl.DateTimeFormat('es-MX', { timeZone: h.tz, hour: '2-digit',
+      minute: '2-digit', hour12: false }).format(ahora);
+    // El día puede no coincidir: cuando en Islandia es la 01:00, en México es ayer.
+    const dia = new Intl.DateTimeFormat('es-MX', { timeZone: h.tz, weekday: 'short' }).format(ahora);
+    const aca = new Intl.DateTimeFormat('es-MX', { timeZone: 'Atlantic/Reykjavik', day: 'numeric' }).format(ahora);
+    const alla = new Intl.DateTimeFormat('es-MX', { timeZone: h.tz, day: 'numeric' }).format(ahora);
+    return `<div class="rj${h.aqui ? ' aqui' : ''}">
+      <span class="rj-n">${h.n}${h.aqui ? ' · aquí' : ''}</span>
+      <b>${hora}</b>
+      ${aca !== alla ? `<em>${dia}</em>` : ''}</div>`;
+  }).join('');
+  clearInterval(relojTimer);
+  relojTimer = setInterval(pintarRelojes, 20000);
+}
+
 function pintarSobre() {
+  pintarRelojes();
   // Las palabras. Las de letrero van al final a propósito: son las únicas que
   // de verdad importan, y quedan justo antes de la lista de prohibiciones.
   const notaI = $('#isl-nota');

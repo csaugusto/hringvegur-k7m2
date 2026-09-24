@@ -114,7 +114,12 @@
     <section class="bloque" id="vias-resumen"></section>
 
     <section class="bloque">
-      <div class="card-head"><h2>Cámaras de hoy</h2><span id="cam-hora" class="edad"></span></div>
+      <div class="card-head"><h2 id="cam-titulo">Cámaras de hoy</h2><span id="cam-hora" class="edad"></span></div>
+      <div class="cam-nav">
+        <button id="cam-ant" class="ghost" aria-label="Día anterior">‹</button>
+        <span id="cam-dia"></span>
+        <button id="cam-sig" class="ghost" aria-label="Día siguiente">›</button>
+      </div>
       <p class="sub" style="margin-bottom:10px">Son fotos, no video: Vegagerðin las renueva cada pocos minutos. La app las vuelve a pedir cada 45 s mientras tengas esta pantalla abierta.</p>
       <div id="cam-grid" class="cams"></div>
     </section>
@@ -182,6 +187,8 @@
   <section id="v-sobre" class="view" hidden>
     <header class="vhead"><h1>Guía</h1></header>
     <p class="sub">Todo lo que hay que saber y no se recuerda. Funciona sin señal.</p>
+
+    <div id="relojes" class="relojes"></div>
 
     <!-- Conversor -->
     <div class="card conv">
