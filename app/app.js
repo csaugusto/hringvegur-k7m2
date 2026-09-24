@@ -258,7 +258,20 @@ function pintarHoy() {
   if (!sv.hidden) $('#servicios-cuerpo').innerHTML = servicios(d.servicios);
 
   // avisos
-  $('#hoy-avisos').innerHTML = d.avisos.map(a => aviso(a)).join('');
+  // Los avisos del día eran el 60% de la pantalla en fila plana. Los de peligro
+  // se quedan a la vista porque son los que pueden lastimarte HOY; el resto se
+  // pliega por tipo, con el contador visible para saber qué hay sin abrirlo.
+  const ETIQ = { peligro:'Peligro', dinero:'Dinero', ruta:'Ruta', reserva:'Reservas',
+                 acceso:'Accesos', peaje:'Peajes', tip:'Varios' };
+  const graves = d.avisos.filter(a => a.t === 'peligro');
+  const resto  = d.avisos.filter(a => a.t !== 'peligro');
+  const porT = {};
+  resto.forEach(a => (porT[a.t] = porT[a.t] || []).push(a));
+  $('#hoy-avisos').innerHTML =
+    graves.map(a => aviso(a)).join('') +
+    Object.entries(porT).map(([t, as]) => `
+      <details class="sub-acc ${t}"><summary>${ETIQ[t] || t}<b>${as.length}</b></summary>
+        ${as.map(a => aviso(a)).join('')}</details>`).join('');
 }
 
 // Los 25 puntos que alguien pensó a mano: nivel de riesgo, con cuánto tanque entrar,
@@ -1090,6 +1103,13 @@ const IMO_REGION = {
   'westfjords': 'Fiordos del oeste',
   'central highlands': 'Tierras altas',
   'central highlands - uninhabited part of iceland': 'Tierras altas deshabitadas',
+  'northward westfjords': 'Fiordos del oeste, parte norte',
+  'strandir and western hunafloi': 'Strandir y Húnaflói oeste',
+  'strandir and western húnaflói': 'Strandir y Húnaflói oeste',
+  'faxafloi bay': 'Reikiavik y Faxaflói',
+  'breidafjordur bay': 'Snæfellsnei y Breiðafjörður',
+  'southeast': 'Sureste · Höfn y Jökulsárlón',
+  'north': 'Norte',
 };
 // Zonas que no pisan: sus avisos bajan al desplegable en vez de gritar.
 const IMO_FUERA = ['westfjords', 'central highlands'];
@@ -1105,7 +1125,7 @@ function normImo(x) {
     titular: x.headline_en || '',
     texto: x.description_en || '',
     zonas: reg.map(r => IMO_REGION[clave(r)] || r),
-    fuera: reg.length > 0 && reg.every(r => IMO_FUERA.some(f => clave(r).startsWith(f))),
+    fuera: reg.length > 0 && reg.every(r => IMO_FUERA.some(f => clave(r).includes(f))),
     grave: (x.severity || '').toLowerCase() !== 'minor',
     desde: hhmm(x.onset || ''), hasta: hhmm(x.expires || ''),
   };
@@ -1125,11 +1145,12 @@ function pintarAlertas(a) {
   caja.hidden = false;
 
   const fila = (etiq, titulo, texto, url, grave) => `
-    <div class="aviso ${grave ? 'peligro' : 'reserva'}">
-      <span class="ic">${grave ? '⚠' : '◉'}</span>
-      <span><b>${etiq}</b>${titulo ? `<strong style="display:block;font-size:14.5px;margin-bottom:2px">${titulo}</strong>` : ''}${texto}
-      ${url ? ` <a href="${url}" target="_blank" rel="noopener">ver más</a>` : ''}</span>
-    </div>`;
+    <details class="aviso alerta-det ${grave ? 'peligro' : 'reserva'}">
+      <summary><span class="ic">${grave ? '⚠' : '◉'}</span>
+        <span><b>${etiq}</b>${titulo ? `<strong>${titulo}</strong>` : ''}</span></summary>
+      <div class="alerta-c">${texto}
+        ${url ? ` <a href="${url}" target="_blank" rel="noopener">ver más</a>` : ''}</div>
+    </details>`;
 
   caja.innerHTML =
     imo.map(filaImo).join('') +

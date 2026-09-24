@@ -60,28 +60,34 @@
       <ol id="hoy-paradas" class="paradas"></ol>
     </section>
 
-    <section class="bloque" id="hoy-viento">
-      <div class="card-head"><h2>Viento</h2><span id="viento-edad" class="edad"></span></div>
-      <div id="viento-cuerpo" class="muted">Toca para cargar</div>
-    </section>
-
-    <!-- Peligro de olas: solo el día de Reynisfjara -->
+    <!-- Peligro de olas: sólo el día de Reynisfjara, y por eso NO se pliega:
+         si aparece es porque hoy importa. -->
     <section class="bloque" id="hoy-olas" hidden>
       <div class="card-head"><h2>Reynisfjara · peligro de olas</h2><span id="olas-edad" class="edad"></span></div>
       <div id="olas-cuerpo"></div>
     </section>
 
-    <!-- Gasolina y provisiones del día -->
-    <section class="bloque" id="hoy-servicios" hidden>
-      <div class="card-head"><h2>Gasolina y provisiones</h2></div>
-      <div id="servicios-cuerpo"></div>
-    </section>
+    <h3 class="grupo">Si hace falta<em>Se abre sólo cuando lo buscas</em></h3>
 
-    <section class="bloque">
-      <div class="card-head"><h2>Cerca de mí</h2><button id="btn-ubic" class="ghost">Ubicarme</button></div>
-      <div id="cerca-cuerpo" class="muted">Necesita tu ubicación. Funciona sin internet.</div>
-    </section>
+    <details class="acc" id="hoy-viento">
+      <summary>Viento <span id="viento-edad" class="edad"></span></summary>
+      <div class="bloque"><div id="viento-cuerpo" class="muted">Toca para cargar</div></div>
+    </details>
 
+    <details class="acc" id="hoy-servicios" hidden>
+      <summary>Gasolina y provisiones</summary>
+      <div class="bloque"><div id="servicios-cuerpo"></div></div>
+    </details>
+
+    <details class="acc">
+      <summary>Cerca de mí</summary>
+      <div class="bloque">
+        <button id="btn-ubic" class="ghost" style="width:100%;margin-bottom:10px">Ubicarme</button>
+        <div id="cerca-cuerpo" class="muted">Necesita tu ubicación. Funciona sin internet.</div>
+      </div>
+    </details>
+
+    <h3 class="grupo">Avisos de hoy<em>Los de peligro quedan a la vista</em></h3>
     <div id="hoy-avisos"></div>
   </section>
 

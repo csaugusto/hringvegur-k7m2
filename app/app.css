@@ -723,3 +723,15 @@ html,body{overflow-x:clip}
    secundario, para quien sí pueda marcarlo. */
 .acciones .call.sec{background:none;border:1px solid var(--linea);color:var(--tx3);
   font-variant-numeric:tabular-nums;font-size:12.5px}
+
+/* Alertas en vivo: el tipo, la región y la hora bastan para decidir si te
+   importa; el párrafo en inglés se abre al tocar. */
+.alerta-det > summary{cursor:pointer;list-style:none;display:flex;gap:10px;align-items:flex-start}
+/* Hay que matar el triángulo por las tres vías: el marcador de WebKit, el
+   ::marker del estándar y el display:list-item que lo trae de vuelta. */
+.alerta-det > summary::-webkit-details-marker{display:none}
+.alerta-det > summary::marker{content:''}
+details > summary::marker{content:''}
+details > summary{display:flex}
+.alerta-det > summary strong{display:block;font-size:14.5px;margin-top:2px;color:var(--tx1)}
+.alerta-det .alerta-c{margin:9px 0 0 26px;font-size:13px;line-height:1.5;color:var(--tx2)}
