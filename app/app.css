@@ -662,7 +662,11 @@ table.isl td.es{font-size:13px;color:var(--tx2);line-height:1.45}
 
 /* Ningún contenido debe empujar el ancho de la página. Lo que de verdad no
    quepa —una tabla, un bloque de código— que haga su propio scroll adentro. */
-html,body{overflow-x:hidden}
+/* clip y no hidden: hidden convierte al elemento en contenedor de scroll y,
+   puesto en html y body a la vez, los dos se pelean por el scroll vertical y la
+   página deja de correr. clip recorta sin crear contenedor, así que el scroll
+   de siempre queda intacto. */
+html,body{overflow-x:clip}
 .view{max-width:100%}
 
 /* El código de reserva, en la tarjeta del alojamiento: se necesita al llegar a
