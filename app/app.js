@@ -563,6 +563,10 @@ async function cargarClima() {
     const res = await Promise.all(objetivo.map(o =>
       fetch(`https://api.open-meteo.com/v1/forecast?latitude=${o.lat}&longitude=${o.lon}`
         + `&hourly=temperature_2m,wind_speed_10m,wind_gusts_10m,precipitation,cloud_cover`
+        // wind_speed_unit=ms NO es opcional: Open-Meteo devuelve km/h por defecto
+        // y toda la escala de esta pantalla está en m/s. Sin esto, 85 km/h se
+        // pintaban como 85 m/s y la app gritaba huracán con viento normal.
+        + `&wind_speed_unit=ms`
         + `&start_date=${o.fecha}&end_date=${o.fecha}&timezone=GMT`)
         .then(r => r.ok ? r.json() : null).catch(() => null)));
     const datos = { t: Date.now(), dias: {} };
