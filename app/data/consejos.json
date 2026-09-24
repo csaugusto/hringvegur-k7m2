@@ -484,11 +484,6 @@
    "fuente": "señalización del centro de Reikiavik"
   },
   {
-   "que": "Las coordenadas de siete alojamientos son del CENTRO DEL PUEBLO, no de la puerta. En Grundarfjörður, Egilsstaðir, Höfn, Kirkjubæjarklaustur y Reikiavik el botón «Cómo llegar» los deja en el pueblo correcto y de ahí hay que ver el letrero o el correo de la reserva. Los de Laugarbakki, Mývatn y Vík sí son exactos. Vale la pena abrir cada confirmación y pegar la dirección real antes de volar.",
-   "tipo": "tip",
-   "fuente": "geocodificación con Nominatim; la precisión quedó anotada en cada alojamiento"
-  },
-  {
    "que": "El 7 de octubre duermen en Kirkjubæjarklaustur, no en Skaftafell: son 70 km más ese día pero 70 menos al siguiente, y amanecen pegados a Fjaðrárgljúfur, que es su primera parada del 8. Skaftafell se sigue visitando el 7, sólo que siguen 45 minutos más hasta el pueblo.",
    "tipo": "ruta",
    "dia": "2026-10-07",
@@ -499,6 +494,16 @@
    "tipo": "dinero",
    "dia": "2026-10-09",
    "fuente": "mismo complejo, Breiðamörk 21"
+  },
+  {
+   "que": "Dos alojamientos tienen corte duro de llegada: Kirkjubæjarklaustur el 7 de octubre cierra la recepción a las 21:00 y Vík el 8 a las 22:00. Si el día se alarga y van a llegar después, avisen ese mismo día mientras haya señal, no al llegar.",
+   "tipo": "reserva",
+   "fuente": "ventanas de check-in del Excel de reservas"
+  },
+  {
+   "que": "Las cuatro noches de Airbnb —Selfoss el 9 y Reikiavik del 10 al 13— no traen dirección ni hora de entrada: en Airbnb eso aparece al confirmar con el anfitrión. Consíganlas antes de volar y anótenlas, porque llegar a Selfoss de noche sin dirección exacta es el tipo de problema que no se resuelve sin datos.",
+   "tipo": "reserva",
+   "fuente": "las cuatro reservas de Airbnb del Excel"
   }
  ]
 }
