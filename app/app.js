@@ -1045,15 +1045,65 @@ function clasificarAlerta(x, zonas) {
   return 'principal';
 }
 
+// La API de la Veðurstofa no tiene el campo `info` que el código esperaba: los
+// textos vienen en headline_en y description_en, y por eso las tarjetas salían
+// vacías. Estas tablas traducen lo que sí es un conjunto cerrado —el tipo de
+// aviso y la región— y dejan el cuerpo en inglés, que es como lo publica el
+// servicio: traducir a máquina un texto de seguridad es peor que no traducirlo.
+const IMO_EVENTO = {
+  'weather warning: wind': 'Viento',
+  'weather warning: precipitation': 'Lluvia o nieve',
+  'weather warning: snow': 'Nieve',
+  'weather warning: rain': 'Lluvia',
+  'weather warning: storm': 'Tormenta',
+  'landslide': 'Deslaves',
+  'flood': 'Inundación',
+  'avalanche': 'Aludes',
+};
+const IMO_REGION = {
+  'southeast iceland': 'Sureste · Höfn y Jökulsárlón',
+  'south iceland': 'Sur · Vík y la costa de las cascadas',
+  'eastfjords': 'Fiordos del este',
+  'southward eastfjords': 'Fiordos del este, parte sur',
+  'faxafloi': 'Reikiavik y alrededores',
+  'breidafjordur': 'Snæfellsnes',
+  'northeast iceland': 'Noreste · Mývatn y Akureyri',
+  'northwest iceland': 'Noroeste',
+  'westfjords': 'Fiordos del oeste',
+  'central highlands': 'Tierras altas',
+  'central highlands - uninhabited part of iceland': 'Tierras altas deshabitadas',
+};
+// Zonas que no pisan: sus avisos bajan al desplegable en vez de gritar.
+const IMO_FUERA = ['westfjords', 'central highlands'];
+
+function normImo(x) {
+  const reg = ((x.geocode_en || {})['Forecast Region'] || []).map(r =>
+    r.replace(/^Landslides:\s*/i, '').trim());
+  const clave = r => r.toLowerCase();
+  const ev = (x.event_en || '').toLowerCase();
+  const hhmm = t => { try { return t.slice(11, 16); } catch { return ''; } };
+  return {
+    tipo: IMO_EVENTO[ev] || x.event_en || 'Aviso',
+    titular: x.headline_en || '',
+    texto: x.description_en || '',
+    zonas: reg.map(r => IMO_REGION[clave(r)] || r),
+    fuera: reg.length > 0 && reg.every(r => IMO_FUERA.some(f => clave(r).startsWith(f))),
+    grave: (x.severity || '').toLowerCase() !== 'minor',
+    desde: hhmm(x.onset || ''), hasta: hhmm(x.expires || ''),
+  };
+}
+
 function pintarAlertas(a) {
   const caja = $('#hoy-alertas');
   if (!caja) return;
-  const imo = a?.imo || [];
+  const imoTodos = (a?.imo || []).map(normImo).filter(x => x.texto || x.titular);
+  const imo = imoTodos.filter(x => !x.fuera);
+  const imoFuera = imoTodos.filter(x => x.fuera);
   const zonas = zonasDeLaRuta();
   const clasif = (a?.safe || []).map(x => ({ ...x, c: clasificarAlerta(x, zonas) }));
   const safe = clasif.filter(x => x.c === 'principal');
   const otras = clasif.filter(x => x.c === 'otra');
-  if (!imo.length && !safe.length && !otras.length) { caja.hidden = true; return; }
+  if (!imo.length && !imoFuera.length && !safe.length && !otras.length) { caja.hidden = true; return; }
   caja.hidden = false;
 
   const fila = (etiq, titulo, texto, url, grave) => `
@@ -1064,16 +1114,19 @@ function pintarAlertas(a) {
     </div>`;
 
   caja.innerHTML =
-    imo.map(x => {
-      const p = x.info?.[0] || x;
-      const sev = (p.severity || '').toLowerCase();
-      return fila('Veðurstofa · aviso oficial', p.event || p.headline || '',
-        p.description || p.headline || '', null, sev !== 'minor');
-    }).join('') +
+    imo.map(filaImo).join('') +
     safe.map(x => fila(`SafeTravel · ${x.f}`, x.t, x.x, x.url, /danger|closed|warning|storm|flood/i.test(x.t + x.x))).join('') +
-    (otras.length ? `<details class="otras-alertas">
-      <summary>${otras.length} aviso${otras.length > 1 ? 's' : ''} de zonas fuera de su ruta</summary>
+    ((otras.length + imoFuera.length) ? `<details class="otras-alertas">
+      <summary>${otras.length + imoFuera.length} aviso${(otras.length + imoFuera.length) > 1 ? 's' : ''} de zonas fuera de su ruta</summary>
+      ${imoFuera.map(filaImo).join('')}
       ${otras.map(x => fila(`SafeTravel · ${x.f}`, x.t, x.x, x.url, false)).join('')}</details>` : '');
+
+  function filaImo(x) {
+    const cuando = x.desde && x.hasta ? ` · de ${x.desde} a ${x.hasta}` : '';
+    return fila(`Veðurstofa · ${x.tipo}${cuando}`,
+      `${x.zonas.join(' y ')}${x.titular ? ` — ${x.titular}` : ''}`,
+      x.texto, null, x.grave);
+  }
 }
 
 // ─────────────────────────── ESTACIONES DE CARRETERA ───────────────────────────
