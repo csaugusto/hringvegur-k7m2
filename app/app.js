@@ -968,7 +968,8 @@ function pintarSobre() {
       números NO se marcan solos: el teléfono abre el marcador y la llamada no sale. El único que
       los alcanza con datos es <b>Viber Out</b>. Höldur no tiene WhatsApp ni chat, verificado.
       Su único canal escrito es <a href="mailto:customerservice@holdur.is">customerservice@holdur.is</a>,
-      y sólo de lunes a viernes de 9 a 17.</p>
+      y sólo de lunes a viernes de 9 a 17. <b>Plan de respaldo acordado:</b> si el auto se avería,
+      encender el roaming de la línea mexicana y marcar desde ahí.</p>
     <a class="tel grande" href="tel:+3544192400"><span>+354 419 2400</span>
       <small>Höldur · asistencia en carretera, 24 horas · marcar por Viber Out</small></a>
     <a class="tel" href="tel:+3548406000"><span>+354 840 6000</span>

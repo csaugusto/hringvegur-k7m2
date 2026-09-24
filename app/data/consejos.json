@@ -545,6 +545,17 @@
    "que": "El SOS por satélite de Apple sí está en Islandia desde el 23 de julio de 2026, y funciona sin plan de voz — pero pide iPhone 14 o posterior Y iOS 26.4 o más nuevo, que es un requisito más alto que en otros países. Actualicen los dos teléfonos antes de volar. Si uno es iPhone 13 o anterior, ese no lo tiene y conviene que no se separe del otro.",
    "tipo": "peligro",
    "fuente": "disponibilidad de Emergencia SOS vía satélite en Islandia"
+  },
+  {
+   "que": "El plan de respaldo es activar el roaming de la línea mexicana sólo en emergencia. Para que eso funcione de verdad hay que PROBARLO al llegar, no confiarse: muchos operadores mexicanos traen el roaming internacional desactivado de fábrica y hay que pedirlo antes de salir del país. Al aterrizar en Keflavík enciéndanlo un minuto, hagan una llamada corta y manden un SMS. Si funciona, apáguenlo y sigan con datos. Descubrir en un fiordo a las once de la noche que la línea nunca estuvo habilitada es el escenario que esto evita.",
+   "tipo": "peligro",
+   "dia": "2026-09-30",
+   "fuente": "el roaming internacional suele venir desactivado y se pide con antelación"
+  },
+  {
+   "que": "Con el roaming como respaldo, el orden de qué usar es este: para emergencia médica o accidente, el 112 directo, que entra sin plan de voz. Para el auto averiado, encender el roaming y llamar al +354 419 2400, que es asistencia 24 horas. Para avisar que llegan tarde, el hilo de Booking o el chat de Airbnb con datos, sin gastar roaming. Y para recuperar un código por SMS —Booking, Airbnb, el banco— encender el roaming un momento con los datos apagados.",
+   "tipo": "tip",
+   "fuente": "combinación de eSIM de datos más línea mexicana de respaldo"
   }
  ]
 }
