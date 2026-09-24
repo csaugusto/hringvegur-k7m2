@@ -482,6 +482,17 @@
    "tipo": "peligro",
    "punto": "Reikiavik",
    "fuente": "señalización del centro de Reikiavik"
+  },
+  {
+   "que": "Las coordenadas de siete alojamientos son del CENTRO DEL PUEBLO, no de la puerta. En Grundarfjörður, Egilsstaðir, Höfn, Kirkjubæjarklaustur y Reikiavik el botón «Cómo llegar» los deja en el pueblo correcto y de ahí hay que ver el letrero o el correo de la reserva. Los de Laugarbakki, Mývatn y Vík sí son exactos. Vale la pena abrir cada confirmación y pegar la dirección real antes de volar.",
+   "tipo": "tip",
+   "fuente": "geocodificación con Nominatim; la precisión quedó anotada en cada alojamiento"
+  },
+  {
+   "que": "El 7 de octubre duermen en Kirkjubæjarklaustur, no en Skaftafell: son 70 km más ese día pero 70 menos al siguiente, y amanecen pegados a Fjaðrárgljúfur, que es su primera parada del 8. Skaftafell se sigue visitando el 7, sólo que siguen 45 minutos más hasta el pueblo.",
+   "tipo": "ruta",
+   "dia": "2026-10-07",
+   "fuente": "reserva en Landbrot Guesthouse"
   }
  ]
 }
