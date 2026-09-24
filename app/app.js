@@ -585,6 +585,10 @@ const edadTxt = t => {
   return m < 60 ? `hace ${m} min` : m < 1440 ? `hace ${Math.round(m / 60)} h` : `hace ${Math.round(m / 1440)} días`;
 };
 
+// Islandia mide el viento en m/s y ellos piensan en km/h. Se enseñan los dos:
+// el grande para la intuición, el chico para poder cruzarlo con umferdin.is.
+const kmh = ms => Math.round(ms * 3.6);
+
 function renderClima(datos) {
   $('#clima-edad').textContent = 'Descargado ' + edadTxt(datos.t);
   const hay = Object.keys(datos.dias).length;
@@ -603,14 +607,19 @@ function renderClima(datos) {
     const maxG = Math.max(...idx.map(([, i]) => c.h.wind_gusts_10m[i] || 0));
     return `<section class="bloque">
       <div class="card-head"><h2>Día ${d.d + 1} · ${FECHA_CORTA(d.fecha)} · ${c.nombre}</h2>
-        <span class="pill">ráfaga máx ${Math.round(maxG)} m/s</span></div>
+        <span class="pill">ráfaga máx ${kmh(maxG)} km/h <i>· ${Math.round(maxG)} m/s</i></span></div>
       <div class="horas-grid">${idx.map(([h, i]) => {
         const g = Math.round(c.h.wind_gusts_10m[i] || 0);
         return `<div class="h g${nivel(g)}"><div class="hh">${pad(h)}h</div>
-          <div class="hg">${g}</div><div class="ht">${Math.round(c.h.temperature_2m[i])}°</div></div>`;
+          <div class="hg">${kmh(g)}</div><div class="ht">${Math.round(c.h.temperature_2m[i])}°</div></div>`;
       }).join('')}</div>
-      ${maxG >= 20 ? `<p class="alerta">Con ${Math.round(maxG)} m/s hay que replantear el día. Arriba de 25 cierran carreteras a vehículos altos.</p>`
-        : maxG >= 15 ? '<p class="nota">Cuidado al abrir las puertas del auto.</p>' : ''}
+      ${maxG >= 25 ? `<p class="alerta">Viento serio: ${kmh(maxG)} km/h. A partir de estos números Vegagerðin cierra
+          carreteras a vehículos altos. Su SUV no entra en esa categoría y puede circular, pero revisen
+          umferdin.is antes de salir y eviten los miradores al borde del acantilado.</p>`
+        : maxG >= 20 ? `<p class="nota" style="border-color:var(--hot)">Viento fuerte por la tarde, ${kmh(maxG)} km/h.
+          Manejen más despacio de lo normal, sobre todo en puentes y en tramos de arena abierta, y bajen del
+          auto sujetando la puerta con las dos manos. El día se hace igual, solo con más calma.</p>`
+        : maxG >= 15 ? `<p class="nota">Hasta ${kmh(maxG)} km/h: cuidado al abrir las puertas del auto.</p>` : ''}
     </section>`;
   }).join('');
 }
@@ -632,7 +641,7 @@ function renderVientoHoy(datos) {
     'Vendaval. Reconsideren las paradas expuestas.', 'Cierran carreteras a vehículos altos. Revisen umferdin.is antes de salir.'][nv];
   const col = ['', 'var(--ok)', 'var(--warn)', 'var(--hot)', 'var(--bad)'][nv];
   $('#viento-cuerpo').innerHTML = `<div class="viento-hoy">
-      <span class="vg" style="color:${col}">${g}</span><span class="vu">m/s de ráfaga</span></div>
+      <span class="vg" style="color:${col}">${kmh(g)}</span><span class="vu">km/h de ráfaga</span></div>
     <p class="viento-msg" style="color:${col}">${msg}</p>`;
 }
 
@@ -1047,7 +1056,7 @@ function pintarEstaciones(d) {
     return `<div class="est ${hielo ? 'hielo' : ''}">
       <div class="est-t">
         <span class="est-n"><strong>${e.n}</strong><small>a ${km.toFixed(0)} km${e.alt ? ` · ${e.alt} m` : ''}</small></span>
-        <span class="est-v" style="color:${col}">${e.r ?? '—'}<em>m/s ráfaga</em></span>
+        <span class="est-v" style="color:${col}">${e.r !== null && e.r !== undefined ? kmh(e.r) : '—'}<em>km/h ráfaga</em></span>
       </div>
       <div class="est-d">
         ${e.t !== null ? `<span>Aire <b>${e.t}°</b></span>` : ''}
