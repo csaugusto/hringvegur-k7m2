@@ -933,10 +933,25 @@ function pintarSobre() {
     <details class="regla ok"><summary><b>${x.que}</b></summary>
       <div class="regla-c"><p>${x.detalle}</p></div></details>`).join('');
 
-  // Los consejos sin fecha ni punto: los generales
+  // Los consejos sin fecha ni punto: los generales. Agrupados por tipo y
+  // plegados, porque en fila plana eran 5,500 px de un tirón.
+  const ORDEN = [
+    ['peligro', 'Peligro'], ['dinero', 'Dinero'], ['ruta', 'Ruta y conducción'],
+    ['acceso', 'Accesos'], ['reserva', 'Reservas'], ['peaje', 'Peajes'], ['tip', 'Varios'],
+  ];
   const generales = CONSEJOS.filter(c => !c.dia && !c.punto);
+  const porTipo = t => generales.filter(c => (c.tipo || 'tip') === t);
+  const sueltos = generales.filter(c => !ORDEN.some(([t]) => t === (c.tipo || 'tip')));
   $('#consejos-cuerpo').innerHTML = generales.length
-    ? generales.map(c => aviso({ t: c.tipo || 'tip', x: c.que + (c.fuente ? ` <em style="color:var(--tx3)">— ${c.fuente}</em>` : '') })).join('')
+    ? ORDEN.map(([t, etiq]) => {
+        const cs = porTipo(t);
+        if (!cs.length) return '';
+        return `<details class="sub-acc ${t}"><summary>${etiq}<b>${cs.length}</b></summary>
+          ${cs.map(c => aviso({ t, x: c.que + (c.fuente ? ` <em style="color:var(--tx3)">— ${c.fuente}</em>` : '') })).join('')}
+        </details>`;
+      }).join('') + (sueltos.length
+        ? `<details class="sub-acc"><summary>Otros<b>${sueltos.length}</b></summary>
+           ${sueltos.map(c => aviso({ t: c.tipo || 'tip', x: c.que })).join('')}</details>` : '')
     : '<p class="muted">Todavía no hay consejos generales capturados.</p>';
 
   const a = LS.get('auto', {});

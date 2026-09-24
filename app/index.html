@@ -190,9 +190,20 @@
 
     <div id="relojes" class="relojes"></div>
 
-    <!-- Conversor -->
+    <h3 class="grupo">Ahora mismo<em>Lo que se abre con prisa</em></h3>
+      <details class="acc" open>
+        <summary>Emergencias</summary>
+    <div class="card emerg">
+      <a class="tel grande" href="tel:112"><span>112</span><small>Policía · ambulancia · bomberos · rescate</small></a>
+      <a class="tel" href="tel:5990112"><span>599-0112</span><small>Alterno si el 112 no conecta. Islandia apagó 2G y 3G; hay teléfonos extranjeros que no marcan.</small></a>
+      <a class="tel" href="tel:1700"><span>1700</span><small>Consejo médico / médico de guardia</small></a>
+      <a class="tel" href="tel:1777"><span>1777</span><small>Estado de carreteras · 06:30 a 22:00</small></a>
+    </div>
+      </details>
+      <details class="acc">
+        <summary>Coronas a pesos</summary>
     <div class="card conv">
-      <div class="card-head"><h2>Coronas a pesos</h2><span id="fx-edad" class="edad"></span></div>
+      <div class="card-head"><span id="fx-edad" class="edad"></span></div>
       <div class="regla">Para calcular de cabeza: <b>divide entre 7</b></div>
       <div class="conv-fila">
         <label><span>ISK</span><input id="fx-isk" type="text" inputmode="decimal" value="1000" autocomplete="off"></label>
@@ -205,23 +216,30 @@
         <div id="fx-tabla"></div>
       </details>
     </div>
-
-    <div class="card emerg">
-      <h2>Emergencias</h2>
-      <a class="tel grande" href="tel:112"><span>112</span><small>Policía · ambulancia · bomberos · rescate</small></a>
-      <a class="tel" href="tel:5990112"><span>599-0112</span><small>Alterno si el 112 no conecta. Islandia apagó 2G y 3G; hay teléfonos extranjeros que no marcan.</small></a>
-      <a class="tel" href="tel:1700"><span>1700</span><small>Consejo médico / médico de guardia</small></a>
-      <a class="tel" href="tel:1777"><span>1777</span><small>Estado de carreteras · 06:30 a 22:00</small></a>
-    </div>
-
+      </details>
+      <details class="acc">
+        <summary>Auto</summary>
     <section class="bloque">
-      <h2>Auto</h2>
       <div id="auto-cuerpo"></div>
     </section>
 
     <!-- Cómo cargar gasolina -->
+      </details>
+      <details class="acc">
+        <summary>Salud y consulado</summary>
     <section class="bloque">
-      <div class="card-head"><h2>Cómo cargar gasolina</h2></div>
+      <a class="tel" href="tel:+3545431000"><span>+354 543 1000</span><small>Landspítali · Reikiavik</small></a>
+      <a class="tel" href="tel:+3544630100"><span>+354 463 0100</span><small>Hospital de Akureyri</small></a>
+      <a class="tel" href="tel:+4530645906"><span>+45 3064 5906</span><small>Protección consular de México · 24 h</small></a>
+      <p class="nota">El rescate en montaña es <b>gratuito</b> en Islandia. Urgencias en Landspítali: 88,557 ISK solo por llegar. México no tiene convenio de seguridad social con Islandia.</p>
+    </section>
+      </details>
+
+    <h3 class="grupo">En la carretera<em>Lo que se consulta manejando o al parar</em></h3>
+      <details class="acc">
+        <summary>Cómo cargar gasolina</summary>
+    <section class="bloque">
+      <div class="card-head"></div>
 
       <div class="manguera">
         <div class="mg verde"><b>Bensín</b><span>gasolina 95<em>círculo · E10</em></span></div>
@@ -238,57 +256,65 @@
     </section>
 
     <!-- Bitácora de combustible -->
+      </details>
+      <details class="acc">
+        <summary>Rendimiento del auto</summary>
     <section class="bloque">
-      <div class="card-head"><h2>Rendimiento del auto</h2>
+      <div class="card-head">
         <button id="gas-nueva" class="ghost">Anotar carga</button></div>
       <div id="gas-resumen"></div>
       <div id="gas-lista"></div>
       <p class="nota">Se guarda solo en este teléfono y no se sincroniza entre los dos:
         conviene que siempre lo anote la misma persona.</p>
     </section>
-
-
+      </details>
+      <details class="acc">
+        <summary>Peajes</summary>
     <section class="bloque">
-      <h2>Salud y consulado</h2>
-      <a class="tel" href="tel:+3545431000"><span>+354 543 1000</span><small>Landspítali · Reikiavik</small></a>
-      <a class="tel" href="tel:+3544630100"><span>+354 463 0100</span><small>Hospital de Akureyri</small></a>
-      <a class="tel" href="tel:+4530645906"><span>+45 3064 5906</span><small>Protección consular de México · 24 h</small></a>
-      <p class="nota">El rescate en montaña es <b>gratuito</b> en Islandia. Urgencias en Landspítali: 88,557 ISK solo por llegar. México no tiene convenio de seguridad social con Islandia.</p>
-    </section>
-
-    <section class="bloque">
-      <div class="card-head"><h2>Peajes</h2><span class="edad">3,716 ISK en total</span></div>
+      <div class="card-head"><span class="edad">3,716 ISK en total</span></div>
       <p class="sub">Son los dos únicos peajes de Islandia y cruzan cada uno UNA vez. Conviene
         pagarlos ustedes: Höldur los cobra en la factura final con comisión encima, y la única
         comisión que publica en sus términos son 1,500 ISK, o sea que puede igualar al peaje.</p>
       <div id="peajes-cuerpo"></div>
     </section>
-
+      </details>
+      <details class="acc">
+        <summary>Prohibido</summary>
     <section class="bloque">
-      <div class="card-head"><h2>Consejos y advertencias</h2></div>
-      <div id="consejos-cuerpo"></div>
-    </section>
-
-    <section class="bloque">
-      <div class="card-head"><h2>Unas palabras en islandés</h2></div>
-      <p class="sub" id="isl-nota"></p>
-      <div id="isl-sonidos"></div>
-      <div id="isl-cuerpo"></div>
-    </section>
-
-    <section class="bloque">
-      <div class="card-head"><h2>Prohibido</h2><span class="edad">ordenado por probabilidad</span></div>
+      <div class="card-head"><span class="edad">ordenado por probabilidad</span></div>
       <p class="sub">No por gravedad legal, sino por lo fácil que es caer en ello manejando
         la Ring Road en octubre. Lo de arriba es lo que más se les puede ir sin querer.</p>
       <div id="prohibido-cuerpo"></div>
     </section>
-
+      </details>
+      <details class="acc">
+        <summary>Unas palabras en islandés</summary>
     <section class="bloque">
-      <div class="card-head"><h2>Permitido, aunque no lo parezca</h2></div>
+      <div class="card-head"></div>
+      <p class="sub" id="isl-nota"></p>
+      <div id="isl-sonidos"></div>
+      <div id="isl-cuerpo"></div>
+    </section>
+      </details>
+
+    <h3 class="grupo">Para leer antes de volar<em>Se lee una vez y ya</em></h3>
+      <details class="acc">
+        <summary>Consejos y advertencias</summary>
+    <section class="bloque">
+      <div class="card-head"></div>
+      <div id="consejos-cuerpo"></div>
+    </section>
+      </details>
+      <details class="acc">
+        <summary>Permitido, aunque no lo parezca</summary>
+    <section class="bloque">
+      <div class="card-head"></div>
       <p class="sub">Cosas que en México dudarías y aquí son normales. Para que no se queden
         con sed ni dando vueltas por no atreverse.</p>
       <div id="permitido-cuerpo"></div>
     </section>
+      </details>
+
   </section>
 
 </main>
