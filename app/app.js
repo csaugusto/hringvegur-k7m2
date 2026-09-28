@@ -479,6 +479,9 @@ async function cargarVias() {
 const HORAS_VIEJO = 4;
 // Abre la pestaña Actions con el botón "Run workflow". Dos toques y 20 segundos:
 // más fiable que cualquier cadena automática, porque no se puede romper sola.
+// Ojo con el nombre: este enlace NO refresca, abre la página de Actions donde
+// hay que tocar «Run workflow». Prometer que refresca hacía que se abriera, se
+// volviera, y el dato siguiera viejo. El texto del botón ahora lo dice.
 const REFRESCAR = 'https://github.com/csaugusto/hringvegur-k7m2/actions/workflows/carreteras.yml';
 
 function renderVias(d) {
@@ -495,12 +498,14 @@ function renderVias(d) {
 
   $('#vias-resumen').innerHTML = `
     <div class="card-head"><h2>Resumen de la ruta</h2>
-      <span class="edad">espejo · ${hace} · <a href="${REFRESCAR}" class="refrescar">refrescar</a></span></div>
-    ${viejo ? `<p class="alerta"><b>Estos datos son de ${hace}.</b> El espejo no se está
-      actualizando, así que lo de abajo puede estar equivocado.
-      <a href="${REFRESCAR}">Refrescar a mano</a> tarda 20 segundos y necesita señal.
-      Sin señal, confirmen en <a href="https://umferdin.is/en">umferdin.is</a> o al 1777
-      antes de salir.</p>` : ''}
+      <span class="edad">espejo · ${hace} · <a href="${REFRESCAR}" class="refrescar">pedir datos nuevos</a></span></div>
+    ${viejo ? `<p class="alerta"><b>Estos datos son de ${hace}.</b> Con señal, la fuente en vivo
+      es <a href="https://umferdin.is/en">umferdin.is</a>, que es de donde sale este espejo y
+      siempre está al día. Ábranla antes de arrancar y olvídense de lo de abajo.
+
+      Sin señal, el 1777 da el estado por teléfono de 06:30 a 22:00. Y si quieren actualizar el
+      espejo, <a href="${REFRESCAR}">abran Actions</a> y ahí toquen <b>Run workflow</b> gris y
+      luego <b>Run workflow</b> verde: 30 segundos. Abrir esa página sola no hace nada.</p>` : ''}
     <div class="vias-cifras">
       <div class="vc ok"><b>${s.ok}</b><span>transitables</span></div>
       <div class="vc ojo${s.ojo ? '' : ' cero'}"><b>${s.ojo}</b><span>con algo</span></div>
