@@ -1,0 +1,190 @@
+{
+ "ballenas": {
+  "operador": "Gentle Giants, tour GG1, en el muelle de Húsavík (Harbour Side, 640 Húsavík). Alternativa: North Sailing, en el Whale Watching Centre del mismo muelle.",
+  "sale": "09:45. Hay que estar en la caseta a las 09:05: Gentle Giants pide llegar 40 minutos antes para registrarse y que les den el overol térmico. Ese mismo día hay una segunda salida a las 13:15, pero el pronóstico la vuelve peor opción. North Sailing ese domingo sólo tiene una salida, 09:30, y pide llegar 30 minutos antes.",
+  "precio": "ISK 12.490 por adulto, o sea ISK 24.980 los dos. North Sailing cobra ISK 12.990 por adulto. Leído hoy del sistema de reservas de cada uno para el 4 de octubre de 2026.",
+  "dura": "3 horas. Zarpan 09:45 y regresan al muelle alrededor de 12:45.",
+  "reserva": "Reserven esta noche en línea desde el guesthouse. Las dos páginas aceptan reserva para el día siguiente. Al revisar hoy el sistema de Gentle Giants quedaban más de 20 lugares en la de 09:45 y más de 40 en la de 13:15, así que llegar al muelle sin reserva también funcionaría: un domingo de octubre no es julio y las dos empresas aceptan walk-in. Pero reservar es gratis y quita el riesgo. Trampa: a menos de 24 horas la reserva ya sale marcada como no reembolsable, lo cual sólo aplica si ustedes se arrepienten. Si el que cancela es el operador por mar picado, su política dice reembolso completo o cambio de salida. North Sailing tiene la ventaja de que deja elegir pagar al llegar, así que ahí no adelantan dinero; admite reservas hasta 30 minutos antes de zarpar.",
+  "url": "https://www.gentlegiants.is/tours-and-bookings/gg1-whale-watching/",
+  "probabilidad_octubre": "Mejor de lo que suena. North Sailing publica su bitácora: en 2025, de marzo a noviembre, vieron ballenas en 1061 de 1108 salidas, 95,76%, y jorobadas en 87,73%. No desglosan octubre, así que ese número es de toda la temporada, no del día. Octubre no es temporada alta pero tampoco es el borde: las dos empresas navegan hasta el 30 de noviembre, y la jorobada es justo la que se queda hasta tarde. Lo que sí cambia en octubre es el mar y el frío, no la ausencia de ballenas. Salka ya cerró, sólo navega hasta el 30 de septiembre.",
+  "confianza": "alta"
+ },
+ "clima_manana": {
+  "resumen": "Entra un frente a media mañana. Empieza nublado y templado, 6 grados, y para mediodía el viento se gira al noroeste, baja a 5 grados y se suelta lluvia fuerte entre las 11:00 y las 15:00 en la costa y en Ásbyrgi. Mývatn, en cambio, se queda seco todo el domingo. En Dettifoss a media tarde habrá 2,5 grados y lluvia moderada. Van a terminar el barco mojados y con frío: ropa impermeable de verdad, guantes y gorro, y ropa seca de repuesto en el coche.",
+  "viento": "En tierra, en Húsavík: 3 m/s del sureste a las 07:00, 7,4 m/s a las 09:00 ya girando al noroeste, 8,5 a las 10:00, 9,9 a las 11:00 y pico de 10,6 m/s a mediodía, con rachas de 14 a 14,5. Sobre el agua sopla más que en el pueblo: los modelos dan 10 a 13 m/s en la bahía durante la mañana. Dato de api.met.no y Open-Meteo, corrida de hoy 19:20 UTC. El texto oficial de la Met islandesa para Norðurland eystra dice noroeste 5-13 m/s y algo de lluvia. Ahora mismo las estaciones de Vegagerðin marcan 1,1 m/s en Húsavík y 5,5 en el puerto: la noche está en calma, el viento llega con el frente.",
+  "mar": "Esto sí está medido, no deducido, y es lo que salva el plan. Tres modelos de oleaje coinciden en la forma del día para Skjálfandi: altura significativa de 0,8 a 1,2 metros entre las 09:00 y las 12:00, y luego sube rápido, 1,9 metros a las 13:00, 2,6 a las 14:00 y 2,8 a las 15:00, con el oleaje entrando del noroeste, que es el eje abierto de la bahía. O sea: la salida de la mañana agarra el mar bueno y la de la tarde agarra el malo. Agua a 7,7 grados. Si se marean, tomen la pastilla antes de zarpar, no a bordo.",
+  "riesgo_cancelacion": "Bajo para la de 09:45, claramente por debajo del 20 por ciento. Los operadores suelen cancelar arriba de 13 a 15 m/s sostenidos o con olas de más de 2 a 2,5 metros, y en esa ventana el mar va en 1 metro. Lo que no se salva es la comodidad: 100 por ciento de nubes, lluvia que arrecia justo mientras están afuera, 6 grados de aire pero sensación de 0 a +2 sobre el agua con viento de costado. Son tres horas frías y mojadas en un barco de cubierta abierta, y el overol que prestan va a importar. La de 13:15 es otra cosa: mar de 1,9 subiendo a 2,8 metros y rachas de 14. Esa sí es candidata real a cancelarse, y si la de la mañana falla no vale la pena reprogramar a la tarde del mismo domingo."
+ },
+ "domingo_4": [
+  {
+   "hora": "07:30",
+   "que": "Desayunar con lo que tengan en el cuarto. No cuenten con comprar nada: la tienda de Reykjahlíð abre hasta las 10:00 el domingo y el Nettó de Húsavík también.",
+   "porque": "La única ventana de súper del día es después del barco, en Húsavík."
+  },
+  {
+   "hora": "07:45",
+   "que": "Salir de Reykjahlíð hacia Húsavík por la 87, la Kísilvegur. 55 km, unos 50 minutos. Amanece a las 07:25, así que los primeros minutos van con poca luz.",
+   "porque": "Llegan con margen para estacionar y encontrar la caseta sin prisa. La 87 está confirmada hoy como greiðfært, fácilmente transitable, en los dos tramos, Hólasandur y Reykjahverfi."
+  },
+  {
+   "hora": "08:40",
+   "que": "Llegar a Húsavík y estacionar junto al puerto. La caseta de Gentle Giants está al pie del muelle.",
+   "porque": "Veinticinco minutos de colchón antes del registro por si la 87 va lenta o llueve."
+  },
+  {
+   "hora": "09:05",
+   "que": "Registrarse. Les dan el overol térmico y el impermeable. Pónganse debajo su propia capa caliente.",
+   "porque": "Gentle Giants pide 40 minutos antes; el vestido de overoles empieza 25 minutos antes de zarpar."
+  },
+  {
+   "hora": "09:45",
+   "que": "Zarpa el GG1. Tres horas en Skjálfandi.",
+   "porque": "Es lo que decide el día y por eso todo lo demás se acomodó detrás."
+  },
+  {
+   "hora": "12:45",
+   "que": "De vuelta en el muelle. Caminar al Nettó, Garðarsbraut 64, abierto domingo de 10:00 a 19:00. Comprar la comida del día y algo para el desayuno del lunes. Comer ahí mismo, en el coche o en el puerto.",
+   "porque": "Es el único súper grande de la zona y la única ventana del día. En Reykjahlíð sólo hay una tienda de conveniencia que cierra a las 18:00."
+  },
+  {
+   "hora": "13:20",
+   "que": "Salir de Húsavík hacia Ásbyrgi por la 85. 63 km, cerca de una hora.",
+   "porque": "El circuito que sigue es un anillo, no una ida y vuelta: Húsavík, Ásbyrgi, Dettifoss y de regreso a Mývatn son 148 km, menos que ir y volver a Ásbyrgi. Dettifoss sale casi gratis en kilómetros."
+  },
+  {
+   "hora": "14:20",
+   "que": "Ásbyrgi. Caminar el sendero Á1 a Botnstjörn, 1 km, 30 minutos, plano y fácil. Si la lluvia está insoportable, cambien por una parada en Gljúfrastofa, el centro de visitantes, abierto hasta las 17:00, con baños y una exposición del cañón bajo techo.",
+   "porque": "Es la mejor relación entre lo que ven y lo que caminan, y a esa hora van a estar con lluvia fuerte y 8,5 m/s. El baño fiable del día está aquí."
+  },
+  {
+   "hora": "15:10",
+   "que": "Salir hacia Dettifoss por la 862 hacia el sur. 35 km, unos 40 minutos.",
+   "porque": "La 862 completa, de la carretera 85 hasta la 1, está hoy abierta y marcada como fácilmente transitable en sus cuatro tramos, incluida la mitad norte. Eso permite cerrar el anillo sin devolverse."
+  },
+  {
+   "hora": "15:50",
+   "que": "Dettifoss por el lado oeste. Son 1 km a pie desde el estacionamiento hasta el mirador, por grava plana, y otro de regreso. Calculen una hora con la parada. Va a haber 2,5 grados y lluvia: es una cascada, de todos modos se mojan.",
+   "porque": "El lado oeste es el asfaltado y el que está abierto. El domingo no hay riesgo de hielo a nivel de carretera: la isoterma de cero se queda entre 750 y 1400 metros todo el día y los modelos dan cero nieve en los puntos de la ruta, que van entre 290 y 400 metros. Es lluvia, nada más. El baño del estacionamiento puede estar cerrado fuera de temporada, no cuenten con él."
+  },
+  {
+   "hora": "16:50",
+   "que": "Salir hacia Reykjahlíð por la 862 sur y la 1. 49 km, unos 50 minutos.",
+   "porque": "Llegan a las 17:40 y el ocaso es a las 18:24. Cuarenta minutos de margen por si algo se alarga."
+  },
+  {
+   "hora": "17:40",
+   "que": "De vuelta en Elda Guesthouse. Cenar lo del Nettó y tender la ropa mojada.",
+   "porque": "Mañana se levantan temprano otra vez y conviene tener todo seco."
+  }
+ ],
+ "lunes_5": [
+  {
+   "hora": "07:40",
+   "que": "Antes de salir, revisar umferdin.is o llamar al 1777, el servicio de carreteras de Vegagerðin, que contesta en inglés de 06:30 a 22:00.",
+   "porque": "El lunes el pronóstico da aguanieve con medio grado en Mývatnsöræfi y Möðrudalur, y la isoterma de cero anda entre 480 y 610 metros. La 1 cruza Biskupsháls y los montes de Möðrudalur entre 500 y 650 metros, o sea justo en esa franja: arriba va a haber nieve mojada o aguanieve en el asfalto. Viento flojo, así que no hay ventisca ni cierre. Hoy todo está abierto y sin hielo, pero el lunes es otro día."
+  },
+  {
+   "hora": "08:15",
+   "que": "Cargar el coche y salir. Amanece 07:19.",
+   "porque": "Entre más temprano crucen el altiplano, mejor luz y menos acumulación."
+  },
+  {
+   "hora": "08:25",
+   "que": "Hverir, en Námaskarð. 6,5 km por la 1 hacia el este, 8 minutos. Caminar las pasarelas entre las fumarolas y las ollas de lodo, 30 a 40 minutos.",
+   "porque": "Esto es lo que se quedó fuera del domingo y está literalmente de salida hacia Egilsstaðir. No se salgan de los senderos: el suelo está caliente y ácido. Huele a azufre y la plata se oscurece."
+  },
+  {
+   "hora": "09:15",
+   "que": "Krafla y el cráter Víti, por la 863. Son 9 km desde el cruce, 15 minutos. Media hora en el borde del cráter.",
+   "porque": "Trampa: la 863 no aparece en el parte oficial de Vegagerðin, así que nadie les va a poder confirmar su estado por teléfono. Con medio grado y aguanieve puede estar resbalosa. Asómense en el cruce, a 6 km del hotel: si se ve despejada, suban; si no, sigan de largo y no pierdan más de diez minutos. Leirhnjúkur, el campo de lava, son 2 horas y con este clima no cabe."
+  },
+  {
+   "hora": "10:10",
+   "que": "Tomar la 1 hacia el este, rumbo a Egilsstaðir. 160 km, unas 2 horas 20. Crucen el trecho alto entre las 10:00 y las 14:00.",
+   "porque": "No es capricho de horario. Toda la mañana la carretera va mojada por encima de cero, y a partir de las 15:00 en Möðrudalur y de las 16:00 en Mývatnsöræfi la temperatura cruza bajo cero, con la Met islandesa pronosticando heladas generalizadas al anochecer. Carretera mojada a 600 metros que se congela al atardecer es hielo negro de manual. Salir temprano no es para ganar tiempo, es para no cruzar eso de noche."
+  },
+  {
+   "hora": "11:40",
+   "que": "Möðrudalur, saliendo un poco por la 901. Café y descanso en Fjalladýrð, la granja más alta habitada de Islandia. Media hora.",
+   "porque": "Es la única parada con techo en 160 km de páramo y parte el trayecto justo a la mitad."
+  },
+  {
+   "hora": "12:15",
+   "que": "Si el domingo se quedaron sin Dettifoss, aquí es donde se recupera: el cruce de la 862 sur está 26 km al este de Reykjahlíð y son 21 km hasta la cascada. Ida, vuelta y caminata, alrededor de 1 hora 50. Entonces habría que saltarse Krafla.",
+   "porque": "Trampa: ese desvío atrasa el cruce del páramo hasta las 14:00 o 15:00, justo cuando empieza a congelar. Por eso Dettifoss va el domingo aunque llueva, y esto es sólo red de seguridad. Si lo usan, sacrifiquen Krafla, no el horario."
+  },
+  {
+   "hora": "13:15",
+   "que": "Llegar a Egilsstaðir. Ocaso 18:13.",
+   "porque": "Con la tarde libre para instalarse y hacer súper sin prisa."
+  }
+ ],
+ "descartado": [
+  {
+   "n": "Salka Whale Watching",
+   "porque": "Su temporada termina el 30 de septiembre. En octubre no navegan."
+  },
+  {
+   "n": "El barco eléctrico Andvari de North Sailing, el Silent Whale Watching",
+   "porque": "Su calendario de octubre aparece completo sin disponibilidad: la temporada de ese barco ya cerró."
+  },
+  {
+   "n": "La salida de ballenas de las 13:15",
+   "porque": "Coincide con el pico del frente: 10,4 m/s y lluvia fuerte. Sirve sólo como respaldo si la de 09:45 se cancela o la pierden."
+  },
+  {
+   "n": "Dettifoss por el lado este, la 864 de grava",
+   "porque": "Vegagerðin la clasifica hoy, en el tramo que sirve a la cascada, como fært fjallabílum, sólo vehículos de montaña 4x4, con nieve en la superficie. El Sportage no entra ahí y además los saca de las condiciones del alquiler."
+  },
+  {
+   "n": "Eyjan, el mirador alto de Ásbyrgi",
+   "porque": "Son 4,5 km y de hora y media a dos horas, al borde de acantilados altos, con 8,5 m/s de viento y lluvia fuerte. No cabe y no es el día."
+  },
+  {
+   "n": "Selfoss, la cascada vecina de Dettifoss",
+   "porque": "Suma 30 a 40 minutos más de caminata y los deja sin margen de luz."
+  },
+  {
+   "n": "Hverir y Krafla el domingo",
+   "porque": "Están a 8 y 16 minutos de Reykjahlíð y volverían a las 17:40 con el sol poniéndose. Pasan al lunes, que es cuando quedan de salida."
+  },
+  {
+   "n": "Goðafoss",
+   "porque": "Ya lo vieron y queda en el sentido contrario."
+  },
+  {
+   "n": "GeoSea, los baños de mar de Húsavík",
+   "porque": "Abren a las 12:00 y ustedes están en el barco hasta las 12:45. Sólo como plan B si el barco se cancela: ISK 7.490 por adulto, abiertos de 12:00 a 22:00 todos los días."
+  },
+  {
+   "n": "El itinerario original de 251 km y 5h26 de volante",
+   "porque": "Ese era el error. El de mañana son 148 km y unas 2 horas 40 de volante con la ballena adentro."
+  }
+ ],
+ "fuentes": [
+  "https://www.gentlegiants.is/tours-and-bookings/gg1-whale-watching/",
+  "https://widgets.bokun.io/online-sales/bae805c7-3674-432a-aa3f-42a92d178fbf/experience-calendar/575",
+  "https://www.gentlegiants.is/tours-and-bookings/timetable/",
+  "https://www.gentlegiants.is/about-us/faq/",
+  "https://www.northsailing.is/whale-watching/timetable/",
+  "https://www.northsailing.is/tour/husavik-original-whale-watching/",
+  "https://www.northsailing.is/book-a-tour/",
+  "https://www.northsailing.is/terms-and-conditions/",
+  "https://www.northsailing.is/whale-watching/logbooks/logbook-2025/",
+  "https://salkawhalewatching.is/whale-watching/",
+  "https://umferdin.is/en/ (parte de Vegagerðin, actualizado 03.10.2026 20:18 UTC)",
+  "https://gagnaveita.vegagerdin.is/api/faerd2014_1",
+  "https://gagnaveita.vegagerdin.is/api/vedur2014_1",
+  "https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=66.0449&lon=-17.3389",
+  "https://api.met.no/weatherapi/oceanforecast/2.0/complete?lat=66.15&lon=-17.45 (altura de ola en Skjálfandi)",
+  "https://marine-api.open-meteo.com/v1/marine (modelos MFWAM y GWAM, contraste de oleaje)",
+  "https://xmlweather.vedur.is/?op_w=xml&type=txt&lang=en&view=xml&ids=36 (texto oficial Norðurland eystra)",
+  "https://en.vedur.is/weather/warnings/ (sin avisos activos en el noreste)",
+  "https://www.vatnajokulsthjodgardur.is/en/areas/jokulsargljufur/gljufrastofa",
+  "https://www.vatnajokulsthjodgardur.is/en/areas/jokulsargljufur/dettifoss",
+  "https://en.ja.is/netto/8veJ2/",
+  "https://en.ja.is/krambud/lZrnL/",
+  "https://hvalasafn.is/en/",
+  "https://www.geosea.is/en"
+ ]
+}
