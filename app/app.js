@@ -185,6 +185,27 @@ const dist = (a, b, c, d) => {
 // La tarjeta del alojamiento, compartida por Hoy y por cada día desplegado en
 // Días. Antes sólo existía en Hoy, así que al planear mañana no se veía dónde
 // se duerme, y es justo el dato que decide a qué hora conviene salir.
+// El horario del día, hora por hora. Los trayectos están calculados con el
+// motor de rutas, no a ojo, y el check-in entra como un evento más donde cae en
+// el tiempo: es lo que pidió Carlos para no tener que hacer la cuenta de cabeza.
+function horarioDia(d) {
+  if (!d.horario?.length) return '';
+  const ICONO = { salida:'↑', parada:'·', opcional:'·', checkin:'⌂', llegada:'↓', hito:'★' };
+  return `<section class="bloque"><h2 style="margin-bottom:10px">Horario</h2>
+    <ol class="linea">${d.horario.map(x => `
+      <li class="lt-${x.t}">
+        <span class="lt-h">${x.h}</span>
+        <span class="lt-b">
+          <b>${x.q}</b>${x.dura ? `<em>${x.dura}</em>` : ''}
+          ${x.min ? `<small>${x.min} min manejando · ${x.km} km</small>` : ''}
+          ${x.nota ? `<small class="lt-n">${x.nota}</small>` : ''}
+        </span>
+      </li>`).join('')}</ol>
+    <p class="nota">Los trayectos son los reales del motor de rutas, sin tráfico. Las duraciones
+      de cada parada son la cota baja de lo que dice su ficha: si se quedan más, el día se recorre.</p>
+  </section>`;
+}
+
 function tarjetaDormir(d, titulo) {
   const dm = d.dormir;
   if (!dm) return `<h2>Vuelan</h2><p class="dormir-lugar">Keflavík 17:05</p>
@@ -402,6 +423,7 @@ function pintarDias() {
           <span>Amanece <b>${d.amanecer}</b></span><span>Ocaso <b>${d.ocaso}</b></span>
           <span>Crepúsculo <b>${d.crep_fin}</b></span></div></section>
       <section class="card dormir-card">${tarjetaDormir(d, 'Duermen en')}</section>
+      ${horarioDia(d)}
       <section class="bloque"><h2 style="margin-bottom:10px">Paradas</h2>
         <ol class="paradas">${d.puntos.map((p, i) => `
           <li class="cat-${p.cat || 'Interés'}"><span class="num">${i + 1}</span>
