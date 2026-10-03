@@ -755,3 +755,9 @@ details > summary{display:flex}
 .lt-hito .lt-h,.lt-hito .lt-b b{color:var(--azufre)}
 .lt-opcional .lt-b b{color:var(--tx2);font-weight:500}
 .lt-opcional .lt-b b::after{content:' · opcional';font-size:11px;color:var(--tx3);font-weight:400}
+
+
+/* Los peajes dentro del horario: en naranja porque no son una parada ni un
+   trámite opcional, son un reloj que corre. */
+.lt-peaje .lt-h, .lt-peaje .lt-b b{color:var(--azufre)}
+.lt-peaje .lt-b{border-left:2px solid var(--azufre);padding-left:10px;margin-left:-2px}
