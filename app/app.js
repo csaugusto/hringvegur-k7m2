@@ -160,11 +160,11 @@ function fichaQH(n) {
     <p><b>${e.donde}</b>${e.tarifa ? ` · ${e.tarifa}` : ''}${e.ojo ? `<br><i>${e.ojo}</i>` : ''}</p></div>` : '';
   return `<details class="qh"><summary>Qué hacer${q.rato ? ` · ${q.rato}` : ''}</summary>
     <div class="qh-c">
-      ${apar}
-      ${campo('', q.que)}
+      ${campo('Qué hacer', q.que)}
       ${campo('Foto', q.foto)}
       ${campo('Ojo', q.ojo)}
       ${campo('Cuesta', q.costo)}
+      ${apar}
       ${q.sinverificar ? '<p class="qh-aviso">Esta ficha no se pudo contrastar con una fuente independiente. Confirmen en el sitio.</p>' : ''}
     </div></details>`;
 }

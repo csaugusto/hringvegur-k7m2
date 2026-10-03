@@ -613,7 +613,8 @@ details.bloque[open] summary::after{content:"▴"}
 
 /* Dónde estacionar va primero en la ficha: en Islandia no te orillas donde sea,
    así que es lo primero que necesitas de una parada. */
-.qh-l.apar{border-left:2px solid var(--musgo);padding-left:10px;margin-left:-12px;margin-bottom:11px}
+.qh-l.apar{border-left:2px solid var(--musgo);padding-left:10px;margin-left:-12px;
+  margin-top:12px;padding-top:2px}
 .qh-l.apar p{color:var(--tx1)}
 .qh-l.apar i{font-style:normal;color:var(--tx3);font-size:12.5px;display:inline-block;margin-top:3px}
 
