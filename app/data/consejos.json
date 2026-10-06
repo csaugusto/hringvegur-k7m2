@@ -117,12 +117,6 @@
    "fuente": "póster de road trip, verificado · 65 min · 29 km de desvío · si hay tiempo"
   },
   {
-   "que": "Svartifoss: la cascada de columnas hexagonales dentro de Skaftafell. 95 min contando 3,7 km de caminata con 140 m de subida por escaleras de madera. El estacionamiento cuesta 1,110 ISK, pero solo 555 si ya pagaron Jökulsárlón ese mismo día. Empezar a caminar antes de las 16:30. Ese día sobran 3:52.",
-   "tipo": "reserva",
-   "dia": "2026-10-07",
-   "fuente": "póster de road trip, verificado · 95 min · 3.7 km de desvío · si hay tiempo"
-  },
-  {
    "que": "Reynisdrangar: las agujas frente a Vík se ven desde Reynisfjara y desde el pueblo, pero el mejor punto es otro. 35 min y 3 km. Verificado como IMPRESCINDIBLE y es donde mejor salen las auroras esa noche.",
    "tipo": "tip",
    "dia": "2026-10-08",
@@ -419,16 +413,10 @@
    "fuente": "Höldur, página de Protection y lista de precios oficial"
   },
   {
-   "que": "La cueva de hielo hay que preguntarla ANTES de reservarla. El 7 de octubre es la primera semana de la temporada nominal, y la nominal no es la real: Glacier Trips abre el 1 de octubre pero Arctic Adventures y Glacier Guides arrancan a mediados de mes. Escríbanle HOY a glaciertrips.is y a info@localguide.is preguntando en seco si el 7 de octubre entran a cueva o si a esa fecha todavía es caminata sobre el glaciar. Reserven hacia el 25-30 de septiembre, cuando ya publiquen las fechas reales. Octubre no se llena como diciembre.",
-   "tipo": "reserva",
-   "dia": "2026-10-07",
-   "fuente": "calendarios y políticas de Glacier Trips, Local Guide, Arctic Adventures y Glacier Guides"
-  },
-  {
-   "que": "Si reservan la cueva de hielo, sepan qué van a ver: la foto azul de catedral que circula es de enero. Esa cueva existe de diciembre a febrero, cuando el deshielo paró, el agua se drenó y el techo volvió a congelar. En la primera semana de octubre lo normal es una cueva chica, goteando, con hielo sucio y estrías de ceniza — o ninguna, y entonces les cambian el tour a caminata sobre el glaciar. Son 19,990 a 23,900 ISK por persona, unos 2,800 a 3,350 pesos. Vale la pena si van con esa expectativa, no con la de la foto.",
+   "que": "El tour de Arctic Adventures está reservado para las 10:00. La cueva natural que se visita depende de las condiciones del día; su forma y color pueden diferir de las fotos. Si el operador cancela por seguridad, avisará por correo: revísenlo antes de salir de Höfn.",
    "tipo": "dinero",
    "dia": "2026-10-07",
-   "fuente": "condiciones publicadas por los tres operadores de Jökulsárlón"
+   "fuente": "boleto ARC-T148526285 y descripción de Arctic Adventures"
   },
   {
    "que": "No confundan la cueva de Jökulsárlón con otras dos que salen al buscar. El túnel de Langjökull (Into the Glacier) abre todo el año pero es excavado a máquina y con luz artificial, sale de Húsafell en el oeste, a 500 km. Y la cueva de Katla, bajo el Mýrdalsjökull cerca de Vík, sí es natural y sí corre todo el año, pero es hielo negro de ceniza y queda 190 km al oeste de Jökulsárlón, fuera del día 8.",
@@ -484,10 +472,10 @@
    "fuente": "señalización del centro de Reikiavik"
   },
   {
-   "que": "El 7 de octubre duermen en Kirkjubæjarklaustur, no en Skaftafell: son 70 km más ese día pero 70 menos al siguiente, y amanecen pegados a Fjaðrárgljúfur, que es su primera parada del 8. Skaftafell se sigue visitando el 7, sólo que siguen 45 minutos más hasta el pueblo.",
+   "que": "El 7 de octubre duermen en Landbrot Guesthouse, Kirkjubæjarklaustur. El check-in cierra a las 21:00. Desde Jökulsárlón queda cerca de 2 h por la Ruta 1, así que salgan de la laguna hacia las 17:00.",
    "tipo": "ruta",
    "dia": "2026-10-07",
-   "fuente": "reserva en Landbrot Guesthouse"
+   "fuente": "reserva de Landbrot Guesthouse y ruta ajustada para el tour"
   },
   {
    "que": "El Bónus de Hveragerði está en el mismo complejo de Sunnumörk y abre de 10:00 a 20:00, más tarde que el centro comercial. Si van por la grieta, resuelvan ahí la compra de los últimos días: es de los últimos Bónus grandes antes de Reikiavik.",
