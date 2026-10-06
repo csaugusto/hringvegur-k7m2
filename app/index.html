@@ -117,15 +117,16 @@
     <p class="sub">Estado oficial de Vegagerðin, espejado en el repo cada 30 minutos.
       Revísenlo <b>antes de arrancar</b>, no en el camino.</p>
 
+    <div class="cam-nav">
+      <button id="cam-ant" class="ghost" aria-label="Día anterior">‹</button>
+      <span id="cam-dia"></span>
+      <button id="cam-sig" class="ghost" aria-label="Día siguiente">›</button>
+    </div>
+    <p class="sub">Elige el día para ver sus alertas y cámaras.</p>
     <section class="bloque" id="vias-resumen"></section>
 
     <section class="bloque">
       <div class="card-head"><h2 id="cam-titulo">Cámaras de hoy</h2><span id="cam-hora" class="edad"></span></div>
-      <div class="cam-nav">
-        <button id="cam-ant" class="ghost" aria-label="Día anterior">‹</button>
-        <span id="cam-dia"></span>
-        <button id="cam-sig" class="ghost" aria-label="Día siguiente">›</button>
-      </div>
       <p class="sub" style="margin-bottom:10px">Son fotos, no video: Vegagerðin las renueva cada pocos minutos. La app las vuelve a pedir cada 45 s mientras tengas esta pantalla abierta.</p>
       <div id="cam-grid" class="cams"></div>
     </section>
@@ -139,12 +140,12 @@
     </section>
 
     <section class="bloque">
-      <div class="card-head"><h2>Lo que no está despejado</h2></div>
+      <div class="card-head"><h2>Alertas del día elegido</h2></div>
       <div id="vias-ojo"></div>
     </section>
 
     <details class="bloque">
-      <summary><h2 style="display:inline">Ver los 339 tramos de la ruta</h2></summary>
+      <summary><h2 style="display:inline">Ver todos los tramos del viaje (incluye otras zonas)</h2></summary>
       <div id="vias-todos" style="margin-top:12px"></div>
     </details>
 

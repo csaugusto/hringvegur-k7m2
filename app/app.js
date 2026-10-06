@@ -506,41 +506,131 @@ const HORAS_VIEJO = 4;
 // volviera, y el dato siguiera viejo. El texto del botón ahora lo dice.
 const REFRESCAR = 'https://github.com/csaugusto/hringvegur-k7m2/actions/workflows/carreteras.yml';
 
+// El feed cubre todo el viaje y no trae coordenadas por tramo. Esta lista
+// vincula los nombres oficiales con las etapas que quedan del viaje. Si aparece
+// un nombre nuevo, sigue visible en «Todos los tramos» y en umferdin.is.
+const VIAS_POR_DIA = {
+  '2026-10-06': [
+    'Hringvegur: Hlíðarvegur - Fellabær', 'Seyðisfjarðarvegur: Fjarðarheiði',
+    'Hringvegur: Fagridalur', 'Hringvegur: Reyðarfjörður - Fáskrúðsfjarðargöng',
+    'Hringvegur: Fáskrúðsfjarðargöng', 'Hringvegur: Fáskrúðsfjarðargöng - Fáskrúðsfjörður',
+    'Hringvegur: Fáskrúðsfjörður - Stöðvarfjörður',
+    'Hringvegur: Stöðvarfjörður -  Skriðdals- og Breiðdalsvegur',
+    'Hringvegur: Breiðdalsvík - Streiti', 'Hringvegur: Streiti - Djúpivogur',
+    'Hringvegur: Djúpivogur - Þvottá', 'Hringvegur: Þvottá - Hvalnes',
+    'Hringvegur: Hvalnes - Hafnarvegur', 'Stokksnesvegur'
+  ],
+  '2026-10-07': [
+    'Hringvegur: Hornafjarðarvegur (Hólmur) - Jökulsá',
+    'Hringvegur um Breiðamerkursand: Jökulsá - Kvíá',
+    'Hringvegur: Fagurhólsmýri-Kvísker', 'Hringvegur: Fagurhólsmýri - Freysnes',
+    'Hringvegur: Nesjavallaleið- Geirland'
+  ],
+  '2026-10-08': [
+    'Hringvegur: Nesjavallaleið- Geirland', 'Fjaðrárgljúfur',
+    'Hringvegur: Skaftárunguvegur - Skálm', 'Hringvegur um Mýrdalssand',
+    'Hringvegur um Reynisfjall', 'Reynishverfisvegur', 'Dyrhólaey, viti'
+  ],
+  '2026-10-09': [
+    'Hringvegur um Reynisfjall', 'Hringvegur: Dyrhólavegur - Steinar',
+    'Skógar', 'Sólheimavegur, allur', 'Sólheimajökulsvegur',
+    'Hringvegur: Steinar - Markarfljót', 'Þórsmerkurvegur að Seljalandsfossi',
+    'Hringvegur: Markarfljót - Hvolsvöllur', 'Hringvegur: Hvolsvöllur - Hella',
+    'Hringvegur: Hella - Þjórsá', 'Hringvegur : Þjórsá - Selfoss, Laugardælavegur'
+  ],
+  '2026-10-10': [
+    'Hringvegur: Selfoss - Hveragerði', 'Hringvegur um Hellisheiði: Þorlákshafnarvegur - Þrengslavegur',
+    'Hringvegur um Hellisheiði: Þrengslavegur - Þorlákshafnarvegur',
+    'Biskupstungnabraut: Hringvegur - Laugarvatnsvegur',
+    'Biskupstungnabraut: Laugarvatnsvegur - Múli', 'Biskupstungnabraut: Múli - Gullfoss',
+    'Gullfossvegur', 'Skeiðavegur: Flúðir - Biskupstungnabraut',
+    'Þingvallavegur: Biskupstungnabraut - Írafoss',
+    'Þingvallavegur: Írafoss - Lyngdalsheiðarvegur',
+    'Þingvallavegur: Lyngdalsheiðarvegur - Þingvellir',
+    'Þingvallavegur: Grafningsvegur efri - Þingvellir',
+    'Þingvallavegur: Mosfellsheiði', 'Þingvallavegur: Mosfellsdalur',
+    'Hringvegur: Rauðavatn - Nesjavallaleið', 'Suðurlandsvegur um Hádegismóa'
+  ],
+  '2026-10-11': [
+    'Reykjanesbraut: Kópavogur og Garðabær',
+    'Reykjanesbraut: Vatnsleysa - Vogavegur', 'Reykjanesbraut: Vogavegur - Vatnsleysa',
+    'Reykjanesbraut: Vogavegur - Grindavíkurvegur',
+    'Reykjanesbraut: Grindavíkurvegur - Vogavegur',
+    'Grindavíkurvegur: Reykjanesbraut - Norðurljósavegur'
+  ],
+  '2026-10-12': ['Reykjanesbraut: Kópavogur og Garðabær'],
+  '2026-10-13': [
+    'Reykjanesbraut: Kópavogur og Garðabær',
+    'Reykjanesbraut: Vatnsleysa - Vogavegur', 'Reykjanesbraut: Vogavegur - Vatnsleysa',
+    'Reykjanesbraut: Vogavegur - Grindavíkurvegur',
+    'Reykjanesbraut: Grindavíkurvegur - Vogavegur',
+    'Reykjanesbraut: Grindavíkurvegur - Hafnavegur',
+    'Reykjanesbraut: Hafnavegur - Grindavíkurvegur',
+    'Reykjanesbraut: Hafnavegur - Flugstöð'
+  ]
+};
+
+let datosVias = null;
+function tramosParaDia(d, fecha) {
+  const nombres = VIAS_POR_DIA[fecha];
+  if (!nombres) return { filtrado: false, tramos: d.tramos };
+  const lista = new Set(nombres);
+  // El feed puede repetir una misma lectura por sentido de circulación.
+  const visto = new Set();
+  const tramos = d.tramos.filter(t => {
+    if (!lista.has(t.n)) return false;
+    const clave = t.n + '|' + t.isl + '|' + t.e;
+    if (visto.has(clave)) return false;
+    visto.add(clave);
+    return true;
+  });
+  return { filtrado: true, tramos };
+}
+
+function nivelEnPantalla(t) {
+  // El feed antiguo clasificaba «Hált · Hálkuvarið» como ok aunque es una
+  // advertencia de calzada resbaladiza. Mostrarla como precaución.
+  return t.v === 'ok' && /\bhált\b|hálkuvarið/i.test(t.isl || '') ? 'ojo' : t.v;
+}
+
 function renderVias(d) {
-  const s = d.resumen, algo = d.tramos.filter(t => t.v !== 'ok');
-  // edadTxt sí distingue días; el cálculo que había aquí decía "hace 72 h".
+  datosVias = d;
+  if (camDia === null) camDia = diaActivo().d;
+  const dia = VIAJE.dias[camDia] || diaActivo();
+  const { filtrado, tramos } = tramosParaDia(d, dia.fecha);
+  const visibles = tramos.map(t => ({ ...t, v: nivelEnPantalla(t) }));
+  const s = {
+    ok: visibles.filter(t => t.v === 'ok').length,
+    ojo: visibles.filter(t => t.v === 'ojo').length,
+    grave: visibles.filter(t => t.v === 'grave').length
+  };
+  const algo = visibles.filter(t => t.v !== 'ok');
   const t = Date.parse(d.actualizado);
   const hace = edadTxt(t);
-  // GitHub descarta la mayoría de las corridas programadas: medido el 10 de
-  // septiembre de 2026, sólo corrió 3 de 26 veces en 13 horas. El umbral tiene
-  // que reflejar la cadencia REAL o la alerta se enciende siempre y nadie la lee.
-  // Lo peligroso no es no tener datos, es que la pantalla diga "0 graves" con la
-  // misma cara de siempre cuando en realidad está ciega.
   const viejo = (Date.now() - t) > HORAS_VIEJO * 3600e3;
+  const titulo = filtrado ? 'Tramos del día · ' + FECHA_CORTA(dia.fecha) : 'Tramos generales del viaje';
 
   $('#vias-resumen').innerHTML = `
-    <div class="card-head"><h2>Resumen de la ruta</h2>
+    <div class="card-head"><h2>${titulo}</h2>
       <span class="edad">espejo · ${hace} · <a href="${REFRESCAR}" class="refrescar">pedir datos nuevos</a></span></div>
-    ${viejo ? `<p class="alerta"><b>Estos datos son de ${hace}.</b> Con señal, la fuente en vivo
-      es <a href="https://umferdin.is/en">umferdin.is</a>, que es de donde sale este espejo y
-      siempre está al día. Ábranla antes de arrancar y olvídense de lo de abajo.
-
-      Sin señal, el 1777 da el estado por teléfono de 06:30 a 22:00. Y si quieren actualizar el
-      espejo, <a href="${REFRESCAR}">abran Actions</a> y ahí toquen <b>Run workflow</b> gris y
-      luego <b>Run workflow</b> verde: 30 segundos. Abrir esa página sola no hace nada.</p>` : ''}
+    ${viejo ? `<p class="alerta"><b>Estos datos son de ${hace}.</b> Con señal, revisen
+      <a href="https://umferdin.is/en">umferdin.is</a> antes de arrancar. Sin señal, el
+      1777 da el estado por teléfono de 06:30 a 22:00.</p>` : ''}
+    <p class="sub">${filtrado
+      ? 'Se muestran los tramos identificados para esta etapa. El estado puede cambiar y los tramos nuevos o sin asignar quedan en la lista completa.'
+      : 'No hay filtro de día para esta fecha; se muestran todos los tramos del viaje.'}</p>
     <div class="vias-cifras">
       <div class="vc ok"><b>${s.ok}</b><span>transitables</span></div>
       <div class="vc ojo${s.ojo ? '' : ' cero'}"><b>${s.ojo}</b><span>con algo</span></div>
       <div class="vc grave${s.grave ? '' : ' cero'}"><b>${s.grave}</b><span>graves</span></div>
     </div>
-    ${s.grave ? '<p class="alerta">Hay tramos intransitables o cerrados. <b>Revisen cuáles antes de salir.</b></p>' : ''}`;
+    ${s.grave ? '<p class="alerta">Hay un tramo cerrado o intransitable en esta selección. Revisen cuál antes de salir.</p>' : ''}`;
 
   $('#vias-ojo').innerHTML = algo.length
-    ? algo.map(fila).join('')
-    : '<p class="muted">Nada. Los 339 tramos de la ruta están despejados.</p>';
+    ? algo.map(t => fila(t) + (t.n === 'Seyðisfjarðarvegur: Fjarðarheiði'
+      ? '<p class="nota">Fardagafoss queda antes del puerto alto; verifiquen el acceso hasta el estacionamiento.</p>' : '')).join('')
+    : '<p class="muted">Sin alertas en los tramos identificados para esta etapa. Confirmen en umferdin.is antes de conducir.</p>';
   $('#vias-todos').innerHTML = d.tramos.map(fila).join('');
-
-  // cámaras del día
   pintarCamaras();
 }
 
@@ -571,7 +661,8 @@ function pintarCamaras() {
 
 function moverCam(n) {
   camDia = Math.max(0, Math.min(VIAJE.dias.length - 1, (camDia ?? diaActivo().d) + n));
-  pintarCamaras();
+  if (datosVias) renderVias(datosVias);
+  else pintarCamaras();
 }
 
 // Vegagerðin publica fotos, no video: se renuevan cada pocos minutos
