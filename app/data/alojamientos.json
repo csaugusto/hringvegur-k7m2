@@ -168,12 +168,12 @@
    "coord_precision": "exacto"
   },
   "2026-10-09": {
-   "lugar": "Selfoss / Flúðir",
+   "lugar": "Eyrarbakki",
    "estado": "reservada",
-   "nombre": "Airbnb en Selfoss",
-   "direccion": "",
-   "lat": null,
-   "lon": null,
+   "nombre": "Airbnb en Eyrarbakki",
+   "direccion": "VVF2+PCC Eyrarbakki, Islandia",
+   "lat": 63.874321,
+   "lon": -21.1489716,
    "tel": "",
    "checkin": "",
    "checkout": "",
@@ -182,7 +182,8 @@
    "desayuno": "",
    "cancela": "",
    "url": "https://www.airbnb.com/l/J78NPQya",
-   "notas": "Airbnb. Confirmar hora de entrada con el anfitrión."
+   "notas": "Ubicación exacta compartida en Google Maps. Confirmar hora de entrada con el anfitrión.",
+   "coord_precision": "exacto"
   },
   "2026-10-10": {
    "lugar": "Reikiavik",
