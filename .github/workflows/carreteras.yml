@@ -11,13 +11,24 @@ name: Espejo de feeds y publicación
 # commits del bot nunca lo despertarían: el espejo seguiría corriendo en verde
 # y el sitio publicado se quedaría congelado en los datos del día que se subió.
 
+# El viaje terminó el 14 de octubre de 2026 y aquí se apagó el espejo automático.
+# La app se queda publicada tal cual, con los últimos datos que alcanzó a bajar.
+# Para revivirla basta con descomentar el bloque `schedule` de abajo: no se quitó
+# nada más, ni del workflow ni del repo.
+#
+# Lo que sigue vivo:
+#   - un push a main vuelve a publicar el sitio, que es como se corrige algo
+#     desde el iPhone (los datos no se tocan, ver el `if` de los dos pasos del
+#     espejo más abajo);
+#   - Run workflow a mano baja feeds frescos igual que durante el viaje. El
+#     enlace «pedir datos nuevos» de la app apunta ahí y sigue sirviendo.
 on:
-  schedule:
-    # EXPERIMENTO desde el 10 sep 2026: con '7,37' (2/hora) GitHub sólo corría el
-    # 12% de las veces —3 de 26 en 13 horas—. Se sube a 6/hora para ver si pedir
-    # más seguido da más corridas reales o si GitHub castiga la frecuencia.
-    # Todos los minutos evitan el :00, que es cuando su cola se satura.
-    - cron: '3,13,23,33,43,53 * * * *'
+  # schedule:
+  #   # EXPERIMENTO desde el 10 sep 2026: con '7,37' (2/hora) GitHub sólo corría el
+  #   # 12% de las veces —3 de 26 en 13 horas—. Se subió a 6/hora para ver si pedir
+  #   # más seguido daba más corridas reales o si GitHub castiga la frecuencia.
+  #   # Todos los minutos evitan el :00, que es cuando su cola se satura.
+  #   - cron: '3,13,23,33,43,53 * * * *'
   push:
     branches: [main]         # una edición desde el iPhone publica al momento
   workflow_dispatch:          # y a mano desde la pestaña Actions
@@ -44,12 +55,18 @@ jobs:
 
       # Si los feeds islandeses están caídos, se publica igual con los datos
       # anteriores. Publicar algo viejo es mejor que no publicar nada.
+      #
+      # Terminado el viaje, el espejo sólo corre si alguien toca Run workflow.
+      # En un push NO corre, a propósito: así corregir un hotel o subir la V del
+      # service worker vuelve a publicar la app sin reemplazar los datos con los
+      # que terminó el viaje, que es justo lo que se quiso conservar.
       - name: Bajar y filtrar los feeds
+        if: github.event_name == 'workflow_dispatch'
         continue-on-error: true
         run: python3 scripts/carreteras.py
 
       - name: Guardar si cambió algo
-        if: always()
+        if: always() && github.event_name == 'workflow_dispatch'
         run: |
           if git diff --quiet -- app/data/carreteras.json app/data/reynisfjara.json app/data/estaciones.json; then
             echo "sin cambios"
