@@ -252,10 +252,18 @@ function pintarHoy() {
   tit.className = d.plan.length > 42 ? 't-xl' : d.plan.length > 26 ? 't-l' : '';
 
   if (!esHoy) {
+    // Este renglón nació como cuenta regresiva y sólo sabía restar. Pasado el 13
+    // de octubre de 2026 la resta se volvió negativa y la pantalla decía «Faltan
+    // -52 días para volar»: la app contaba hacia un vuelo que ya ocurrió. Ahora
+    // el mismo renglón distingue antes de después, que es lo único que cambió.
     const faltan = Math.ceil((Date.UTC(...VIAJE.dias[0].fecha.split('-').map((v, i) => i === 1 ? v - 1 : +v)) - ahoraISL()) / 864e5);
+    const fin = VIAJE.dias[VIAJE.dias.length - 1].fecha;
     const n = $('#hoy-precuenta');
     n.hidden = false;
-    n.innerHTML = `Faltan <b>${faltan}</b> días para volar.`;
+    n.innerHTML = faltan > 0
+      ? `Faltan <b>${faltan}</b> días para volar.`
+      : `El viaje terminó el <b>${FECHA_LARGA(fin)} de ${fin.slice(0, 4)}</b>. La app se queda
+         como estaba: los ${VIAJE.dias.length} días completos y la última foto de las carreteras.`;
   }
 
   // dormir
