@@ -465,7 +465,7 @@ async function pintarOlas(dia) {
   const peor = ahora.reduce((p, h) => (['GREEN','YELLOW','ORANGE','RED'].indexOf(h.c) >
                                        ['GREEN','YELLOW','ORANGE','RED'].indexOf(p.c) ? h : p), ahora[0]);
 
-  $('#olas-edad').textContent = d.actualizado ? edadTxt(Date.parse(d.actualizado)) : '';
+  $('#olas-edad').textContent = d.actualizado ? selloEspejo(d.actualizado) : '';
   $('#olas-cuerpo').innerHTML = `
     <div class="ola-peor" style="border-color:${COLOR_OLA[peor.c]}">
       <strong style="color:${COLOR_OLA[peor.c]}">${peor.color.toUpperCase()}</strong>
@@ -495,10 +495,22 @@ async function cargarVias() {
   }
 }
 
-// Cuántas horas de antigüedad convierten el dato en sospechoso. Subir o bajar
-// esto según lo que acabe cumpliendo el cron de GitHub; hoy la cadencia real
-// ronda las 3 horas, así que 4 avisa de verdad sin volverse ruido de fondo.
-const HORAS_VIEJO = 4;
+// El espejo se apagó el 21 de noviembre de 2026, terminado el viaje: `schedule`
+// quedó comentado en .github/workflows/carreteras.yml. Aquí vivía HORAS_VIEJO,
+// el umbral que encendía un aviso rojo pasadas 4 horas sin datos nuevos. Con la
+// app archivada ese aviso se encendería siempre, y mandaba revisar umferdin.is y
+// llamar al 1777 a quien ya no está manejando en Islandia: una alarma que nadie
+// puede apagar y que acaba tapando lo que sí importa. En su lugar va la fecha de
+// la foto, que no alarma y sigue siendo verdad. Si el cron revive, el aviso está
+// en el historial de git, en este mismo commit.
+const selloEspejo = iso => {
+  const f = new Date(iso);
+  return isNaN(f) ? 'espejo' : 'espejo del ' +
+    // En hora de Islandia, como los relojes y las cámaras: el espejo corría allá.
+    // Con la hora de México el sello de las 03:33 UTC retrocedía un día y decía 20 nov.
+    new Intl.DateTimeFormat('es-MX', { timeZone: 'Atlantic/Reykjavik',
+      day: 'numeric', month: 'short', year: 'numeric' }).format(f);
+};
 // Abre la pestaña Actions con el botón "Run workflow". Dos toques y 20 segundos:
 // más fiable que cualquier cadena automática, porque no se puede romper sola.
 // Ojo con el nombre: este enlace NO refresca, abre la página de Actions donde
@@ -605,17 +617,11 @@ function renderVias(d) {
     grave: visibles.filter(t => t.v === 'grave').length
   };
   const algo = visibles.filter(t => t.v !== 'ok');
-  const t = Date.parse(d.actualizado);
-  const hace = edadTxt(t);
-  const viejo = (Date.now() - t) > HORAS_VIEJO * 3600e3;
   const titulo = filtrado ? 'Tramos del día · ' + FECHA_CORTA(dia.fecha) : 'Tramos generales del viaje';
 
   $('#vias-resumen').innerHTML = `
     <div class="card-head"><h2>${titulo}</h2>
-      <span class="edad">espejo · ${hace} · <a href="${REFRESCAR}" class="refrescar">pedir datos nuevos</a></span></div>
-    ${viejo ? `<p class="alerta"><b>Estos datos son de ${hace}.</b> Con señal, revisen
-      <a href="https://umferdin.is/en">umferdin.is</a> antes de arrancar. Sin señal, el
-      1777 da el estado por teléfono de 06:30 a 22:00.</p>` : ''}
+      <span class="edad">${selloEspejo(d.actualizado)} · <a href="${REFRESCAR}" class="refrescar">pedir datos nuevos</a></span></div>
     <p class="sub">${filtrado
       ? 'Se muestran los tramos identificados para esta etapa. El estado puede cambiar y los tramos nuevos o sin asignar quedan en la lista completa.'
       : 'No hay filtro de día para esta fecha; se muestran todos los tramos del viaje.'}</p>
@@ -1309,7 +1315,7 @@ function pintarEstaciones(d) {
     .sort((a, b) => (b.e.r || 0) - (a.e.r || 0))
     .slice(0, 6);
 
-  $('#est-edad').textContent = d.actualizado ? edadTxt(Date.parse(d.actualizado)) : '';
+  $('#est-edad').textContent = d.actualizado ? selloEspejo(d.actualizado) : '';
   if (!cerca.length) { caja.innerHTML = '<p class="muted">No hay estaciones cerca de la ruta de hoy.</p>'; return; }
 
   caja.innerHTML = cerca.map(({ e, km }) => {
